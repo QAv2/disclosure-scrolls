@@ -16,8 +16,12 @@
   var countupFired = new Set();
   var chainTyped = false;
 
-  // Pipeline step order for fill calculation
-  var PIPELINE_STEPS = ['promis', 'maincore', 'tia', 'palantir', 'maven', 'claude'];
+  // Pipeline step order for fill calculation — auto-detect from DOM
+  var PIPELINE_STEPS = [];
+  document.querySelectorAll('.pipeline-node').forEach(function (el) {
+    var step = el.getAttribute('data-step');
+    if (step) PIPELINE_STEPS.push(step);
+  });
 
   // ── Refs ───────────────────────────────────────────────────
 
@@ -53,12 +57,6 @@
         var blockId = el.getAttribute('data-block');
 
         if (blockId !== activeBlock) {
-          // Deactivate previous
-          if (activeBlock) {
-            var prev = document.querySelector('[data-block="' + activeBlock + '"]');
-            if (prev) prev.classList.remove('active');
-          }
-
           activeBlock = blockId;
           el.classList.add('active');
 
@@ -68,8 +66,8 @@
             activatePipelineStep(step);
           }
 
-          // Check for chain-complete → trigger typed
-          if (blockId === 'chain-complete' && !chainTyped) {
+          // Check for chain terminal → trigger typed
+          if (!chainTyped && el.querySelector('.typed-terminal')) {
             triggerChainTyped();
           }
         }
@@ -106,9 +104,11 @@
             hidePipeline();
           }
 
-          // Shift indicator color for Act 4 (reveal)
-          if (actNum === '4') {
+          // Shift indicator color for special acts
+          if (entry.target.classList.contains('act-reveal')) {
             actIndicator.style.color = 'rgba(251, 191, 36, 0.3)';
+          } else if (entry.target.classList.contains('act-blood')) {
+            actIndicator.style.color = 'rgba(248, 113, 113, 0.3)';
           } else {
             actIndicator.style.color = '';
           }
@@ -173,12 +173,22 @@
     var el = document.getElementById('chain-typed');
     if (!el || typeof Typed === 'undefined') return;
 
-    new Typed('#chain-typed', {
-      strings: [
+    // Read strings from data attribute if available, otherwise use defaults
+    var customStrings = el.getAttribute('data-typed-strings');
+    var strings;
+    if (customStrings) {
+      try { strings = JSON.parse(customStrings); } catch (e) { strings = null; }
+    }
+    if (!strings) {
+      strings = [
         'TRACING PIPELINE...',
         'PROMIS (1982) ^500→ Main Core (1983) ^500→ TIA (2002) ^500→ Palantir (2003) ^500→ Maven (2017) ^500→ Claude (2026)',
         'CHAIN COMPLETE. ^1000 44 years. Same capabilities. Same personnel networks.'
-      ],
+      ];
+    }
+
+    new Typed('#chain-typed', {
+      strings: strings,
       typeSpeed: 25,
       backSpeed: 0,
       backDelay: 800,
@@ -288,28 +298,6 @@
     closingObserver.observe(closingSection);
   }
 
-  // ── Nearby Block Activation (progressive reveal) ──────────
-
-  var proximityObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      var el = entry.target;
-      if (entry.isIntersecting && !el.classList.contains('active')) {
-        el.style.opacity = '0.35';
-        el.style.transform = 'translateY(0)';
-      } else if (!entry.isIntersecting && !el.classList.contains('active')) {
-        el.style.opacity = '';
-        el.style.transform = '';
-      }
-    });
-  }, {
-    root: null,
-    threshold: [0.05],
-    rootMargin: '0px 0px 0px 0px'
-  });
-
-  blocks.forEach(function (block) {
-    proximityObserver.observe(block);
-  });
 
   // ── Particle Network Background ────────────────────────────
 

@@ -18,7 +18,7 @@ html {
 
 body {
   background: #06060b;
-  color: #b8b8c0;
+  color: #d0d0d8;
   font-family: Georgia, 'Times New Roman', 'Noto Serif', serif;
   font-size: 1.2rem;
   line-height: 1.85;
@@ -44,12 +44,12 @@ a:hover {
 }
 
 strong {
-  color: #d8d8e0;
+  color: #eaeaf0;
   font-weight: 600;
 }
 
 em {
-  color: #c8c8d0;
+  color: #dcdce4;
   font-style: italic;
 }
 
@@ -232,7 +232,7 @@ ul {
   font-size: 0.65rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.3);
   z-index: 800;
   transition: opacity 0.4s ease, color 0.6s ease;
   pointer-events: none;
@@ -257,7 +257,7 @@ ul {
 .back-link {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.4);
   letter-spacing: 1px;
   border-bottom: none;
   display: inline-block;
@@ -285,7 +285,7 @@ ul {
 .title-reading-time {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.4);
   letter-spacing: 1px;
   margin-bottom: 2rem;
   opacity: 0;
@@ -306,7 +306,7 @@ ul {
 
 .title-sub {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.65;
   max-width: 480px;
   margin: 0 auto 2.5rem;
@@ -327,7 +327,7 @@ ul {
 .evidence-legend {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.55);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -344,7 +344,7 @@ ul {
 .scroll-cue {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.35);
   letter-spacing: 3px;
   text-transform: uppercase;
   opacity: 0;
@@ -357,8 +357,8 @@ ul {
 }
 
 @keyframes pulse-cue {
-  0%, 100% { opacity: 0.15; }
-  50% { opacity: 0.4; }
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.55; }
 }
 
 /* ── Acts ─────────────────────────────────────────────────── */
@@ -380,7 +380,7 @@ ul {
   font-weight: 600;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.4);
   margin-bottom: 1rem;
 }
 
@@ -396,7 +396,7 @@ ul {
 /* ── Scroll Blocks ────────────────────────────────────────── */
 
 .scroll-block {
-  opacity: 0.12;
+  opacity: 0.18;
   transform: translateY(8px);
   transition: opacity 0.7s ease, transform 0.7s ease;
   padding: 1rem 0;
@@ -409,7 +409,7 @@ ul {
 }
 
 .scroll-block p {
-  color: #c0c0c8;
+  color: #dcdce4;
   line-height: 1.85;
   margin-bottom: 1rem;
 }
@@ -435,7 +435,7 @@ ul {
 /* ── Evidence Cards ───────────────────────────────────────── */
 
 .evidence-card {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.035);
   border-radius: 6px;
   border-left: 3px solid transparent;
   padding: 1.25rem 1.5rem;
@@ -476,22 +476,22 @@ ul {
 .evidence-claim {
   font-size: 0.95rem;
   line-height: 1.65;
-  color: #d8d8e0;
+  color: #e8e8f0;
   margin-bottom: 0.75rem;
 }
 
 .evidence-source {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.35);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 0.6rem;
   line-height: 1.5;
 }
 
 .evidence-source a {
-  color: rgba(52, 211, 153, 0.6);
-  border-bottom: 1px solid rgba(52, 211, 153, 0.15);
+  color: rgba(52, 211, 153, 0.75);
+  border-bottom: 1px solid rgba(52, 211, 153, 0.25);
   transition: color 0.2s, border-color 0.2s;
 }
 
@@ -518,7 +518,7 @@ ul {
 .visual-caption {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.6rem;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.45);
   margin-top: 0.6rem;
   line-height: 1.5;
   letter-spacing: 0.5px;
@@ -571,14 +571,14 @@ ul {
 .visual-row .vr-name {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.6rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.6);
   letter-spacing: 1px;
 }
 
 .visual-row .vr-role {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.5rem;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.4);
   letter-spacing: 0.5px;
 }
 
@@ -971,7 +971,7 @@ ul {
 .pull-quote {
   margin: 1.5rem 0;
   padding-left: 1.5rem;
-  border-left: 3px solid rgba(255, 255, 255, 0.12);
+  border-left: 3px solid rgba(255, 255, 255, 0.2);
 }
 
 .pq-text {
@@ -986,7 +986,7 @@ ul {
 .pq-attr {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.55);
   margin-top: 0.75rem;
 }
 
@@ -1010,14 +1010,14 @@ ul {
 }
 
 .chain-arrow {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.4);
   margin: 0 0.25rem;
 }
 
 .chain-decode {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.55);
   line-height: 1.8;
   margin-bottom: 1.5rem;
 }
@@ -1038,7 +1038,7 @@ ul {
 }
 
 .pattern-from {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.65);
   min-width: 180px;
   flex-shrink: 0;
 }
@@ -1046,7 +1046,7 @@ ul {
 .pattern-year {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .pattern-arrow {
@@ -1056,7 +1056,7 @@ ul {
 }
 
 .pattern-to {
-  color: #d0d0d8;
+  color: #e0e0e8;
 }
 
 /* ── Incident List ────────────────────────────────────────── */
@@ -1064,7 +1064,7 @@ ul {
 .incident-list li {
   padding: 0.5rem 0 0.5rem 1.5rem;
   position: relative;
-  color: #b0b0b8;
+  color: #c8c8d0;
   font-size: 0.95rem;
   line-height: 1.6;
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
@@ -1117,7 +1117,7 @@ ul {
 
 .tl-event {
   font-size: 0.95rem;
-  color: #c0c0c8;
+  color: #d4d4dc;
   line-height: 1.65;
 }
 
@@ -1183,7 +1183,7 @@ ul {
 
 .closing-sub {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.65;
   margin-bottom: 3rem;
 }
@@ -1197,7 +1197,7 @@ ul {
 .closing-legend-item {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.55);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1213,7 +1213,7 @@ ul {
 .closing-cta p {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.15rem;
-  color: #c8c8d0;
+  color: #dcdce4;
   font-style: italic;
 }
 
@@ -1250,7 +1250,7 @@ ul {
 .support-label {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.45);
   letter-spacing: 1px;
   margin-bottom: 0.75rem;
 }
@@ -1280,7 +1280,7 @@ ul {
 .closing-footer p {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.35);
   letter-spacing: 1px;
 }
 
