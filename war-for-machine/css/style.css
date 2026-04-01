@@ -254,6 +254,22 @@ ul {
   text-align: center;
 }
 
+.back-link {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 1px;
+  border-bottom: none;
+  display: inline-block;
+  margin-bottom: 2rem;
+  transition: color 0.3s;
+}
+
+.back-link:hover {
+  color: #34d399;
+  border-bottom: none;
+}
+
 .title-label {
   font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.7rem;
@@ -264,6 +280,16 @@ ul {
   margin-bottom: 2rem;
   opacity: 0;
   animation: fadeUp 1s ease 0.3s forwards;
+}
+
+.title-reading-time {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.85s forwards;
 }
 
 .title-main {
@@ -321,7 +347,6 @@ ul {
   color: rgba(255, 255, 255, 0.2);
   letter-spacing: 3px;
   text-transform: uppercase;
-  animation: pulse-cue 3s ease-in-out infinite;
   opacity: 0;
   animation: fadeUp 1s ease 1.5s forwards, pulse-cue 3s ease-in-out 2.5s infinite;
 }
@@ -1100,9 +1125,7 @@ ul {
 /* ACT 4 — THE REVEAL (visual shift)                         */
 /* ══════════════════════════════════════════════════════════ */
 
-.act-reveal {
-  --reveal-accent: #fbbf24;
-}
+.act-reveal {}
 
 .act-reveal .act-title {
   color: #fbbf24;
@@ -1132,7 +1155,6 @@ ul {
 
 .reveal-climax .pull-quote {
   border-left: none;
-  padding-left: 0;
   padding: 2rem 0;
 }
 

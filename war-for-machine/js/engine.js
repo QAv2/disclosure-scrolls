@@ -191,11 +191,6 @@
   // ── CountUp.js — Animated number counters ──────────────────
 
   function initCountUps() {
-    if (typeof countUp === 'undefined' && typeof CountUp === 'undefined') {
-      // Try the UMD global
-      if (typeof window.countUp !== 'undefined') return;
-    }
-
     var CountUpClass = (typeof CountUp !== 'undefined') ? CountUp :
                        (window.countUp && window.countUp.CountUp) ? window.countUp.CountUp : null;
 
@@ -217,7 +212,6 @@
         var suffix = el.getAttribute('data-suffix') || '';
         if (isNaN(target)) return;
 
-        // Store original text, replace with counter
         var counter = new CountUpClass(id, target, {
           duration: 2,
           separator: ',',
