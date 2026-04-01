@@ -1,0 +1,11 @@
+[build]
+  publish = "."
+
+# Disable bot protection for social crawlers
+[processing]
+  skip = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "all"
