@@ -1,0 +1,1414 @@
+/* ============================================================
+   THE WAR FOR MACHINE — Scrollumentary
+   Cinematic full-viewport design
+   ============================================================ */
+
+/* ── Reset & Base ─────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #06060b;
+}
+
+body {
+  background: #06060b;
+  color: #b8b8c0;
+  font-family: Georgia, 'Times New Roman', 'Noto Serif', serif;
+  font-size: 1.2rem;
+  line-height: 1.85;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(52, 211, 153, 0.25);
+  color: #fff;
+}
+
+a {
+  color: #34d399;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(52, 211, 153, 0.3);
+  transition: border-color 0.3s;
+}
+
+a:hover {
+  border-bottom-color: #34d399;
+}
+
+strong {
+  color: #d8d8e0;
+  font-weight: 600;
+}
+
+em {
+  color: #c8c8d0;
+  font-style: italic;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* ── Particle Canvas Background ───────────────────────────── */
+
+.particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* ── Typed Terminal ───────────────────────────────────────── */
+
+.typed-terminal {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.8rem;
+  color: #34d399;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  min-height: 2.5rem;
+  line-height: 1.6;
+}
+
+.typed-prompt {
+  color: rgba(52, 211, 153, 0.5);
+  user-select: none;
+}
+
+.typed-terminal .typed-cursor {
+  color: #34d399;
+  opacity: 1;
+}
+
+/* ── CountUp numbers ──────────────────────────────────────── */
+
+.countup {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Progress Bar ─────────────────────────────────────────── */
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, #34d399, #fbbf24);
+  z-index: 9000;
+  transition: width 0.1s linear;
+  will-change: width;
+}
+
+/* ── Pipeline Tracker ─────────────────────────────────────── */
+
+.pipeline-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 800;
+  padding: 1rem 2rem;
+  background: linear-gradient(180deg, rgba(6,6,11,0.95) 0%, rgba(6,6,11,0.8) 80%, transparent 100%);
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+
+.pipeline-track.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pipeline-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding-top: 8px;
+}
+
+.pipeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-50%);
+}
+
+.pipeline-line-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #34d399, #fbbf24);
+  transition: width 0.8s ease;
+}
+
+.pipeline-node {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.2;
+  transition: opacity 0.6s ease;
+}
+
+.pipeline-node.active {
+  opacity: 1;
+}
+
+.pipeline-node::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease;
+  order: -1;
+}
+
+.pipeline-node.active::before {
+  background: #34d399;
+  border-color: #34d399;
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.5);
+}
+
+.pn-year {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 1px;
+  transition: color 0.6s;
+}
+
+.pipeline-node.active .pn-year {
+  color: rgba(52, 211, 153, 0.8);
+}
+
+.pn-label {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.6s;
+}
+
+.pipeline-node.active .pn-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ── Act Indicator ────────────────────────────────────────── */
+
+.act-indicator {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+  z-index: 800;
+  transition: opacity 0.4s ease, color 0.6s ease;
+  pointer-events: none;
+}
+
+/* ── Title Screen ─────────────────────────────────────────── */
+
+.title-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.title-content {
+  max-width: 640px;
+  text-align: center;
+}
+
+.title-label {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #34d399;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.3s forwards;
+}
+
+.title-main {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #f0f0f4;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.6s forwards;
+}
+
+.title-sub {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.9s forwards;
+}
+
+.title-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 1.2s forwards;
+}
+
+.evidence-legend {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 1px;
+}
+
+.el-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.scroll-cue {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  animation: pulse-cue 3s ease-in-out infinite;
+  opacity: 0;
+  animation: fadeUp 1s ease 1.5s forwards, pulse-cue 3s ease-in-out 2.5s infinite;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-cue {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.4; }
+}
+
+/* ── Acts ─────────────────────────────────────────────────── */
+
+.act {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 2rem 8rem;
+}
+
+.act-header {
+  padding: 6rem 0 3rem;
+  text-align: center;
+}
+
+.act-number {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  margin-bottom: 1rem;
+}
+
+.act-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #e8e8f0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+/* ── Scroll Blocks ────────────────────────────────────────── */
+
+.scroll-block {
+  opacity: 0.12;
+  transform: translateY(8px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.scroll-block.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-block p {
+  color: #c0c0c8;
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+.scroll-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Node Titles (sub-headings within acts) ───────────────── */
+
+.node-title {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #34d399;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(52, 211, 153, 0.15);
+}
+
+/* ── Evidence Cards ───────────────────────────────────────── */
+
+.evidence-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 6px;
+  border-left: 3px solid transparent;
+  padding: 1.25rem 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.evidence-card[data-tier="documented"] { border-left-color: #34d399; }
+.evidence-card[data-tier="credible"] { border-left-color: #fbbf24; }
+.evidence-card[data-tier="inference"] { border-left-color: #fb923c; }
+.evidence-card[data-tier="speculative"] { border-left-color: #f87171; }
+
+.evidence-tier-label {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.evidence-tier-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.evidence-card[data-tier="documented"] .evidence-tier-label { color: #34d399; }
+.evidence-card[data-tier="documented"] .evidence-tier-dot { background: #34d399; }
+.evidence-card[data-tier="credible"] .evidence-tier-label { color: #fbbf24; }
+.evidence-card[data-tier="credible"] .evidence-tier-dot { background: #fbbf24; }
+.evidence-card[data-tier="inference"] .evidence-tier-label { color: #fb923c; }
+.evidence-card[data-tier="inference"] .evidence-tier-dot { background: #fb923c; }
+
+.evidence-claim {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #d8d8e0;
+  margin-bottom: 0.75rem;
+}
+
+.evidence-source {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.35);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 0.6rem;
+  line-height: 1.5;
+}
+
+.evidence-source a {
+  color: rgba(52, 211, 153, 0.6);
+  border-bottom: 1px solid rgba(52, 211, 153, 0.15);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.evidence-source a:hover {
+  color: #34d399;
+  border-bottom-color: #34d399;
+}
+
+/* ── Figures & Visuals ────────────────────────────────────── */
+
+.visual {
+  margin: 2rem 0;
+  position: relative;
+}
+
+.visual img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: block;
+}
+
+.visual-caption {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 0.6rem;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+/* Single portrait — centered, constrained */
+.visual-portrait {
+  text-align: center;
+}
+
+.visual-portrait img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.6);
+}
+
+.visual-portrait .visual-caption {
+  text-align: center;
+}
+
+/* Side-by-side portrait row */
+.visual-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2.5rem 0;
+}
+
+.visual-row .visual-figure {
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.visual-row img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+.visual-row .vr-name {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 1px;
+}
+
+.visual-row .vr-role {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.5rem;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.5px;
+}
+
+/* Rectangular logo variant for wide logos */
+.visual-row .visual-figure.logo-rect img {
+  width: 120px;
+  height: 50px;
+  border-radius: 6px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px;
+}
+
+/* Wide image (logos, seals, diagrams) */
+.visual-wide img {
+  max-width: 320px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.visual-wide {
+  text-align: center;
+}
+
+/* Emblem/seal — circular with glow */
+.visual-emblem img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 30px rgba(52, 211, 153, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.visual-emblem {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .visual-portrait img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .visual-row img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .visual-row {
+    gap: 1.25rem;
+  }
+
+  .visual-wide img {
+    max-width: 260px;
+  }
+
+  .visual-emblem img {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* ── Company Badges ───────────────────────────────────────── */
+
+.company-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: 1px solid;
+  margin: 0 4px;
+}
+
+.badge-anthropic {
+  color: #d4a574;
+  border-color: rgba(212, 165, 116, 0.25);
+  background: rgba(212, 165, 116, 0.06);
+}
+
+.badge-openai {
+  color: #74b8a3;
+  border-color: rgba(116, 184, 163, 0.25);
+  background: rgba(116, 184, 163, 0.06);
+}
+
+.badge-palantir {
+  color: #7b8cde;
+  border-color: rgba(123, 140, 222, 0.25);
+  background: rgba(123, 140, 222, 0.06);
+}
+
+.badge-meta {
+  color: #5b8fd4;
+  border-color: rgba(91, 143, 212, 0.25);
+  background: rgba(91, 143, 212, 0.06);
+}
+
+.badge-darpa {
+  color: #d47474;
+  border-color: rgba(212, 116, 116, 0.25);
+  background: rgba(212, 116, 116, 0.06);
+}
+
+/* ── Animated Elements (neocities GIF energy) ─────────────── */
+
+/* Surveillance sweep — rotating radar line */
+.anim-sweep {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 1.5rem auto;
+  position: relative;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.08) 0%, transparent 70%);
+  border: 1px solid rgba(52, 211, 153, 0.12);
+  overflow: hidden;
+}
+
+.anim-sweep::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(52, 211, 153, 0.8), transparent);
+  transform-origin: 0 50%;
+  animation: sweep-rotate 3s linear infinite;
+}
+
+.anim-sweep::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
+}
+
+@keyframes sweep-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Glitch text effect */
+.anim-glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.anim-glitch::before,
+.anim-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.anim-glitch::before {
+  color: #f87171;
+  animation: glitch-1 3s infinite linear alternate-reverse;
+  clip-path: inset(0 0 65% 0);
+}
+
+.anim-glitch::after {
+  color: #60a5fa;
+  animation: glitch-2 3s infinite linear alternate-reverse;
+  clip-path: inset(65% 0 0 0);
+}
+
+@keyframes glitch-1 {
+  0%, 90%, 100% { transform: translate(0); }
+  92% { transform: translate(-3px, 1px); }
+  94% { transform: translate(2px, -1px); }
+  96% { transform: translate(-1px, 2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 90%, 100% { transform: translate(0); }
+  91% { transform: translate(2px, 1px); }
+  93% { transform: translate(-3px, -1px); }
+  95% { transform: translate(1px, 2px); }
+}
+
+/* Network propagation — concentric rings pulse outward */
+.anim-network {
+  width: 200px;
+  height: 200px;
+  margin: 2rem auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anim-network .net-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  animation: net-pulse 3s ease-out infinite;
+}
+
+.anim-network .net-ring:nth-child(1) { width: 20px; height: 20px; animation-delay: 0s; }
+.anim-network .net-ring:nth-child(2) { width: 20px; height: 20px; animation-delay: 0.6s; }
+.anim-network .net-ring:nth-child(3) { width: 20px; height: 20px; animation-delay: 1.2s; }
+.anim-network .net-ring:nth-child(4) { width: 20px; height: 20px; animation-delay: 1.8s; }
+
+.anim-network .net-core {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.5);
+  z-index: 2;
+  animation: net-core-pulse 2s ease-in-out infinite;
+}
+
+.anim-network .net-label {
+  position: absolute;
+  bottom: -8px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.6rem;
+  color: rgba(52, 211, 153, 0.6);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@keyframes net-pulse {
+  0% { transform: scale(1); opacity: 0.6; border-color: rgba(52, 211, 153, 0.5); }
+  100% { transform: scale(10); opacity: 0; border-color: rgba(52, 211, 153, 0); }
+}
+
+@keyframes net-core-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(52, 211, 153, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(52, 211, 153, 0.8); }
+}
+
+/* Terminal cursor blink */
+.anim-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.2em;
+  background: #34d399;
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Signal noise — TV static bar */
+.anim-static {
+  width: 100%;
+  height: 3px;
+  margin: 2rem 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    rgba(248, 113, 113, 0.4) 1px,
+    transparent 2px,
+    rgba(96, 165, 250, 0.3) 3px,
+    transparent 4px
+  );
+  background-size: 200% 100%;
+  animation: static-scroll 0.8s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes static-scroll {
+  from { background-position: 0 0; }
+  to { background-position: 200% 0; }
+}
+
+/* Scanlines overlay — for images */
+.visual-scanned {
+  position: relative;
+}
+
+.visual-scanned::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+/* Eye open animation for the reveal */
+.anim-eye {
+  width: 80px;
+  height: 40px;
+  margin: 2rem auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.anim-eye-shape {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #fbbf24;
+  position: absolute;
+  top: 0;
+  clip-path: ellipse(40px 0px at 50% 50%);
+  animation: eye-open 4s ease-in-out infinite;
+}
+
+.anim-eye-iris {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fbbf24;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+  animation: eye-iris 4s ease-in-out infinite;
+}
+
+@keyframes eye-open {
+  0%, 20% { clip-path: ellipse(40px 0px at 50% 50%); }
+  40%, 60% { clip-path: ellipse(40px 20px at 50% 50%); }
+  80%, 100% { clip-path: ellipse(40px 0px at 50% 50%); }
+}
+
+@keyframes eye-iris {
+  0%, 20% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+  40%, 60% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  80%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+}
+
+/* "YOU ARE HERE" blinking dot */
+.anim-you-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 2rem 0;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(52, 211, 153, 0.7);
+}
+
+.anim-you-dot .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #34d399;
+  animation: you-pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.4);
+}
+
+@keyframes you-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(52, 211, 153, 0.4); }
+  50% { transform: scale(1.4); box-shadow: 0 0 20px rgba(52, 211, 153, 0.7); }
+}
+
+/* Pull Quotes ──────────────────────────────────────────── */
+
+.pull-quote {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 3px solid rgba(255, 255, 255, 0.12);
+}
+
+.pq-text {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: #e0e0e8;
+  letter-spacing: -0.01em;
+}
+
+.pq-attr {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 0.75rem;
+}
+
+/* ── Chain Summary ────────────────────────────────────────── */
+
+.chain-summary {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.chain-text {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 1rem;
+  line-height: 2.2;
+  margin-bottom: 1.5rem;
+}
+
+.chain-link {
+  color: #34d399;
+  font-weight: 600;
+}
+
+.chain-arrow {
+  color: rgba(255, 255, 255, 0.25);
+  margin: 0 0.25rem;
+}
+
+.chain-decode {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Pattern Grid ─────────────────────────────────────────── */
+
+.pattern-grid {
+  margin: 1.5rem 0;
+}
+
+.pattern-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.95rem;
+}
+
+.pattern-from {
+  color: rgba(255, 255, 255, 0.5);
+  min-width: 180px;
+  flex-shrink: 0;
+}
+
+.pattern-year {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.pattern-arrow {
+  color: #34d399;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.pattern-to {
+  color: #d0d0d8;
+}
+
+/* ── Incident List ────────────────────────────────────────── */
+
+.incident-list li {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  position: relative;
+  color: #b0b0b8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.incident-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.9rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(248, 113, 113, 0.6);
+}
+
+/* ── Timeline Blocks ──────────────────────────────────────── */
+
+.timeline-block {
+  padding: 1rem 0 1rem 1.5rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.timeline-block::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 1.3rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fbbf24;
+}
+
+.tl-date {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #fbbf24;
+  letter-spacing: 1px;
+  margin-bottom: 0.4rem;
+}
+
+.tl-note {
+  color: rgba(251, 191, 36, 0.5);
+  font-weight: 400;
+}
+
+.tl-event {
+  font-size: 0.95rem;
+  color: #c0c0c8;
+  line-height: 1.65;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* ACT 4 — THE REVEAL (visual shift)                         */
+/* ══════════════════════════════════════════════════════════ */
+
+.act-reveal {
+  --reveal-accent: #fbbf24;
+}
+
+.act-reveal .act-title {
+  color: #fbbf24;
+}
+
+.act-reveal .act-number {
+  color: rgba(251, 191, 36, 0.4);
+}
+
+.act-reveal .node-title {
+  color: #fbbf24;
+  border-bottom-color: rgba(251, 191, 36, 0.15);
+}
+
+.act-reveal .pull-quote {
+  border-left-color: rgba(251, 191, 36, 0.25);
+}
+
+.reveal-climax .pq-text {
+  font-size: 1.75rem;
+  color: #fbbf24;
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.reveal-climax .pull-quote {
+  border-left: none;
+  padding-left: 0;
+  padding: 2rem 0;
+}
+
+/* ── Closing ──────────────────────────────────────────────── */
+
+.closing {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.closing-content {
+  max-width: 600px;
+}
+
+.closing-statement {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.5rem;
+  color: #e0e0e8;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.closing-sub {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.65;
+  margin-bottom: 3rem;
+}
+
+.closing-legend {
+  text-align: left;
+  margin: 0 auto 3rem;
+  max-width: 480px;
+}
+
+.closing-legend-item {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.4rem 0;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.closing-cta {
+  margin-bottom: 3rem;
+}
+
+.closing-cta p {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.15rem;
+  color: #c8c8d0;
+  font-style: italic;
+}
+
+.closing-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.closing-link {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.75rem;
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  display: block;
+  text-align: left;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.closing-link:hover {
+  background: rgba(52, 211, 153, 0.05);
+  border-color: rgba(52, 211, 153, 0.4);
+  border-bottom: 1px solid rgba(52, 211, 153, 0.4);
+}
+
+.closing-footer {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.closing-footer p {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 1px;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* RESPONSIVE                                                */
+/* ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 1.05rem;
+  }
+
+  .act {
+    padding: 0 1.25rem 6rem;
+  }
+
+  .act-header {
+    padding: 4rem 0 2rem;
+  }
+
+  .title-screen {
+    padding: 3rem 1.5rem;
+  }
+
+  .pipeline-track {
+    padding: 0.75rem 1rem;
+  }
+
+  .pn-label {
+    font-size: 0.55rem;
+  }
+
+  .pn-year {
+    display: none;
+  }
+
+  .pipeline-node::before {
+    width: 10px;
+    height: 10px;
+  }
+
+  .pattern-row {
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: flex-start;
+  }
+
+  .pattern-from {
+    min-width: unset;
+  }
+
+  .pattern-arrow {
+    display: none;
+  }
+
+  .pattern-to::before {
+    content: '\2192\00a0';
+    color: #34d399;
+  }
+
+  .pull-quote {
+    padding-left: 1rem;
+  }
+
+  .pq-text {
+    font-size: 1.15rem;
+  }
+
+  .reveal-climax .pq-text {
+    font-size: 1.4rem;
+  }
+
+  .chain-text {
+    font-size: 0.8rem;
+    line-height: 2.5;
+  }
+
+  .evidence-card {
+    padding: 1rem 1.15rem;
+  }
+
+  .act-indicator {
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.55rem;
+  }
+
+  .closing {
+    padding: 3rem 1.5rem;
+  }
+
+  .closing-statement {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-main {
+    font-size: 2rem;
+  }
+
+  .act-title {
+    font-size: 1.75rem;
+  }
+
+  .title-meta {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .timeline-block {
+    padding-left: 1rem;
+  }
+}
+
+/* ── Accessibility ────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-block {
+    opacity: 1;
+    transform: none;
+  }
+
+  .pipeline-track {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .scroll-block {
+    opacity: 0.5;
+  }
+
+  .scroll-block.active {
+    opacity: 1;
+  }
+
+  .evidence-source,
+  .pq-attr,
+  .pn-year,
+  .act-indicator {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* ── Print ────────────────────────────────────────────────── */
+
+@media print {
+  .progress-bar,
+  .pipeline-track,
+  .act-indicator,
+  .scroll-cue {
+    display: none;
+  }
+
+  .scroll-block {
+    opacity: 1;
+    transform: none;
+  }
+
+  body {
+    background: #fff;
+    color: #111;
+  }
+
+  .act-title, .title-main {
+    color: #111;
+  }
+
+  .evidence-card {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+  }
+}

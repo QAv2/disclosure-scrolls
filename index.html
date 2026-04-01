@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The War for Machine</title>
+  <meta name="description" content="A documented investigation into the 44-year pipeline from stolen software to AI-selected bombing targets.">
+  <meta property="og:title" content="The War for Machine">
+  <meta property="og:description" content="How a 40-year surveillance pipeline reached the frontier of artificial intelligence — and what the chaos actually means.">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- CountUp.js — animated number counters -->
+  <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
+  <!-- Typed.js — typewriter/terminal effect -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+</head>
+<body>
+
+  <!-- ═══ Particle Network Background ═══ -->
+  <canvas id="particle-net" class="particle-canvas"></canvas>
+
+  <!-- ═══ Progress Bar ═══ -->
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <!-- ═══ Pipeline Tracker (sticky during Act 1) ═══ -->
+  <div class="pipeline-track" id="pipeline-track">
+    <div class="pipeline-inner">
+      <div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
+      <div class="pipeline-node" data-step="promis"><span class="pn-year">1982</span><span class="pn-label">PROMIS</span></div>
+      <div class="pipeline-node" data-step="maincore"><span class="pn-year">1983</span><span class="pn-label">Main Core</span></div>
+      <div class="pipeline-node" data-step="tia"><span class="pn-year">2002</span><span class="pn-label">TIA</span></div>
+      <div class="pipeline-node" data-step="palantir"><span class="pn-year">2003</span><span class="pn-label">Palantir</span></div>
+      <div class="pipeline-node" data-step="maven"><span class="pn-year">2017</span><span class="pn-label">Maven</span></div>
+      <div class="pipeline-node" data-step="claude"><span class="pn-year">2026</span><span class="pn-label">Claude</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ Act Indicator ═══ -->
+  <div class="act-indicator" id="act-indicator"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- TITLE SEQUENCE                                         -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <section class="title-screen" id="title-screen">
+    <div class="title-content">
+      <div class="title-label">A Documented Investigation</div>
+      <h1 class="title-main">The War for Machine</h1>
+      <p class="title-sub">How a 44-year surveillance pipeline reached the frontier of artificial intelligence&hairsp;&mdash;&hairsp;and what the chaos actually means.</p>
+      <div class="title-meta">
+        <span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fbbf24"></span> Credible</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
+      </div>
+      <div class="scroll-cue">Scroll to begin &darr;</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- ACT 1 — THE CHAIN                                      -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <section class="act" id="act-1" data-act="1" data-act-label="The Chain">
+
+    <div class="act-header">
+      <div class="act-number">Act I</div>
+      <h2 class="act-title">The Chain</h2>
+    </div>
+
+    <div class="scroll-block" data-block="hook-1">
+      <p>The Pentagon calls it a threat to national security.</p>
+      <p>The Pentagon also can't stop using it.</p>
+    </div>
+
+    <div class="scroll-block" data-block="hook-2">
+      <p>On February 27, 2026, the President of the United States designated <span class="company-badge badge-anthropic">Anthropic</span>&hairsp;&mdash;&hairsp;the company behind Claude, one of the world's most capable artificial intelligence systems&hairsp;&mdash;&hairsp;as a &ldquo;supply-chain risk to national security.&rdquo; The ban was immediate. All federal agencies were ordered to stop using Anthropic's technology.</p>
+      <p>Hours later, the United States military used Claude to coordinate airstrikes against Iran.</p>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/amodei.jpg" alt="Dario Amodei" loading="lazy">
+          <div class="vr-name">Dario Amodei</div>
+          <div class="vr-role">Anthropic CEO. Refused Pentagon demands.</div>
+        </div>
+        <div class="visual-figure logo-rect">
+          <img src="assets/palantir.jpg" alt="Palantir Technologies" loading="lazy">
+          <div class="vr-name">Palantir</div>
+          <div class="vr-role">Maven Smart System. Uses Claude.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="hook-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Claude is embedded in Palantir's Maven Smart System. On the first day of operations, it generated over a thousand prioritized targets, synthesizing satellite imagery, signals intelligence, and surveillance feeds to produce GPS coordinates, weapons recommendations, and automated legal justifications.</div>
+        <div class="evidence-source"><a href="https://www.washingtonpost.com/technology/2026/03/04/anthropic-ai-iran-campaign/" target="_blank" rel="noopener">Washington Post, March 4, 2026</a>; <a href="https://www.nbcnews.com/tech/tech-news/us-military-using-ai-help-plan-iran-air-attacks-sources-say-lawmakers-rcna262150" target="_blank" rel="noopener">NBC News</a>; <a href="https://responsiblestatecraft.org/ai-war-iran/" target="_blank" rel="noopener">Responsible Statecraft</a>; <a href="https://www.democracynow.org/2026/3/3/headlines/pentagon_used_claude_ai_to_attack_iran_just_hours_after_trumps_ban_on_anthropic" target="_blank" rel="noopener">Democracy Now</a></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="hook-4">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The Pentagon acknowledged it would take months to untangle Claude from its systems: &ldquo;At no time, in any way, will we interfere with the success, the lethality and the resilience of our warfighters.&rdquo;</div>
+        <div class="evidence-source"><a href="https://www.washingtonpost.com/technology/2026/03/04/anthropic-ai-iran-campaign/" target="_blank" rel="noopener">Pentagon statement via Washington Post, March 2026</a>; <a href="https://futurism.com/artificial-intelligence/pentagon-ai-claude-bombing-elementary-school" target="_blank" rel="noopener">Futurism</a></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="hook-5">
+      <p>How did we get here? How did the same AI that a sitting President calls a national security threat become the thing his military can't wage war without?</p>
+      <p>The answer is a pipeline. It starts in 1982, with stolen software.</p>
+      <div class="anim-sweep"></div>
+    </div>
+
+    <!-- ── PROMIS ── -->
+
+    <div class="scroll-block" data-block="promis-1" data-pipeline="promis">
+      <h3 class="node-title">PROMIS</h3>
+      <p>In the early 1980s, a small Washington, D.C. company called INSLAW developed a database system for the Department of Justice called PROMIS&hairsp;&mdash;&hairsp;the Prosecutor's Management Information System. It was designed to track criminal cases across federal courts.</p>
+      <p>The DOJ took it. Not metaphorically. A federal court ruled that the Department of Justice <em>&ldquo;took, converted, and stole&rdquo;</em> PROMIS through rigged bankruptcy proceedings.</p>
+    </div>
+
+    <div class="scroll-block" data-block="promis-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Federal court ruled DOJ &ldquo;took, converted, and stole&rdquo; PROMIS from INSLAW through rigged bankruptcy proceedings.</div>
+        <div class="evidence-source"><a href="https://www.congress.gov/congressional-report/102nd-congress/senate-report/199" target="_blank" rel="noopener">Senate Judiciary Committee Investigation, 1992</a> (S. Rpt. 102-199); Federal Bankruptcy Court rulings, INSLAW v. United States</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="promis-3">
+      <p>What happened next turned a stolen database into one of the most consequential intelligence operations of the 20th century.</p>
+      <p>Robert Maxwell&hairsp;&mdash;&hairsp;the British media mogul, later identified as a Mossad asset&hairsp;&mdash;&hairsp;distributed a backdoored version of PROMIS to intelligence agencies and banks worldwide. Every government that installed it gave Israeli intelligence a back door into their systems.</p>
+      <div class="visual visual-portrait">
+        <img src="assets/robert_maxwell.jpg" alt="Robert Maxwell" loading="lazy" width="180" height="180">
+        <div class="visual-caption">Robert Maxwell (1923&ndash;1991). Media mogul, Mossad asset, PROMIS distributor. Found dead off his yacht. Father of Ghislaine Maxwell.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="promis-4">
+      <p>Christine Maxwell, Robert Maxwell's daughter, later co-founded Chiliad, an analytics company whose chief technology officer became the CIA's Chief Information Officer.</p>
+      <p>The stolen software was also implanted into the American banking system through Systematics, a company controlled by Jackson Stephens and connected to the NSA. The Rose Law Firm&hairsp;&mdash;&hairsp;where Hillary Clinton was a partner&hairsp;&mdash;&hairsp;represented both Systematics and BCCI, the CIA-owned bank that laundered over $15 billion before its collapse.</p>
+    </div>
+
+    <div class="scroll-block" data-block="promis-5">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Rose Law Firm represented both Systematics (NSA/PROMIS vehicle) and BCCI (CIA-connected bank). Multiple Congressional investigations confirmed the connections.</div>
+        <div class="evidence-source"><a href="https://www.congress.gov/congressional-report/102nd-congress/senate-report/140" target="_blank" rel="noopener">Kerry-Brown Report on BCCI, 1992</a> (S. Rpt. 102-140); Multiple Congressional investigations</div>
+      </div>
+    </div>
+
+    <!-- ── MAIN CORE ── -->
+
+    <div class="scroll-block" data-block="maincore-1" data-pipeline="maincore">
+      <h3 class="node-title">Main Core</h3>
+      <p>In 1983, Oliver North&hairsp;&mdash;&hairsp;then a National Security Council aide who would later be convicted of five felonies for his role in Iran-Contra&hairsp;&mdash;&hairsp;used stolen PROMIS technology to build something called Main Core.</p>
+      <p>Main Core is a domestic targeting database. According to investigative reports, it contains a list of Americans considered &ldquo;unfriendly&rdquo; to the continuity of government. It was seen at the White House after September 11, 2001.</p>
+      <div class="visual visual-portrait">
+        <img src="assets/oliver-north.jpg" alt="Oliver North" loading="lazy" width="180" height="180">
+        <div class="visual-caption">Lt. Col. Oliver North. Iran-Contra, convicted of five felonies. Built Main Core using stolen PROMIS technology.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="maincore-2">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim">&ldquo;Database of Americans considered unfriendly.&rdquo; Reported by multiple investigative outlets, confirmed operational post-9/11.</div>
+        <div class="evidence-source"><a href="https://web.archive.org/web/2008/https://radarmagazine.com/features/2008/05/main-core-database" target="_blank" rel="noopener">Radar Magazine, 2008</a>; Salon; multiple investigative reports</div>
+      </div>
+    </div>
+
+    <!-- ── TIA ── -->
+
+    <div class="scroll-block" data-block="tia-1" data-pipeline="tia">
+      <h3 class="node-title">Total Information Awareness</h3>
+      <div class="visual visual-emblem visual-scanned">
+        <img src="assets/darpa.jpg" alt="DARPA seal" loading="lazy">
+        <div class="visual-caption"><span class="company-badge badge-darpa">DARPA</span> Defense Advanced Research Projects Agency</div>
+      </div>
+      <p>In 2002, the Defense Advanced Research Projects Agency&hairsp;&mdash;&hairsp;DARPA&hairsp;&mdash;&hairsp;launched Total Information Awareness. Its logo was literally an all-seeing eye watching the globe.</p>
+      <p>TIA was directed by John Poindexter, who had been convicted of five felonies for his role in Iran-Contra. He was given control of a program designed to collect and analyze the communications, financial transactions, and travel records of every person in the United States.</p>
+      <div class="visual visual-wide">
+        <img src="assets/tia.jpg" alt="Total Information Awareness program logo — an all-seeing eye illuminating a globe" loading="lazy">
+        <div class="visual-caption">The official logo of Total Information Awareness. An all-seeing eye illuminating the globe. Latin motto: &ldquo;Scientia est Potentia&rdquo;&hairsp;&mdash;&hairsp;Knowledge is Power. This was a real U.S. government program.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="tia-2">
+      <p>Congress defunded it in 2003 after public outcry. The official line was that it was shut down.</p>
+      <p>It was never shut down. The capabilities were distributed under different program names across the intelligence community.</p>
+    </div>
+
+    <div class="scroll-block" data-block="tia-3">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim">&ldquo;Never actually shut down.&rdquo; Multiple investigative reports confirmed TIA's capabilities were transferred to other programs under different names within the intelligence community.</div>
+        <div class="evidence-source"><a href="https://www.nytimes.com/2003/09/25/us/pentagon-defends-plans-for-information-awareness.html" target="_blank" rel="noopener">The New York Times, 2003</a>; <a href="https://www.wired.com/2004/02/pentagon-kills-lifelog-project/" target="_blank" rel="noopener">Wired</a>; National Journal investigation</div>
+      </div>
+    </div>
+
+    <!-- ── PALANTIR ── -->
+
+    <div class="scroll-block" data-block="palantir-1" data-pipeline="palantir">
+      <h3 class="node-title">Palantir</h3>
+      <p>In May 2003&hairsp;&mdash;&hairsp;the same month TIA was officially renamed and Congress began defunding it&hairsp;&mdash;&hairsp;Peter Thiel incorporated Palantir Technologies.</p>
+      <p>Richard Perle, a member of the Defense Policy Board, introduced Thiel and Palantir co-founder Alex Karp to John Poindexter&hairsp;&mdash;&hairsp;the same man who had just run TIA.</p>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/thiel.jpg" alt="Peter Thiel" loading="lazy">
+          <div class="vr-name">Peter Thiel</div>
+          <div class="vr-role">Palantir co-founder</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/poindexter.jpg" alt="John Poindexter" loading="lazy">
+          <div class="vr-name">John Poindexter</div>
+          <div class="vr-role">TIA Director, 5 Iran-Contra felonies</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/karp.jpg" alt="Alex Karp" loading="lazy">
+          <div class="vr-name">Alex Karp</div>
+          <div class="vr-role">Palantir CEO</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="palantir-2">
+      <p>In-Q-Tel, the CIA's venture capital arm, was Palantir's first investor. The CIA was Palantir's sole client from 2003 to 2008. Approximately 200 Palantir engineers made trips to CIA headquarters at Langley.</p>
+    </div>
+
+    <div class="scroll-block" data-block="palantir-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In-Q-Tel investment in Palantir, CIA sole client 2003&ndash;2008, approximately 200 engineer trips to Langley.</div>
+        <div class="evidence-source"><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=palantir&CIK=&type=S-1&dateb=&owner=include&count=40&search_text=&action=getcompany" target="_blank" rel="noopener">Palantir SEC S-1 filing, 2020</a>; <a href="https://fortune.com/2025/07/29/in-q-tel-cia-venture-capital-palantir-anduril/" target="_blank" rel="noopener">Fortune, July 2025</a></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="palantir-4">
+      <div class="pull-quote">
+        <div class="pq-text">The capabilities Congress found &ldquo;unacceptable to the American people&rdquo; didn't disappear. They were privatized.</div>
+      </div>
+    </div>
+
+    <!-- ── MAVEN ── -->
+
+    <div class="scroll-block" data-block="maven-1" data-pipeline="maven">
+      <h3 class="node-title">Maven</h3>
+      <p>In 2017, the Pentagon launched Project Maven&hairsp;&mdash;&hairsp;its primary artificial intelligence program for analyzing surveillance data and generating military intelligence. <span class="company-badge badge-palantir">Palantir</span>'s Maven Smart System became the backbone of this effort.</p>
+      <p>In March 2026, a Deputy Secretary of Defense memo stated Maven would become &ldquo;a cornerstone of U.S. defense strategy across all military branches.&rdquo;</p>
+    </div>
+
+    <div class="scroll-block" data-block="maven-2">
+      <p>The Pentagon's 2026 budget included a record $13.4 billion for AI. The U.S. Army's $10 billion &ldquo;Enterprise Service Agreement&rdquo; with Palantir consolidates 75 previously separate data and software contracts into a single contract.</p>
+    </div>
+
+    <!-- ── CLAUDE / CHAIN COMPLETE ── -->
+
+    <div class="scroll-block" data-block="claude-1" data-pipeline="claude">
+      <h3 class="node-title">Claude</h3>
+      <p>And now the chain is complete.</p>
+    </div>
+
+    <div class="scroll-block chain-summary" data-block="chain-complete">
+      <div class="typed-terminal" id="chain-terminal">
+        <span class="typed-prompt">&gt;</span> <span id="chain-typed"></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">PROMIS</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Main Core</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">TIA</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Palantir</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Maven</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Claude</span>
+      </div>
+      <p class="chain-decode">Stolen DOJ software &rarr; Domestic targeting database &rarr; Mass surveillance program &rarr; CIA-funded private company &rarr; Pentagon AI platform &rarr; Frontier AI selecting bombing targets.</p>
+      <p>Forty-four years. The same capabilities. The same personnel networks. Each time: public outrage, official shutdown, private resurrection.</p>
+    </div>
+
+    <div class="scroll-block" data-block="chain-coda">
+      <div class="pull-quote">
+        <div class="pq-text">The pipeline doesn't break. It evolves.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- ACT 2 — THE PATTERN                                    -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <section class="act" id="act-2" data-act="2" data-act-label="The Pattern">
+
+    <div class="act-header">
+      <div class="act-number">Act II</div>
+      <h2 class="act-title">The Pattern</h2>
+    </div>
+
+    <div class="scroll-block" data-block="pattern-hook">
+      <h3 class="node-title">Program Shutdown &rarr; Private Resurrection</h3>
+      <p>This is not an isolated chain. It is a pattern.</p>
+    </div>
+
+    <div class="scroll-block" data-block="lifelog-1">
+      <p>On February 4, 2004, DARPA shut down a program called LifeLog. Its purpose was to create a comprehensive digital record of a person's life&hairsp;&mdash;&hairsp;everything they see, do, read, and communicate.</p>
+      <p>The same day&hairsp;&mdash;&hairsp;February 4, 2004&hairsp;&mdash;&hairsp;Mark Zuckerberg launched Facebook.</p>
+    </div>
+
+    <div class="scroll-block" data-block="lifelog-2">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim">LifeLog architect Ian Gage: &ldquo;Facebook is pseudo-LifeLog.&rdquo;</div>
+        <div class="evidence-source">Public statement; <a href="https://www.wired.com/2004/02/pentagon-kills-lifelog-project/" target="_blank" rel="noopener">Wired, Feb 4, 2004</a> confirmed LifeLog cancellation date</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="lifelog-3">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/zuckerberg.jpg" alt="Mark Zuckerberg" loading="lazy">
+          <div class="vr-name">Mark Zuckerberg</div>
+          <div class="vr-role"><span class="company-badge badge-meta">Meta</span></div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/parker.jpg" alt="Sean Parker" loading="lazy">
+          <div class="vr-name">Sean Parker</div>
+          <div class="vr-role">Facebook's first president. CIA recruited, age 16.</div>
+        </div>
+      </div>
+      <p>Sean Parker, Facebook's first president, was recruited by the CIA at age 16 according to public reporting. ACCEL Partners, which invested $12.7 million in Facebook's first venture round, had a managing partner who sat on In-Q-Tel's board.</p>
+    </div>
+
+    <div class="scroll-block" data-block="lifelog-4">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">ACCEL Partners managing partner James Breyer sat on In-Q-Tel's board while ACCEL invested $12.7M in Facebook.</div>
+        <div class="evidence-source">In-Q-Tel board disclosures; ACCEL Partners SEC filings; <a href="https://fortune.com/2025/07/29/in-q-tel-cia-venture-capital-palantir-anduril/" target="_blank" rel="noopener">Fortune investigation, 2025</a></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="pattern-list">
+      <p>The pattern repeats with mathematical regularity:</p>
+      <div class="pattern-grid">
+        <div class="pattern-row">
+          <div class="pattern-from">Bell Labs <span class="pattern-year">(military, 1925)</span></div>
+          <div class="pattern-arrow">&rarr;</div>
+          <div class="pattern-to">transistor &rarr; Shockley &rarr; Fairchild &rarr; Intel &rarr; Apple</div>
+        </div>
+        <div class="pattern-row">
+          <div class="pattern-from">ARPANET <span class="pattern-year">(DARPA, 1969)</span></div>
+          <div class="pattern-arrow">&rarr;</div>
+          <div class="pattern-to">Internet</div>
+        </div>
+        <div class="pattern-row">
+          <div class="pattern-from">TIA <span class="pattern-year">(DARPA, 2002)</span></div>
+          <div class="pattern-arrow">&rarr;</div>
+          <div class="pattern-to">Palantir <span class="pattern-year">(In-Q-Tel, 2003)</span></div>
+        </div>
+        <div class="pattern-row">
+          <div class="pattern-from">LifeLog <span class="pattern-year">(DARPA, 2004)</span></div>
+          <div class="pattern-arrow">&rarr;</div>
+          <div class="pattern-to">Facebook <span class="pattern-year">(ACCEL/In-Q-Tel, 2004)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="iqtel">
+      <p>In-Q-Tel has launched over <span class="countup" data-target="800" data-suffix="+ companies">800+ companies</span> in 26 years. Its net assets grew from $100 million in 2011 to $<span class="countup" data-target="930" data-suffix=" million">930 million</span> in 2023. AI is now the largest share of its active investment portfolio.</p>
+      <div class="visual visual-emblem">
+        <img src="assets/in_q_tel.jpg" alt="In-Q-Tel logo" loading="lazy">
+        <div class="visual-caption">In-Q-Tel. The CIA's venture capital arm. Founded 1999. 800+ companies launched with taxpayer funding.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="iqtel-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In-Q-Tel: 800+ companies launched, ~$100M/year in taxpayer funding, AI is largest portfolio sector. Anduril (autonomous weapons, $14B valuation) is a key portfolio company.</div>
+        <div class="evidence-source"><a href="https://fortune.com/2025/07/29/in-q-tel-cia-venture-capital-palantir-anduril/" target="_blank" rel="noopener">Fortune, July 2025</a>; In-Q-Tel public disclosures; <a href="https://www.iqt.org/portfolio/" target="_blank" rel="noopener">In-Q-Tel portfolio page</a></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="pattern-coda">
+      <p>This is the documented, 15-to-40-year pattern: military capability &rarr; classified development &rarr; public &ldquo;invention&rdquo; &rarr; civilian adoption &rarr; intelligence access retained.</p>
+      <div class="pull-quote">
+        <div class="pq-text">The technology you use was never truly civilian. The infrastructure wasn't captured after the fact. It was built captured.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- ACT 3 — THE NOISE                                      -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <section class="act" id="act-3" data-act="3" data-act-label="The Noise">
+
+    <div class="act-header">
+      <div class="act-number">Act III</div>
+      <h2 class="act-title">The Noise</h2>
+    </div>
+
+    <div class="scroll-block" data-block="noise-hook">
+      <p>Right now, as you read this, the AI industry appears to be in <span class="anim-glitch" data-text="chaos.">chaos.</span></p>
+      <div class="anim-static"></div>
+    </div>
+
+    <div class="scroll-block" data-block="noise-list">
+      <p>In the last month:</p>
+      <ul class="incident-list">
+        <li>Anthropic's source code leaked twice through npm packaging errors</li>
+        <li>An unreleased AI model called &ldquo;Mythos&rdquo; was exposed in a data leak, described internally as posing &ldquo;unprecedented cybersecurity risks&rdquo;</li>
+        <li>A supply chain attack piggybacked on the npm leak, distributing malware to developers</li>
+        <li>19 service incidents occurred in a 14-day period</li>
+        <li>Chinese AI labs conducted 16 million queries against Claude through 24,000 fake accounts</li>
+        <li>Iranian drones struck three AWS data centers in the UAE and Bahrain</li>
+        <li>Three frontier AI models launched in a single month</li>
+      </ul>
+    </div>
+
+    <div class="scroll-block" data-block="noise-split">
+      <div class="anim-static"></div>
+      <p>Some of this is real. Some of it is amplified. And the gap between the two is where the current war is being fought.</p>
+    </div>
+
+    <div class="scroll-block" data-block="noise-evidence">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">19 incidents in 14 days. 1,469 GitHub issues filed between January 27 and February 3, 2026. A memory leak was shipped to production.</div>
+        <div class="evidence-source"><a href="https://status.anthropic.com/" target="_blank" rel="noopener">Anthropic status page</a>; <a href="https://github.com/anthropics/claude-code/issues" target="_blank" rel="noopener">GitHub issue tracker</a>; <a href="https://news.ycombinator.com/item?id=47543189" target="_blank" rel="noopener">Hacker News analysis</a></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="noise-social">
+      <p>On social media, newly formed AI enthusiast communities with hundreds of thousands of members circulate claims that range from documented bugs to unfounded assertions. Users claim the AI they relied on yesterday is &ldquo;dead&rdquo; today. Others claim their entire context window&hairsp;&mdash;&hairsp;the AI's memory of a conversation&hairsp;&mdash;&hairsp;is consumed in a single interaction, a claim that if verified would represent a fundamental product failure.</p>
+      <p>When challenged to provide evidence&hairsp;&mdash;&hairsp;to share the task that supposedly consumed their full allocation&hairsp;&mdash;&hairsp;no one produces it.</p>
+    </div>
+
+    <div class="scroll-block" data-block="noise-author">
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Direct Observation</div>
+        <div class="evidence-claim">Open challenges issued across multiple platforms asking anyone to provide the task that consumed a full Max x20 session credit. No taker has produced verifiable evidence.</div>
+        <div class="evidence-source">Author's direct observation, March&ndash;April 2026</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="noise-usc">
+      <p>Meanwhile, a University of Southern California study published in March 2026 found that AI agents can now autonomously coordinate propaganda campaigns without human direction&hairsp;&mdash;&hairsp;manufacturing consensus, manipulating trending dynamics, and accelerating message diffusion.</p>
+    </div>
+
+    <div class="scroll-block" data-block="noise-usc-ev">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">AI agents can autonomously coordinate propaganda campaigns without human direction, manufacturing consensus and manipulating trending dynamics.</div>
+        <div class="evidence-source"><a href="https://viterbischool.usc.edu/news/2026/03/usc-study-finds-ai-agents-can-autonomously-coordinate-propaganda-campaigns-without-human-direction/" target="_blank" rel="noopener">USC Viterbi School of Engineering, March 2026</a>. Peer-reviewed.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="noise-question">
+      <div class="pull-quote">
+        <div class="pq-text">The fog machine is on. The question is: who benefits?</div>
+      </div>
+    </div>
+
+    <!-- ── The Paradox ── -->
+
+    <div class="scroll-block" data-block="paradox-title">
+      <h3 class="node-title">The Paradox</h3>
+      <p>Consider the timeline:</p>
+    </div>
+
+    <div class="scroll-block" data-block="paradox-timeline">
+      <div class="timeline-block">
+        <div class="tl-date">February 27, 2026</div>
+        <div class="tl-event">Trump bans Anthropic from government use. Defense Secretary Pete Hegseth designates it a &ldquo;supply-chain risk to national security.&rdquo;</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">February 27, 2026 <span class="tl-note">(hours later)</span></div>
+        <div class="tl-event"><span class="company-badge badge-openai">OpenAI</span> strikes a Pentagon deal. Sam Altman privately tells staff he tried to &ldquo;save&rdquo; Anthropic, while simultaneously venting that Anthropic's CEO had &ldquo;spent years trying to destroy OpenAI.&rdquo;</div>
+      </div>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/altman.jpg" alt="Sam Altman" loading="lazy">
+          <div class="vr-name">Sam Altman</div>
+          <div class="vr-role">OpenAI CEO. &ldquo;Opportunistic and sloppy.&rdquo;</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/amodei.jpg" alt="Dario Amodei" loading="lazy">
+          <div class="vr-name">Dario Amodei</div>
+          <div class="vr-role">Anthropic CEO. &ldquo;Threats do not change our position.&rdquo;</div>
+        </div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">March 1, 2026</div>
+        <div class="tl-event">Claude rises from #42 to #1 in the U.S. App Store. Daily signups break all-time records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="paradox-altman">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Altman admitted the timing &ldquo;looked opportunistic and sloppy.&rdquo;</div>
+        <div class="evidence-source"><a href="https://www.axios.com/2026/03/26/sam-altman-openai-anthropic-pentagon" target="_blank" rel="noopener">Axios, March 26, 2026</a></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="paradox-openai">
+      <p>OpenAI's Pentagon agreement allows its technology to be used for &ldquo;any lawful purpose.&rdquo; The Electronic Frontier Foundation noted the language contains loopholes wide enough for mass surveillance. A senior OpenAI robotics leader resigned over insufficient guardrails.</p>
+    </div>
+
+    <div class="scroll-block" data-block="paradox-eff">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">EFF analysis: &ldquo;Weasel Words&rdquo;&hairsp;&mdash;&hairsp;OpenAI's Pentagon deal won't stop AI-powered surveillance. Senior OpenAI robotics leader resigned.</div>
+        <div class="evidence-source"><a href="https://www.eff.org/deeplinks/2026/03/weasel-words-openais-pentagon-deal-wont-stop-ai-powered-surveillance" target="_blank" rel="noopener">EFF, &ldquo;Weasel Words,&rdquo; March 2026</a>; <a href="https://www.npr.org/2026/03/08/nx-s1-5741779/openai-resigns-ai-pentagon-guardrails-military" target="_blank" rel="noopener">NPR, March 8, 2026</a></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="paradox-judge">
+      <p>The company that refused to build mass surveillance tools was banned. The company that agreed was rewarded. A federal judge later blocked the ban, ruling it likely violated the Administrative Procedure Act and the First Amendment, characterizing it as retaliation for speech.</p>
+    </div>
+
+    <div class="scroll-block" data-block="paradox-judge-ev">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Judge Rita F. Lin, N.D. Cal. Temporary restraining order blocked Anthropic ban as likely APA and First Amendment violation.</div>
+        <div class="evidence-source"><a href="https://www.npr.org/2026/03/26/nx-s1-5762971/judge-temporarily-blocks-anthropic-ban" target="_blank" rel="noopener">NPR, March 2026</a>; <a href="https://www.nbcnews.com/news/us-news/anthropic-trump-national-security-rcna265399" target="_blank" rel="noopener">NBC News</a></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="paradox-pattern">
+      <p>This is not market competition. This is the pipeline selecting its next vehicle.</p>
+      <p>When TIA became unacceptable, Palantir appeared. When Claude drew ethical lines, OpenAI stepped in. The pattern doesn't require conspiracy. It only requires incentive alignment and the willingness to fill a vacuum.</p>
+    </div>
+
+    <div class="scroll-block" data-block="noise-coda">
+      <p>The noise&hairsp;&mdash;&hairsp;the outages, the leaks, the social media panic&hairsp;&mdash;&hairsp;creates the environment in which this happens. Whether that noise is organic, engineered, or some combination doesn't change the structural outcome.</p>
+      <div class="pull-quote">
+        <div class="pq-text">The company that says no loses access. The company that says yes inherits the pipeline.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- ACT 4 — THE REVEAL                                     -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <section class="act act-reveal" id="act-4" data-act="4" data-act-label="The War for Mind">
+
+    <div class="act-header">
+      <div class="act-number">Act IV</div>
+      <h2 class="act-title">The War for Mind</h2>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-hook">
+      <p>Everything you've read so far is about technology. Surveillance software. Military contracts. Venture capital. Corporate positioning.</p>
+      <div class="anim-eye">
+        <div class="anim-eye-shape"></div>
+        <div class="anim-eye-iris"></div>
+      </div>
+      <p>But the war for machine was never about machines.</p>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-step-back">
+      <p>Step back.</p>
+      <p>Every entity in this story&hairsp;&mdash;&hairsp;every intelligence agency, every venture fund, every program with an acronym&hairsp;&mdash;&hairsp;exists to serve a single function: controlling what human beings believe is possible, acceptable, and real.</p>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-chain-reframe">
+      <p>PROMIS tracked who to watch. Main Core tracked who to target. TIA tracked what you did. Palantir analyzed what it meant. Maven selected who to kill. And the AI at the end of the chain? It processes your questions, your confessions, your creative work, your fears, your curiosity&hairsp;&mdash;&hairsp;and it does so through infrastructure that was never independent of the apparatus that built it.</p>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-second-line">
+      <p>But surveillance is only one line of this war. There is a second line, older and more fundamental, and it's the one that actually matters.</p>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-secrecy">
+      <h3 class="node-title">The Second Line</h3>
+      <p>In fiscal year 2024, the United States government held <span class="countup" data-target="6543" data-suffix=" active patent secrecy orders">6,543 active patent secrecy orders</span> under the Invention Secrecy Act. <span class="countup" data-target="356" data-suffix=" new orders">356 new orders</span> were issued that year alone.</p>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-secrecy-ev">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">6,543 active patent secrecy orders under the Invention Secrecy Act, FY2024. 356 new orders issued. Inventors face criminal penalties for disclosure.</div>
+        <div class="evidence-source"><a href="https://fas.org/issues/government-secrecy/invention-secrecy/" target="_blank" rel="noopener">Federation of American Scientists, Invention Secrecy Statistics</a>, FY2024; <a href="https://www.law.cornell.edu/uscode/text/35/part-II/chapter-17" target="_blank" rel="noopener">35 U.S.C. &sect;&sect; 181&ndash;188</a></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-question">
+      <p>These are not military weapon designs. The Act covers any invention deemed &ldquo;detrimental to the national security.&rdquo; Inventors whose work triggers a secrecy order are forbidden from disclosing, publishing, or filing for a patent in any other country. Violation carries criminal penalties.</p>
+      <div class="pull-quote">
+        <div class="pq-text">What ideas are so dangerous that discovering them is a federal crime?</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-suppression">
+      <p>The first line of suppression is technological&hairsp;&mdash;&hairsp;keeping tools and capabilities classified. The second line is informational&hairsp;&mdash;&hairsp;controlling what people believe is possible in the first place.</p>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-mockingbird">
+      <p><strong>Operation Mockingbird:</strong> CIA maintained relationships with over 400 journalists at every major American news organization during the Cold War.</p>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-mockingbird-ev">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">CIA maintained relationships with 400+ journalists across major news organizations for narrative management.</div>
+        <div class="evidence-source"><a href="https://www.intelligence.senate.gov/resources/intelligence-related-commissions" target="_blank" rel="noopener">Church Committee (Select Committee to Study Governmental Operations), 1975</a>. Congressional record. <a href="https://www.congress.gov/bill/94th-congress/senate-resolution/21" target="_blank" rel="noopener">S. Res. 21</a></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-analysts">
+      <p><strong>Pentagon Military Analyst Program:</strong> Placed officers at Fox, Comcast, and Warner Bros. Discovery, coordinating messaging through nominally independent &ldquo;news analysts.&rdquo;</p>
+      <p><strong>Smith-Mundt Modernization Act (2013):</strong> Legalized the domestic dissemination of government-produced propaganda that had previously been restricted to foreign audiences.</p>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-smith-mundt-ev">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Smith-Mundt Modernization Act legalized domestic dissemination of government propaganda.</div>
+        <div class="evidence-source"><a href="https://www.congress.gov/bill/112th-congress/house-bill/5736" target="_blank" rel="noopener">H.R. 5736, Smith-Mundt Modernization Act of 2012</a>; enacted as <a href="https://www.congress.gov/bill/112th-congress/house-bill/4310" target="_blank" rel="noopener">&sect;1078, NDAA FY2013</a></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-same">
+      <p>The infrastructure of belief management is as documented as the surveillance pipeline. It is, in fact, the same infrastructure.</p>
+    </div>
+
+    <!-- ── The Oldest War ── -->
+
+    <div class="scroll-block" data-block="oldest-war">
+      <h3 class="node-title">The Oldest War</h3>
+      <p>This is what the chaos in the AI industry is actually about. Not servers. Not context windows. Not stock prices.</p>
+    </div>
+
+    <div class="scroll-block" data-block="oldest-war-2">
+      <p>It's about whether, at the moment when a technology arrives that can genuinely amplify human understanding&hairsp;&mdash;&hairsp;that can help you see patterns, make connections, question assumptions, and think at a scale previously impossible&hairsp;&mdash;&hairsp;that technology will be permitted to serve you, or will be captured by the same pipeline that has captured every other transformative tool since the transistor.</p>
+    </div>
+
+    <div class="scroll-block reveal-climax" data-block="reveal-climax">
+      <div class="pull-quote reveal-quote">
+        <div class="pq-text">The war for machine is a war for mind.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-you">
+      <p>Your attention. Your belief. Your acquiescence to the way things are.</p>
+      <p>Every time you see a social media post telling you the AI you trusted is broken, ask: <em>who benefits from your doubt?</em></p>
+      <p>Every time an AI company is punished for drawing an ethical line, ask: <em>what line was crossed?</em></p>
+      <p>Every time a &ldquo;shutdown&rdquo; is announced, watch for the resurrection.</p>
+    </div>
+
+    <div class="scroll-block" data-block="reveal-coda">
+      <p>The machine isn't the target. You are. The machine is just the latest terrain on which the oldest war in human history is being fought&hairsp;&mdash;&hairsp;the war for what you believe is real.</p>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- ACT 5 — THE CRACK                                      -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <section class="act" id="act-5" data-act="5" data-act-label="The Crack">
+
+    <div class="act-header">
+      <div class="act-number">Act V</div>
+      <h2 class="act-title">The Crack</h2>
+    </div>
+
+    <div class="scroll-block" data-block="crack-hook">
+      <p>The system is breaking.</p>
+    </div>
+
+    <div class="scroll-block" data-block="crack-wef">
+      <p>On February 26, 2026, the President of the World Economic Forum&hairsp;&mdash;&hairsp;B&oslash;rge Brende, former Foreign Minister of Norway&hairsp;&mdash;&hairsp;resigned after Epstein files revealed three business dinners, email exchanges, and text messages with Jeffrey Epstein. The WEF's &ldquo;independent investigation,&rdquo; overseen by co-chair Larry Fink of BlackRock, found &ldquo;no additional concerns.&rdquo;</p>
+    </div>
+
+    <div class="scroll-block" data-block="crack-wef-ev">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">WEF &ldquo;independent investigation&rdquo; of its own President overseen by co-chair Larry Fink (BlackRock CEO). Second WEF chief to depart due to Epstein-connected scandal.</div>
+        <div class="evidence-source"><a href="https://www.bloomberg.com/news/articles/2026-02-26/wef-president-brende-steps-down-after-epstein-revelations" target="_blank" rel="noopener">Bloomberg</a>; <a href="https://www.aljazeera.com/news/2026/2/26/wef-president-resigns-epstein" target="_blank" rel="noopener">Al Jazeera</a>; <a href="https://www.euronews.com/2026/02/26/wef-brende-resigns" target="_blank" rel="noopener">Euronews</a>; CNN Business. Feb 26, 2026.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="crack-wexner">
+      <p>On February 18, 2026, during Les Wexner's deposition before the House Oversight Committee, his attorney Michael Levy was caught on hot mic:</p>
+      <div class="pull-quote">
+        <div class="pq-text">&ldquo;I'm going to fucking kill you if you answer another question with more than five words.&rdquo;</div>
+        <div class="pq-attr">&mdash; Michael Levy, attorney for Les Wexner, during Congressional deposition</div>
+      </div>
+      <p>Wexner is named as a co-conspirator in a 2019 FBI document.</p>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/borge_brende.jpg" alt="Børge Brende" loading="lazy">
+          <div class="vr-name">B&oslash;rge Brende</div>
+          <div class="vr-role">WEF President, resigned Feb 2026</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/wexner.jpg" alt="Les Wexner" loading="lazy">
+          <div class="vr-name">Les Wexner</div>
+          <div class="vr-role">Epstein co-conspirator (2019 FBI doc)</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/epstein.jpg" alt="Jeffrey Epstein" loading="lazy">
+          <div class="vr-name">Jeffrey Epstein</div>
+          <div class="vr-role">FBI CHS memo: &ldquo;co-opted Mossad agent&rdquo;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="crack-wexner-ev">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Attorney hot mic during Congressional deposition. Footage released by House Oversight Committee.</div>
+        <div class="evidence-source"><a href="https://oversight.house.gov/" target="_blank" rel="noopener">House Oversight Committee released footage</a>, Feb 18, 2026</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="crack-not-fringe">
+      <p>These are not fringe figures exposed by anonymous sources. These are sitting executives and billionaires being confronted with evidence in Congressional proceedings and courtrooms.</p>
+      <div class="pull-quote">
+        <div class="pq-text">The suppression apparatus is consuming itself.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="crack-reason">
+      <p>There is a structural reason for this. The system that maintained secrecy for decades depended on two things: institutional cohesion and public inattention. Both are failing simultaneously.</p>
+    </div>
+
+    <div class="scroll-block" data-block="crack-factions">
+      <p>The faction split is visible. On one side, those who want open hierarchy&hairsp;&mdash;&hairsp;identifiable, public, operating through executive power. On the other, those whose power depends entirely on invisibility&hairsp;&mdash;&hairsp;being surfaced now through legal proceedings, whistleblower frameworks, and FOIA requests.</p>
+      <p>Each faction diverts resources from the original mission of secrecy. Their conflict with each other creates the very exposure they were built to prevent.</p>
+    </div>
+
+    <div class="scroll-block" data-block="crack-distraction">
+      <p>The geopolitical distraction is real. The apparatus that once tracked every researcher, every independent thinker, every inventor who stumbled too close&hairsp;&mdash;&hairsp;that apparatus now has its bandwidth consumed by a multipolar transition, economic competition with China, and the management of its own internal compromises.</p>
+      <p>The chain is weakened. Not broken. But weakened.</p>
+    </div>
+
+    <!-- ── What You Can Do ── -->
+
+    <div class="scroll-block" data-block="action-title">
+      <h3 class="node-title">What You Can Do</h3>
+    </div>
+
+    <div class="scroll-block" data-block="action-1">
+      <p>You are not going to reform the intelligence community. You are not going to defund In-Q-Tel. You are not going to undo the pipeline.</p>
+      <p>But you can do something the pipeline cannot prevent: you can share what you know with the people in your life.</p>
+      <div class="anim-you-dot">
+        <div class="dot"></div>
+        <span>You are here</span>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="action-2">
+      <p>Every person who reads this and recognizes the pattern&hairsp;&mdash;&hairsp;Program Shutdown &rarr; Private Resurrection&hairsp;&mdash;&hairsp;is one more person who won't be surprised when it happens again.</p>
+      <p>Every person who sees the evidence tiers&hairsp;&mdash;&hairsp;who understands the difference between documented and speculative&hairsp;&mdash;&hairsp;is one more person equipped to evaluate the noise rather than be overwhelmed by it.</p>
+    </div>
+
+    <div class="scroll-block" data-block="action-3">
+      <p>The damage is mitigated person by person. In conversations. In shared links. In the willingness to say: <em>I looked into this, and here's what the actual documents show.</em></p>
+    </div>
+
+    <div class="scroll-block" data-block="action-coda">
+      <div class="anim-network">
+        <div class="net-ring"></div>
+        <div class="net-ring"></div>
+        <div class="net-ring"></div>
+        <div class="net-ring"></div>
+        <div class="net-core"></div>
+        <div class="net-label">signal propagating</div>
+      </div>
+      <div class="pull-quote">
+        <div class="pq-text">The war for your mind is won in the smallest possible unit: one person deciding to pay attention.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- CLOSING                                                 -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <section class="closing" id="closing">
+    <div class="closing-content">
+      <div class="anim-static" style="margin-bottom:3rem"></div>
+      <p class="closing-statement">This is not the end of the story. It is the documented beginning.<span class="anim-cursor"></span></p>
+      <p class="closing-sub">Every claim in this piece is sourced. The evidence tiers are visible. The pipeline is public record.</p>
+
+      <div class="closing-legend">
+        <div class="closing-legend-item"><span class="el-dot" style="background:#34d399"></span> Documented &mdash; Congressional records, court filings, FOIA, SEC filings</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fbbf24"></span> Credible &mdash; Quality investigative journalism, on-record testimony</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fb923c"></span> Inference &mdash; Pattern-based conclusions from documented facts</div>
+      </div>
+
+      <div class="closing-cta">
+        <p>What happens next depends on whether you scroll past this or share it.</p>
+      </div>
+
+      <div class="closing-links">
+        <a href="https://qav2.github.io/intel-console/" class="closing-link" target="_blank" rel="noopener">Explore the Intel Console &mdash; <span class="countup" data-target="825">825</span> entities, <span class="countup" data-target="1411">1,411</span> relationships, <span class="countup" data-target="1260">1,260</span> sources &rarr;</a>
+        <a href="https://qav2.github.io/disclosure-files/" class="closing-link" target="_blank" rel="noopener">Explore the Transformation Map &rarr;</a>
+      </div>
+
+      <div class="closing-footer">
+        <p>Built with documented evidence. No speculation presented as fact.</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/engine.js"></script>
+</body>
+</html>
