@@ -1,11 +1,21 @@
 [build]
   publish = "."
 
-# Disable bot protection for social crawlers
+# Pretty URLs off — avoid 301 redirects that break Facebook crawler
 [processing]
   skip = true
+
+[processing.html]
+  pretty_urls = false
 
 [[headers]]
   for = "/*"
   [headers.values]
     X-Robots-Tag = "all"
+
+# Force no-slash to serve the page directly (no 301)
+[[redirects]]
+  from = "/war-for-machine"
+  to = "/war-for-machine/"
+  status = 200
+  force = true
