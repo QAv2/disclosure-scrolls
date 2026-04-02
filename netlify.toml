@@ -19,3 +19,15 @@
   to = "/war-for-machine/"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/money-wars"
+  to = "/money-wars/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/space-wars"
+  to = "/space-wars/"
+  status = 200
+  force = true
