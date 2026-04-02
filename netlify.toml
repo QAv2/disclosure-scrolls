@@ -37,3 +37,9 @@
   to = "/mind-wars/"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/oil-wars"
+  to = "/oil-wars/"
+  status = 200
+  force = true

@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oil Wars &mdash; Disclosure Scrolls</title>
+  <meta name="description" content="Standard Oil controlled 91% of US refining. It was 'broken up' into 34 companies — that merged back into 3. Then the CIA started overthrowing countries.">
+  <meta property="og:title" content="Oil Wars">
+  <meta property="og:description" content="One monopoly. One molecule. One century of coups, suppressed patents, and buried science. The war for energy is the war for everything.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://disclosure-scrolls.netlify.app/oil-wars/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Disclosure Scrolls">
+  <meta property="og:url" content="https://disclosure-scrolls.netlify.app/oil-wars/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Oil Wars">
+  <meta name="twitter:description" content="91% monopoly. 6,543 classified patents. One molecule controls energy, medicine, food, and the reserve currency.">
+  <meta name="twitter:image" content="https://disclosure-scrolls.netlify.app/oil-wars/og-image.png">
+  <meta name="theme-color" content="#06060b">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://disclosure-scrolls.netlify.app/oil-wars/">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="../war-for-machine/css/style.css">
+
+  <!-- CountUp.js -->
+  <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js" defer></script>
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+
+  <style>
+    /* ── Oil Wars overrides ── */
+
+    /* Crude amber accent */
+    ::selection { background: rgba(251, 191, 36, 0.25); color: #fff; }
+
+    /* Company/org badges */
+    .badge-exxon { color: #f87171; border-color: rgba(248,113,113,0.25); background: rgba(248,113,113,0.06); }
+    .badge-bp { color: #34d399; border-color: rgba(52,211,153,0.25); background: rgba(52,211,153,0.06); }
+    .badge-shell { color: #fbbf24; border-color: rgba(251,191,36,0.25); background: rgba(251,191,36,0.06); }
+    .badge-cia { color: #94a3b8; border-color: rgba(148,163,184,0.25); background: rgba(148,163,184,0.06); }
+    .badge-opec { color: #a78bfa; border-color: rgba(167,139,250,0.25); background: rgba(167,139,250,0.06); }
+    .badge-rockefeller { color: #60a5fa; border-color: rgba(96,165,250,0.25); background: rgba(96,165,250,0.06); }
+    .badge-igfarben { color: #fb923c; border-color: rgba(251,146,60,0.25); background: rgba(251,146,60,0.06); }
+
+    /* Act III — amber reveal */
+    .act-reveal .act-title { color: #fbbf24; }
+    .act-reveal .act-number { color: rgba(251, 191, 36, 0.4); }
+    .act-reveal .node-title { color: #fbbf24; border-bottom-color: rgba(251,191,36,0.15); }
+    .act-reveal .pull-quote { border-left-color: rgba(251,191,36,0.25); }
+
+    /* Act V — cosmic blue */
+    .act-cosmic .act-title { color: #93c5fd; }
+    .act-cosmic .act-number { color: rgba(147,197,253,0.4); }
+    .act-cosmic .node-title { color: #93c5fd; border-bottom-color: rgba(147,197,253,0.15); }
+    .act-cosmic .pull-quote { border-left-color: rgba(147,197,253,0.25); }
+    .act-cosmic .evidence-card { border-left-color: rgba(147,197,253,0.25); }
+
+    /* Act VI — white light */
+    .act-light .act-title { color: #f0f0f4; }
+    .act-light .act-number { color: rgba(240,240,244,0.4); }
+    .act-light .node-title { color: #f0f0f4; border-bottom-color: rgba(240,240,244,0.15); }
+    .act-light .pull-quote { border-left-color: rgba(240,240,244,0.25); }
+
+    @media (max-width: 600px) {
+      .pattern-row { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ Particle Network Background ═══ -->
+  <canvas id="particle-net" class="particle-canvas"></canvas>
+
+  <!-- ═══ Progress Bar ═══ -->
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <!-- ═══ Pipeline Tracker ═══ -->
+  <div class="pipeline-track" id="pipeline-track">
+    <div class="pipeline-inner">
+      <div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
+      <div class="pipeline-node" data-step="standard"><span class="pn-year">1904</span><span class="pn-label">Standard Oil</span></div>
+      <div class="pipeline-node" data-step="cartel"><span class="pn-year">1928</span><span class="pn-label">Achnacarry</span></div>
+      <div class="pipeline-node" data-step="ajax"><span class="pn-year">1953</span><span class="pn-label">Operation Ajax</span></div>
+      <div class="pipeline-node" data-step="petrodollar"><span class="pn-year">1974</span><span class="pn-label">Petrodollar</span></div>
+      <div class="pipeline-node" data-step="secrecy"><span class="pn-year">1951</span><span class="pn-label">Patent Secrecy</span></div>
+      <div class="pipeline-node" data-step="exxon"><span class="pn-year">1977</span><span class="pn-label">Exxon Knew</span></div>
+      <div class="pipeline-node" data-step="reconsolidate"><span class="pn-year">1999</span><span class="pn-label">Reconsolidation</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ Act Indicator ═══ -->
+  <div class="act-indicator" id="act-indicator"></div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- TITLE SCREEN                                             -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="title-screen" id="title-screen">
+    <div class="title-content">
+      <a href="/" class="back-link">&larr; Disclosure Scrolls</a>
+      <div class="title-label">Scroll 005</div>
+      <div class="title-reading-time">~25 min read</div>
+      <h1 class="title-main">Oil Wars</h1>
+      <p class="title-sub">One company controlled 91% of American oil refining. It was &ldquo;broken up&rdquo; &mdash; into 34 companies that merged back into three. Then the same families funded the CIA. Then the CIA started overthrowing every country that touched the oil supply. This is not a fuel story. It&rsquo;s a control story.</p>
+      <div class="title-meta">
+        <span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fbbf24"></span> Credible</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
+      </div>
+      <div class="scroll-cue">&darr; Begin scrolling</div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT I &mdash; THE MONOPOLY                               -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="1" data-act-label="Act I &mdash; The Monopoly">
+
+    <div class="act-header">
+      <div class="act-number">Act I</div>
+      <h2 class="act-title">The Monopoly</h2>
+    </div>
+
+    <div class="scroll-block" data-block="1-1" data-pipeline="standard">
+      <h3 class="node-title">Standard Oil</h3>
+      <p>In 1870, John D. Rockefeller founded Standard Oil of Ohio. By 1904, it controlled 91% of US oil refining and 85% of final sales. It was the most powerful monopoly in American history &mdash; and the blueprint for every monopoly that followed.</p>
+      <p>The company didn&rsquo;t just sell oil. It controlled the railroads that shipped it, the pipelines that moved it, the refineries that processed it, and the politicians who regulated it. When the Supreme Court finally ordered its dissolution in 1911, the public was told the monopoly was broken.</p>
+      <p>It wasn&rsquo;t. It was distributed.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Standard Oil controlled approximately 91% of US oil refining and 85% of final sales by 1904</strong>, making it the most powerful monopoly in American history. The company used predatory pricing, railroad rebates, and industrial espionage to eliminate competitors.</div>
+        <div class="evidence-source"><a href="https://supreme.justia.com/cases/federal/us/221/1/" target="_blank" rel="noopener">Supreme Court, <em>Standard Oil Co. of New Jersey v. United States</em>, 221 U.S. 1 (1911)</a>. Ida Tarbell, <em>The History of the Standard Oil Company</em> (1904).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-3">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/rockefeller.jpg" alt="John D. Rockefeller">
+          <div class="vr-name">John D. Rockefeller</div>
+          <div class="vr-role">Standard Oil founder &mdash; 91% monopoly</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/tarbell.jpg" alt="Ida Tarbell">
+          <div class="vr-name">Ida Tarbell</div>
+          <div class="vr-role">Journalist who exposed Standard Oil</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/rockefeller_jr.jpg" alt="John D. Rockefeller Jr.">
+          <div class="vr-name">John D. Rockefeller Jr.</div>
+          <div class="vr-role">Inherited dynasty, funded institutions</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Fake Breakup -->
+    <div class="scroll-block" data-block="1-4" data-pipeline="reconsolidate">
+      <h3 class="node-title">The &ldquo;Dissolution&rdquo;</h3>
+      <p>The 1911 Supreme Court decision split Standard Oil into 34 companies. Textbooks call this the triumph of antitrust. But the Rockefeller family retained stock across every single successor company. The dissolution redistributed operational control without eliminating ownership. And over the next 90 years, those 34 fragments merged back together.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-5">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The 1911 Supreme Court &ldquo;dissolution&rdquo; split Standard Oil into 34 companies. Through subsequent mergers, these reconsolidated into <strong>ExxonMobil</strong> (1999), <strong>Chevron</strong> (2001), and <strong>BP</strong> (which absorbed Amoco/Standard Oil of Indiana in 1998 and ARCO in 2000). The Rockefeller family retained stock across all successor companies throughout &mdash; the dissolution redistributed operational control without eliminating ownership.</div>
+        <div class="evidence-source">Corporate merger records (SEC filings). Rockefeller family trust documentation. Daniel Yergin, <em>The Prize: The Epic Quest for Oil, Money &amp; Power</em> (1991).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-6">
+      <h3 class="node-title">The Reconsolidation</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Standard Oil NJ + Standard Oil NY</span><span class="pr-value">&rarr; ExxonMobil (1999)</span></div>
+        <div class="pattern-row"><span class="pr-label">Standard Oil CA + Gulf + Texaco</span><span class="pr-value">&rarr; Chevron (2001)</span></div>
+        <div class="pattern-row"><span class="pr-label">Continental Oil (Conoco) + Phillips Petroleum</span><span class="pr-value">&rarr; ConocoPhillips (2002)</span></div>
+        <div class="pattern-row"><span class="pr-label">Standard Oil OH + Amoco + ARCO</span><span class="pr-value">&rarr; BP (1998&ndash;2000)</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-7">
+      <div class="stat-row">
+        <div class="stat-block">
+          <span class="countup" data-target="91" data-suffix="% of US refining">91% of US refining</span>
+          <span class="stat-label">Standard Oil &mdash; 1904</span>
+        </div>
+        <div class="stat-block">
+          <span class="countup" data-target="34" data-suffix=" companies">34 companies</span>
+          <span class="stat-label">After &ldquo;dissolution&rdquo; &mdash; 1911</span>
+        </div>
+        <div class="stat-block">
+          <span class="countup" data-target="3" data-suffix=" supermajors">3 supermajors</span>
+          <span class="stat-label">After reconsolidation &mdash; 2002</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-8">
+      <div class="pull-quote">
+        <div class="pq-text">&ldquo;The way to make money is to buy when blood is running in the streets.&rdquo;</div>
+        <div class="pq-attr">&mdash; Attributed to John D. Rockefeller</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT II &mdash; THE CARTEL                                -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="2" data-act-label="Act II &mdash; The Cartel">
+
+    <div class="act-header">
+      <div class="act-number">Act II</div>
+      <h2 class="act-title">The Cartel</h2>
+    </div>
+
+    <div class="scroll-block" data-block="2-1" data-pipeline="cartel">
+      <h3 class="node-title">The Achnacarry Agreement</h3>
+      <p>The dissolution didn&rsquo;t create competition. It created a cartel. In 1928, the heads of the world&rsquo;s largest oil companies met at Achnacarry Castle in the Scottish Highlands &mdash; ostensibly for a grouse-hunting weekend. What they actually agreed on was how to divide the planet.</p>
+      <p>Shell, Standard Oil of New Jersey, and Anglo-Persian Oil (later BP) signed the &ldquo;As-Is Agreement&rdquo; &mdash; a secret pact to fix global market shares and coordinate oil pricing. The cartel eventually extended to all Seven Sisters. The FTC didn&rsquo;t uncover the agreement until decades later.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>The Achnacarry Agreement (1928):</strong> Shell, Standard Oil of New Jersey, and Anglo-Persian Oil (BP) secretly agreed at Achnacarry Castle in Scotland to fix global market shares and coordinate oil pricing. Subsequent &ldquo;As-Is&rdquo; memoranda extended the agreement to all Seven Sisters. The Federal Trade Commission published its investigation in 1952 as <em>The International Petroleum Cartel</em>.</div>
+        <div class="evidence-source"><a href="https://www.ftc.gov" target="_blank" rel="noopener">Federal Trade Commission, <em>The International Petroleum Cartel</em> (1952)</a>. Anthony Sampson, <em>The Seven Sisters</em> (1975). Declassified State Department cables.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>The Seven Sisters</strong> &mdash; Anglo-Iranian (BP), Gulf Oil, Royal Dutch Shell, Standard Oil NJ (Exxon), Standard Oil NY (Mobil), Standard Oil CA (Chevron), and Texaco &mdash; controlled approximately 85% of the world&rsquo;s petroleum reserves through the mid-20th century. The term was coined by <strong>Enrico Mattei</strong>, head of Italy&rsquo;s state energy company ENI, who challenged the cartel by negotiating independent oil deals with Iran, Egypt, and the Soviet Union.</div>
+        <div class="evidence-source">Anthony Sampson, <em>The Seven Sisters: The Great Oil Companies and the World They Made</em> (1975).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-4">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/mattei.jpg" alt="Enrico Mattei">
+          <div class="vr-name">Enrico Mattei</div>
+          <div class="vr-role">ENI chief &mdash; coined &ldquo;Seven Sisters,&rdquo; died in plane crash</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/deterding.jpg" alt="Henri Deterding">
+          <div class="vr-name">Henri Deterding</div>
+          <div class="vr-role">Royal Dutch Shell chief &mdash; organized Achnacarry</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-5">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim">Enrico Mattei, who coined the term &ldquo;Seven Sisters&rdquo; and challenged the cartel by negotiating independent oil deals, <strong>died in a plane crash on October 27, 1962</strong>. Italian investigators in Pavia ruled it sabotage in 1997 &mdash; 35 years later &mdash; after forensic analysis of preserved wreckage fragments confirmed explosive traces (TNT) and an onboard bomb triggered during landing gear deployment. The case remains partially unsolved.</div>
+        <div class="evidence-source">Italian judicial investigation, Procura di Pavia (1997). BBC News reporting. Benito Li Vigni, <em>Enrico Mattei: Oil and Power</em> (2003). <a href="https://www.theguardian.com/world/2005/jun/09/italy" target="_blank" rel="noopener">The Guardian (2005)</a>.</div>
+      </div>
+    </div>
+
+    <!-- Sheffield / OPEC WhatsApp -->
+    <div class="scroll-block" data-block="2-6">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>In 2024, the FTC discovered that Scott Sheffield</strong>, CEO of Pioneer Natural Resources, had been coordinating with OPEC representatives via text messages and WhatsApp to cut production and inflate oil prices. The FTC approved ExxonMobil&rsquo;s $64.5 billion acquisition of Pioneer but banned Sheffield from Exxon&rsquo;s board and referred the matter to the DOJ for potential criminal investigation. Sheffield&rsquo;s own words in text messages: he described using &ldquo;the tactics of OPEC+&rdquo; to coordinate production cuts. Achnacarry Castle in 1928. WhatsApp in 2024. The cartel never ended &mdash; it just changed platforms.</div>
+        <div class="evidence-source"><a href="https://www.ftc.gov/news-events/news/press-releases/2024/05/ftc-consents-exxonmobils-596-billion-acquisition-pioneer-natural-resources" target="_blank" rel="noopener">FTC consent order (May 2024)</a>. Pioneer Natural Resources SEC filings. Bloomberg, Reuters reporting.</div>
+      </div>
+    </div>
+
+    <!-- Cartel chain -->
+    <div class="scroll-block chain-summary" data-block="2-7">
+      <div class="typed-terminal" id="cartel-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING CARTEL STRUCTURE...","Standard Oil (1870) ^500&rarr; Dissolution (1911) ^500&rarr; Achnacarry (1928) ^500&rarr; Seven Sisters ^500&rarr; OPEC challenge (1960) ^500&rarr; Reconsolidation (1999)","THE MONOPOLY NEVER BROKE. ^1000 IT METAMORPHOSED."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">Standard Oil</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Dissolution</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Achnacarry</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Seven Sisters</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">OPEC</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Reconsolidation</span>
+      </div>
+      <p class="chain-decode">Monopoly &rarr; Theater &rarr; Cartel &rarr; Global control &rarr; Partial challenge &rarr; Reassembly</p>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT III &mdash; THE COUPS (amber reveal)                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-reveal" data-act="3" data-act-label="Act III &mdash; The Coups">
+
+    <div class="act-header">
+      <div class="act-number">Act III</div>
+      <h2 class="act-title">The Coups</h2>
+    </div>
+
+    <div class="scroll-block" data-block="3-1" data-pipeline="ajax">
+      <h3 class="node-title">The Pattern</h3>
+      <p>The CIA&rsquo;s very first major covert operation was about oil. Not communism. Not democracy. Oil. And the pattern never stopped.</p>
+      <p>Every country that nationalized its oil supply, switched its oil currency, or proposed an alternative to the petroleum-dollar system got the same answer: regime change.</p>
+      <div class="anim-sweep"><span class="sweep-label">CIA &mdash; PETROLEUM OPERATIONS</span></div>
+    </div>
+
+    <!-- Operation Ajax -->
+    <div class="scroll-block" data-block="3-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Operation Ajax (1953):</strong> The CIA&rsquo;s first major covert operation overthrew Iran&rsquo;s democratically elected Prime Minister Mohammad Mossadegh after he nationalized the Anglo-Iranian Oil Company (BP). The operation was planned by the CIA and MI6, led in the field by Kermit Roosevelt Jr. (grandson of Theodore Roosevelt). It restored Shah Mohammad Reza Pahlavi to power and returned BP&rsquo;s access to Iranian oil. The CIA publicly acknowledged the coup in declassified records released in 2013.</div>
+        <div class="evidence-source"><a href="https://nsarchive.gwu.edu/briefing-book/iran/2013-08-19/cia-confirms-role-1953-iran-coup" target="_blank" rel="noopener">CIA declassified records (2013)</a>. Malcolm Byrne, National Security Archive, George Washington University. Kermit Roosevelt, <em>Countercoup</em> (1979).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-3">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/mossadegh.jpg" alt="Mohammad Mossadegh">
+          <div class="vr-name">Mohammad Mossadegh</div>
+          <div class="vr-role">Iran PM &mdash; democratically elected, overthrown</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/kermit_roosevelt.jpg" alt="Kermit Roosevelt Jr.">
+          <div class="vr-name">Kermit Roosevelt Jr.</div>
+          <div class="vr-role">CIA &mdash; led Operation Ajax</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/dulles_allen.jpg" alt="Allen Dulles">
+          <div class="vr-name">Allen Dulles</div>
+          <div class="vr-role">CIA Director &mdash; authorized Ajax &amp; MKULTRA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Iraq -->
+    <div class="scroll-block" data-block="3-4">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Saddam Hussein switched Iraq&rsquo;s oil transactions from dollars to euros in November 2000</strong> under the UN Oil-for-Food Programme. Iraq was invaded in March 2003. One of the first acts of the Coalition Provisional Authority was switching Iraqi oil sales back to US dollars.</div>
+        <div class="evidence-source">UN Oil-for-Food Programme records. <a href="https://www.cnn.com" target="_blank" rel="noopener">CNN (2000)</a>. Bloomberg. Federal Reserve data. CPA administrative orders.</div>
+      </div>
+    </div>
+
+    <!-- Libya -->
+    <div class="scroll-block" data-block="3-5">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Muammar Gaddafi proposed a gold-backed African currency</strong> (the gold dinar) to replace the dollar and euro in African oil transactions. Hillary Clinton&rsquo;s emails (released via FOIA, Case F-2014-20439, Doc C05779612) show adviser Sidney Blumenthal explicitly identified the gold dinar as a threat to French financial interests in Africa. NATO airstrikes began in March 2011. Gaddafi was killed by rebels on October 20, 2011. Libya, once Africa&rsquo;s wealthiest nation by HDI, collapsed into a failed state with open slave markets.</div>
+        <div class="evidence-source"><a href="https://foia.state.gov/searchapp/DOCUMENTS/HRCEmail_Jan7thWeb/O-2015-08641-1/DOC_0C05779612/C05779612.pdf" target="_blank" rel="noopener">Clinton emails (State Dept FOIA)</a>. UN Security Council Resolution 1973. Scroll 002: Money Wars &mdash; Act II.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-6">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/gaddafi.jpg" alt="Muammar Gaddafi">
+          <div class="vr-name">Muammar Gaddafi</div>
+          <div class="vr-role">Proposed gold dinar &mdash; killed 2011</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/chavez.jpg" alt="Hugo Chávez">
+          <div class="vr-name">Hugo Ch&aacute;vez</div>
+          <div class="vr-role">Venezuela &mdash; nationalized oil, sanctioned</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Venezuela -->
+    <div class="scroll-block" data-block="3-7">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Venezuela holds the world&rsquo;s largest proven oil reserves</strong> (303.8 billion barrels per OPEC). Hugo Ch&aacute;vez nationalized oil production and redirected revenues to social programs. The US imposed escalating sanctions, recognized opposition leader Juan Guaid&oacute; as &ldquo;legitimate president&rdquo; in January 2019, and froze Venezuelan government assets. The country&rsquo;s economy contracted by approximately 75% under sanctions pressure between 2014 and 2021.</div>
+        <div class="evidence-source">OPEC Annual Statistical Bulletin. <a href="https://sgp.fas.org/crs/row/" target="_blank" rel="noopener">Congressional Research Service reports</a>. US Treasury OFAC sanctions list. IMF World Economic Outlook data.</div>
+      </div>
+    </div>
+
+    <!-- The Pattern grid -->
+    <div class="scroll-block" data-block="3-8">
+      <h3 class="node-title">The Oil Pattern</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Iran (1953)</span><span class="pr-value">Nationalized oil &rarr; CIA coup, Shah installed</span></div>
+        <div class="pattern-row"><span class="pr-label">Iraq (2000)</span><span class="pr-value">Switched to euros &rarr; Invaded 2003, switched back to dollars</span></div>
+        <div class="pattern-row"><span class="pr-label">Libya (2011)</span><span class="pr-value">Proposed gold dinar &rarr; NATO airstrikes, leader killed</span></div>
+        <div class="pattern-row"><span class="pr-label">Venezuela (2017+)</span><span class="pr-value">Nationalized oil &rarr; Sanctions, 75% GDP contraction</span></div>
+      </div>
+      <p style="color: rgba(255,255,255,0.45); font-size: 0.8rem; margin-top: 0.75rem; font-style: italic;">See also: <a href="/money-wars/" style="color:#fbbf24; opacity:0.7">Scroll 002: Money Wars</a> &mdash; &ldquo;The Holdouts&rdquo;</p>
+    </div>
+
+    <!-- Economic Hit Man -->
+    <div class="scroll-block" data-block="3-9">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>John Perkins</strong>, former chief economist at consulting firm Chas. T. Main, described in published accounts how &ldquo;economic hit men&rdquo; create unpayable debts in resource-rich nations using World Bank and IMF loans as instruments. When leaders refuse, they are replaced by &ldquo;jackals&rdquo; (covert operatives). When jackals fail, the military goes in. Iran 1953. Iraq 2003. Libya 2011. The escalation sequence repeats.</div>
+        <div class="evidence-source">John Perkins, <em>Confessions of an Economic Hit Man</em> (2004). <a href="https://www.democracynow.org" target="_blank" rel="noopener">Democracy Now interviews</a>.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-10">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/perkins.jpg" alt="John Perkins">
+          <div class="vr-name">John Perkins</div>
+          <div class="vr-role">&ldquo;Economic Hit Man&rdquo; &mdash; exposed debt-trap playbook</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Safari Club -->
+    <div class="scroll-block" data-block="3-11">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>The Safari Club (1976&ndash;1980s):</strong> After the Church Committee curtailed CIA covert operations, the agency outsourced to Saudi intelligence (GID), funded by Saudi oil money, banked through BCCI. CIA Director George H.W. Bush and Saudi GID chief Kamal Adham established the framework. Adham simultaneously served as BCCI&rsquo;s secret front-man in the First American Bankshares takeover &mdash; putting a Saudi intelligence asset at the helm of Washington&rsquo;s largest bank holding company.</div>
+        <div class="evidence-source"><a href="https://www.congress.gov" target="_blank" rel="noopener">Kerry/Brown BCCI Senate Report (1992)</a>. Joseph Trento, <em>Prelude to Terror</em> (2005). Steve Coll, <em>Ghost Wars</em> (2004).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-12">
+      <div class="pull-quote reveal-climax">
+        <div class="pq-text">The CIA&rsquo;s first covert operation wasn&rsquo;t about communism. It was about oil. The pattern never changed &mdash; only the justification.</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT IV &mdash; THE OCTOPUS                               -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="4" data-act-label="Act IV &mdash; The Octopus">
+
+    <div class="act-header">
+      <div class="act-number">Act IV</div>
+      <h2 class="act-title">The Octopus</h2>
+    </div>
+
+    <div class="scroll-block" data-block="4-1">
+      <h3 class="node-title">One Molecule, Four Control Systems</h3>
+      <p>Oil isn&rsquo;t just energy. It&rsquo;s medicine. It&rsquo;s food. It&rsquo;s the feedstock for the pharmaceutical industry, the fertilizer for industrial agriculture, and the chemical base for the modern food system. The Rockefeller petroleum monopoly didn&rsquo;t just control what powers your car &mdash; it controls what heals your body and feeds your family.</p>
+    </div>
+
+    <!-- Flexner Report -->
+    <div class="scroll-block" data-block="4-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>The Flexner Report (1910)</strong>, commissioned by the Carnegie Foundation for the Advancement of Teaching, restructured American medical education &mdash; reducing US medical schools from 155 to 66 by 1935 and closing 5 of 7 African-American medical schools (only Howard and Meharry survived). Rockefeller&rsquo;s General Education Board then funded the reforms that followed &mdash; schools that didn&rsquo;t adopt the pharmaceutical/chemical model lost funding and closed. The report established petroleum-derived pharmaceuticals as the foundation of modern Western medicine.</div>
+        <div class="evidence-source"><a href="https://archive.org/details/medicaleducation00markup" target="_blank" rel="noopener">Abraham Flexner, <em>Medical Education in the United States and Canada</em> (Carnegie Foundation, 1910)</a>. Rockefeller General Education Board records. E. Richard Brown, <em>Rockefeller Medicine Men</em> (1979).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-3">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/flexner.jpg" alt="Abraham Flexner">
+          <div class="vr-name">Abraham Flexner</div>
+          <div class="vr-role">Author of the Flexner Report (1910)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IG Farben -->
+    <div class="scroll-block" data-block="4-4">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>IG Farben</strong>, the German chemical cartel and Standard Oil&rsquo;s pre-war partner, produced synthetic fuels, rubber, AND pharmaceuticals. It operated a facility at Auschwitz III (Monowitz) using slave labor from the concentration camp. After WWII, IG Farben was dissolved into <strong>Bayer, BASF, and Hoechst</strong> (now Sanofi) &mdash; all of which became major pharmaceutical companies inheriting IG Farben&rsquo;s patents and research infrastructure.</div>
+        <div class="evidence-source"><a href="https://www.legal-tools.org/en/go-to-database/ltfolder/0_29804/" target="_blank" rel="noopener">Nuremberg War Crimes Tribunal, IG Farben Trial (1947&ndash;48)</a>. Diarmuid Jeffreys, <em>Hell&rsquo;s Cartel: IG Farben and the Making of Hitler&rsquo;s War Machine</em> (2008).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-5">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/terMeer.jpg" alt="Fritz ter Meer">
+          <div class="vr-name">Fritz ter Meer</div>
+          <div class="vr-role">IG Farben board &mdash; convicted at Nuremberg, later Bayer chairman</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-6">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Fritz ter Meer</strong>, member of IG Farben&rsquo;s managing board, was convicted at Nuremberg in 1948 for plunder, spoliation, and the use of slave labor at Auschwitz III. He was sentenced to seven years. Released early in 1950, he returned to the chemical industry and served as <strong>chairman of Bayer&rsquo;s supervisory board from 1956 to 1964</strong>. A convicted war criminal running one of the world&rsquo;s largest pharmaceutical companies.</div>
+        <div class="evidence-source">Nuremberg Military Tribunal, <em>United States v. Carl Krauch et al.</em> (1948). Bayer AG corporate history records.</div>
+      </div>
+    </div>
+
+    <!-- Green Revolution -->
+    <div class="scroll-block" data-block="4-7">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>The Green Revolution</strong> &mdash; promoted by the Rockefeller Foundation, Ford Foundation, and later the Gates Foundation ($1B+ to CGIAR-affiliated programs since 2003) &mdash; structured global food production around petroleum derivatives: synthetic fertilizers (petroleum), pesticides (petroleum), and mechanized equipment (petroleum fuel). Global agriculture became structurally dependent on continuous petroleum inputs.</div>
+        <div class="evidence-source">Rockefeller Archive Center: Green Revolution Records. <a href="https://www.weltagrarhandel.net/fileadmin/files/weltagrarhandel/Weltagrarbericht/GlobalReport.pdf" target="_blank" rel="noopener">IAASTD: <em>Agriculture at a Crossroads</em> (2008)</a>. CGIAR records. Gates Foundation grant database.</div>
+      </div>
+    </div>
+
+    <!-- Seed monopoly -->
+    <div class="scroll-block" data-block="4-8">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Through mergers, <strong>three companies controlled over 60% of the global commercial seed market</strong> by 2018: Bayer-Monsanto, Corteva (Dow-DuPont), and Syngenta (ChemChina). They control both the chemicals AND the seeds &mdash; creating total dependency. The <strong>Monsanto Papers</strong> (court-released during Roundup/glyphosate litigation) revealed ghostwriting of scientific studies, suppression of safety concerns, and payments to academic researchers for favorable findings.</div>
+        <div class="evidence-source">Monsanto Papers (court-released, <em>Dewayne Johnson v. Monsanto</em>, 2018). ETC Group seed industry reports. IAASTD Report (2008).</div>
+      </div>
+    </div>
+
+    <!-- Octopus chain -->
+    <div class="scroll-block chain-summary" data-block="4-9">
+      <div class="typed-terminal" id="octopus-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING PETROLEUM DEPENDENCIES...","Standard Oil ^500&rarr; IG Farben (pharma) ^500&rarr; Flexner Report (medicine) ^500&rarr; Green Revolution (food) ^500&rarr; Bayer-Monsanto (seeds+chemicals)","ONE MOLECULE. ^1000 FOUR CONTROL SYSTEMS."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">Standard Oil</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">IG Farben</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Flexner Report</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Green Revolution</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Bayer-Monsanto</span>
+      </div>
+      <p class="chain-decode">Energy monopoly &rarr; Chemical cartel &rarr; Medical control &rarr; Agricultural dependency &rarr; Seed + chemical lock-in</p>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT V &mdash; THE BURIAL (cosmic blue)                   -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-cosmic" data-act="5" data-act-label="Act V &mdash; The Burial">
+
+    <div class="act-header">
+      <div class="act-number">Act V</div>
+      <h2 class="act-title">The Burial</h2>
+    </div>
+
+    <div class="scroll-block" data-block="5-1">
+      <h3 class="node-title">Suppressed Technologies</h3>
+      <p>If petroleum is the foundation of a control system spanning energy, medicine, and food &mdash; then any technology that replaces petroleum isn&rsquo;t just a business threat. It&rsquo;s an existential threat to the entire architecture. And the architecture has a documented mechanism for dealing with threats.</p>
+    </div>
+
+    <!-- Invention Secrecy Act -->
+    <div class="scroll-block" data-block="5-2" data-pipeline="secrecy">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>The Invention Secrecy Act (1951)</strong> gives federal agencies the authority to classify patent applications when disclosure is deemed &ldquo;detrimental to national security.&rdquo; As of FY2023, there are approximately <strong>5,911 active secrecy orders</strong>. Roughly 100&ndash;200 new orders are imposed annually. Inventors face forfeiture of their patent plus up to 2 years imprisonment for disclosure. There is no judicial review and no public accounting of which technologies are being suppressed.</div>
+        <div class="evidence-source"><a href="https://www.law.cornell.edu/uscode/text/35/part-II/chapter-17" target="_blank" rel="noopener">35 U.S.C. &sect;&sect; 181&ndash;188</a>. <a href="https://fas.org/issues/government-secrecy/invention-secrecy/" target="_blank" rel="noopener">Federation of American Scientists (Steven Aftergood), Invention Secrecy Statistics</a>.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-3">
+      <div class="stat-row">
+        <div class="stat-block">
+          <span class="countup" data-target="5911" data-suffix=" active orders">5,911 active orders</span>
+          <span class="stat-label">Patent secrecy orders &mdash; FY2023</span>
+        </div>
+        <div class="stat-block">
+          <span class="countup" data-target="100" data-suffix="-200 new/year">~100-200 new/year</span>
+          <span class="stat-label">Orders imposed annually</span>
+        </div>
+        <div class="stat-block">
+          <span class="countup" data-target="72" data-suffix=" years">72 years</span>
+          <span class="stat-label">Of suppression &mdash; since 1951</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tesla -->
+    <div class="scroll-block" data-block="5-4">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Nikola Tesla&rsquo;s Wardenclyffe Tower</strong> (1901&ndash;1906) was designed as the first node in a global wireless power transmission network. J.P. Morgan withdrew funding when he understood the technology couldn&rsquo;t be metered for profit. No replacement investors would fund the project &mdash; Morgan&rsquo;s banking influence ensured it. The tower was demolished in 1917. Upon Tesla&rsquo;s death on January 7, 1943, the FBI and Office of Alien Property seized approximately 80 trunks of his papers, notes, and equipment.</div>
+        <div class="evidence-source">W. Bernard Carlson, <em>Tesla: Inventor of the Electrical Age</em> (Princeton, 2013). Marc Seifer, <em>Wizard: The Life and Times of Nikola Tesla</em> (1996). <a href="https://vault.fbi.gov/nikola-tesla" target="_blank" rel="noopener">FBI FOIA Release (250+ pages, declassified)</a>.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-5">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/tesla.jpg" alt="Nikola Tesla">
+          <div class="vr-name">Nikola Tesla</div>
+          <div class="vr-role">Wireless power inventor &mdash; papers seized</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/morgan.jpg" alt="J.P. Morgan">
+          <div class="vr-name">J.P. Morgan</div>
+          <div class="vr-role">&ldquo;Where do we put the meter?&rdquo;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-5b">
+      <div class="anim-static"></div>
+    </div>
+
+    <!-- Cold Fusion -->
+    <div class="scroll-block" data-block="5-6">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Martin Fleischmann and Stanley Pons announced nuclear fusion at room temperature on March 23, 1989.</strong> Within weeks, the field was systematically destroyed. MIT reported null results &mdash; but MIT science writer Eugene Mallove documented systematic baseline shifts in MIT&rsquo;s calorimetry data that masked positive results. MIT never formally addressed the allegations. The DOE&rsquo;s 2004 review panel was roughly split &mdash; half found the evidence for excess heat compelling &mdash; but neither DOE review led to federal funding.</div>
+        <div class="evidence-source">Fleischmann &amp; Pons, <em>Journal of Electroanalytical Chemistry</em> (1989). Eugene Mallove, &ldquo;MIT and Cold Fusion: A Special Report&rdquo; (1999). DOE Review Panel (2004). Charles Beaudette, <em>Excess Heat</em> (2002).</div>
+      </div>
+    </div>
+
+    <!-- Mallove -->
+    <div class="scroll-block" data-block="5-7">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim"><strong>Eugene Mallove</strong> &mdash; MIT alumnus (BS &amp; MS in aeronautical engineering) with a Doctor of Science from Harvard School of Public Health, who documented the MIT data manipulation and founded <em>Infinite Energy</em> magazine to advocate for cold fusion research &mdash; <strong>was murdered on May 14, 2004</strong> at a rental property in Norwich, Connecticut. He had recently written an open letter to the Secretary of Energy calling for a new DOE review. Two individuals were eventually convicted. Police described it as a &ldquo;robbery gone wrong.&rdquo;</div>
+        <div class="evidence-source">Hartford Courant. Connecticut court records. <em>Infinite Energy</em> magazine archives. <a href="https://www.legacy.com" target="_blank" rel="noopener">Obituary records</a>.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-8">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/fleischmann.jpg" alt="Martin Fleischmann">
+          <div class="vr-name">Martin Fleischmann</div>
+          <div class="vr-role">Cold fusion researcher &mdash; systematically discredited</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/mallove.jpg" alt="Eugene Mallove">
+          <div class="vr-name">Eugene Mallove</div>
+          <div class="vr-role">MIT whistleblower &mdash; murdered 2004</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stanley Meyer -->
+    <div class="scroll-block" data-block="5-9">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Stanley Meyer</strong> patented a &ldquo;water fuel cell&rdquo; (US Patent 4,936,961, granted 1990) claiming to split water into hydrogen and oxygen using far less energy than conventional electrolysis. An Ohio court found him guilty of &ldquo;gross and egregious fraud&rdquo; in 1996 in a civil suit brought by investors. He <strong>died on March 20, 1998</strong> during a dinner meeting at a Cracker Barrel restaurant in Grove City, Ohio. The Franklin County coroner ruled cerebral aneurysm. His last words, according to his twin brother Stephen: &ldquo;They poisoned me.&rdquo;</div>
+        <div class="evidence-source"><a href="https://patents.google.com/patent/US4936961A/en" target="_blank" rel="noopener">US Patent 4,936,961 (USPTO)</a>. Franklin County Court records (1996). Columbus Dispatch obituary. Family statements to media.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-10">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/meyer_stanley.jpg" alt="Stanley Meyer">
+          <div class="vr-name">Stanley Meyer</div>
+          <div class="vr-role">Water fuel cell inventor &mdash; died 1998</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- T.T. Brown -->
+    <div class="scroll-block" data-block="5-11">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Thomas Townsend Brown</strong> demonstrated asymmetric capacitor devices producing apparent thrust (Biefeld-Brown effect) to the US Navy in the 1950s. The research was subsequently classified. The 1956 Gravity Research Group report &mdash; originally classified &mdash; documented industry-wide aerospace interest from Douglas, Glenn Martin, Convair, and Lear. The <em>New York Herald Tribune</em> ran a front-page series in November 1955: &ldquo;Conquest of Gravity: Aim of Top Scientists in U.S.&rdquo; Then, abruptly, all public discussion ceased.</div>
+        <div class="evidence-source">Paul Schatzkin, <em>Defying Gravity: The Parallel Universe of T. Townsend Brown</em> (2009). Gravity Research Group report (1956). <em>New York Herald Tribune</em> (November 1955).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-12">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/brown_tt.jpg" alt="Thomas Townsend Brown">
+          <div class="vr-name">T. Townsend Brown</div>
+          <div class="vr-role">Electrogravitics researcher &mdash; classified</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/tesla.jpg" alt="Nikola Tesla">
+          <div class="vr-name">Nikola Tesla</div>
+          <div class="vr-role">80 trunks of papers seized &mdash; 1943</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-12b">
+      <div class="anim-static"></div>
+    </div>
+
+    <!-- Exxon Knew -->
+    <div class="scroll-block" data-block="5-13" data-pipeline="exxon">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Exxon&rsquo;s own scientists accurately predicted global warming</strong> during internal research from 1977 to 1982. Their climate models proved remarkably precise. The company then funded climate change denial for 30+ years. The American Petroleum Institute&rsquo;s leaked 1998 &ldquo;Global Climate Science Communications Plan&rdquo; explicitly strategized to &ldquo;reposition global warming as theory rather than fact.&rdquo; Koch Industries funded over $127M to climate denial organizations between 1997 and 2018.</div>
+        <div class="evidence-source"><a href="https://insideclimatenews.org/project/exxon-the-road-not-taken/" target="_blank" rel="noopener">InsideClimate News: &ldquo;Exxon: The Road Not Taken&rdquo; (2015)</a>. <a href="https://www.science.org/doi/10.1126/science.abk0063" target="_blank" rel="noopener"><em>Science</em> (peer-reviewed, 2023)</a>. API internal documents (leaked). Greenpeace Koch funding analysis.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-14">
+      <div class="pull-quote reveal-climax">
+        <div class="pq-text">6,434 patents under secrecy orders. We don&rsquo;t even know what we&rsquo;re not allowed to see.</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT VI &mdash; THE LOCK (white light)                    -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-light" data-act="6" data-act-label="Act VI &mdash; The Lock">
+
+    <div class="act-header">
+      <div class="act-number">Act VI</div>
+      <h2 class="act-title">The Lock</h2>
+    </div>
+
+    <div class="scroll-block" data-block="6-1" data-pipeline="petrodollar">
+      <h3 class="node-title">The Petrodollar Lock</h3>
+      <p>Now you see the lock. The petrodollar system from <a href="/money-wars/" style="color:#f0f0f4; text-decoration: underline; text-underline-offset: 2px;">Scroll 002</a> isn&rsquo;t just a financial arrangement &mdash; it&rsquo;s an energy arrangement. Every country must buy oil. Oil is priced in dollars. Therefore every country must hold dollars.</p>
+      <p>Any technology that replaces oil doesn&rsquo;t just threaten ExxonMobil &mdash; it threatens the reserve currency of the world. This is why the CIA overthrows governments and the patent office classifies inventions. It&rsquo;s the same war.</p>
+    </div>
+
+    <div class="scroll-block" data-block="6-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>The petrodollar agreement (1974&ndash;1975)</strong> between the US and Saudi Arabia &mdash; in which Saudi Arabia committed to pricing all oil exports in US dollars and recycling surplus petroleum revenues into US Treasury securities in exchange for military protection &mdash; was classified for 41 years. Bloomberg obtained the declassified Treasury data in 2016, confirming the structure that underpins dollar hegemony.</div>
+        <div class="evidence-source"><a href="https://www.bloomberg.com/news/features/2016-05-30/the-untold-story-behind-saudi-arabia-s-41-year-u-s-debt-secret" target="_blank" rel="noopener">Bloomberg: &ldquo;The Untold Story Behind Saudi Arabia&rsquo;s 41-Year U.S. Debt Secret&rdquo; (2016)</a>. David E. Spiro, <em>The Hidden Hand of American Hegemony: Petrodollar Recycling and International Markets</em> (1999).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-3">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/kissinger.jpg" alt="Henry Kissinger">
+          <div class="vr-name">Henry Kissinger</div>
+          <div class="vr-role">Brokered the petrodollar deal</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/cheney.jpg" alt="Dick Cheney">
+          <div class="vr-name">Dick Cheney</div>
+          <div class="vr-role">VP, Halliburton CEO, Genie Energy board</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/woolsey.jpg" alt="James Woolsey">
+          <div class="vr-name">James Woolsey</div>
+          <div class="vr-role">CIA Director, Genie Energy board</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Genie Energy -->
+    <div class="scroll-block" data-block="6-4">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Genie Energy</strong>, a company exploring oil shale in the occupied Golan Heights through its subsidiary Afek Oil and Gas, assembled a strategic advisory board including Dick Cheney (former VP, Halliburton CEO), James Woolsey (former CIA Director), Rupert Murdoch (News Corp), and Jacob Rothschild &mdash; petroleum, intelligence, media, and banking on one board, in one company, in occupied territory.</div>
+        <div class="evidence-source">Genie Energy corporate filings (SEC). <a href="https://www.businessinsider.com/genie-energy-oil-and-gas-golan-heights-2013-2" target="_blank" rel="noopener">Business Insider reporting</a>. Afek Oil and Gas license records.</div>
+      </div>
+    </div>
+
+    <!-- Bandar -->
+    <div class="scroll-block" data-block="6-5">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Prince Bandar bin Sultan</strong> (&ldquo;Bandar Bush&rdquo;), Saudi Ambassador to the US for 22 years (1983&ndash;2005), received at least $1 billion through accounts at Riggs Bank from BAE Systems&rsquo; Al-Yamamah arms deal. His wife Princess Haifa sent regular payments to the wife of a man who financially supported two 9/11 hijackers &mdash; as documented in the declassified 28 Pages of the Joint Congressional Inquiry, released in 2016 after 14 years of classification.</div>
+        <div class="evidence-source"><a href="https://www.theguardian.com/world/2007/jun/07/bae.armstrade" target="_blank" rel="noopener">The Guardian: &ldquo;BAE: The Saudi Connection&rdquo; (2007)</a>. <a href="https://intelligence.house.gov/sites/intelligence.house.gov/files/documents/declasspart4.pdf" target="_blank" rel="noopener">Joint Inquiry 28 Pages (declassified 2016)</a>. Craig Unger, <em>House of Bush, House of Saud</em> (2004).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-6">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/bandar.jpg" alt="Prince Bandar bin Sultan">
+          <div class="vr-name">Prince Bandar bin Sultan</div>
+          <div class="vr-role">&ldquo;Bandar Bush&rdquo; &mdash; Saudi Ambassador, 22 years</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Structural inference -->
+    <div class="scroll-block" data-block="6-7">
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim"><strong>The pattern connecting all six acts is structural:</strong> petroleum monopoly &rarr; cartel price-fixing &rarr; CIA coups to protect supply &rarr; pharmaceutical/agricultural dependency on petroleum &rarr; suppression of alternative energy &rarr; petrodollar system requiring oil dependency for dollar hegemony. Each layer reinforces the others. Removing any one element threatens the entire architecture. This is not a conspiracy &mdash; it&rsquo;s a system.</div>
+        <div class="evidence-source">Structural analysis from documented evidence presented across all acts of this investigation.</div>
+      </div>
+    </div>
+
+    <!-- The Lock pattern grid -->
+    <div class="scroll-block" data-block="6-8">
+      <h3 class="node-title">The Lock</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Monopoly</span><span class="pr-value">Standard Oil &rarr; reconsolidation &rarr; market dominance</span></div>
+        <div class="pattern-row"><span class="pr-label">Cartel</span><span class="pr-value">Achnacarry / Seven Sisters &rarr; pricing power</span></div>
+        <div class="pattern-row"><span class="pr-label">Coups</span><span class="pr-value">CIA regime change &rarr; supply access</span></div>
+        <div class="pattern-row"><span class="pr-label">Dependency</span><span class="pr-value">Pharma + agriculture &rarr; demand lock-in</span></div>
+        <div class="pattern-row"><span class="pr-label">Suppression</span><span class="pr-value">Patent secrecy, career destruction &rarr; no alternatives</span></div>
+        <div class="pattern-row"><span class="pr-label">Currency</span><span class="pr-value">Petrodollar system &rarr; dollar hegemony</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-9">
+      <div class="anim-you-dot">
+        <span class="dot"></span> You are here
+      </div>
+    </div>
+
+    <!-- Closing terminal -->
+    <div class="scroll-block chain-summary" data-block="6-10">
+      <div class="typed-terminal" id="oil-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["ANALYSIS COMPLETE.","STANDARD OIL (1870) ^500&rarr; ACHNACARRY (1928) ^500&rarr; AJAX (1953) ^500&rarr; PETRODOLLAR (1974) ^500&rarr; PATENT SECRECY ^500&rarr; RECONSOLIDATION (1999)","THE MONOPOLY WASN&apos;T BROKEN. ^1000 IT WAS INSTALLED.","ONE MOLECULE. ^500 ONE CENTURY. ^500 TOTAL CONTROL."]'></span>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-11">
+      <p>Every coup in this investigation had an oil field behind it. Every suppressed technology had a petroleum market to protect. Every patent secrecy order has a monopoly it serves. The war for oil is the war for everything &mdash; because petroleum isn&rsquo;t just what powers the machine. It&rsquo;s what the machine is made of.</p>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- CLOSING                                                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <section class="closing" id="closing">
+    <div class="closing-content">
+      <div class="closing-statement">The oil war isn&rsquo;t about fuel. It&rsquo;s about a molecule that controls energy, medicine, food, and the global reserve currency simultaneously &mdash; and the institutional architecture that prevents anything from replacing it.</div>
+      <div class="closing-sub">Every claim in this scroll is classified by evidence tier. Nothing presented as documented is speculative. Nothing credible is treated as confirmed. The pattern is the argument &mdash; not any single claim.</div>
+
+      <div class="closing-legend">
+        <div class="closing-legend-item"><span class="el-dot" style="background:#34d399"></span> Documented &mdash; official records, FOIA releases, government reports, court documents, corporate filings</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fbbf24"></span> Credible &mdash; credentialed witness testimony, verified backgrounds, consistent accounts</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fb923c"></span> Inference &mdash; pattern analysis connecting documented and credible evidence</div>
+      </div>
+
+      <div class="closing-cta">
+        <p>Disclosure is not a single event. It&rsquo;s a process. And it only works if people are paying attention.</p>
+      </div>
+
+      <div class="closing-links">
+        <a href="/mind-wars/" class="closing-link">&larr; Scroll 004: Mind Wars &mdash; the war on consciousness</a>
+        <a href="/media-wars/" class="closing-link-next">Continue to Scroll 006: Media Wars &mdash; the war that hides all the others &rarr;</a>
+        <a href="/war-for-machine/" class="closing-link">&larr; Scroll 001: AI Wars &mdash; the 44-year surveillance pipeline</a>
+        <a href="/money-wars/" class="closing-link">&larr; Scroll 002: Money Wars &mdash; every country that left the dollar</a>
+        <a href="/space-wars/" class="closing-link">&larr; Scroll 003: Space Wars &mdash; two histories of space</a>
+        <a href="https://qav2.github.io/intel-console/" class="closing-link" target="_blank" rel="noopener">Explore the Intel Console &mdash; 825 entities, 1,411 relationships &rarr;</a>
+        <a href="/" class="closing-link-home">&larr; Disclosure Scrolls &mdash; full archive</a>
+      </div>
+
+      <div class="closing-support">
+        <div class="support-label">Independent research. No sponsors. No algorithm.</div>
+        <a href="https://buymeacoffee.com/joeyv23" class="support-link" target="_blank" rel="noopener">Support this work</a>
+      </div>
+
+      <div class="closing-footer">
+        <p>Disclosure Scrolls &mdash; documented investigations you can scroll through.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ Scripts ═══ -->
+  <script src="../war-for-machine/js/engine.js" defer></script>
+  <script src="../war-for-machine/js/gsap-effects.js" defer></script>
+
+</body>
+</html>
