@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Wars &mdash; Disclosure Scrolls</title>
+  <meta name="description" content="400 journalists worked for the CIA. 6 corporations control 90% of media. LifeLog shut down the same day Facebook launched. This is the war you're inside.">
+  <meta property="og:title" content="Media Wars">
+  <meta property="og:description" content="Operation Mockingbird. Smith-Mundt. The Twitter Files. The war that makes all the other wars invisible &mdash; documented, sourced, and scrollable.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://disclosure-scrolls.netlify.app/media-wars/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Disclosure Scrolls">
+  <meta property="og:url" content="https://disclosure-scrolls.netlify.app/media-wars/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Media Wars">
+  <meta name="twitter:description" content="Operation Mockingbird. Smith-Mundt. The Twitter Files. The war that makes all the other wars invisible.">
+  <meta name="twitter:image" content="https://disclosure-scrolls.netlify.app/media-wars/og-image.png">
+  <meta name="theme-color" content="#06060b">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://disclosure-scrolls.netlify.app/media-wars/">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="../war-for-machine/css/style.css">
+
+  <!-- CountUp.js -->
+  <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js" defer></script>
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+
+  <style>
+    /* ── Media Wars overrides ── */
+
+    /* Signal yellow accent */
+    ::selection { background: rgba(251, 191, 36, 0.25); color: #fff; }
+
+    /* Company/org badges */
+    .badge-cia { color: #94a3b8; border-color: rgba(148,163,184,0.25); background: rgba(148,163,184,0.06); }
+    .badge-nyt { color: #f0f0f4; border-color: rgba(240,240,244,0.25); background: rgba(240,240,244,0.06); }
+    .badge-fox { color: #f87171; border-color: rgba(248,113,113,0.25); background: rgba(248,113,113,0.06); }
+    .badge-disney { color: #60a5fa; border-color: rgba(96,165,250,0.25); background: rgba(96,165,250,0.06); }
+    .badge-comcast { color: #a78bfa; border-color: rgba(167,139,250,0.25); background: rgba(167,139,250,0.06); }
+    .badge-pentagon { color: #fbbf24; border-color: rgba(251,191,36,0.25); background: rgba(251,191,36,0.06); }
+    .badge-inqtel { color: #34d399; border-color: rgba(52,211,153,0.25); background: rgba(52,211,153,0.06); }
+    .badge-fbi { color: #38bdf8; border-color: rgba(56,189,248,0.25); background: rgba(56,189,248,0.06); }
+
+    /* Act III — amber reveal */
+    .act-reveal .act-title { color: #fbbf24; }
+    .act-reveal .act-number { color: rgba(251, 191, 36, 0.4); }
+    .act-reveal .node-title { color: #fbbf24; border-bottom-color: rgba(251,191,36,0.15); }
+    .act-reveal .pull-quote { border-left-color: rgba(251,191,36,0.25); }
+
+    /* Act V — cosmic blue */
+    .act-cosmic .act-title { color: #93c5fd; }
+    .act-cosmic .act-number { color: rgba(147,197,253,0.4); }
+    .act-cosmic .node-title { color: #93c5fd; border-bottom-color: rgba(147,197,253,0.15); }
+    .act-cosmic .pull-quote { border-left-color: rgba(147,197,253,0.25); }
+    .act-cosmic .evidence-card { border-left-color: rgba(147,197,253,0.25); }
+
+    /* Act VI — white light */
+    .act-light .act-title { color: #f0f0f4; }
+    .act-light .act-number { color: rgba(240,240,244,0.4); }
+    .act-light .node-title { color: #f0f0f4; border-bottom-color: rgba(240,240,244,0.15); }
+    .act-light .pull-quote { border-left-color: rgba(240,240,244,0.25); }
+
+    @media (max-width: 600px) {
+      .pattern-row { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ Particle Network Background ═══ -->
+  <canvas id="particle-net" class="particle-canvas"></canvas>
+
+  <!-- ═══ Progress Bar ═══ -->
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <!-- ═══ Pipeline Tracker ═══ -->
+  <div class="pipeline-track" id="pipeline-track">
+    <div class="pipeline-inner">
+      <div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
+      <div class="pipeline-node" data-step="bernays"><span class="pn-year">1928</span><span class="pn-label">Bernays</span></div>
+      <div class="pipeline-node" data-step="mockingbird"><span class="pn-year">1950</span><span class="pn-label">Mockingbird</span></div>
+      <div class="pipeline-node" data-step="consolidation"><span class="pn-year">1996</span><span class="pn-label">Consolidation</span></div>
+      <div class="pipeline-node" data-step="smithmundt"><span class="pn-year">2013</span><span class="pn-label">Smith-Mundt</span></div>
+      <div class="pipeline-node" data-step="lifelog"><span class="pn-year">2004</span><span class="pn-label">LifeLog/Facebook</span></div>
+      <div class="pipeline-node" data-step="twitter"><span class="pn-year">2022</span><span class="pn-label">Twitter Files</span></div>
+      <div class="pipeline-node" data-step="now"><span class="pn-year">NOW</span><span class="pn-label">You Are Here</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ Act Indicator ═══ -->
+  <div class="act-indicator" id="act-indicator"></div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- TITLE SCREEN                                             -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="title-screen" id="title-screen">
+    <div class="title-content">
+      <a href="/" class="back-link">&larr; Disclosure Scrolls</a>
+      <div class="title-label">Scroll 006</div>
+      <div class="title-reading-time">~30 min read</div>
+      <h1 class="title-main">Media Wars</h1>
+      <p class="title-sub">You&rsquo;ve scrolled through five wars &mdash; surveillance, money, space, consciousness, oil. You&rsquo;re probably wondering: if all of this is documented, why haven&rsquo;t I heard about it? This is why. The sixth war is the one you&rsquo;re already inside.</p>
+      <div class="title-meta">
+        <span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fbbf24"></span> Credible</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
+      </div>
+      <div class="scroll-cue">&darr; Begin scrolling</div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT I &mdash; THE SCIENCE                                 -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="1" data-act-label="Act I &mdash; The Science">
+
+    <div class="act-header">
+      <div class="act-number">Act I</div>
+      <h2 class="act-title">The Science</h2>
+    </div>
+
+    <div class="scroll-block" data-block="1-1" data-pipeline="bernays">
+      <h3 class="node-title">The Architects of Consent</h3>
+      <p>Before there was media control, there was media science. In the 1920s, two men &mdash; one the nephew of Sigmund Freud, the other a presidential advisor &mdash; designed the intellectual framework for controlling what entire populations believe. They didn&rsquo;t hide it. They published it.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Edward Bernays</strong>, nephew of Sigmund Freud, published <em>Propaganda</em> in 1928. Opening line: <em>&ldquo;The conscious and intelligent manipulation of the organized habits and opinions of the masses is an important element in democratic society. Those who manipulate this unseen mechanism of society constitute an invisible government which is the true ruling power of our country.&rdquo;</em> Bernays coined the term &ldquo;public relations&rdquo; as a euphemism for propaganda.</div>
+        <div class="evidence-source">Edward Bernays, <em>Propaganda</em> (1928, Horace Liveright). <a href="https://archive.org/details/propaganda-edward-bernays" target="_blank" rel="noopener">Archive.org: full text</a>. Larry Tye, <em>The Father of Spin</em> (1998).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Walter Lippmann</strong>, advisor to President Wilson and co-founder of <em>The New Republic</em>, coined the phrase &ldquo;manufacture of consent&rdquo; in his 1922 book <em>Public Opinion</em>. He argued that the general public is incapable of understanding complex affairs and that a &ldquo;specialized class&rdquo; must manage public perception on their behalf. The phrase was later adopted by Noam Chomsky as the title of his landmark media criticism.</div>
+        <div class="evidence-source">Walter Lippmann, <em>Public Opinion</em> (1922). <a href="https://archive.org/details/publicopinion00lippgoog" target="_blank" rel="noopener">Archive.org: full text</a>. Noam Chomsky &amp; Edward Herman, <em>Manufacturing Consent</em> (1988).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-4">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/bernays.jpg" alt="Edward Bernays">
+          <div class="vr-name">Edward Bernays</div>
+          <div class="vr-role">&ldquo;Father of Public Relations&rdquo; &mdash; Freud&rsquo;s nephew</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/lippmann.jpg" alt="Walter Lippmann">
+          <div class="vr-name">Walter Lippmann</div>
+          <div class="vr-role">&ldquo;Manufacture of consent&rdquo; &mdash; presidential advisor</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-5">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>Tavistock Institute</strong>, established in 1947 as an offshoot of the Tavistock Clinic&rsquo;s WWII psychological warfare work for the British Army, became a central node in the development of mass persuasion techniques. Its work on group dynamics, social engineering, and attitude change informed both military psychological operations and commercial advertising methodology.</div>
+        <div class="evidence-source">Eric Trist &amp; Hugh Murray, <em>The Social Engagement of Social Science: A Tavistock Anthology</em> (1990). Tavistock Institute founding records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-6">
+      <div class="pull-quote">
+        <div class="pq-text">&ldquo;The conscious and intelligent manipulation of the organized habits and opinions of the masses is an important element in democratic society.&rdquo;</div>
+        <div class="pq-attr">&mdash; Edward Bernays, <em>Propaganda</em> (1928)</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT II &mdash; THE INFILTRATION                           -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="2" data-act-label="Act II &mdash; The Infiltration">
+
+    <div class="act-header">
+      <div class="act-number">Act II</div>
+      <h2 class="act-title">The Infiltration</h2>
+    </div>
+
+    <div class="scroll-block" data-block="2-1" data-pipeline="mockingbird">
+      <p>What Bernays theorized, the CIA operationalized. By the 1960s, the agency had penetrated the entire American media landscape &mdash; not through external pressure, but from inside the newsrooms.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-2">
+      <h3 class="node-title">Operation Mockingbird</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>Church Committee</strong> (1976) confirmed that the CIA maintained relationships with over 50 American journalists and media figures, and had infiltrated major publications. The operation was managed under the informal name &ldquo;Mockingbird,&rdquo; with <strong>Frank Wisner</strong> (CIA Office of Policy Coordination founder) as its architect. Wisner referred to the network as his &ldquo;Mighty Wurlitzer&rdquo; &mdash; a propaganda organ he could play at will.</div>
+        <div class="evidence-source"><a href="https://www.intelligence.senate.gov/publications/final-report-select-committee-study-governmental-operations-respect-intelligence" target="_blank" rel="noopener">Church Committee Final Report, Book I (Senate Report 94-755, 1976)</a>. CIA Family Jewels (declassified 2007).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Carl Bernstein</strong> &mdash; the journalist who broke Watergate &mdash; published a 25,000-word expos&eacute; in <em>Rolling Stone</em> (October 20, 1977) documenting that <strong>over 400 American journalists</strong> carried out assignments for the CIA between 1950 and 1977. The operations included planting stories, suppressing stories, and providing cover identities for CIA officers abroad. Major outlets named: <em>The New York Times</em>, <em>Time</em>, CBS, ABC, the Associated Press, and Reuters.</div>
+        <div class="evidence-source"><a href="https://www.carlbernstein.com/the-cia-and-the-media-rolling-stone-10-20-1977" target="_blank" rel="noopener">Carl Bernstein, &ldquo;The CIA and the Media&rdquo; (<em>Rolling Stone</em>, Oct 20, 1977)</a>.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-4">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/wisner.jpg" alt="Frank Wisner">
+          <div class="vr-name">Frank Wisner</div>
+          <div class="vr-role">CIA &mdash; Operation Mockingbird architect</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/bernstein.jpg" alt="Carl Bernstein">
+          <div class="vr-name">Carl Bernstein</div>
+          <div class="vr-role">Exposed CIA-media operation (1977)</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/dulles_allen.jpg" alt="Allen Dulles">
+          <div class="vr-name">Allen Dulles</div>
+          <div class="vr-role">CIA Director during Mockingbird&rsquo;s peak</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-5">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Philip Graham</strong>, publisher of <em>The Washington Post</em> and identified by multiple sources as a key Mockingbird asset. A CIA operative reportedly remarked that <em>&ldquo;you could get a journalist cheaper than a good call girl, for a couple hundred dollars a month&rdquo;</em> &mdash; describing the economics of the operation Graham helped facilitate. Graham died in 1963 of a gunshot wound.</div>
+        <div class="evidence-source">Bernstein, <em>Rolling Stone</em> (1977). Deborah Davis, <em>Katharine the Great</em> (1979). <em>Washington Post</em> obituary records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-6">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Frances Stonor Saunders</strong> documented that the CIA covertly funded and directed the <strong>Congress for Cultural Freedom</strong> &mdash; an international network of magazines, conferences, and cultural organizations across 35 countries &mdash; as part of a coordinated cultural Cold War strategy to shape intellectual opinion in the West.</div>
+        <div class="evidence-source">Frances Stonor Saunders, <em>The Cultural Cold War: The CIA and the World of Arts and Letters</em> (1999). CIA declassified records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-7">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Roy Cohn</strong> &mdash; McCarthy&rsquo;s chief counsel and later Donald Trump&rsquo;s mentor &mdash; operated a media control network spanning the <em>New York Times</em> (through editor Abe Rosenthal and columnist William Safire), <em>New York Post</em>/Fox (Rupert Murdoch), Cond&eacute; Nast (Si Newhouse Jr.), <em>National Enquirer</em> (Generoso Pope Jr., documented CIA-connected), and <em>National Review</em> (William Buckley, who maintained a close financial and personal relationship with Cohn). This network provided infrastructure for both suppression and amplification of narratives.</div>
+        <div class="evidence-source">Whitney Webb, <em>One Nation Under Blackmail</em> Vol 1 &amp; 2 (2022). LIFE Magazine (1969, Buckley/Cohn loan). <em>New York Magazine</em> (Cohn/Murdoch relationship).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-8">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">A <strong>1983 Reagan Library photograph</strong> shows President Reagan, Rupert Murdoch, USIA Director Charles Wick, and Roy Cohn together in the Oval Office. Iran-Contra documents reveal CIA Director William Casey ran illegal domestic propaganda operations promoting Contra support. Fox Broadcasting Corporation launched in October 1986 &mdash; the same period Murdoch was described in intelligence documents as a potential source for private funding.</div>
+        <div class="evidence-source">Reagan Library photograph (1983). Iran-Contra investigation documents. FCC records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-9">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/cohn.jpg" alt="Roy Cohn">
+          <div class="vr-name">Roy Cohn</div>
+          <div class="vr-role">McCarthy counsel &mdash; media blackmail network</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/murdoch.jpg" alt="Rupert Murdoch">
+          <div class="vr-name">Rupert Murdoch</div>
+          <div class="vr-role">News Corp/Fox &mdash; 1983 Oval Office</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-10">
+      <div class="company-badge badge-cia">CIA</div>
+      <div class="company-badge badge-nyt">NYT</div>
+      <div class="company-badge badge-fox">FOX</div>
+    </div>
+
+    <!-- ── Mockingbird Chain ── -->
+    <div class="scroll-block chain-summary" data-block="2-11">
+      <div class="typed-terminal" id="mockingbird-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING MEDIA INFILTRATION...","Wisner (OPC, 1948) ^500&rarr; Dulles (CIA Dir) ^500&rarr; 400+ journalists (1950-77) ^500&rarr; Cohn network (1960s-80s) ^500&rarr; Murdoch/Fox (1986)","OPERATION MOCKINGBIRD WASN&apos;T EXPOSED. ^1000 IT WAS PRIVATIZED."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">Wisner</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Dulles</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">400+ Journalists</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Cohn</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Murdoch/Fox</span>
+      </div>
+      <p class="chain-decode">CIA architect &rarr; Director authorization &rarr; Media penetration &rarr; Blackmail network &rarr; Corporate privatization</p>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT III &mdash; THE CONSOLIDATION (amber reveal)          -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-reveal" data-act="3" data-act-label="Act III &mdash; The Consolidation">
+
+    <div class="act-header">
+      <div class="act-number">Act III</div>
+      <h2 class="act-title">The Consolidation</h2>
+    </div>
+
+    <div class="scroll-block" data-block="3-1" data-pipeline="consolidation">
+      <p>Operation Mockingbird required placing individual agents in individual newsrooms. That was expensive and fragile. The consolidation wave of the 1990s solved both problems: instead of infiltrating 50 companies, you only need to control 6.</p>
+    </div>
+
+    <div class="scroll-block" data-block="3-2">
+      <h3 class="node-title">50 &rarr; 6</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In 1983, approximately <strong>50 companies</strong> controlled the majority of American media. By 2024, that number had consolidated to <strong>6</strong>: Comcast (NBCUniversal), Disney (ABC, ESPN, Hulu), News Corp/Fox Corporation (Fox News, Wall Street Journal), Warner Bros. Discovery (CNN, HBO), Paramount Global (CBS, MTV, Nickelodeon), and Sony (Columbia Pictures). These corporations control approximately 90% of what Americans read, watch, and listen to.</div>
+        <div class="evidence-source">Ben Bagdikian, <em>The Media Monopoly</em> (1983, updated editions through 2004). FCC ownership data. Columbia Journalism Review media consolidation tracker.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>Telecommunications Act of 1996</strong> &mdash; the first major overhaul of US telecommunications law in 62 years &mdash; eliminated most ownership caps on radio stations and relaxed TV ownership limits. Within a year, radio station ownership consolidated dramatically: <strong>Clear Channel</strong> (now iHeartMedia) grew from 40 stations to over 1,200.</div>
+        <div class="evidence-source">Telecommunications Act of 1996 (Public Law 104-104). FCC ownership data. Columbia Journalism Review.</div>
+      </div>
+    </div>
+
+    <!-- ── CountUp stats ── -->
+    <div class="scroll-block" data-block="3-4">
+      <div class="stat-row">
+        <div class="stat-block">
+          <span class="countup" data-target="50" id="cu-companies-83">50</span>
+          <span class="stat-label">media companies (1983)</span>
+        </div>
+        <div class="stat-block">
+          <span class="countup" data-target="6" id="cu-companies-24">6</span>
+          <span class="stat-label">media companies (2024)</span>
+        </div>
+        <div class="stat-block">
+          <span class="countup" data-target="90" data-suffix="%" id="cu-control">90%</span>
+          <span class="stat-label">of American media controlled</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-5">
+      <div class="company-badge badge-comcast">Comcast</div>
+      <div class="company-badge badge-disney">Disney</div>
+      <div class="company-badge badge-fox">Fox</div>
+      <div class="company-badge badge-pentagon">Pentagon</div>
+    </div>
+
+    <!-- ── Pentagon entertainment ── -->
+    <div class="scroll-block" data-block="3-6">
+      <h3 class="node-title">The Entertainment Machine</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>Pentagon</strong> has operated a formal entertainment liaison office since 1948. Between 1911 and 2017, over <strong>800 feature films</strong> received Department of Defense support. Since 2005, over <strong>900 TV titles</strong> received Pentagon backing. In exchange for equipment, locations, and technical advisors, productions must submit scripts for approval and accept military-mandated changes. Productions depicting military incompetence, war crimes, or illegal arms sales are rejected.</div>
+        <div class="evidence-source">Matthew Alford &amp; Tom Secker, <em>National Security Cinema</em> (2017). Secker &amp; Alford FOIA documents. Roger Stahl, <em>Theaters of War</em> (documentary, 2022).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-7">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>CIA established a formal entertainment liaison office in 1996</strong>. First liaison: <strong>Chase Brandon</strong>, a 25-year covert operations veteran. The CIA has assisted 60+ film and TV productions since 1947. <em>Mission: Impossible</em> (1996) had its script changed at CIA request. The CIA and British IRD secretly purchased the film rights to George Orwell&rsquo;s <em>Animal Farm</em> and altered the ending so the communists were overthrown &mdash; turning an anti-totalitarian allegory into Cold War propaganda.</div>
+        <div class="evidence-source">Tricia Jenkins, <em>The CIA in Hollywood</em> (2012). Tony Shaw, <em>British Cinema and the Cold War</em> (2006). CIA public affairs records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-8">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">A 1943 OSS memorandum stated that cinema is <em>&ldquo;one of the most powerful propaganda weapons at the disposal of the United States.&rdquo;</em> OWI Director Elmer Davis wrote: <em>&ldquo;The easiest way to inject a propaganda idea into most people&rsquo;s minds is to let it go through the medium of an entertainment picture when they do not realize that they are being propagandized.&rdquo;</em></div>
+        <div class="evidence-source">OSS records (National Archives). OWI records. Declassified WWII propaganda studies.</div>
+      </div>
+    </div>
+
+    <!-- ── Valenti ── -->
+    <div class="scroll-block" data-block="3-9">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Jack Valenti</strong> &mdash; who was in the Kennedy motorcade in Dallas on November 22, 1963 and became LBJ&rsquo;s special assistant that same day &mdash; was appointed president of the MPAA in 1966, a position he held for 38 years (until 2004), controlling the film ratings system that determines what Americans see and how films are marketed.</div>
+        <div class="evidence-source">MPAA records. LBJ Library archives. Valenti biographical records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-10">
+      <div class="pull-quote reveal-climax">
+        <div class="pq-text">You don&rsquo;t need to censor 50 companies when 6 will do. The Telecommunications Act didn&rsquo;t deregulate media. It consolidated the Mockingbird.</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT IV &mdash; THE LEGALIZATION                           -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="4" data-act-label="Act IV &mdash; The Legalization">
+
+    <div class="act-header">
+      <div class="act-number">Act IV</div>
+      <h2 class="act-title">The Legalization</h2>
+    </div>
+
+    <div class="scroll-block" data-block="4-1" data-pipeline="smithmundt">
+      <p>For 65 years, it was illegal for the US government to direct propaganda at its own citizens. In 2013, buried inside a must-pass defense bill, that protection was quietly removed.</p>
+    </div>
+
+    <div class="scroll-block" data-block="4-2">
+      <h3 class="node-title">Smith-Mundt</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>Smith-Mundt Act (1948)</strong> explicitly prohibited domestic dissemination of materials produced by the State Department and US government broadcasting entities &mdash; Voice of America, Radio Free Europe &mdash; preventing government-produced propaganda directed abroad from being turned inward against American citizens.</div>
+        <div class="evidence-source">Public Law 80-402 (1948). Congressional Record.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>Smith-Mundt Modernization Act</strong> &mdash; Section 1078 of the NDAA FY2013, signed by President Obama on January 2, 2013 &mdash; struck the domestic dissemination ban. State Department and US Agency for Global Media materials with an annual budget of ~$810 million, broadcasting in 60+ languages, can now legally target American citizens. It was embedded in a must-pass defense authorization bill and passed with minimal public debate.</div>
+        <div class="evidence-source"><a href="https://www.congress.gov/bill/112th-congress/house-bill/5736" target="_blank" rel="noopener">Public Law 112-239, Section 1078</a>. <em>Foreign Policy</em> Magazine (2013). Congress.gov (H.R. 5736).</div>
+      </div>
+    </div>
+
+    <!-- ── Pentagon analysts ── -->
+    <div class="scroll-block" data-block="4-4">
+      <h3 class="node-title">Message Force Multipliers</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>Pentagon Military Analyst Program (2002&ndash;2008)</strong> recruited 75+ retired generals and colonels who appeared on CNN, Fox News, NBC, CBS, ABC, and MSNBC as &ldquo;independent military analysts&rdquo; &mdash; while secretly receiving Pentagon talking points and coordinating messaging with the Department of Defense. Internal documents called them <em>&ldquo;message force multipliers&rdquo;</em> and <em>&ldquo;surrogates.&rdquo;</em> Many held undisclosed financial ties to defense contractors profiting from the wars they promoted on air.</div>
+        <div class="evidence-source"><a href="https://www.nytimes.com/2008/04/20/us/20telecom.html" target="_blank" rel="noopener">David Barstow, &ldquo;Behind TV Analysts, Pentagon&rsquo;s Hidden Hand&rdquo; (<em>New York Times</em>, April 20, 2008)</a>. Pulitzer Prize for Investigative Reporting (2009). Pentagon FOIA documents (8,000+ pages).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-5">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Despite David Barstow winning the <strong>Pulitzer Prize</strong> for exposing the Pentagon analyst program, <strong>no major television network conducted an on-air investigation of its own participation</strong>. The FCC received formal complaints from Representatives Rosa DeLauro and John Dingell. The FCC took no enforcement action. No analyst or Pentagon official faced consequences.</div>
+        <div class="evidence-source">FCC records. Congressional correspondence. Pulitzer Prize records (2009).</div>
+      </div>
+    </div>
+
+    <!-- ── CIA 1035-960 ── -->
+    <div class="scroll-block" data-block="4-6">
+      <h3 class="node-title">Document 1035-960</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>CIA Document 1035-960</strong> (1967), declassified via a 1976 <em>New York Times</em> FOIA request, was titled &ldquo;Countering Criticism of the Warren Report.&rdquo; It instructed CIA media assets to use the term <em>&ldquo;conspiracy theory&rdquo;</em> as a pejorative label to discredit critics. Specific tactics: approach &ldquo;friendly elite contacts (especially politicians and editors),&rdquo; claim critics are &ldquo;wedded to theories adopted before evidence was in,&rdquo; and assert &ldquo;no significant new evidence has emerged.&rdquo;</div>
+        <div class="evidence-source"><a href="https://www.maryferrell.org/showDoc.html?docId=53510" target="_blank" rel="noopener">CIA Document 1035-960 (declassified 1976)</a>. <em>New York Times</em> FOIA. Lance deHaven-Smith, <em>Conspiracy Theory in America</em> (2013).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-7">
+      <div class="pull-quote">
+        <div class="pq-text">&ldquo;Conspiracy theory&rdquo; wasn&rsquo;t a natural phrase. It was a CIA media strategy &mdash; Document 1035-960, 1967. Deployed to neutralize Warren Commission critics. Still operational.</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT V &mdash; THE PLATFORM (cosmic blue)                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-cosmic" data-act="5" data-act-label="Act V &mdash; The Platform">
+
+    <div class="act-header">
+      <div class="act-number">Act V</div>
+      <h2 class="act-title">The Platform</h2>
+    </div>
+
+    <div class="scroll-block" data-block="5-1" data-pipeline="lifelog">
+      <p>Operation Mockingbird put CIA agents in newsrooms. The digital era did something more elegant: it made the newsroom itself &mdash; the platform where all information flows &mdash; into the intelligence infrastructure. You don&rsquo;t need to infiltrate the media when the media is built on your architecture.</p>
+    </div>
+
+    <div class="scroll-block" data-block="5-2">
+      <h3 class="node-title">LifeLog &rarr; Facebook</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">DARPA&rsquo;s <strong>LifeLog program</strong> &mdash; designed to create a &ldquo;digital record of everything an individual does&rdquo; including purchases, communications, photos, and social connections &mdash; was officially cancelled on <strong>February 4, 2004</strong>. Facebook launched on the same day: <strong>February 4, 2004</strong>.</div>
+        <div class="evidence-source"><a href="https://www.wired.com/2004/02/pentagon-kills-lifelog-project/" target="_blank" rel="noopener">Wired, &ldquo;Pentagon Kills LifeLog Project&rdquo; (Feb 4, 2004)</a>. DARPA program records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>In-Q-Tel</strong>, the CIA&rsquo;s venture capital arm founded in 1999, has invested in companies across the surveillance and data analytics ecosystem. Facebook&rsquo;s first outside investor, <strong>Peter Thiel</strong>, co-founded Palantir Technologies &mdash; which received early In-Q-Tel funding and is now the primary AI targeting platform for the Pentagon (Maven Smart System). <strong>Sean Parker</strong>, Facebook&rsquo;s first president, has been reported as having been recruited by a federal agency at age 16 after being caught hacking.</div>
+        <div class="evidence-source">In-Q-Tel public investment records. Palantir corporate history. <em>Forbes</em>. Webb, <em>One Nation Under Blackmail</em> (2022).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-4">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/thiel.jpg" alt="Peter Thiel">
+          <div class="vr-name">Peter Thiel</div>
+          <div class="vr-role">Palantir co-founder &mdash; first Facebook investor</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/parker.jpg" alt="Sean Parker">
+          <div class="vr-name">Sean Parker</div>
+          <div class="vr-role">Facebook&rsquo;s first president</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-5">
+      <div class="company-badge badge-inqtel">In-Q-Tel</div>
+      <div class="company-badge badge-cia">CIA</div>
+      <div class="company-badge badge-fbi">FBI</div>
+    </div>
+
+    <div class="scroll-block" data-block="5-6">
+      <div class="anim-static">
+        <div class="static-bar"></div>
+        <div class="static-bar"></div>
+        <div class="static-bar"></div>
+      </div>
+    </div>
+
+    <!-- ── Twitter Files ── -->
+    <div class="scroll-block" data-block="5-7" data-pipeline="twitter">
+      <h3 class="node-title">The Twitter Files</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>Twitter Files</strong> (released beginning December 2, 2022) documented systematic government-platform coordination for content suppression. The FBI maintained regular channels with Twitter and <strong>paid $3.4 million</strong> through a &ldquo;reimbursement program&rdquo; for processing government requests. DHS, CISA, and the State Department maintained separate content moderation channels. The FBI held weekly meetings with Twitter staff warning of &ldquo;hack-and-leak&rdquo; operations &mdash; while possessing the Hunter Biden laptop since December 2019 and having confirmed its authenticity.</div>
+        <div class="evidence-source">Internal Twitter communications (released by Taibbi, Shellenberger, Weiss, Fang, Zweig). Twitter financial records. <a href="https://judiciary.house.gov/sites/evo-subsites/republicans-judiciary.house.gov/files/evo-media-document/Weaponization-Final-Report.pdf" target="_blank" rel="noopener">House Judiciary Weaponization Subcommittee Final Report</a>.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-8">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>Election Integrity Partnership</strong> (2020) was created at CISA&rsquo;s request as a consortium including Stanford Internet Observatory and the University of Washington. It functioned as a clearinghouse routing government censorship requests to social media platforms under the guise of independent academic analysis &mdash; circumventing First Amendment constraints on direct government speech suppression.</div>
+        <div class="evidence-source">Stanford Internet Observatory records. House Judiciary Subcommittee investigation. Internal communications.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-9">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Government-affiliated entities flagged posts by credentialed scientists for suppression during COVID-19: Stanford&rsquo;s <strong>Dr. Jay Bhattacharya</strong> was placed on a &ldquo;trends blacklist&rdquo;; Harvard&rsquo;s <strong>Dr. Martin Kulldorff</strong> had posts labeled &ldquo;misleading.&rdquo; Suppressed topics included peer-reviewed vaccine side effects research, natural immunity data, and the lab-leak hypothesis &mdash; all later acknowledged as legitimate scientific inquiry.</div>
+        <div class="evidence-source">Twitter Files (David Zweig thread). Internal Twitter moderation records. House Judiciary investigation.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-10">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Murthy v. Missouri</strong> reached the Supreme Court in 2024. The 6&ndash;3 decision (Barrett, J.) ruled plaintiffs lacked Article III standing &mdash; declining to address the First Amendment merits. Justice Alito&rsquo;s dissent warned the decision allowed &ldquo;the successful campaign of coercion&rdquo; to stand as a model for future government-platform censorship coordination.</div>
+        <div class="evidence-source">Supreme Court Opinion No. 23-411. Alito dissent. Oral arguments transcript.</div>
+      </div>
+    </div>
+
+    <!-- ── Platform Chain ── -->
+    <div class="scroll-block chain-summary" data-block="5-11">
+      <div class="typed-terminal" id="platform-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING DIGITAL INFRASTRUCTURE...","In-Q-Tel (1999) ^500&rarr; LifeLog/Facebook (2004) ^500&rarr; Palantir ^500&rarr; NSA backdoors ^500&rarr; Twitter Files (2022)","THE SURVEILLANCE INFRASTRUCTURE ^500 IS ^500 THE MEDIA INFRASTRUCTURE."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">In-Q-Tel</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">LifeLog/Facebook</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Palantir</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">NSA/Unit 8200</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Twitter Files</span>
+      </div>
+      <p class="chain-decode">CIA venture capital &rarr; Social platform &rarr; Data analytics &rarr; Signals intelligence &rarr; Documented censorship</p>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT VI &mdash; THE MIRROR (white light)                   -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-light" data-act="6" data-act-label="Act VI &mdash; The Mirror">
+
+    <div class="act-header">
+      <div class="act-number">Act VI</div>
+      <h2 class="act-title">The Mirror</h2>
+    </div>
+
+    <div class="scroll-block" data-block="6-1" data-pipeline="now">
+      <p>You&rsquo;ve now scrolled through six wars: surveillance, money, space, consciousness, oil, and media. Every single one is documented. Every single claim links to a source. Congressional testimony, declassified files, court records, peer-reviewed research. And yet &mdash; none of this is common knowledge. That&rsquo;s not an accident. That&rsquo;s the sixth war working as designed.</p>
+    </div>
+
+    <!-- ── Gary Webb ── -->
+    <div class="scroll-block" data-block="6-2">
+      <h3 class="node-title">The Cost of Reporting</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Gary Webb</strong>, investigative journalist, published &ldquo;Dark Alliance&rdquo; (1996) documenting CIA-Contra cocaine trafficking into American cities. The CIA&rsquo;s internal memo <em>&ldquo;Managing a Nightmare&rdquo;</em> tracked the media response approvingly as the <em>LA Times</em>, <em>Washington Post</em>, and <em>New York Times</em> attacked Webb&rsquo;s credibility. His newspaper apologized and demoted him. No major paper would hire him afterward. The 1998 CIA Inspector General report confirmed key findings &mdash; too late to restore his career. Webb was found dead on December 10, 2004 with two gunshot wounds to the head. Ruled suicide.</div>
+        <div class="evidence-source">CIA &ldquo;Managing a Nightmare&rdquo; memo (declassified). Gary Webb, <em>Dark Alliance</em> (1996). <a href="https://oig.justice.gov/sites/default/files/archive/special/9712/ch01p1.htm" target="_blank" rel="noopener">CIA Inspector General Report (1998)</a>. <em>Mercury News</em> records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Danny Casolaro</strong> (found dead August 10, 1991 with 10&ndash;12 wrist slashes, ruled suicide, files missing), <strong>Alan Standorf</strong> (NSA analyst, Casolaro&rsquo;s source, murdered January 1991), <strong>Robert Maxwell</strong> (fell from yacht November 5, 1991), and <strong>Senator John Tower</strong> (plane crash April 5, 1991) &mdash; all died within an 8-month period. All were connected to the PROMIS software scandal and BCCI banking network documented in <a href="/war-for-machine/">Scroll 001</a>.</div>
+        <div class="evidence-source">Inslaw case files. BCCI Senate Report (1992). Death records and coroner reports. Webb, <em>One Nation Under Blackmail</em> (2022).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-4">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/webb_gary.jpg" alt="Gary Webb">
+          <div class="vr-name">Gary Webb</div>
+          <div class="vr-role">&ldquo;Dark Alliance&rdquo; &mdash; found dead 2004</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/casolaro.jpg" alt="Danny Casolaro">
+          <div class="vr-name">Danny Casolaro</div>
+          <div class="vr-role">&ldquo;The Octopus&rdquo; &mdash; found dead 1991</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/assange.jpg" alt="Julian Assange">
+          <div class="vr-name">Julian Assange</div>
+          <div class="vr-role">WikiLeaks &mdash; imprisoned for publishing</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-5">
+      <div class="anim-static">
+        <div class="static-bar"></div>
+        <div class="static-bar"></div>
+        <div class="static-bar"></div>
+      </div>
+    </div>
+
+    <!-- ── Reece Committee ── -->
+    <div class="scroll-block" data-block="6-6">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>Reece Committee</strong> (1954) &mdash; a Congressional investigation into foundation influence over American education and media &mdash; found that foundations exercised a <em>&ldquo;strong effect upon foreign policy and public education&hellip;accomplished by vast propaganda, by supplying executives and advisors to government, and by controlling much research.&rdquo;</em> Committee counsel <strong>Norman Dodd</strong> documented that the Carnegie Foundation concluded &ldquo;the future of this country belongs to collectivism.&rdquo; The investigation was sabotaged by committee member Wayne Hays through procedural disruption.</div>
+        <div class="evidence-source">Reece Committee Report (1954). Norman Dodd testimony. Ren&eacute; Wormser, <em>Foundations: Their Power and Influence</em> (1958). Carroll Quigley, <em>Tragedy and Hope</em> (1966).</div>
+      </div>
+    </div>
+
+    <!-- ── The cross-scroll reveal ── -->
+    <div class="scroll-block" data-block="6-7">
+      <div class="pull-quote reveal-climax">
+        <div class="pq-text">Every scroll in this series exists because the media didn&rsquo;t do its job. <a href="/war-for-machine/">AI Wars</a>? Not covered. <a href="/money-wars/">Money Wars</a>? Not questioned. <a href="/space-wars/">Space Wars</a>? Not investigated. <a href="/mind-wars/">Mind Wars</a>? Ridiculed. <a href="/oil-wars/">Oil Wars</a>? Buried. You&rsquo;re inside the sixth war right now &mdash; and you just scrolled through it.</div>
+      </div>
+    </div>
+
+    <!-- ── Final inference card ── -->
+    <div class="scroll-block" data-block="6-8">
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim">The six wars documented across this series &mdash; surveillance, financial, technological, consciousness, energy, and information &mdash; are not separate conflicts. They are layers of a single control architecture maintained by overlapping institutional networks. The media war is the capstone: it is the mechanism by which all other wars remain invisible to the population they affect. The evidence is documented. The sources are linked. The question is no longer whether this is happening. The question is what you do now that you&rsquo;ve seen it.</div>
+        <div class="evidence-source">Structural analysis from documented evidence across all six scrolls.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-9">
+      <div class="anim-you-dot">
+        <span class="dot"></span> You are here
+      </div>
+    </div>
+
+    <!-- ── Closing terminal ── -->
+    <div class="scroll-block chain-summary" data-block="6-10">
+      <div class="typed-terminal" id="media-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["ANALYSIS COMPLETE.","BERNAYS (1928) ^500&rarr; MOCKINGBIRD (1950) ^500&rarr; CONSOLIDATION (1996) ^500&rarr; SMITH-MUNDT (2013) ^500&rarr; LIFELOG/FACEBOOK (2004) ^500&rarr; TWITTER FILES (2022)","THE WAR THAT MAKES ALL OTHER WARS INVISIBLE.","^1000 YOU JUST SCROLLED THROUGH IT."]'></span>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-11">
+      <p>Six wars. One architecture. Every scroll in this series is documented, sourced, and verifiable. The reason you haven&rsquo;t heard about them isn&rsquo;t that the evidence is hidden &mdash; it&rsquo;s that the system for hiding evidence is the most documented operation of all.</p>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- CLOSING                                                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <section class="closing" id="closing">
+    <div class="closing-content">
+      <div class="closing-statement">Six wars. One architecture. Every scroll in this series is documented, sourced, and verifiable. The reason you haven&rsquo;t heard about them isn&rsquo;t that the evidence is hidden &mdash; it&rsquo;s that the system for hiding evidence is the most documented operation of all.</div>
+      <div class="closing-sub">This is the end of the first six scrolls. It is not the end of the investigation. Every source is linked. Every claim is tiered. Share what you can verify. Question what you can&rsquo;t. And remember: the most powerful form of censorship isn&rsquo;t silencing a story. It&rsquo;s making sure no one looks for it in the first place.</div>
+
+      <div class="closing-legend">
+        <div class="closing-legend-item"><span class="el-dot" style="background:#34d399"></span> Documented &mdash; official records, FOIA releases, government reports, court documents</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fbbf24"></span> Credible &mdash; credentialed witness testimony, verified backgrounds, consistent accounts</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fb923c"></span> Inference &mdash; pattern analysis connecting documented and credible evidence</div>
+      </div>
+
+      <div class="closing-cta">
+        <p>Disclosure is not a single event. It&rsquo;s a process. And it only works if people are paying attention.</p>
+      </div>
+
+      <div class="closing-links">
+        <a href="/oil-wars/" class="closing-link">&larr; Scroll 005: Oil Wars &mdash; the energy lock</a>
+        <a href="/war-for-machine/" class="closing-link">&larr; Scroll 001: AI Wars &mdash; the 44-year surveillance pipeline</a>
+        <a href="/money-wars/" class="closing-link">&larr; Scroll 002: Money Wars &mdash; every country that left the dollar</a>
+        <a href="/space-wars/" class="closing-link">&larr; Scroll 003: Space Wars &mdash; two histories of space</a>
+        <a href="/mind-wars/" class="closing-link">&larr; Scroll 004: Mind Wars &mdash; the war on consciousness</a>
+        <a href="https://qav2.github.io/intel-console/" class="closing-link" target="_blank" rel="noopener">Explore the Intel Console &mdash; 825 entities, 1,411 relationships &rarr;</a>
+        <a href="/" class="closing-link-home">&larr; Disclosure Scrolls &mdash; full archive</a>
+      </div>
+
+      <div class="closing-support">
+        <div class="support-label">Independent research. No sponsors. No algorithm.</div>
+        <a href="https://buymeacoffee.com/joeyv23" class="support-link" target="_blank" rel="noopener">Support this work</a>
+      </div>
+
+      <div class="closing-footer">
+        <p>Disclosure Scrolls &mdash; documented investigations you can scroll through.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ Scripts ═══ -->
+  <script src="../war-for-machine/js/engine.js" defer></script>
+  <script src="../war-for-machine/js/gsap-effects.js" defer></script>
+
+</body>
+</html>
