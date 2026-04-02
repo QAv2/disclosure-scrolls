@@ -14,7 +14,7 @@
   var activePipelineSteps = new Set();
   var currentAct = null;
   var countupFired = new Set();
-  var chainTyped = false;
+  var typedFired = new Set();
 
   // Pipeline step order for fill calculation — auto-detect from DOM
   var PIPELINE_STEPS = [];
@@ -66,10 +66,14 @@
             activatePipelineStep(step);
           }
 
-          // Check for chain terminal → trigger typed
-          if (!chainTyped && el.querySelector('.typed-terminal')) {
-            triggerChainTyped();
-          }
+          // Check for typed terminals → trigger each once
+          var terminals = el.querySelectorAll('.typed-terminal');
+          terminals.forEach(function (term) {
+            var termId = term.id;
+            if (termId && !typedFired.has(termId)) {
+              triggerTypedTerminal(term);
+            }
+          });
         }
       }
     });
@@ -170,15 +174,16 @@
     }
   }
 
-  // ── Typed.js — Chain completion terminal ────────────────────
+  // ── Typed.js — Terminal animations ──────────────────────────
 
-  function triggerChainTyped() {
-    chainTyped = true;
-    var el = document.getElementById('chain-typed');
-    if (!el || typeof Typed === 'undefined') return;
+  function triggerTypedTerminal(terminal) {
+    if (typeof Typed === 'undefined') return;
+    var output = terminal.querySelector('.typed-output');
+    if (!output) return;
 
-    // Read strings from data attribute if available, otherwise use defaults
-    var customStrings = el.getAttribute('data-typed-strings');
+    typedFired.add(terminal.id);
+
+    var customStrings = output.getAttribute('data-typed-strings');
     var strings;
     if (customStrings) {
       try { strings = JSON.parse(customStrings); } catch (e) { strings = null; }
@@ -186,12 +191,11 @@
     if (!strings) {
       strings = [
         'TRACING PIPELINE...',
-        'PROMIS (1982) ^500→ Main Core (1983) ^500→ TIA (2002) ^500→ Palantir (2003) ^500→ Maven (2017) ^500→ Claude (2026)',
-        'CHAIN COMPLETE. ^1000 44 years. Same capabilities. Same personnel networks.'
+        'CHAIN COMPLETE.'
       ];
     }
 
-    new Typed('#chain-typed', {
+    new Typed(output, {
       strings: strings,
       typeSpeed: 25,
       backSpeed: 0,
