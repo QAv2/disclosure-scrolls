@@ -75,8 +75,8 @@
     });
   }, {
     root: null,
-    threshold: [0.3],
-    rootMargin: '-30% 0px -30% 0px'
+    threshold: [0.1],
+    rootMargin: '-20% 0px -25% 0px'
   });
 
   blocks.forEach(function (block) {
