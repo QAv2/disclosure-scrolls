@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Wars — Disclosure Scrolls</title>
+  <meta name="description" content="Two histories of space. One was broadcast. One was classified. Both are real. The mainstream narrative and the alternative stand at odds — and it's all coming to a head.">
+  <meta property="og:title" content="Space Wars">
+  <meta property="og:description" content="Two histories of space. One was broadcast. One was classified. 53 years between Moon missions. Trillions missing. Witnesses silenced. What are we not being told?">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://disclosure-scrolls.netlify.app/space-wars/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Disclosure Scrolls">
+  <meta property="og:url" content="https://disclosure-scrolls.netlify.app/space-wars/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Space Wars">
+  <meta name="twitter:description" content="Two histories of space. One was broadcast. One was classified. It's all coming to a head.">
+  <meta name="twitter:image" content="https://disclosure-scrolls.netlify.app/space-wars/og-image.png">
+  <meta name="theme-color" content="#06060b">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://disclosure-scrolls.netlify.app/space-wars/">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="../war-for-machine/css/style.css">
+
+  <!-- CountUp.js — animated number counters -->
+  <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js" defer></script>
+  <!-- Typed.js — typewriter/terminal effect -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+
+  <style>
+    /* ── Space Wars overrides ── */
+
+    /* Company/org badges */
+    .badge-nasa { color: #60a5fa; border-color: rgba(96,165,250,0.25); background: rgba(96,165,250,0.06); }
+    .badge-nro { color: #a78bfa; border-color: rgba(167,139,250,0.25); background: rgba(167,139,250,0.06); }
+    .badge-spacex { color: #f0f0f4; border-color: rgba(240,240,244,0.25); background: rgba(240,240,244,0.06); }
+    .badge-spaceforce { color: #38bdf8; border-color: rgba(56,189,248,0.25); background: rgba(56,189,248,0.06); }
+    .badge-lockheed { color: #34d399; border-color: rgba(52,211,153,0.25); background: rgba(52,211,153,0.06); }
+    .badge-darpa { color: #d47474; border-color: rgba(212,116,116,0.25); background: rgba(212,116,116,0.06); }
+
+    /* Dual narrative grid */
+    .narrative-grid { margin: 2rem 0; }
+    .narrative-row {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 0;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.9rem;
+      align-items: center;
+    }
+    .narrative-row.header {
+      font-family: 'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',monospace;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .narrative-mainstream { color: #60a5fa; }
+    .narrative-vs {
+      text-align: center;
+      color: rgba(255,255,255,0.2);
+      font-family: 'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',monospace;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+    }
+    .narrative-alt { color: #fbbf24; }
+
+    /* Witness grid */
+    .witness-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .witness-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+    }
+    .witness-name {
+      font-family: 'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #fbbf24;
+      letter-spacing: 1px;
+      margin-bottom: 0.25rem;
+    }
+    .witness-role {
+      font-family: 'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',monospace;
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.5rem;
+    }
+    .witness-claim {
+      font-size: 0.9rem;
+      color: #dcdce4;
+      line-height: 1.6;
+    }
+
+    /* Act V — cosmic deep blue/white */
+    .act-cosmic .act-title { color: #93c5fd; }
+    .act-cosmic .act-number { color: rgba(147,197,253,0.4); }
+    .act-cosmic .node-title { color: #93c5fd; border-bottom-color: rgba(147,197,253,0.15); }
+    .act-cosmic .pull-quote { border-left-color: rgba(147,197,253,0.25); }
+    .act-cosmic .timeline-block::before { background: #93c5fd; }
+    .act-cosmic .tl-date { color: #93c5fd; }
+
+    /* Act VI — white light */
+    .act-light .act-title { color: #f0f0f4; }
+    .act-light .act-number { color: rgba(240,240,244,0.4); }
+    .act-light .node-title { color: #f0f0f4; border-bottom-color: rgba(240,240,244,0.15); }
+    .act-light .pull-quote { border-left-color: rgba(240,240,244,0.25); }
+
+    /* Disclosure timeline special styling */
+    .disclosure-timeline .timeline-block { border-left-color: rgba(147,197,253,0.15); }
+    .disclosure-timeline .timeline-block::before { background: #93c5fd; }
+    .disclosure-timeline .tl-date { color: #93c5fd; }
+
+    @media (max-width: 600px) {
+      .narrative-row { grid-template-columns: 1fr; gap: 0.25rem; }
+      .narrative-row.header { display: none; }
+      .narrative-vs { display: none; }
+      .narrative-mainstream::before { content: 'OFFICIAL: '; font-size: 0.6rem; color: rgba(96,165,250,0.5); letter-spacing: 1px; }
+      .narrative-alt::before { content: 'ALTERNATIVE: '; font-size: 0.6rem; color: rgba(251,191,36,0.5); letter-spacing: 1px; }
+      .witness-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ Particle Network Background ═══ -->
+  <canvas id="particle-net" class="particle-canvas"></canvas>
+
+  <!-- ═══ Progress Bar ═══ -->
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <!-- ═══ Pipeline Tracker (sticky during Act 1) ═══ -->
+  <div class="pipeline-track" id="pipeline-track">
+    <div class="pipeline-inner">
+      <div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
+      <div class="pipeline-node" data-step="v2"><span class="pn-year">1945</span><span class="pn-label">V-2</span></div>
+      <div class="pipeline-node" data-step="paperclip"><span class="pn-year">1945</span><span class="pn-label">Paperclip</span></div>
+      <div class="pipeline-node" data-step="nasa"><span class="pn-year">1958</span><span class="pn-label">NASA</span></div>
+      <div class="pipeline-node" data-step="apollo"><span class="pn-year">1969</span><span class="pn-label">Apollo</span></div>
+      <div class="pipeline-node" data-step="black"><span class="pn-year">1972</span><span class="pn-label">???</span></div>
+      <div class="pipeline-node" data-step="spaceforce"><span class="pn-year">2019</span><span class="pn-label">Space Force</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ Act Indicator ═══ -->
+  <div class="act-indicator" id="act-indicator"></div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- TITLE SCREEN                                             -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="title-screen" id="title-screen">
+    <div class="title-content">
+      <a href="/" class="back-link">&larr; Disclosure Scrolls</a>
+      <div class="title-label">Scroll 003</div>
+      <div class="title-reading-time">~25 min read</div>
+      <h1 class="title-main">Space Wars</h1>
+      <p class="title-sub">Two histories of space. One was broadcast. One was classified. Both are real. After 53 years, the question isn&rsquo;t whether we went to the Moon. It&rsquo;s what happened after we got there.</p>
+      <div class="title-meta">
+        <span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fbbf24"></span> Credible</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
+      </div>
+      <div class="scroll-cue">&darr; Begin scrolling</div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT I — THE FOUNDATION                                   -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="1" data-act-label="Act I — The Foundation">
+
+    <div class="act-header">
+      <div class="act-number">Act I</div>
+      <h2 class="act-title">The Foundation</h2>
+    </div>
+
+    <!-- ── Paperclip ── -->
+    <div class="scroll-block" data-block="1-1" data-pipeline="v2">
+      <h3 class="node-title">The Rocket Men</h3>
+      <p>Every history of the American space program begins with a lie of omission. We are told the story of brilliant engineers who reached for the stars. We are not told where they came from.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-2" data-pipeline="paperclip">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Operation Paperclip</strong> (1945&ndash;1959): The U.S. Joint Intelligence Objectives Agency recruited over 1,600 German scientists, engineers, and technicians &mdash; many of them Nazi Party members &mdash; and brought them to America. Their security files were whitewashed to bypass President Truman&rsquo;s explicit order barring &ldquo;active supporters of Nazi militarism.&rdquo;</div>
+        <div class="evidence-source">National Archives, RG 330, JIOA Records. Annie Jacobsen, <em>Operation Paperclip</em> (2014). Declassified under Nazi War Crimes Disclosure Act (1998).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-3">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/wernher_von_braun.jpg" alt="Wernher von Braun">
+          <div class="vr-name">Wernher von Braun</div>
+          <div class="vr-role">SS-Sturmbannf&uuml;hrer &rarr; NASA Director</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/operation_paperclip.jpg" alt="Operation Paperclip scientists">
+          <div class="vr-name">Operation Paperclip</div>
+          <div class="vr-role">1,600+ Nazi scientists imported</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-4">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Wernher von Braun</strong> held SS rank Sturmbannf&uuml;hrer (Major). He oversaw V-2 rocket production at Mittelbau-Dora, where an estimated 20,000 forced laborers died &mdash; more than were killed by the rockets themselves. Von Braun personally visited the tunnels and selected workers from concentration camps. He became the face of NASA, directed the Marshall Space Flight Center, and designed the Saturn V that took humans to the Moon.</div>
+        <div class="evidence-source">Michael J. Neufeld, <em>Von Braun: Dreamer of Space, Engineer of War</em> (2007). Mittelbau-Dora Memorial records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-5">
+      <p>Von Braun wasn&rsquo;t alone. <strong>Kurt Debus</strong>, V-2 launch director and former SS member, became the first director of Kennedy Space Center. <strong>Arthur Rudolph</strong>, who used slave labor at Mittelbau-Dora, managed the Saturn V program. <strong>Hubertus Strughold</strong>, the &ldquo;Father of Space Medicine,&rdquo; conducted experiments tied to Dachau concentration camp. He has a library named after him at Brooks Air Force Base.</p>
+      <p>These were not junior technicians swept up in a regime. They were architects of weapons of mass destruction. And they built NASA.</p>
+    </div>
+
+    <!-- ── NASA's birth ── -->
+    <div class="scroll-block" data-block="1-6" data-pipeline="nasa">
+      <h3 class="node-title">Building NASA</h3>
+      <p>The National Aeronautics and Space Act of 1958 created NASA as a <em>civilian</em> agency. But from day one, its personnel, its technology, and its institutional DNA came from the military &mdash; and before that, from the Third Reich.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-7">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">At its founding, NASA absorbed 8,000 employees and $100M in annual budget from NACA (National Advisory Committee for Aeronautics), plus the entire Army Ballistic Missile Agency &mdash; von Braun&rsquo;s Paperclip team. The &ldquo;civilian&rdquo; space agency was built on a military-intelligence foundation from the start.</div>
+        <div class="evidence-source">NASA Historical Reference Collection. Roger D. Launius, <em>NASA: A History of the U.S. Civil Space Program</em> (2004).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-8">
+      <div class="pull-quote">
+        <div class="pq-text">&ldquo;Our German scientists were regarded as more dangerous than useful.&rdquo;</div>
+        <div class="pq-attr">&mdash; Albert Einstein, letter to President Truman, 1946</div>
+      </div>
+    </div>
+
+    <!-- ── The Space Race ── -->
+    <div class="scroll-block" data-block="1-9" data-pipeline="apollo">
+      <h3 class="node-title">The Race</h3>
+      <p>What followed was the most dramatic engineering sprint in human history. In eleven years &mdash; from Sputnik (1957) to Apollo 8 (1968) &mdash; humanity went from no satellite in orbit to humans circling the Moon.</p>
+      <p>The official story is inspiring: Kennedy&rsquo;s challenge, the Right Stuff, American ingenuity. And much of it is true. Hundreds of thousands of engineers worked on Apollo. The Saturn V remains the most powerful rocket ever flown. The achievement was real.</p>
+      <p>But the broadcast? That&rsquo;s where the story gets complicated.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-10">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/neil_armstrong.jpg" alt="Neil Armstrong">
+          <div class="vr-name">Neil Armstrong</div>
+          <div class="vr-role">Apollo 11 Commander</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/buzz_aldrin.jpg" alt="Buzz Aldrin">
+          <div class="vr-name">Buzz Aldrin</div>
+          <div class="vr-role">Apollo 11 Lunar Module Pilot</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-11">
+      <div class="typed-terminal">
+        <span class="typed-prompt">$ </span><span id="chain-typed" data-typed-strings='["TRACING PIPELINE...","V-2 (1944) ^500→ Paperclip (1945) ^500→ NASA (1958) ^500→ Apollo (1969) ^500→ ??? (1972) ^500→ Space Force (2019)","PIPELINE COMPLETE. ^1000 The rocket scientists came from the Reich. The technology was real. What happened next?"]'></span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT II — THE BROADCAST                                   -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="2" data-act-label="Act II — The Broadcast">
+
+    <div class="act-header">
+      <div class="act-number">Act II</div>
+      <h2 class="act-title">The Broadcast</h2>
+    </div>
+
+    <div class="scroll-block" data-block="2-1">
+      <p>On July 20, 1969, an estimated 600 million people watched Neil Armstrong step onto the Moon. It was the most-watched broadcast in human history. It was also the beginning of a fracture in public trust that has never healed.</p>
+      <p>This is not a &ldquo;we never went&rdquo; argument. The evidence strongly suggests we did go. The question is whether what was <em>broadcast</em> is what actually happened &mdash; and what was found when we got there.</p>
+    </div>
+
+    <!-- ── The Kubrick Thread ── -->
+    <div class="scroll-block" data-block="2-2">
+      <h3 class="node-title">The Filmmaker</h3>
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim">Stanley Kubrick&rsquo;s <em>2001: A Space Odyssey</em> (released April 1968 &mdash; 15 months before Apollo 11) used a revolutionary <strong>front-screen projection</strong> technique with 3M Scotchlite retroreflective material. This process created photorealistic lunar and space environments that were, for the era, indistinguishable from reality. The technology existed. The expertise was concentrated in one person. Kubrick was known to have contact with NASA during production.</div>
+        <div class="evidence-source">Piers Bizony, <em>The Making of Stanley Kubrick&rsquo;s 2001</em> (2015). 3M patent records for Scotchlite retroreflective sheeting.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-3">
+      <div class="visual-portrait">
+        <img src="assets/stanley_kubrick.jpg" alt="Stanley Kubrick">
+        <div class="visual-caption">Stanley Kubrick — <em>2001: A Space Odyssey</em> used front-screen projection that created photorealistic space environments, 15 months before Apollo 11.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-4">
+      <p>To be clear: the existence of the technology to fake a broadcast does not prove the broadcast was faked. But it creates a <em>capability</em> &mdash; one that existed at exactly the right time, in exactly the right hands, during a geopolitical race where failure was not an option.</p>
+    </div>
+
+    <!-- ── The Erased Tapes ── -->
+    <div class="scroll-block" data-block="2-5">
+      <h3 class="node-title">The Missing Record</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>NASA erased the original Apollo 11 slow-scan television tapes.</strong> In 2006, NASA admitted the original high-quality recordings of the Moon landing had been magnetically erased and reused to save money. A 2009 review confirmed the tapes were &ldquo;most likely erased and reused&rdquo; during a data tape shortage in the 1980s. The footage the world watched was a low-quality broadcast conversion recorded off a monitor. The original record of humanity&rsquo;s greatest achievement &mdash; gone.</div>
+        <div class="evidence-source">NASA News Release 09-167 (July 16, 2009). Richard Nafzger, NASA Goddard, SSTV restoration project lead.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-6">
+      <p>Consider what this means. NASA claims to have achieved the most significant technological feat in human history &mdash; and then <em>recorded over the primary evidence</em>. No institution with nothing to hide destroys its crown jewel.</p>
+    </div>
+
+    <!-- ── Armstrong's Silence ── -->
+    <div class="scroll-block" data-block="2-7">
+      <h3 class="node-title">The Silent Astronaut</h3>
+      <p>Neil Armstrong &mdash; the first human to walk on the Moon &mdash; became one of the most famously reclusive public figures in American history. He gave almost no interviews. He avoided the spotlight. He became a professor of aerospace engineering at the University of Cincinnati and disappeared from public life.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-8">
+      <div class="pull-quote">
+        <div class="pq-text">&ldquo;There are great ideas undiscovered, breakthroughs available to those who can remove one of truth&rsquo;s protective layers.&rdquo;</div>
+        <div class="pq-attr">&mdash; Neil Armstrong, 25th anniversary of Apollo 11, White House, July 20, 1994</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-9">
+      <p>What does the first man on the Moon mean when he says truth has &ldquo;protective layers&rdquo;? His audience that day included students. He appeared to be fighting back tears. He never elaborated.</p>
+    </div>
+
+    <!-- ── The Lost Technology ── -->
+    <div class="scroll-block" data-block="2-10">
+      <h3 class="node-title">The Lost Technology</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">NASA astronaut <strong>Don Pettit</strong> stated in a 2017 interview: &ldquo;I&rsquo;d go to the moon in a nanosecond. The problem is we don&rsquo;t have the technology to do that anymore. We used to, but we destroyed that technology and it&rsquo;s a painful process to build it back again.&rdquo; NASA has confirmed the Saturn V production line was dismantled and original Lunar Module blueprints no longer exist in their entirety.</div>
+        <div class="evidence-source">Don Pettit, NASA JSC interview (2017). Multiple NASA historical documentation gaps confirmed in Artemis program reviews.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-11">
+      <div class="visual-portrait">
+        <img src="assets/don_pettit.jpg" alt="Don Pettit">
+        <div class="visual-caption">Don Pettit — NASA astronaut, ISS veteran. "We used to [have the technology], but we destroyed that technology."</div>
+      </div>
+    </div>
+
+    <!-- ── Van Allen Contradiction ── -->
+    <div class="scroll-block" data-block="2-12">
+      <h3 class="node-title">The Radiation Question</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>Van Allen radiation belts</strong> extend from ~1,000 km to ~60,000 km altitude. Apollo astronauts reportedly traversed them in ~30 minutes with minimal shielding. Yet NASA&rsquo;s Artemis I mission (2022, unmanned) carried a radiation experiment specifically to measure belt exposure for the Orion spacecraft &mdash; which has significantly more radiation shielding than Apollo&rsquo;s command module. NASA engineers have described Van Allen transit as a &ldquo;current engineering challenge&rdquo; for Artemis crewed flights.</div>
+        <div class="evidence-source">NASA HERA (Human Exploration Research Analog) radiation studies. Artemis I MARE experiment results (2023). Orion MPCV radiation design specifications.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-13">
+      <p>If Apollo solved the radiation problem in 1969 with aluminum hull plating, why is it an &ldquo;engineering challenge&rdquo; in 2026 with modern materials?</p>
+      <p>The standard answer: Apollo&rsquo;s trajectory minimized belt exposure and radiation levels were within tolerance. The uncomfortable question: then why is Artemis treating it as an unsolved problem?</p>
+    </div>
+
+    <!-- ── The Two Narratives ── -->
+    <div class="scroll-block" data-block="2-14">
+      <h3 class="node-title">Two Histories</h3>
+      <p>Like the show <em>For All Mankind</em>, where an alternate history of space plays out alongside the one we know &mdash; our actual world contains two competing narratives about what happened. They stand at odds. And they&rsquo;re both supported by evidence.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-15">
+      <div class="narrative-grid">
+        <div class="narrative-row header">
+          <div class="narrative-mainstream">Official Narrative</div>
+          <div class="narrative-vs">VS</div>
+          <div class="narrative-alt">Alternative Narrative</div>
+        </div>
+        <div class="narrative-row">
+          <div class="narrative-mainstream">We went to the Moon, broadcast it live, and stopped because of budget cuts</div>
+          <div class="narrative-vs">vs</div>
+          <div class="narrative-alt">We went to the Moon, the broadcast was staged, and we stopped because of what we found</div>
+        </div>
+        <div class="narrative-row">
+          <div class="narrative-mainstream">The technology was lost due to program cancellation and industrial attrition</div>
+          <div class="narrative-vs">vs</div>
+          <div class="narrative-alt">The technology went classified and continued developing in black programs</div>
+        </div>
+        <div class="narrative-row">
+          <div class="narrative-mainstream">No human has left low Earth orbit since 1972 because there was no reason to return</div>
+          <div class="narrative-vs">vs</div>
+          <div class="narrative-alt">The public program was shut down while the classified one continued</div>
+        </div>
+        <div class="narrative-row">
+          <div class="narrative-mainstream">UAPs are misidentified natural phenomena or foreign adversary drones</div>
+          <div class="narrative-vs">vs</div>
+          <div class="narrative-alt">Some UAPs represent non-human intelligence that has been known about and covered up for decades</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-16">
+      <p><strong>The damage to public trust is the point.</strong> Whether the broadcast was real or staged, the pattern of destroyed evidence, reclusive astronauts, &ldquo;lost&rdquo; technology, and contradictory engineering claims has created a fracture. <span class="countup" data-target="53" data-suffix=" years"></span> without a human beyond low Earth orbit. That gap is not explained by budget cuts alone.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-17">
+      <div class="anim-static"></div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT III — THE TESTIMONY                                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="3" data-act-label="Act III — The Testimony">
+
+    <div class="act-header">
+      <div class="act-number">Act III</div>
+      <h2 class="act-title">The Testimony</h2>
+    </div>
+
+    <div class="scroll-block" data-block="3-1">
+      <p>The alternative narrative isn&rsquo;t held together by internet speculation. It&rsquo;s held together by the testimony of credentialed people &mdash; astronauts, military officers, intelligence officials, NASA employees &mdash; who risked their careers and reputations to say the same thing: <em>what we were told is not what happened.</em></p>
+    </div>
+
+    <!-- ── Astronaut witnesses ── -->
+    <div class="scroll-block" data-block="3-2">
+      <h3 class="node-title">The Astronauts</h3>
+    </div>
+
+    <div class="scroll-block" data-block="3-3">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/edgar_mitchell.jpg" alt="Edgar Mitchell">
+          <div class="vr-name">Edgar Mitchell</div>
+          <div class="vr-role">Apollo 14 / 6th man on Moon</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/gordon_cooper.jpg" alt="Gordon Cooper">
+          <div class="vr-name">Gordon Cooper</div>
+          <div class="vr-role">Mercury / Gemini astronaut</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-4">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim"><strong>Edgar Mitchell</strong> (Apollo 14, 6th man on the Moon) stated repeatedly and publicly that extraterrestrial beings are real, that the U.S. government has been in contact with them, and that there has been a sustained cover-up. He founded the Institute of Noetic Sciences (IONS) to study consciousness after his lunar experience. He made these claims on record from the 1990s until his death in 2016.</div>
+        <div class="evidence-source">Edgar Mitchell, interviews with Kerrang! Radio (2008), Fox News (2014), multiple public appearances. IONS founding documents (1973).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-5">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim"><strong>Gordon Cooper</strong> (Mercury 9, Gemini 5) wrote to the United Nations in 1978 requesting that the UN establish a department to investigate UFO sightings. He described personally witnessing UFOs during his Air Force career, including a 1957 incident at Edwards Air Force Base where a craft landed and was filmed by his camera crew. The film was sent to Washington. It was never seen again.</div>
+        <div class="evidence-source">Gordon Cooper, letter to UN Ambassador Griffith, November 9, 1978 (archived). Cooper, <em>Leap of Faith</em> (2000).</div>
+      </div>
+    </div>
+
+    <!-- ── NASA insiders ── -->
+    <div class="scroll-block" data-block="3-6">
+      <h3 class="node-title">The NASA Insiders</h3>
+    </div>
+
+    <div class="scroll-block" data-block="3-7">
+      <div class="witness-grid">
+        <div class="witness-card">
+          <div class="witness-name">Karl Wolfe</div>
+          <div class="witness-role">USAF Sergeant, NSA Tactical Air Command</div>
+          <div class="witness-claim">Testified at the 2001 Disclosure Project that while assigned to Langley AFB, a colleague at NASA&rsquo;s Lunar Orbiter program showed him photographs of structures on the far side of the Moon &mdash; &ldquo;mushroom-shaped buildings, spherical buildings, towers.&rdquo; He held a Top Secret crypto clearance.</div>
+        </div>
+        <div class="witness-card">
+          <div class="witness-name">Donna Hare</div>
+          <div class="witness-role">NASA Philco Ford contractor, Photo Lab</div>
+          <div class="witness-claim">Testified that NASA routinely airbrushed anomalous objects out of satellite photographs before public release. She named specific colleagues who confirmed the practice. She described a culture of silence enforced by threats to careers and security clearances.</div>
+        </div>
+        <div class="witness-card">
+          <div class="witness-name">Ken Johnston</div>
+          <div class="witness-role">NASA Lunar Receiving Laboratory</div>
+          <div class="witness-claim">Claims he was ordered to destroy Apollo lunar photographs showing anomalous structures. He refused and kept copies. He was subsequently fired. He had served as a test pilot and held multiple NASA commendations before his termination.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── The Disclosure Project ── -->
+    <div class="scroll-block" data-block="3-8">
+      <h3 class="node-title">The Disclosure Project</h3>
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim">On <strong>May 9, 2001</strong>, Dr. Steven Greer assembled over 20 military, intelligence, government, and corporate witnesses at the National Press Club in Washington, D.C. Each testified under oath and offered to testify before Congress. They described UFO encounters, crash retrievals, reverse-engineering programs, and institutional cover-ups. The witnesses held a combined 400+ years of government/military service.</div>
+        <div class="evidence-source">National Press Club event footage (archived). Disclosure Project witness testimony transcripts. <a href="https://www.youtube.com/watch?v=4DrcG7VGgQU" target="_blank" rel="noopener">Full NPC event video</a>.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-9">
+      <div class="visual-emblem">
+        <img src="assets/disclosure_project.jpg" alt="Disclosure Project">
+        <div class="visual-caption">The Disclosure Project — May 9, 2001, National Press Club. 20+ witnesses. 400+ combined years of service. Offered to testify before Congress. No hearing was granted.</div>
+      </div>
+    </div>
+
+    <!-- ── Military/Intel witnesses ── -->
+    <div class="scroll-block" data-block="3-10">
+      <h3 class="node-title">The Officers</h3>
+    </div>
+
+    <div class="scroll-block" data-block="3-11">
+      <div class="witness-grid">
+        <div class="witness-card">
+          <div class="witness-name">Philip Corso</div>
+          <div class="witness-role">Lt. Colonel, U.S. Army / National Security Council</div>
+          <div class="witness-claim">Published <em>The Day After Roswell</em> (1997) claiming he personally oversaw the distribution of recovered extraterrestrial technology to defense contractors, including fiber optics, integrated circuits, and night vision. He served on Eisenhower&rsquo;s NSC and headed the Army&rsquo;s Foreign Technology Division.</div>
+        </div>
+        <div class="witness-card">
+          <div class="witness-name">Paul Hellyer</div>
+          <div class="witness-role">Canadian Minister of National Defence (1963&ndash;67)</div>
+          <div class="witness-claim">Became the highest-ranking government official worldwide to publicly state that UFOs are real and that some represent extraterrestrial craft. He made these claims from 2005 until his death in 2021, including testimony before the Canadian Senate.</div>
+        </div>
+        <div class="witness-card">
+          <div class="witness-name">Bob Lazar</div>
+          <div class="witness-role">Claims: physicist at S-4 facility near Area 51</div>
+          <div class="witness-claim">In 1989, described working on reverse-engineering extraterrestrial craft at a facility near Area 51. He identified Element 115 (Moscovium) as a propulsion fuel &mdash; 15 years before it was officially synthesized. His employment records at Los Alamos were initially denied, then confirmed via a phonebook listing and a Los Alamos Monitor newspaper article naming him as an employee.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-12">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/philip_corso.jpg" alt="Philip Corso">
+          <div class="vr-name">Philip Corso</div>
+          <div class="vr-role">Lt. Col., NSC Staff</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/paul_hellyer.jpg" alt="Paul Hellyer">
+          <div class="vr-name">Paul Hellyer</div>
+          <div class="vr-role">Canadian Defence Minister</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/bob_lazar.jpg" alt="Bob Lazar">
+          <div class="vr-name">Bob Lazar</div>
+          <div class="vr-role">Claimed S-4 physicist</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── The Pattern ── -->
+    <div class="scroll-block" data-block="3-13">
+      <h3 class="node-title">The Pattern</h3>
+      <p>Notice the pattern. These are not anonymous internet commenters. They are astronauts, colonels, defense ministers, NASA employees, NSA-cleared technicians. They describe the same thing across decades: <em>non-human technology exists, the government knows, the evidence is suppressed.</em></p>
+      <p>Every one of them paid a price. Careers ended. Reputations destroyed. The consistent penalty for speaking is itself evidence of institutional coordination.</p>
+    </div>
+
+    <div class="scroll-block" data-block="3-14">
+      <div class="pull-quote">
+        <div class="pq-text">&ldquo;Yes, there have been crashed craft, and bodies recovered. We are not alone in the universe; they have been coming here for a long time.&rdquo;</div>
+        <div class="pq-attr">&mdash; Edgar Mitchell, Apollo 14 astronaut, Kerrang! Radio interview, 2008</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-15">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>CIA Dispatch 1035-960</strong> (April 1, 1967): A classified CIA memo instructed media assets to use the term &ldquo;conspiracy theorist&rdquo; to discredit critics of the Warren Commission. The memo was released via FOIA in 1976. The same linguistic weapon has been deployed against every witness named above.</div>
+        <div class="evidence-source">CIA Dispatch 1035-960, &ldquo;Countering Criticism of the Warren Report&rdquo; (1967). Declassified under FOIA, archived at Mary Ferrell Foundation.</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT IV — THE BLACK (color shift to amber)                -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-reveal" data-act="4" data-act-label="Act IV — The Black">
+
+    <div class="act-header">
+      <div class="act-number">Act IV</div>
+      <h2 class="act-title">The Black</h2>
+    </div>
+
+    <div class="scroll-block" data-block="4-1">
+      <p>If the public space program stopped in 1972, where did the technology &mdash; and the money &mdash; go?</p>
+    </div>
+
+    <!-- ── The NRO ── -->
+    <div class="scroll-block" data-block="4-2" data-pipeline="black">
+      <h3 class="node-title">The Shadow Agency</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>National Reconnaissance Office (NRO)</strong> was established in 1961 &mdash; three years after NASA. Its <em>existence</em> was classified for 31 years, until 1992. During that time, it operated the most advanced space technology on Earth: spy satellites, orbital platforms, classified launch vehicles. An entire space agency, hidden in plain sight.</div>
+        <div class="evidence-source">NRO declassification announcement, September 18, 1992. Jeffrey T. Richelson, <em>America&rsquo;s Space Sentinels</em> (2012).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-3">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/nro.jpg" alt="NRO seal">
+          <div class="vr-name">NRO</div>
+          <div class="vr-role">Secret for 31 years (1961&ndash;1992)</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/area_51.jpg" alt="Area 51">
+          <div class="vr-name">Area 51</div>
+          <div class="vr-role">Existence denied until 2013</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-4">
+      <p>Think about what this means. For three decades, the U.S. government operated a space agency <em>that the public didn&rsquo;t know existed</em>. If they hid an entire agency for 31 years, what else is compartmentalized?</p>
+    </div>
+
+    <!-- ── The Missing Trillions ── -->
+    <div class="scroll-block" data-block="4-5">
+      <h3 class="node-title">The Missing Money</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>$21 trillion</strong> in &ldquo;undocumentable adjustments&rdquo; were identified at the Department of Defense and HUD between 1998 and 2015 by Dr. Mark Skidmore, a Michigan State University economist. His peer-reviewed findings were published in academic journals. In 2018, the Federal Accounting Standards Advisory Board adopted <strong>FASAB Statement 56</strong>, which allows federal agencies to modify public financial statements and shift expenditures to classified appendices for &ldquo;national security&rdquo; purposes.</div>
+        <div class="evidence-source">Skidmore, M. (2019). &ldquo;$21 Trillion in Undocumentable Adjustments.&rdquo; DOD OIG Report No. DODIG-2016-113. FASAB Statement 56, October 4, 2018.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-6">
+      <p>$<span class="countup" data-target="21" data-suffix=" trillion"></span>. Unaccounted for. And now, legally, the government can keep secret books. The black budget &mdash; estimated at $50&ndash;80 billion annually for classified programs &mdash; is the disclosed portion. What Skidmore found dwarfs even that.</p>
+    </div>
+
+    <div class="scroll-block" data-block="4-7">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">On <strong>September 10, 2001</strong>, Secretary of Defense Donald Rumsfeld announced that the Pentagon could not account for <strong>$2.3 trillion</strong> in transactions. &ldquo;According to some estimates, we cannot track $2.3 trillion in transactions,&rdquo; he said. The next day was September 11th. The story disappeared.</div>
+        <div class="evidence-source">C-SPAN footage, September 10, 2001. DoD Comptroller Dov Zakheim subsequent testimony.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-8">
+      <div class="visual-portrait">
+        <img src="assets/donald_rumsfeld.jpg" alt="Donald Rumsfeld">
+        <div class="visual-caption">Donald Rumsfeld — announced $2.3 trillion missing from the Pentagon on September 10, 2001.</div>
+      </div>
+    </div>
+
+    <!-- ── The X-37B ── -->
+    <div class="scroll-block" data-block="4-9">
+      <h3 class="node-title">The Classified Orbiter</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>Boeing X-37B</strong> is an unmanned military spaceplane operated by the U.S. Space Force. It has completed seven missions, some lasting over 900 days in orbit. Its payload and mission objectives are classified. It is publicly known to exist &mdash; but what it does in orbit for years at a time is not disclosed.</div>
+        <div class="evidence-source">U.S. Space Force X-37B mission fact sheets. OTV-7 launched December 28, 2023.</div>
+      </div>
+    </div>
+
+    <!-- ── Gary McKinnon ── -->
+    <div class="scroll-block" data-block="4-10">
+      <h3 class="node-title">The Hacker</h3>
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim"><strong>Gary McKinnon</strong>, a Scottish systems administrator, hacked into 97 U.S. military and NASA computers between 2001&ndash;2002. He claims he found a spreadsheet titled &ldquo;Non-Terrestrial Officers&rdquo; with ranks and names, and records of &ldquo;fleet-to-fleet transfers&rdquo; between ships that do not exist in the U.S. Navy registry. The U.S. government called it the &ldquo;biggest military computer hack of all time&rdquo; and sought extradition for 10 years. The UK blocked extradition in 2012 on human rights grounds.</div>
+        <div class="evidence-source">UK Home Secretary Theresa May, extradition block statement (October 16, 2012). McKinnon interviews with BBC, <em>Wired</em>, multiple outlets (2005&ndash;2012).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-11">
+      <div class="visual-portrait">
+        <img src="assets/gary_mckinnon.jpg" alt="Gary McKinnon">
+        <div class="visual-caption">Gary McKinnon — the U.S. called it "the biggest military computer hack of all time." He says he found evidence of a secret space fleet.</div>
+      </div>
+    </div>
+
+    <!-- ── The Breakaway Thesis ── -->
+    <div class="scroll-block" data-block="4-12">
+      <h3 class="node-title">The Breakaway Civilization</h3>
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim">Historian Richard Dolan coined the term <strong>&ldquo;breakaway civilization&rdquo;</strong> to describe the thesis: that the classified world has developed technology so far beyond public knowledge that it constitutes a separate civilization &mdash; one with its own infrastructure, governance, and capabilities, funded by the missing trillions and hidden behind layers of compartmentalization. The pattern fits: NRO hidden for 31 years, Area 51 denied until 2013, $21T unaccounted, FASAB 56 legalizing secret books.</div>
+        <div class="evidence-source">Richard Dolan, <em>UFOs and the National Security State</em> (2002, 2009). Catherine Austin Fitts, Solari Report research on missing DOD/HUD funds.</div>
+      </div>
+    </div>
+
+    <!-- ── Ben Rich ── -->
+    <div class="scroll-block" data-block="4-13">
+      <div class="pull-quote">
+        <div class="pq-text">&ldquo;We already have the means to travel among the stars, but these technologies are locked up in black projects and it would take an Act of God to ever get them out to benefit humanity.&rdquo;</div>
+        <div class="pq-attr">&mdash; Attributed to Ben Rich, former director of Lockheed Skunk Works, UCLA lecture (1993). Sourced via multiple attendees; disputed by some.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-14">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/lockheed_martin.jpg" alt="Lockheed Martin">
+          <div class="vr-name">Lockheed Martin</div>
+          <div class="vr-role">Skunk Works / SAPs</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/northrop_grumman.jpg" alt="Northrop Grumman">
+          <div class="vr-name">Northrop Grumman</div>
+          <div class="vr-role">B-2 / classified programs</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/boeing.jpg" alt="Boeing">
+          <div class="vr-name">Boeing</div>
+          <div class="vr-role">X-37B / Phantom Works</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/raytheon.jpg" alt="Raytheon">
+          <div class="vr-name">Raytheon</div>
+          <div class="vr-role">Directed energy / space systems</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Carol Rosin / Von Braun Warning ── -->
+    <div class="scroll-block" data-block="4-15">
+      <h3 class="node-title">The Warning</h3>
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim"><strong>Carol Rosin</strong>, the first female corporate manager of an aerospace company (Fairchild Industries), testified at the Disclosure Project that her mentor <strong>Wernher von Braun</strong> warned her repeatedly before his death (1977) about a planned sequence of false enemies to justify space-based weapons: first the Soviets, then terrorists, then &ldquo;nations of concern,&rdquo; then asteroids, and finally &mdash; the &ldquo;last card&rdquo; &mdash; a false extraterrestrial threat. &ldquo;And all of it is a lie,&rdquo; she quoted him as saying.</div>
+        <div class="evidence-source">Carol Rosin, Disclosure Project testimony (2001). Multiple public presentations (2001&ndash;present).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-16">
+      <div class="visual-portrait">
+        <img src="assets/carol_rosin.jpg" alt="Carol Rosin">
+        <div class="visual-caption">Carol Rosin — Fairchild Industries executive, von Braun's protégée. She says he warned about a false flag sequence ending with a staged alien threat.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-17">
+      <div class="anim-eye">
+        <div class="anim-eye-shape"></div>
+        <div class="anim-eye-iris"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT V — THE DISCLOSURE (color shift: cosmic blue)        -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-cosmic" data-act="5" data-act-label="Act V — The Disclosure">
+
+    <div class="act-header">
+      <div class="act-number">Act V</div>
+      <h2 class="act-title">The Disclosure</h2>
+    </div>
+
+    <div class="scroll-block" data-block="5-1">
+      <p>Something shifted in 2017. After decades of ridicule and denial, the wall began to crack. Not from the outside &mdash; from the inside.</p>
+    </div>
+
+    <!-- ── 2017: The NYT Article ── -->
+    <div class="scroll-block" data-block="5-2">
+      <h3 class="node-title">The Crack Opens</h3>
+      <div class="disclosure-timeline">
+        <div class="timeline-block">
+          <div class="tl-date">December 16, 2017</div>
+          <div class="tl-event">The <em>New York Times</em> publishes &ldquo;Glowing Auras and Black Money,&rdquo; revealing the existence of <strong>AATIP</strong> (Advanced Aerospace Threat Identification Program), a secret Pentagon UFO investigation program funded at $22M/year. Three Navy videos are released showing objects performing maneuvers that defy known physics. The Pentagon confirms the videos are authentic.</div>
+        </div>
+        <div class="timeline-block">
+          <div class="tl-date">2018&ndash;2020</div>
+          <div class="tl-event"><strong>Luis Elizondo</strong>, former AATIP director, goes public. The Navy formally acknowledges the videos as &ldquo;unidentified aerial phenomena.&rdquo; The UAP Task Force is established. The stigma begins to lift.</div>
+        </div>
+        <div class="timeline-block">
+          <div class="tl-date">June 2021</div>
+          <div class="tl-event">The Office of the Director of National Intelligence releases a preliminary assessment: <strong>144 UAP reports from military personnel, only 1 explained.</strong> The report acknowledges potential &ldquo;flight safety and national security concerns.&rdquo;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-3">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/luis_elizondo.jpg" alt="Luis Elizondo">
+          <div class="vr-name">Luis Elizondo</div>
+          <div class="vr-role">Former AATIP Director</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/christopher_mellon.jpg" alt="Christopher Mellon">
+          <div class="vr-name">Christopher Mellon</div>
+          <div class="vr-role">Fmr. Deputy Asst. Sec. of Defense</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/david_fravor.jpg" alt="David Fravor">
+          <div class="vr-name">David Fravor</div>
+          <div class="vr-role">Navy CDR, Tic Tac witness</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Grusch ── -->
+    <div class="scroll-block" data-block="5-4">
+      <h3 class="node-title">The Whistleblower</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In June 2023, <strong>David Grusch</strong> &mdash; a former intelligence officer on the UAP Task Force with Top Secret/SCI clearance &mdash; filed a complaint with the Intelligence Community Inspector General (ICIG), which was deemed &ldquo;credible and urgent.&rdquo; He testified before Congress under oath that the U.S. government possesses craft of non-human origin and has run a crash retrieval and reverse-engineering program for decades. He stated he had been briefed on the programs by <strong>40+ witnesses</strong> with direct knowledge.</div>
+        <div class="evidence-source">ICIG complaint (deemed credible and urgent). House Oversight Committee hearing, July 26, 2023. David Grusch sworn testimony, congressional record.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-5">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/david_grusch.jpg" alt="David Grusch">
+          <div class="vr-name">David Grusch</div>
+          <div class="vr-role">Intelligence officer / Whistleblower</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/ryan_graves.jpg" alt="Ryan Graves">
+          <div class="vr-name">Ryan Graves</div>
+          <div class="vr-role">Navy pilot, daily UAP encounters</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/grusch_hearing.jpg" alt="Congressional hearing">
+          <div class="vr-name">July 26, 2023</div>
+          <div class="vr-role">Under oath before Congress</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-6">
+      <div class="pull-quote">
+        <div class="pq-text">&ldquo;I was informed in the course of my official duties of a multi-decade UAP crash retrieval and reverse engineering program to which I was denied access.&rdquo;</div>
+        <div class="pq-attr">&mdash; David Grusch, sworn testimony before Congress, July 26, 2023</div>
+      </div>
+    </div>
+
+    <!-- ── Grusch 2026 update ── -->
+    <div class="scroll-block" data-block="5-7">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim">In early 2026, Grusch was named <strong>Special Advisor to the Congressional Task Force on Declassification of Federal Secrets.</strong> He stated publicly that he had seen photographs of non-human biological remains and <strong>named former Vice President Dick Cheney as the last person to centrally oversee the alleged programs.</strong></div>
+        <div class="evidence-source">Fox News interview (early 2026). House Task Force on Declassification appointment records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-8">
+      <div class="visual-portrait">
+        <img src="assets/dick_cheney.jpg" alt="Dick Cheney">
+        <div class="visual-caption">Dick Cheney — named by Grusch as the last person to centrally oversee the alleged reverse-engineering programs.</div>
+      </div>
+    </div>
+
+    <!-- ── Congressional action ── -->
+    <div class="scroll-block" data-block="5-9">
+      <h3 class="node-title">The Legislation</h3>
+      <div class="disclosure-timeline">
+        <div class="timeline-block">
+          <div class="tl-date">2023</div>
+          <div class="tl-event">Senator Chuck Schumer introduces the <strong>UAP Disclosure Act</strong> with bipartisan co-sponsors including Mike Rounds, Kirsten Gillibrand, and Marco Rubio. It proposes a JFK-style review board to force declassification. The most ambitious provisions are gutted before passage.</div>
+        </div>
+        <div class="timeline-block">
+          <div class="tl-date">2024 <span class="tl-note">&mdash; Karl Nell</span></div>
+          <div class="tl-event">Colonel Karl Nell (ret.), former Army intelligence officer, states at the Sol Foundation academic conference: <strong>&ldquo;Non-human intelligence exists. Non-human intelligence has been interacting with humanity. This interaction is not new and has been ongoing.&rdquo;</strong> He is not a fringe figure. He held senior positions in the U.S. Army&rsquo;s modernization command.</div>
+        </div>
+        <div class="timeline-block">
+          <div class="tl-date">September 9, 2025</div>
+          <div class="tl-event">House Oversight hearing: <strong>&ldquo;Restoring Public Trust Through UAP Transparency.&rdquo;</strong> Air Force veterans Nuccetelli and Borland testify about encounters with &ldquo;baffling orbs and craft that appeared to eclipse existing weapons and technology.&rdquo;</div>
+        </div>
+        <div class="timeline-block">
+          <div class="tl-date">February 20, 2026</div>
+          <div class="tl-event"><strong>President Trump directs the Pentagon and federal agencies</strong> to &ldquo;begin the process of identifying and releasing government files related to alien and extraterrestrial life, UAP, and UFOs.&rdquo; Defense Secretary Pete Hegseth: &ldquo;We&rsquo;ve got our people working on it right now.&rdquo;</div>
+        </div>
+        <div class="timeline-block">
+          <div class="tl-date">March 17, 2026</div>
+          <div class="tl-event">The White House registers <strong>alien.gov</strong> and <strong>aliens.gov</strong> domains through CISA/DHS, hosted on Cloudflare servers. As of April 1, 2026 &mdash; neither site is active. No files have been released.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-10">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/chuck_schumer.jpg" alt="Chuck Schumer">
+          <div class="vr-name">Chuck Schumer</div>
+          <div class="vr-role">UAP Disclosure Act author</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/tim_burchett.jpg" alt="Tim Burchett">
+          <div class="vr-name">Tim Burchett</div>
+          <div class="vr-role">House UAP investigator</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── AARO and the friction ── -->
+    <div class="scroll-block" data-block="5-11">
+      <h3 class="node-title">The Resistance</h3>
+      <p>For every step forward, there has been institutional pushback. <strong>AARO</strong> (All-domain Anomaly Resolution Office), the Pentagon&rsquo;s official UAP investigation body, has over <span class="countup" data-target="2000"></span> cases on file. Its 2025 annual report has <em>not been published</em>. Its former director, Sean Kirkpatrick, clashed publicly with congressional investigators and whistleblowers.</p>
+      <p>The Schumer-Rounds UAP Disclosure Act was gutted before passage. The strongest provisions &mdash; subpoena power, eminent domain over recovered materials &mdash; were stripped. <strong>Someone does not want this information released.</strong></p>
+    </div>
+
+    <div class="scroll-block" data-block="5-12">
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim"><strong>The faction split</strong>: The disclosure movement reveals two factions within the national security state. One is pushing for transparency &mdash; congressional investigators, whistleblowers, some military and intelligence figures. The other is actively blocking it &mdash; elements within DOD, the intelligence community, and defense contractors who have managed these programs for decades and stand to lose control. This is not a left-right divide. It&rsquo;s an inside fight.</div>
+        <div class="evidence-source">Pattern analysis: Schumer-Rounds Act gutting, AARO vs. congressional investigators, Grusch retaliation claims (ICIG-validated). Christopher Mellon and Lue Elizondo public statements on institutional resistance.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-13">
+      <div class="anim-network">
+        <div class="net-ring"></div>
+        <div class="net-ring"></div>
+        <div class="net-ring"></div>
+        <div class="net-ring"></div>
+        <div class="net-core"></div>
+        <div class="net-label">Disclosure Propagating</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT VI — THE QUESTION (color shift: white light)         -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-light" data-act="6" data-act-label="Act VI — The Question">
+
+    <div class="act-header">
+      <div class="act-number">Act VI</div>
+      <h2 class="act-title">The Question</h2>
+    </div>
+
+    <div class="scroll-block" data-block="6-1">
+      <p>Today &mdash; April 1, 2026 &mdash; <strong>Artemis II launched from Kennedy Space Center.</strong> Four astronauts are heading to the Moon for the first time in 53 years. They will loop around the far side and return. They will not land.</p>
+    </div>
+
+    <div class="scroll-block" data-block="6-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Artemis II crew:</strong> Reid Wiseman (Commander), Victor Glover (Pilot &mdash; first person of color beyond LEO), Christina Koch (Mission Specialist &mdash; first woman beyond LEO), Jeremy Hansen (CSA &mdash; first non-American beyond LEO). A 10-day flyby on a free-return trajectory. <strong>Artemis III</strong>, which was supposed to land on the Moon, has been <strong>stripped of its landing mission</strong> and pushed to 2028 at the earliest. The actual landing is now Artemis IV.</div>
+        <div class="evidence-source">NASA Artemis II mission brief (March 2026). NASA Administrator Jared Isaacman, February 27, 2026 restructuring announcement.</div>
+      </div>
+    </div>
+
+    <!-- ── The Current State ── -->
+    <div class="scroll-block" data-block="6-3">
+      <h3 class="node-title">Where We Are</h3>
+      <p>Here is the state of space in April 2026:</p>
+    </div>
+
+    <div class="scroll-block" data-block="6-4">
+      <ul class="incident-list">
+        <li><strong>NASA was gutted by DOGE</strong> &mdash; 20% of its workforce (~4,000 people) departed through a deferred resignation program. The White House proposed the lowest NASA budget since 1961. Congress rescued it with bipartisan supermajorities ($24.4B). NASA is now <em>recruiting to replace the people it just fired.</em></li>
+        <li><strong>SpaceX controls 84% of U.S. launches</strong> &mdash; a near-monopoly on crewed spaceflight. Musk briefly threatened to decommission Dragon during a contract dispute. One person controls America&rsquo;s access to space.</li>
+        <li><strong>All four Block 2 Starships failed in 2025</strong> &mdash; the vehicle that was supposed to land astronauts on the Moon has not successfully completed an upper-stage mission. Only 5 launches occurred versus the 25 projected.</li>
+        <li><strong>Golden Dome</strong> &mdash; a $185 billion space-based missile defense constellation of thousands of armed satellites. The first American weapons in orbit. Cost estimate already rose $10B in a single month.</li>
+        <li><strong>Space Force budget: approaching $40 billion</strong> &mdash; with reconciliation funding, a 40% increase in one year. For context, NASA&rsquo;s entire budget is $24.4B.</li>
+        <li><strong>alien.gov and aliens.gov</strong> &mdash; registered by the White House. Not yet active. No files released.</li>
+        <li><strong>China targets a crewed lunar landing by 2030</strong> &mdash; and is arguably closer to achieving it than the U.S.</li>
+      </ul>
+    </div>
+
+    <div class="scroll-block" data-block="6-5">
+      <div class="anim-static"></div>
+    </div>
+
+    <!-- ── The Real Question ── -->
+    <div class="scroll-block" data-block="6-6">
+      <h3 class="node-title">The Convergence</h3>
+      <p>All of these threads are converging. The UAP disclosure movement and the space program are the same story seen from different angles. If non-human intelligence has been interacting with humanity &mdash; as multiple credentialed witnesses under oath have stated &mdash; then the space program is not what it appears to be. The 53-year gap is not a gap. It&rsquo;s a compartmentalization.</p>
+    </div>
+
+    <div class="scroll-block" data-block="6-7" data-pipeline="spaceforce">
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim"><strong>The two-track hypothesis:</strong> A public space program (NASA) was allowed to stagnate after Apollo while a classified one continued developing under military-intelligence auspices &mdash; funded by the missing trillions, hidden behind SAP compartmentalization, and contracted to the same defense firms. The creation of Space Force in 2019 may represent the beginning of a merge between the two tracks. The UAP disclosure push may be forcing the timeline.</div>
+        <div class="evidence-source">Pattern synthesis: NRO secrecy (31 years), FASAB 56, $21T undocumentable adjustments, McKinnon &ldquo;Non-Terrestrial Officers,&rdquo; Ben Rich quote, witness testimony pattern, von Braun warning, Grusch congressional testimony, Space Force creation timing.</div>
+      </div>
+    </div>
+
+    <!-- ── The climax ── -->
+    <div class="scroll-block" data-block="6-8">
+      <div class="pull-quote reveal-climax">
+        <div class="pq-text">The question isn&rsquo;t whether we went to space.<br>It&rsquo;s whether we ever came back.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-9">
+      <div class="anim-you-dot">
+        <span class="dot"></span> You are here
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-10">
+      <p>Artemis II is flying right now. Four humans are heading toward the Moon as you read this. It has been 53 years, 3 months, and 20 days since the last time. Whatever they find &mdash; or whatever they&rsquo;re allowed to tell us they found &mdash; the old narrative is already crumbling.</p>
+      <p>The question is no longer <em>are we alone.</em> Too many people with too many clearances have answered that. The question is: <strong>what happens when the rest of us find out?</strong></p>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- CLOSING                                                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <section class="closing" id="closing">
+    <div class="closing-content">
+      <div class="closing-statement">Every claim in this scroll is classified by evidence tier.</div>
+      <div class="closing-sub">Nothing presented as documented is speculative. Nothing credible is treated as confirmed. The pattern is the argument &mdash; not any single claim.</div>
+
+      <div class="closing-legend">
+        <div class="closing-legend-item"><span class="el-dot" style="background:#34d399"></span> Documented &mdash; official records, FOIA releases, government reports, congressional testimony</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fbbf24"></span> Credible &mdash; credentialed witness testimony, verified backgrounds, consistent accounts</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fb923c"></span> Inference &mdash; pattern analysis connecting documented and credible evidence</div>
+      </div>
+
+      <div class="closing-cta">
+        <p>Disclosure is not a single event. It&rsquo;s a process. And it only works if people are paying attention.</p>
+      </div>
+
+      <div class="closing-links">
+        <a href="/" class="closing-link">&larr; Disclosure Scrolls &mdash; full archive</a>
+        <a href="/war-for-machine/" class="closing-link">Scroll 001: The War for Machine &mdash; the 44-year surveillance pipeline</a>
+        <a href="/money-wars/" class="closing-link">Scroll 002: Money Wars &mdash; every country that left the dollar</a>
+        <a href="https://qav2.github.io/intel-console/" class="closing-link" target="_blank" rel="noopener">Intel Console &mdash; 825 entities, 1,411 relationships</a>
+      </div>
+
+      <div class="closing-support">
+        <div class="support-label">Independent research. No sponsors. No algorithm.</div>
+        <a href="https://buymeacoffee.com/joeyv23" class="support-link" target="_blank" rel="noopener">Support this work</a>
+      </div>
+
+      <div class="closing-footer">
+        <p>Disclosure Scrolls &mdash; documented investigations you can scroll through.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ Scripts ═══ -->
+  <script src="../war-for-machine/js/engine.js" defer></script>
+  <script src="../war-for-machine/js/gsap-effects.js" defer></script>
+
+</body>
+</html>
