@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind Wars &mdash; Disclosure Scrolls</title>
+  <meta name="description" content="From MKULTRA to the Gateway Process. The CIA spent 20 years trying to weaponize consciousness &mdash; then classified what they found.">
+  <meta property="og:title" content="Mind Wars">
+  <meta property="og:description" content="149 sub-projects. 80+ institutions. 20 years. The CIA's war on consciousness didn't end &mdash; it went dark. A documented investigation.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://disclosure-scrolls.netlify.app/mind-wars/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Disclosure Scrolls">
+  <meta property="og:url" content="https://disclosure-scrolls.netlify.app/mind-wars/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mind Wars">
+  <meta name="twitter:description" content="149 sub-projects. 89,000 declassified pages. The CIA's war on consciousness didn't end &mdash; it went dark.">
+  <meta name="twitter:image" content="https://disclosure-scrolls.netlify.app/mind-wars/og-image.png">
+  <meta name="theme-color" content="#06060b">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://disclosure-scrolls.netlify.app/mind-wars/">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="../war-for-machine/css/style.css">
+
+  <!-- CountUp.js -->
+  <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js" defer></script>
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+
+  <style>
+    /* ── Mind Wars overrides ── */
+
+    /* Deep purple accent throughout */
+    ::selection { background: rgba(167, 139, 250, 0.25); color: #fff; }
+
+    /* Company/org badges */
+    .badge-cia { color: #94a3b8; border-color: rgba(148,163,184,0.25); background: rgba(148,163,184,0.06); }
+    .badge-dia { color: #a78bfa; border-color: rgba(167,139,250,0.25); background: rgba(167,139,250,0.06); }
+    .badge-sri { color: #34d399; border-color: rgba(52,211,153,0.25); background: rgba(52,211,153,0.06); }
+    .badge-darpa { color: #d47474; border-color: rgba(212,116,116,0.25); background: rgba(212,116,116,0.06); }
+    .badge-nsa { color: #60a5fa; border-color: rgba(96,165,250,0.25); background: rgba(96,165,250,0.06); }
+    .badge-army { color: #fbbf24; border-color: rgba(251,191,36,0.25); background: rgba(251,191,36,0.06); }
+
+    /* Playbook comparison grid */
+    .playbook-grid { margin: 2rem 0; overflow-x: auto; }
+    .playbook-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .playbook-table th {
+      font-family: 'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',monospace;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .playbook-table td {
+      padding: 0.5rem 0.75rem;
+      color: #dcdce4;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: top;
+    }
+    .playbook-table td:first-child {
+      font-family: 'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',monospace;
+      font-size: 0.7rem;
+      color: #a78bfa;
+      font-weight: 600;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    /* Act III — amber reveal */
+    .act-reveal .act-title { color: #fbbf24; }
+    .act-reveal .act-number { color: rgba(251, 191, 36, 0.4); }
+    .act-reveal .node-title { color: #fbbf24; border-bottom-color: rgba(251,191,36,0.15); }
+    .act-reveal .pull-quote { border-left-color: rgba(251,191,36,0.25); }
+
+    /* Act V — cosmic blue */
+    .act-cosmic .act-title { color: #93c5fd; }
+    .act-cosmic .act-number { color: rgba(147,197,253,0.4); }
+    .act-cosmic .node-title { color: #93c5fd; border-bottom-color: rgba(147,197,253,0.15); }
+    .act-cosmic .pull-quote { border-left-color: rgba(147,197,253,0.25); }
+    .act-cosmic .timeline-block::before { background: #93c5fd; }
+    .act-cosmic .tl-date { color: #93c5fd; }
+
+    /* Act VI — white light */
+    .act-light .act-title { color: #f0f0f4; }
+    .act-light .act-number { color: rgba(240,240,244,0.4); }
+    .act-light .node-title { color: #f0f0f4; border-bottom-color: rgba(240,240,244,0.15); }
+    .act-light .pull-quote { border-left-color: rgba(240,240,244,0.25); }
+
+    @media (max-width: 600px) {
+      .playbook-table { font-size: 0.75rem; }
+      .playbook-table th { font-size: 0.55rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ Particle Network Background ═══ -->
+  <canvas id="particle-net" class="particle-canvas"></canvas>
+
+  <!-- ═══ Progress Bar ═══ -->
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <!-- ═══ Pipeline Tracker ═══ -->
+  <div class="pipeline-track" id="pipeline-track">
+    <div class="pipeline-inner">
+      <div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
+      <div class="pipeline-node" data-step="mkultra"><span class="pn-year">1953</span><span class="pn-label">MKULTRA</span></div>
+      <div class="pipeline-node" data-step="midnight"><span class="pn-year">1955</span><span class="pn-label">Midnight Climax</span></div>
+      <div class="pipeline-node" data-step="frey"><span class="pn-year">1961</span><span class="pn-label">Frey Effect</span></div>
+      <div class="pipeline-node" data-step="stargate"><span class="pn-year">1972</span><span class="pn-label">Stargate</span></div>
+      <div class="pipeline-node" data-step="gateway"><span class="pn-year">1983</span><span class="pn-label">Gateway</span></div>
+      <div class="pipeline-node" data-step="shutdown"><span class="pn-year">1995</span><span class="pn-label">&ldquo;Terminated&rdquo;</span></div>
+      <div class="pipeline-node" data-step="havana"><span class="pn-year">2016</span><span class="pn-label">Havana</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ Act Indicator ═══ -->
+  <div class="act-indicator" id="act-indicator"></div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- TITLE SCREEN                                             -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="title-screen" id="title-screen">
+    <div class="title-content">
+      <a href="/" class="back-link">&larr; Disclosure Scrolls</a>
+      <div class="title-label">Scroll 004</div>
+      <div class="title-reading-time">~25 min read</div>
+      <h1 class="title-main">Mind Wars</h1>
+      <p class="title-sub">The CIA spent 20 years trying to crack human consciousness. They destroyed the files. They shut down the programs. They ridiculed anyone who asked. But 89,000 pages survived &mdash; and they tell a different story.</p>
+      <div class="title-meta">
+        <span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fbbf24"></span> Credible</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
+      </div>
+      <div class="scroll-cue">&darr; Begin scrolling</div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT I &mdash; THE PROGRAM                                -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="1" data-act-label="Act I &mdash; The Program">
+
+    <div class="act-header">
+      <div class="act-number">Act I</div>
+      <h2 class="act-title">The Program</h2>
+    </div>
+
+    <div class="scroll-block" data-block="1-1" data-pipeline="mkultra">
+      <h3 class="node-title">Project MKULTRA</h3>
+      <p>In 1953, CIA Director Allen Dulles authorized a program to explore &ldquo;the use of biological and chemical materials in altering human behavior.&rdquo; It would run for 20 years across 149 sub-projects at 80+ institutions &mdash; universities, hospitals, prisons, military bases. Its name was MKULTRA.</p>
+      <p>The subjects were often unwitting. The methods included LSD, electroshock, sensory deprivation, hypnosis, and psychological torture. The goal was control &mdash; not understanding. Not healing. Control.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>MKULTRA encompassed 149 sub-projects across 80+ institutions</strong> including Harvard, Stanford, Columbia, McGill, and the National Institute of Mental Health. Methods included LSD administration to unwitting subjects, electroshock, sensory deprivation, isolation, verbal and sexual abuse, and hypnosis. The program ran from 1953 to 1973.</div>
+        <div class="evidence-source"><a href="https://www.intelligence.senate.gov/sites/default/files/hearings/95mkultra.pdf" target="_blank" rel="noopener">Senate Select Committee on Intelligence, &ldquo;Project MKULTRA&rdquo; (1977)</a>. Church Committee Final Report, Book I (1976). CIA admission to Congress.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In 1973, CIA Director <strong>Richard Helms ordered all MKULTRA files destroyed</strong>. The directive was carried out. But 20,000 pages survived &mdash; only because they had been misfiled in the CIA&rsquo;s financial records division and were discovered during a 1977 FOIA request by investigative journalist John Marks. These pages became the basis for the Church Committee investigation and every public disclosure that followed.</div>
+        <div class="evidence-source"><a href="https://www.intelligence.senate.gov/sites/default/files/hearings/95mkultra.pdf" target="_blank" rel="noopener">Senate Select Committee hearings (1977)</a>. John Marks, <em>The Search for the &ldquo;Manchurian Candidate&rdquo;</em> (1979). CIA Inspector General Report (1963, declassified).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-4">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/dulles.jpg" alt="Allen Dulles">
+          <div class="vr-name">Allen Dulles</div>
+          <div class="vr-role">CIA Director &mdash; authorized MKULTRA</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/gottlieb.jpg" alt="Sidney Gottlieb">
+          <div class="vr-name">Sidney Gottlieb</div>
+          <div class="vr-role">MKULTRA Program Director, CIA TSS</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/helms.jpg" alt="Richard Helms">
+          <div class="vr-name">Richard Helms</div>
+          <div class="vr-role">CIA Director &mdash; ordered files destroyed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Midnight Climax ── -->
+    <div class="scroll-block" data-block="1-5" data-pipeline="midnight">
+      <h3 class="node-title">Operation Midnight Climax</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Operation Midnight Climax</strong>: The CIA operated safe houses in San Francisco and New York where sex workers were hired to lure unwitting men. The subjects were secretly dosed with LSD and other drugs, then observed and filmed through two-way mirrors by CIA agents. Bureau of Narcotics officer George Hunter White ran the operation from 1955 to 1963. His personal diaries, archived at Foothill College Electronics Museum in Los Altos Hills, document the program in detail. White later wrote: <em>&ldquo;I toiled wholeheartedly in the vineyards because it was fun, fun, fun.&rdquo;</em></div>
+        <div class="evidence-source">Church Committee testimony. CIA Inspector General Report (1963, declassified). George White Papers, Foothill College Electronics Museum, Los Altos Hills, CA.</div>
+      </div>
+    </div>
+
+    <!-- ── Frank Olson ── -->
+    <div class="scroll-block" data-block="1-6">
+      <h3 class="node-title">The First Casualty</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Frank Olson</strong>, a U.S. Army biochemist working on CIA biological weapons research, was secretly dosed with LSD by Sidney Gottlieb at a retreat on November 19, 1953. Nine days later, Olson fell from a 13th-floor window of the Statler Hotel in New York City. The CIA ruled it a suicide. A 1994 exhumation and forensic examination found a cranial injury consistent with a blow to the head <em>before</em> the fall. In 1975, the Olson family received a personal apology from President Ford and a settlement from Congress. The case has never been resolved.</div>
+        <div class="evidence-source"><a href="https://nsarchive.gwu.edu/briefing-book/intelligence/2019-11-28/frank-olson-cia-mkultra-lsd-experiments" target="_blank" rel="noopener">National Security Archive, George Washington University</a>. James Starrs forensic report (1994). Church Committee findings (1975).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-7">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/frank_olson.jpg" alt="Frank Olson">
+          <div class="vr-name">Frank Olson</div>
+          <div class="vr-role">Army biochemist &mdash; dosed with LSD, died 1953</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Cameron / McGill ── -->
+    <div class="scroll-block" data-block="1-8">
+      <h3 class="node-title">Psychic Driving</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Donald Ewen Cameron</strong>, president of both the American and Canadian Psychiatric Associations and the World Psychiatric Association, conducted CIA-funded experiments at McGill University&rsquo;s Allan Memorial Institute (Sub-project 68). His &ldquo;psychic driving&rdquo; technique used drug-induced comas lasting up to 86 days, combined with repetitive audio messages played up to 500,000 times, electroshock at 30&ndash;40 times normal therapeutic power, and total sensory deprivation. Patients were left incontinent, unable to recognize family members, and in some cases permanently regressed to infantile states.</div>
+        <div class="evidence-source"><a href="https://www.thecanadianencyclopedia.ca/en/article/mkultra" target="_blank" rel="noopener">The Canadian Encyclopedia, &ldquo;MKULTRA in Canada&rdquo;</a>. Canadian government settled with 77 victims (1992, $100,000 CAD each); issued formal apology and additional compensation in October 2024. CIA Inspector General Report (1963, declassified). Gordon Thomas, <em>Journey Into Madness</em> (1989).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-9">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/cameron.jpg" alt="Donald Ewen Cameron">
+          <div class="vr-name">Donald Ewen Cameron</div>
+          <div class="vr-role">McGill &mdash; psychic driving, Sub-project 68</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Estabrooks ── -->
+    <div class="scroll-block" data-block="1-10">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>George Estabrooks</strong>, Rhodes Scholar and chair of the psychology department at Colgate University, documented the creation of hypnotic couriers and &ldquo;super spies&rdquo; for U.S. military intelligence during WWII. He described splitting personalities into compartmented identities that could carry classified information without conscious knowledge. In 1971, he stated publicly: <em>&ldquo;I can hypnotize a man &mdash; without his knowledge or consent &mdash; into committing treason against the United States.&rdquo;</em></div>
+        <div class="evidence-source">George Estabrooks, &ldquo;Hypnosis Comes of Age,&rdquo; <em>Science Digest</em> (April 1971). Estabrooks, <em>Hypnotism</em> (E.P. Dutton, 1943). <a href="https://archive.org/details/hypnotism00esta" target="_blank" rel="noopener">Archive.org: <em>Hypnotism</em> full text</a>.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-11">
+      <div class="pull-quote">
+        <div class="pq-text">&ldquo;I can hypnotize a man &mdash; without his knowledge or consent &mdash; into committing treason against the United States.&rdquo;</div>
+        <div class="pq-attr">&mdash; George Estabrooks, Science Digest, 1971</div>
+      </div>
+    </div>
+
+    <!-- ── CountUp stats ── -->
+    <div class="scroll-block" data-block="1-12">
+      <div class="stat-row">
+        <div class="stat-block">
+          <span class="countup" data-target="149" id="cu-projects">149</span>
+          <span class="stat-label">sub-projects</span>
+        </div>
+        <div class="stat-block">
+          <span class="countup" data-target="80" id="cu-institutions">80</span><span class="stat-suffix">+</span>
+          <span class="stat-label">institutions</span>
+        </div>
+        <div class="stat-block">
+          <span class="countup" data-target="20000" id="cu-pages">20,000</span>
+          <span class="stat-label">surviving pages</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Chain ── -->
+    <div class="scroll-block chain-summary" data-block="1-13">
+      <div class="typed-terminal" id="mkultra-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING PROGRAM ORIGINS...","Dulles (1953) ^500&rarr; Gottlieb (TSS) ^500&rarr; Cameron (McGill) ^500&rarr; Olson (eliminated) ^500&rarr; Helms (files destroyed)","PROGRAM MAPPED. ^1000 20 YEARS. 149 SUB-PROJECTS. ONE QUESTION: WHAT DID THEY FIND?"]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">Dulles</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Gottlieb</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Cameron</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Olson</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Helms</span>
+      </div>
+      <p class="chain-decode">CIA Director &rarr; Program Director &rarr; Psychic Driving &rarr; First Casualty &rarr; File Destruction</p>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT II &mdash; THE WEAPONS                               -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="2" data-act-label="Act II &mdash; The Weapons">
+
+    <div class="act-header">
+      <div class="act-number">Act II</div>
+      <h2 class="act-title">The Weapons</h2>
+    </div>
+
+    <div class="scroll-block" data-block="2-1">
+      <p>While MKULTRA explored chemical and psychological manipulation, a parallel track pursued something more precise: the direct transmission of information into the human brain using electromagnetic radiation. The science is peer-reviewed. The weapons are classified.</p>
+    </div>
+
+    <!-- ── Frey Effect ── -->
+    <div class="scroll-block" data-block="2-2" data-pipeline="frey">
+      <h3 class="node-title">The Frey Effect</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>microwave auditory effect</strong> was first reported in peer-reviewed literature in 1961 by neuroscientist Allan Frey in the journal <em>Aerospace Medicine</em>. Modulated microwave radiation at specific frequencies produces sounds perceived inside the head &mdash; clicks, buzzes, even words &mdash; with no external speaker, no earpiece, and no physical contact. The effect has been independently replicated in laboratories worldwide for over 60 years.</div>
+        <div class="evidence-source"><a href="https://doi.org/10.21236/AD0442862" target="_blank" rel="noopener">Allan Frey, &ldquo;Auditory System Response to Radio Frequency Energy,&rdquo; <em>Aerospace Medicine</em> 32 (1961)</a>. Subsequent replication: Lin &amp; Wang (2007), Elder &amp; Chou (2003), Foster &amp; Finch (1974).</div>
+      </div>
+    </div>
+
+    <!-- ── Moscow Signal ── -->
+    <div class="scroll-block" data-block="2-3">
+      <h3 class="node-title">The Moscow Signal</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">From the 1950s through 1976, the Soviet Union continuously irradiated the U.S. Embassy in Moscow with microwave radiation. <strong>Ambassador Walter Stoessel</strong> developed a rare blood disease (aplastic anemia) and died in 1986. Two other ambassadors, Charles Bohlen and Llewellyn Thompson, also died of cancer. The State Department kept the irradiation secret from embassy staff for years and commissioned a classified study by Johns Hopkins University to assess the effects.</div>
+        <div class="evidence-source">Johns Hopkins &ldquo;Moscow Signal&rdquo; study (declassified). Declassified State Department cables. <a href="https://nsarchive.gwu.edu" target="_blank" rel="noopener">National Security Archive</a>. AP and UPI reporting (1976).</div>
+      </div>
+    </div>
+
+    <!-- ── Project Pandora ── -->
+    <div class="scroll-block" data-block="2-4">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Project Pandora</strong> (1965&ndash;1970): DARPA&rsquo;s classified response to the Moscow Signal. The program studied the biological effects of directed microwave radiation on primates and humans. Researchers found behavioral changes in exposed subjects. The full results remain partially classified. DARPA&rsquo;s interest in directed energy did not end with Pandora &mdash; it evolved.</div>
+        <div class="evidence-source">DARPA Program Records (declassified under FOIA). Jack Anderson, <em>Washington Post</em> (1972). <a href="https://sgp.fas.org/othergov/doe/lanl/00285510.pdf" target="_blank" rel="noopener">Los Alamos National Laboratory bibliography on RF bioeffects</a>.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-5">
+      <div class="company-badge badge-darpa">DARPA</div>
+      <div class="company-badge badge-cia">CIA</div>
+      <div class="company-badge badge-nsa">NSA</div>
+    </div>
+
+    <!-- ── V2K ── -->
+    <div class="scroll-block" data-block="2-6">
+      <h3 class="node-title">Voice-to-Skull</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Voice-to-skull (V2K) technology</strong> &mdash; the weaponized application of the Frey Effect &mdash; appeared as an official term in the U.S. Army&rsquo;s Military Thesaurus before being quietly removed in 2008 after media attention. U.S. Patent 6,470,214, granted in 2002, describes &ldquo;a method and device for producing a communication through the microwave auditory effect&rdquo; &mdash; effectively a patent for putting voices in someone&rsquo;s head without their knowledge.</div>
+        <div class="evidence-source"><a href="https://patents.google.com/patent/US6470214B1" target="_blank" rel="noopener">U.S. Patent 6,470,214 (USPTO, 2002)</a>. U.S. Army Military Thesaurus (archived versions). <a href="https://www.wired.com/2008/05/army-removes-pa/" target="_blank" rel="noopener">Wired Magazine, &ldquo;Army Removes Page on Voice-to-Skull Weapons&rdquo; (2008)</a>.</div>
+      </div>
+    </div>
+
+    <!-- ── Havana Syndrome ── -->
+    <div class="scroll-block" data-block="2-7" data-pipeline="havana">
+      <h3 class="node-title">Havana Syndrome</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Beginning in late 2016, U.S. and Canadian diplomats in Havana, Cuba reported sudden onset of cognitive difficulties, hearing loss, vertigo, nausea, and brain injuries with no apparent external cause. By 2024, similar incidents were reported at U.S. facilities in <strong>China, Austria, Colombia, India, Vietnam, and Washington, D.C.</strong> &mdash; affecting an estimated <strong>1,500+ U.S. government personnel</strong>. Brain imaging studies published in JAMA found measurable white matter changes in affected individuals.</div>
+        <div class="evidence-source"><a href="https://jamanetwork.com/journals/jama/fullarticle/2673168" target="_blank" rel="noopener">Swanson et al., JAMA (2018)</a>. <a href="https://doi.org/10.1001/jama.2019.9269" target="_blank" rel="noopener">Verma et al., JAMA (2019)</a>. 60 Minutes investigations (2022, 2024).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-8">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim">The <strong>National Academies of Sciences, Engineering, and Medicine</strong> concluded in December 2020 that &ldquo;directed, pulsed radiofrequency energy appears to be the most plausible mechanism&rdquo; for the Havana Syndrome injuries &mdash; consistent with the Frey Effect mechanism documented since 1961. The committee noted the similarity to known RF effects research.</div>
+        <div class="evidence-source"><a href="https://nap.nationalacademies.org/catalog/25889" target="_blank" rel="noopener">National Academies, &ldquo;An Assessment of Illness in U.S. Government Employees&rdquo; (2020)</a>.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-9">
+      <div class="pull-quote">
+        <div class="pq-text">&ldquo;Directed, pulsed radiofrequency energy appears to be the most plausible mechanism.&rdquo;</div>
+        <div class="pq-attr">&mdash; National Academies of Sciences, 2020</div>
+      </div>
+    </div>
+
+    <!-- ── Book suppression ── -->
+    <div class="scroll-block" data-block="2-10">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Key books documenting microwave auditory effects and mind control technology have experienced extreme secondary market price inflation: James Lin&rsquo;s <em>Microwave Auditory Effects and Applications</em> ($30 original &rarr; $1,000+), W.H. Bowart&rsquo;s <em>Operation Mind Control</em> ($15 &rarr; $500+), Martin Cannon&rsquo;s <em>The Controllers</em> (near-impossible to obtain in print). This pattern of economic suppression through pricing is documented across multiple titles in the field &mdash; the books aren&rsquo;t banned, they&rsquo;re just priced out of reach.</div>
+        <div class="evidence-source">Amazon/AbeBooks secondary market data. Library catalog cross-referencing. James C. Lin, <em>Microwave Auditory Effects and Applications</em> (Charles C. Thomas, 1978).</div>
+      </div>
+    </div>
+
+    <!-- ── CountUp ── -->
+    <div class="scroll-block" data-block="2-11">
+      <div class="stat-row">
+        <div class="stat-block">
+          <span class="countup" data-target="1500" id="cu-havana">1,500</span><span class="stat-suffix">+</span>
+          <span class="stat-label">personnel affected</span>
+        </div>
+        <div class="stat-block">
+          <span class="countup" data-target="63" id="cu-frey">63</span>
+          <span class="stat-label">years of Frey Effect research</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT III &mdash; THE DISCOVERIES (amber reveal)            -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-reveal" data-act="3" data-act-label="Act III &mdash; The Discoveries">
+
+    <div class="act-header">
+      <div class="act-number">Act III</div>
+      <h2 class="act-title">The Discoveries</h2>
+    </div>
+
+    <div class="scroll-block" data-block="3-1">
+      <p>While one arm of the intelligence community weaponized consciousness, another arm discovered something they couldn&rsquo;t explain &mdash; and couldn&rsquo;t control. At Stanford Research Institute, the CIA was getting results that broke every model they had.</p>
+    </div>
+
+    <!-- ── Stargate ── -->
+    <div class="scroll-block" data-block="3-2" data-pipeline="stargate">
+      <h3 class="node-title">Project Stargate</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The CIA funded a <strong>remote viewing program at Stanford Research Institute (SRI)</strong> from 1972 to 1995 under successive codenames: SCANGATE, GRILL FLAME, CENTER LANE, SUN STREAK, and finally STAR GATE. The program employed individuals who described distant locations, people, and events using only geographic coordinates. Over <strong>89,000 pages</strong> across ~12,000 files were declassified via the CIA&rsquo;s STAR GATE collection in 2017.</div>
+        <div class="evidence-source"><a href="https://www.cia.gov/readingroom/collection/stargate" target="_blank" rel="noopener">CIA STAR GATE Collection (CIA.gov, declassified 2017)</a>. Congressional Research Service. <a href="https://irp.fas.org/program/collect/stargate.htm" target="_blank" rel="noopener">Federation of American Scientists, Stargate archive</a>.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-3">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/swann.jpg" alt="Ingo Swann — Penetration">
+          <div class="vr-name">Ingo Swann</div>
+          <div class="vr-role">SRI remote viewer &mdash; co-developed protocols</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/puthoff.jpg" alt="Hal Puthoff">
+          <div class="vr-name">Hal Puthoff</div>
+          <div class="vr-role">SRI physicist &mdash; program co-director</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/targ.jpg" alt="Russell Targ">
+          <div class="vr-name">Russell Targ</div>
+          <div class="vr-role">SRI physicist &mdash; program co-director</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Swann / Jupiter ── -->
+    <div class="scroll-block" data-block="3-4">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Ingo Swann</strong>, working under controlled laboratory conditions at SRI in 1973, provided detailed descriptions of features around Jupiter &mdash; including a ring system &mdash; before it was confirmed by the Pioneer 10 flyby. The session was documented and timestamped by Puthoff and Targ. Puthoff and Targ&rsquo;s broader SRI experiments were published in <em>Nature</em> (1974).</div>
+        <div class="evidence-source">SRI session logs (declassified, April 27, 1973). Puthoff &amp; Targ, &ldquo;Information Transmission Under Conditions of Sensory Shielding,&rdquo; <a href="https://doi.org/10.1038/251602a0" target="_blank" rel="noopener"><em>Nature</em> 251 (1974)</a>. Swann published accounts; Puthoff corroboration.</div>
+      </div>
+    </div>
+
+    <!-- ── Pat Price ── -->
+    <div class="scroll-block" data-block="3-5">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Pat Price</strong>, a retired Burbank police commissioner working at SRI, was given only geographic coordinates and described a classified NSA facility at Sugar Grove, West Virginia &mdash; including operational details, building layouts, and code names that required SRI staff to obtain special security clearances just to verify. The accuracy prompted CIA alarm about the program&rsquo;s own security implications: if Price could see <em>their</em> installations, who else could?</div>
+        <div class="evidence-source">SRI session documentation (declassified). CIA review documents. Targ &amp; Puthoff, <em>Mind Reach</em> (1977). Puthoff published accounts.</div>
+      </div>
+    </div>
+
+    <!-- ── McMoneagle ── -->
+    <div class="scroll-block" data-block="3-6">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Joe McMoneagle</strong> (U.S. Army, codename &ldquo;Remote Viewer #1&rdquo;) was awarded the <strong>Legion of Merit</strong> in 1984 &mdash; the citation referencing his contributions to &ldquo;a critical intelligence project&rdquo; involving &ldquo;psychoenergetic&rdquo; intelligence collection. He participated in over 450 operational sessions for the DIA. In one documented session, he accurately described the construction of a new Soviet Typhoon-class submarine in a covered building at Severodvinsk &mdash; months before satellite imagery confirmed it.</div>
+        <div class="evidence-source">U.S. Army awards records. McMoneagle, <em>The Stargate Chronicles</em> (2002). DIA program records (declassified). <a href="https://www.cia.gov/readingroom/collection/stargate" target="_blank" rel="noopener">CIA STAR GATE Collection</a>.</div>
+      </div>
+    </div>
+
+
+    <div class="scroll-block" data-block="3-7">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/mcmoneagle.jpg" alt="The Stargate Chronicles — Joe McMoneagle">
+          <div class="vr-name">Joe McMoneagle</div>
+          <div class="vr-role">Remote Viewer #1 &mdash; Legion of Merit</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-8">
+      <div class="company-badge badge-cia">CIA</div>
+      <div class="company-badge badge-dia">DIA</div>
+      <div class="company-badge badge-sri">SRI</div>
+      <div class="company-badge badge-army">US Army</div>
+    </div>
+
+    <!-- ── Gateway Process ── -->
+    <div class="scroll-block" data-block="3-9" data-pipeline="gateway">
+      <h3 class="node-title">The Gateway Process</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In 1983, U.S. Army Intelligence and Security Command commissioned a classified report on the <strong>Gateway Process</strong> &mdash; the Monroe Institute&rsquo;s consciousness expansion technique using binaural audio beats (Hemi-Sync). Lt. Col. Wayne McDonnell&rsquo;s full analysis concluded that consciousness is &ldquo;an electromagnetic system&rdquo; capable of accessing information beyond normal spacetime constraints. The report was classified. When partially declassified, <strong>Page 25 &mdash; dealing with practical application steps &mdash; was missing for decades</strong>, fueling viral interest on social media. The CIA released it in 2021 following sustained FOIA pressure.</div>
+        <div class="evidence-source"><a href="https://www.cia.gov/readingroom/docs/CIA-RDP96-00788R001700210016-5.pdf" target="_blank" rel="noopener">CIA Reading Room: &ldquo;Analysis and Assessment of Gateway Process&rdquo; (1983)</a>. Lt. Col. Wayne McDonnell, Army Intelligence and Security Command. Monroe Institute program records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-10">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim">The Gateway Process report describes a model where consciousness operates as a holographic system that can be &ldquo;tuned&rdquo; to access different information states. It references quantum physics, describes out-of-body experiences as operational states rather than pathology, and concludes the technique has practical intelligence applications. The report treats consciousness as infrastructure, not philosophy.</div>
+        <div class="evidence-source">Lt. Col. Wayne McDonnell, &ldquo;Analysis and Assessment of Gateway Process&rdquo; (1983). Monroe Institute program documentation.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-11">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/monroe.jpg" alt="Journeys Out of the Body — Robert Monroe">
+          <div class="vr-name">Robert Monroe</div>
+          <div class="vr-role">Founded Monroe Institute &mdash; Hemi-Sync</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/stubblebine.jpg" alt="Albert Stubblebine">
+          <div class="vr-name">Albert Stubblebine</div>
+          <div class="vr-role">Army Intelligence Commander &mdash; championed psychic programs</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── The reveal ── -->
+    <div class="scroll-block" data-block="3-12">
+      <div class="pull-quote reveal-climax">
+        <div class="pq-text">They didn&rsquo;t shut it down because it didn&rsquo;t work.<br>They shut it down because it did &mdash; and they couldn&rsquo;t control who else could do it.</div>
+      </div>
+    </div>
+
+    <!-- ── Stargate chain ── -->
+    <div class="scroll-block chain-summary" data-block="3-13" data-pipeline="shutdown">
+      <div class="typed-terminal" id="stargate-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING DISCOVERY CHAIN...","SRI (1972) ^500&rarr; SCANGATE ^500&rarr; GRILL FLAME ^500&rarr; SUN STREAK ^500&rarr; STAR GATE ^500&rarr; TERMINATED (1995)","89,000 PAGES DECLASSIFIED. ^1000 PROGRAMS DON&apos;T DISAPPEAR. THEY GET RENAMED."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">SRI</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">SCANGATE</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">GRILL FLAME</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">CENTER LANE</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">SUN STREAK</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">STAR GATE</span>
+      </div>
+      <p class="chain-decode">Stanford Research &rarr; CIA pilot &rarr; DIA expansion &rarr; Army integration &rarr; Full operations &rarr; &ldquo;Cancellation&rdquo;</p>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT IV &mdash; THE SUPPRESSION                            -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="4" data-act-label="Act IV &mdash; The Suppression">
+
+    <div class="act-header">
+      <div class="act-number">Act IV</div>
+      <h2 class="act-title">The Suppression</h2>
+    </div>
+
+    <div class="scroll-block" data-block="4-1">
+      <p>In 1995, the CIA commissioned an external review of the Stargate program by the American Institutes for Research. The review acknowledged statistically significant results &mdash; then recommended termination anyway, citing lack of &ldquo;actionable intelligence.&rdquo; The program was declared dead. The research continued under different names and different budgets.</p>
+    </div>
+
+    <!-- ── The split verdict ── -->
+    <div class="scroll-block" data-block="4-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The 1995 AIR review of Stargate, led by statistician <strong>Jessica Utts</strong> (UC Davis) and professional skeptic <strong>Ray Hyman</strong> (University of Oregon), reached split conclusions. Utts: <em>&ldquo;Using the standards applied to any other area of science, it is concluded that psychic functioning has been well established. The statistical results of the studies examined are far beyond what is expected by chance.&rdquo;</em> Hyman agreed the results were statistically anomalous but questioned the methodology. The program was terminated regardless.</div>
+        <div class="evidence-source"><a href="https://www.ics.uci.edu/~jutts/air.pdf" target="_blank" rel="noopener">Utts &amp; Hyman, &ldquo;An Assessment of the Evidence for Psychic Functioning&rdquo;</a> (American Institutes for Research, 1995). Congressional appropriations records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-3">
+      <div class="pull-quote">
+        <div class="pq-text">&ldquo;Using the standards applied to any other area of science, it is concluded that psychic functioning has been well established.&rdquo;</div>
+        <div class="pq-attr">&mdash; Jessica Utts, statistician, AIR review of Stargate (1995)</div>
+      </div>
+    </div>
+
+    <!-- ── Continuation ── -->
+    <div class="scroll-block" data-block="4-4">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim">Despite the program&rsquo;s official &ldquo;termination&rdquo; in 1995, <strong>Dale Graff</strong> (former Stargate program director at DIA) and multiple participants have stated that remote viewing research and operational work continued within classified programs under different organizational labels. The pattern &mdash; fund, classify, publicly ridicule, continue &mdash; is consistent across MKULTRA, Stargate, and Gateway.</div>
+        <div class="evidence-source">Dale Graff, <em>Tracks in the Psychic Wilderness</em> (1998). McMoneagle interviews. Paul H. Smith, <em>Reading the Enemy&rsquo;s Mind</em> (2005).</div>
+      </div>
+    </div>
+
+
+    <div class="scroll-block" data-block="4-5">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/graff.jpg" alt="Dale Graff">
+          <div class="vr-name">Dale Graff</div>
+          <div class="vr-role">DIA Stargate Program Director</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Dean Radin meta-analysis ── -->
+    <div class="scroll-block" data-block="4-6">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Dean Radin&rsquo;s meta-analysis</strong> of psi research &mdash; published in peer-reviewed journals &mdash; showed effect sizes for remote viewing and related experiments with odds against chance exceeding 10<sup>20</sup> to 1. For context, this is comparable to the statistical significance used to confirm the existence of the Higgs boson. The results have been replicated across multiple independent laboratories and research groups worldwide.</div>
+        <div class="evidence-source">Radin, <em>The Conscious Universe</em> (1997). Bem &amp; Honorton, &ldquo;Does Psi Exist?&rdquo; <a href="https://doi.org/10.1037/0033-2909.115.1.4" target="_blank" rel="noopener"><em>Psychological Bulletin</em> 115 (1994)</a>. Storm et al., <em>Psychological Bulletin</em> 136 (2010).</div>
+      </div>
+    </div>
+
+    <!-- ── The playbook pattern ── -->
+    <div class="scroll-block" data-block="4-7">
+      <h3 class="node-title">The Playbook</h3>
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim">The pattern across MKULTRA, Stargate, and Gateway follows a consistent institutional playbook: <strong>fund the research &rarr; classify the results &rarr; publicly ridicule the field &rarr; destroy or withhold documentation &rarr; continue under different labels.</strong> The 1973 file destruction (MKULTRA), the 1995 &ldquo;termination&rdquo; (Stargate), and the decades-missing Page 25 (Gateway, released only in 2021 after viral pressure) all follow this template.</div>
+        <div class="evidence-source">Pattern analysis across declassified program histories.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-8">
+      <div class="playbook-grid">
+        <table class="playbook-table">
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>MKULTRA</th>
+              <th>Stargate</th>
+              <th>Gateway</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fund</td>
+              <td>1953&ndash;1973</td>
+              <td>1972&ndash;1995</td>
+              <td>1983+</td>
+            </tr>
+            <tr>
+              <td>Classify</td>
+              <td>Compartmented</td>
+              <td>Multiple codenames</td>
+              <td>Partial redaction</td>
+            </tr>
+            <tr>
+              <td>Destroy</td>
+              <td>Helms 1973</td>
+              <td>&ldquo;Terminated&rdquo; 1995</td>
+              <td>Page 25 withheld until 2021</td>
+            </tr>
+            <tr>
+              <td>Ridicule</td>
+              <td>&ldquo;Conspiracy theory&rdquo;</td>
+              <td>&ldquo;Pseudoscience&rdquo;</td>
+              <td>&ldquo;New Age nonsense&rdquo;</td>
+            </tr>
+            <tr>
+              <td>Continue</td>
+              <td>Sub-projects &rarr; contractors</td>
+              <td>Classified successors</td>
+              <td>Unknown</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── MindWar / Aquino ── -->
+    <div class="scroll-block" data-block="4-9">
+      <h3 class="node-title">MindWar</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Michael Aquino</strong>, Lt. Colonel in U.S. Army Military Intelligence and psychological operations specialist, co-authored &ldquo;From PSYOP to MindWar&rdquo; (1980) with Col. Paul Vallely. The paper proposed using electromagnetic radiation, infrasound, and psychological techniques for strategic influence operations &mdash; targeting not enemy soldiers but <em>entire populations</em>. Aquino simultaneously founded and led the Temple of Set (an occult organization) while holding Top Secret/SCI clearances at NSA and DIA. The Army saw no conflict.</div>
+        <div class="evidence-source">Aquino &amp; Vallely, &ldquo;From PSYOP to MindWar&rdquo; (1980, 7th PSYOP Group). <a href="https://archive.org/details/from-psyop-to-mindwar" target="_blank" rel="noopener">Archive.org: full text</a>. U.S. Army personnel records. Senate investigation testimony.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-10">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/aquino.jpg" alt="Michael Aquino">
+          <div class="vr-name">Michael Aquino</div>
+          <div class="vr-role">NSA/DIA &mdash; Temple of Set &mdash; &ldquo;MindWar&rdquo; author</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MILABS ── -->
+    <div class="scroll-block" data-block="4-11">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim">The <strong>MILABS (Military Abductions)</strong> pattern documented by Helmut and Marion Lammer shows cases involving military personnel, medical procedures in institutional settings, and electromagnetic technology signatures &mdash; overlapping with reported &ldquo;alien abduction&rdquo; experiences in ways suggesting deliberate confusion of classified human experimentation with non-human contact narratives. Martin Cannon&rsquo;s <em>The Controllers</em> (1989) first proposed this hypothesis in detail.</div>
+        <div class="evidence-source">Helmut &amp; Marion Lammer, <em>MILABS: Military Mind Control and Alien Abduction</em> (1999). Martin Cannon, &ldquo;The Controllers: A New Hypothesis of Alien Abductions&rdquo; (1989).</div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT V &mdash; THE LINEAGE (cosmic blue)                   -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-cosmic" data-act="5" data-act-label="Act V &mdash; The Lineage">
+
+    <div class="act-header">
+      <div class="act-number">Act V</div>
+      <h2 class="act-title">The Lineage</h2>
+    </div>
+
+    <div class="scroll-block" data-block="5-1">
+      <p>This is not a story about one program. It&rsquo;s a story about a lineage &mdash; an 80-year institutional commitment to understanding, weaponizing, and suppressing human consciousness. The names change. The budget lines shift. The objective has never wavered.</p>
+    </div>
+
+    <!-- ── 80-year timeline ── -->
+    <div class="scroll-block" data-block="5-2">
+      <h3 class="node-title">80 Years</h3>
+      <div class="timeline-block">
+        <div class="tl-date">1943</div>
+        <div class="tl-event">OSS begins wartime hypnosis research with George Estabrooks</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">1947</div>
+        <div class="tl-event">CIA established &mdash; inherits OSS psychological warfare programs</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">1953</div>
+        <div class="tl-event">MKULTRA authorized by Allen Dulles &mdash; 149+ sub-projects begin</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-3">
+      <div class="timeline-block">
+        <div class="tl-date">1953</div>
+        <div class="tl-event">Frank Olson dosed with LSD, falls from hotel window &mdash; death ruled suicide</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">1955</div>
+        <div class="tl-event">Operation Midnight Climax: CIA films drugged subjects in safe houses</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">1961</div>
+        <div class="tl-event">Allan Frey publishes microwave auditory effect &mdash; peer-reviewed</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-4">
+      <div class="timeline-block">
+        <div class="tl-date">1965</div>
+        <div class="tl-event">Project Pandora: DARPA studies Moscow Signal effects on primates</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">1972</div>
+        <div class="tl-event">CIA funds remote viewing at SRI &mdash; SCANGATE begins</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">1973</div>
+        <div class="tl-event">Helms orders MKULTRA files destroyed &mdash; 20,000 pages survive by accident</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-5">
+      <div class="timeline-block">
+        <div class="tl-date">1975</div>
+        <div class="tl-event">Church Committee exposes MKULTRA from surviving financial records</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">1980</div>
+        <div class="tl-event">Aquino &amp; Vallely publish &ldquo;MindWar&rdquo; &mdash; electromagnetic PSYOP doctrine</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">1983</div>
+        <div class="tl-event">Gateway Process report commissioned by Army Intelligence</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-6">
+      <div class="timeline-block">
+        <div class="tl-date">1984</div>
+        <div class="tl-event">McMoneagle receives Legion of Merit for psychoenergetic intelligence</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">1995</div>
+        <div class="tl-event">Stargate &ldquo;terminated&rdquo; &mdash; Utts confirms statistical significance</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">2002</div>
+        <div class="tl-event">Voice-to-skull patent granted (US6470214)</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-7">
+      <div class="timeline-block">
+        <div class="tl-date">2016</div>
+        <div class="tl-event">Havana Syndrome first reported &mdash; diplomats suffer brain injuries</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">2020</div>
+        <div class="tl-event">National Academies: &ldquo;directed pulsed RF energy&rdquo; most plausible cause</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-date">2026</div>
+        <div class="tl-event">Gateway Process goes viral &mdash; Page 25 released under FOIA pressure. The lineage continues.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-8">
+      <div class="anim-static">
+        <div class="static-bar"></div>
+        <div class="static-bar"></div>
+        <div class="static-bar"></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-9">
+      <div class="pull-quote">
+        <div class="pq-text">&ldquo;I can hypnotize a man &mdash; without his knowledge or consent &mdash; into committing treason against the United States.&rdquo;</div>
+        <div class="pq-attr">&mdash; George Estabrooks, 1971 &mdash; the year MKULTRA was still running</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-10">
+      <p>Eighty years. From OSS hypnosis experiments to directed energy weapons targeting American diplomats. From LSD dosing in San Francisco safe houses to 89,000 pages of declassified remote viewing data. The through-line is institutional: the same agencies, the same classification structures, the same pattern of denial.</p>
+      <p>They never stopped. They just changed the name.</p>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT VI &mdash; THE CRACK (white light)                    -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-light" data-act="6" data-act-label="Act VI &mdash; The Crack">
+
+    <div class="act-header">
+      <div class="act-number">Act VI</div>
+      <h2 class="act-title">The Crack</h2>
+    </div>
+
+    <div class="scroll-block" data-block="6-1">
+      <p>Here is the paradox the intelligence community never solved: consciousness cannot be permanently captured because it is the thing doing the capturing. Every attempt to weaponize it produced people who woke up instead. The program&rsquo;s greatest failure was its greatest discovery.</p>
+    </div>
+
+    <!-- ── Mitchell ── -->
+    <div class="scroll-block" data-block="6-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Edgar Mitchell</strong>, Apollo 14 astronaut and the sixth person to walk on the Moon, experienced a profound consciousness shift during the return flight &mdash; describing it as a &ldquo;savikalpa samadhi&rdquo; experience, a state described in Vedantic philosophy as the dissolution of the boundary between self and universe. He founded the <strong>Institute of Noetic Sciences (IONS)</strong> in 1973 to study consciousness scientifically. He spent the rest of his life saying the same thing the classified programs had discovered.</div>
+        <div class="evidence-source">Mitchell, <em>The Way of the Explorer</em> (1996). <a href="https://noetic.org/about/our-founder/" target="_blank" rel="noopener">Institute of Noetic Sciences founding records</a>. NASA astronaut records.</div>
+      </div>
+    </div>
+
+    <!-- ── Cooper ── -->
+    <div class="scroll-block" data-block="6-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Gordon Cooper</strong>, Mercury 7 and Gemini 5 astronaut, testified to the United Nations in 1978 that UFOs are real, that he had personally witnessed them, and that the information was being systematically suppressed. He also filmed a UFO landing at Edwards Air Force Base in 1957 &mdash; the film was sent to Washington and never returned. Cooper stated the secrecy was connected to classified technology programs.</div>
+        <div class="evidence-source">Cooper, <em>Leap of Faith</em> (2000). UN testimony transcript (1978). Edwards AFB incident documentation.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-4">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/mitchell.jpg" alt="Edgar Mitchell">
+          <div class="vr-name">Edgar Mitchell</div>
+          <div class="vr-role">Apollo 14 &mdash; founded IONS</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/cooper.jpg" alt="Gordon Cooper">
+          <div class="vr-name">Gordon Cooper</div>
+          <div class="vr-role">Mercury 7 &mdash; testified to UN on UFOs</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/vallee.jpg" alt="Jacques Vall&eacute;e">
+          <div class="vr-name">Jacques Vall&eacute;e</div>
+          <div class="vr-role">Computer scientist &mdash; interdimensional hypothesis</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Vallee ── -->
+    <div class="scroll-block" data-block="6-5">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim"><strong>Jacques Vall&eacute;e</strong>, computer scientist, early ARPANET developer, and co-developer of the first computerized mapping of Mars, proposed that the phenomenon behind both UAP encounters and consciousness research points to an &ldquo;interdimensional&rdquo; reality rather than a simply extraterrestrial one &mdash; and that intelligence agencies have known this since at least the 1960s. Hal Puthoff, who ran Stargate at SRI, later became a key figure in the Pentagon&rsquo;s UAP investigation (AAWSAP/AATIP).</div>
+        <div class="evidence-source">Vall&eacute;e, <em>Dimensions</em> (1988). <em>Passport to Magonia</em> (1969). Documented correspondence with J. Allen Hynek.</div>
+      </div>
+    </div>
+
+    <!-- ── Contemplative traditions ── -->
+    <div class="scroll-block" data-block="6-6">
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim">At least <strong>nine contemplative traditions</strong> &mdash; Buddhist Vipassana, Advaita Vedanta, Zen, Sufism, Dzogchen, Kashmir Shaivism, Christian Mysticism, Kabbalah, and Taoism &mdash; independently describe a non-dual ground state of consciousness that is strikingly consistent with the operational states documented in the Gateway Process report and the remote viewing protocols at SRI. The CIA&rsquo;s classified discovery is an open secret in every contemplative lineage on Earth.</div>
+        <div class="evidence-source">Cross-tradition comparative analysis. Monroe Institute documentation. Gateway Process report. Aldous Huxley, <em>The Perennial Philosophy</em> (1945).</div>
+      </div>
+    </div>
+
+    <!-- ── Final evidence card ── -->
+    <div class="scroll-block" data-block="6-7">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The CIA&rsquo;s own Gateway Process report concludes that consciousness is &ldquo;an electromagnetic system&rdquo; capable of accessing information beyond spacetime constraints &mdash; and that this capability can be trained. The report remains partially classified. <strong>Page 25 was missing for decades until the CIA released it in 2021</strong> &mdash; after the report went viral on TikTok and Reddit. The Gateway Process report has now been downloaded millions of times. The CIA&rsquo;s own files are doing what the CIA couldn&rsquo;t prevent: disclosure.</div>
+        <div class="evidence-source"><a href="https://www.cia.gov/readingroom/docs/CIA-RDP96-00788R001700210016-5.pdf" target="_blank" rel="noopener">CIA Reading Room: &ldquo;Analysis and Assessment of Gateway Process&rdquo; (1983)</a>.</div>
+      </div>
+    </div>
+
+    <!-- ── The climax ── -->
+    <div class="scroll-block" data-block="6-8">
+      <div class="pull-quote reveal-climax">
+        <div class="pq-text">They spent billions trying to crack consciousness from the outside.<br>They never considered that consciousness was already on the inside &mdash; looking out.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-9">
+      <div class="anim-you-dot">
+        <span class="dot"></span> You are here
+      </div>
+    </div>
+
+    <!-- ── Closing terminal ── -->
+    <div class="scroll-block chain-summary" data-block="6-10">
+      <div class="typed-terminal" id="mind-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["ANALYSIS COMPLETE.","MKULTRA (1953) ^500&rarr; FREY EFFECT (1961) ^500&rarr; STARGATE (1972) ^500&rarr; GATEWAY (1983) ^500&rarr; HAVANA (2016)","THE WAR FOR MIND NEVER ENDED. ^1000 IT WENT DARK.","BUT CONSCIOUSNESS DOESN&apos;T NEED A CLEARANCE LEVEL."]'></span>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-11">
+      <p>Every program in this investigation &mdash; MKULTRA, Stargate, Gateway, Havana &mdash; points to the same conclusion: consciousness is more than the brain, and someone has known this for decades. The question isn&rsquo;t whether it&rsquo;s real. The question is who else knows &mdash; and what they&rsquo;re doing with it.</p>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- CLOSING                                                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <section class="closing" id="closing">
+    <div class="closing-content">
+      <div class="closing-statement">They weaponized it. They classified it. They ridiculed anyone who talked about it. But consciousness is the one thing that can&rsquo;t be locked in a vault.</div>
+      <div class="closing-sub">Every claim in this scroll is classified by evidence tier. Nothing presented as documented is speculative. Nothing credible is treated as confirmed. The pattern is the argument &mdash; not any single claim.</div>
+
+      <div class="closing-legend">
+        <div class="closing-legend-item"><span class="el-dot" style="background:#34d399"></span> Documented &mdash; official records, FOIA releases, government reports, congressional testimony</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fbbf24"></span> Credible &mdash; credentialed witness testimony, verified backgrounds, consistent accounts</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fb923c"></span> Inference &mdash; pattern analysis connecting documented and credible evidence</div>
+      </div>
+
+      <div class="closing-cta">
+        <p>Disclosure is not a single event. It&rsquo;s a process. And it only works if people are paying attention.</p>
+      </div>
+
+      <div class="closing-links">
+        <a href="/space-wars/" class="closing-link">&larr; Scroll 003: Space Wars &mdash; two histories of space</a>
+        <a href="/oil-wars/" class="closing-link-next">Continue to Scroll 005: Oil Wars &mdash; the energy lock &rarr;</a>
+        <a href="/war-for-machine/" class="closing-link">&larr; Scroll 001: AI Wars &mdash; the 44-year surveillance pipeline</a>
+        <a href="/money-wars/" class="closing-link">&larr; Scroll 002: Money Wars &mdash; every country that left the dollar</a>
+        <a href="https://qav2.github.io/intel-console/" class="closing-link" target="_blank" rel="noopener">Explore the Intel Console &mdash; 825 entities, 1,411 relationships &rarr;</a>
+        <a href="/" class="closing-link-home">&larr; Disclosure Scrolls &mdash; full archive</a>
+      </div>
+
+      <div class="closing-support">
+        <div class="support-label">Independent research. No sponsors. No algorithm.</div>
+        <a href="https://buymeacoffee.com/joeyv23" class="support-link" target="_blank" rel="noopener">Support this work</a>
+      </div>
+
+      <div class="closing-footer">
+        <p>Disclosure Scrolls &mdash; documented investigations you can scroll through.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ Scripts ═══ -->
+  <script src="../war-for-machine/js/engine.js" defer></script>
+  <script src="../war-for-machine/js/gsap-effects.js" defer></script>
+
+</body>
+</html>
