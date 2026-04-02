@@ -1242,6 +1242,43 @@ ul {
   border-bottom: 1px solid rgba(52, 211, 153, 0.4);
 }
 
+.closing-link-next {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0a0a10;
+  background: linear-gradient(135deg, #34d399, #2dd4bf);
+  border: none;
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.3s, transform 0.3s;
+  letter-spacing: 0.02em;
+}
+
+.closing-link-next:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.closing-link-home {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  display: block;
+  padding: 0.75rem;
+  text-decoration: none;
+  transition: color 0.3s;
+  letter-spacing: 0.03em;
+}
+
+.closing-link-home:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .closing-support {
   margin-bottom: 3rem;
   text-align: center;
