@@ -109,6 +109,10 @@
             actIndicator.style.color = 'rgba(251, 191, 36, 0.3)';
           } else if (entry.target.classList.contains('act-blood')) {
             actIndicator.style.color = 'rgba(248, 113, 113, 0.3)';
+          } else if (entry.target.classList.contains('act-cosmic')) {
+            actIndicator.style.color = 'rgba(147, 197, 253, 0.3)';
+          } else if (entry.target.classList.contains('act-light')) {
+            actIndicator.style.color = 'rgba(240, 240, 244, 0.3)';
           } else {
             actIndicator.style.color = '';
           }
@@ -297,7 +301,6 @@
   if (closingSection) {
     closingObserver.observe(closingSection);
   }
-
 
   // ── Particle Network Background ────────────────────────────
 
