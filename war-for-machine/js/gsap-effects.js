@@ -111,35 +111,36 @@
     });
   });
 
-  // ── Chain summary — stagger chain links ────────────────────
-  gsap.utils.toArray('.chain-link').forEach(function (link, i) {
-    gsap.from(link, {
-      opacity: 0,
-      y: 12,
-      duration: 0.4,
-      delay: i * 0.15,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '.chain-summary',
-        start: 'top 70%',
-        toggleActions: 'play none none reverse'
-      }
-    });
-  });
+  // ── Chain summaries — stagger links + arrows per chain ──────
+  gsap.utils.toArray('.chain-summary').forEach(function (summary) {
+    var links = summary.querySelectorAll('.chain-link');
+    var arrows = summary.querySelectorAll('.chain-arrow');
+    var trigger = {
+      trigger: summary,
+      start: 'top 70%',
+      toggleActions: 'play none none reverse'
+    };
 
-  // ── Chain arrows — fade in between links ───────────────────
-  gsap.utils.toArray('.chain-arrow').forEach(function (arrow, i) {
-    gsap.from(arrow, {
-      opacity: 0,
-      x: -5,
-      duration: 0.3,
-      delay: i * 0.15 + 0.1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '.chain-summary',
-        start: 'top 70%',
-        toggleActions: 'play none none reverse'
-      }
+    links.forEach(function (link, i) {
+      gsap.from(link, {
+        opacity: 0,
+        y: 12,
+        duration: 0.4,
+        delay: i * 0.15,
+        ease: 'power2.out',
+        scrollTrigger: trigger
+      });
+    });
+
+    arrows.forEach(function (arrow, i) {
+      gsap.from(arrow, {
+        opacity: 0,
+        x: -5,
+        duration: 0.3,
+        delay: i * 0.15 + 0.1,
+        ease: 'power2.out',
+        scrollTrigger: trigger
+      });
     });
   });
 
