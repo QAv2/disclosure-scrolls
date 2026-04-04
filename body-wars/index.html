@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Body Wars &mdash; Disclosure Scrolls</title>
+  <meta name="description" content="155 medical schools became 66. One family funded the report. One industry captured the regulators. 600,000 opioid deaths. $5.9 billion in lobbying. The war for your body is fully documented.">
+  <meta property="og:title" content="Body Wars">
+  <meta property="og:description" content="The Flexner Report. The sugar cover-up. The opioid pipeline. 600,000 dead and $35 billion in revenue. The war for your body &mdash; documented.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://disclosure-scrolls.netlify.app/body-wars/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Disclosure Scrolls">
+  <meta property="og:url" content="https://disclosure-scrolls.netlify.app/body-wars/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Body Wars">
+  <meta name="twitter:description" content="155 medical schools became 66. 600,000 opioid deaths. $5.9 billion in pharma lobbying. The war for your body is fully documented.">
+  <meta name="twitter:image" content="https://disclosure-scrolls.netlify.app/body-wars/og-image.png">
+  <meta name="theme-color" content="#06060b">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://disclosure-scrolls.netlify.app/body-wars/">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="../ai-wars/css/style.css">
+
+  <!-- CountUp.js -->
+  <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js" defer></script>
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+
+  <style>
+    /* ── Body Wars overrides ── */
+
+    /* Blood-red accent for selection */
+    ::selection { background: rgba(248, 113, 113, 0.25); color: #fff; }
+
+    /* Company/org badges */
+    .badge-ama { color: #60a5fa; border-color: rgba(96,165,250,0.25); background: rgba(96,165,250,0.06); }
+    .badge-fda { color: #94a3b8; border-color: rgba(148,163,184,0.25); background: rgba(148,163,184,0.06); }
+    .badge-purdue { color: #f87171; border-color: rgba(248,113,113,0.25); background: rgba(248,113,113,0.06); }
+    .badge-monsanto { color: #fb923c; border-color: rgba(251,146,60,0.25); background: rgba(251,146,60,0.06); }
+    .badge-rockefeller { color: #a78bfa; border-color: rgba(167,139,250,0.25); background: rgba(167,139,250,0.06); }
+    .badge-bayer { color: #34d399; border-color: rgba(52,211,153,0.25); background: rgba(52,211,153,0.06); }
+    .badge-srf { color: #fbbf24; border-color: rgba(251,191,36,0.25); background: rgba(251,191,36,0.06); }
+
+    /* Act IV — amber/blood reveal (opioid crisis) */
+    .act-reveal .act-title { color: #f87171; }
+    .act-reveal .act-number { color: rgba(248, 113, 113, 0.4); }
+    .act-reveal .node-title { color: #f87171; border-bottom-color: rgba(248,113,113,0.15); }
+    .act-reveal .pull-quote { border-left-color: rgba(248,113,113,0.25); }
+    .act-reveal .evidence-card { border-left-color: rgba(248,113,113,0.35); }
+
+    /* Act VI — white light (the cracks) */
+    .act-light .act-title { color: #f0f0f4; }
+    .act-light .act-number { color: rgba(240,240,244,0.4); }
+    .act-light .node-title { color: #f0f0f4; border-bottom-color: rgba(240,240,244,0.15); }
+    .act-light .pull-quote { border-left-color: rgba(240,240,244,0.25); }
+
+    @media (max-width: 600px) {
+      .pattern-row { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ Particle Network Background ═══ -->
+  <canvas id="particle-net" class="particle-canvas"></canvas>
+
+  <!-- ═══ Progress Bar ═══ -->
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <!-- ═══ Pipeline Tracker ═══ -->
+  <div class="pipeline-track" id="pipeline-track">
+    <div class="pipeline-inner">
+      <div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
+      <div class="pipeline-node" data-step="flexner"><span class="pn-year">1910</span><span class="pn-label">Flexner</span></div>
+      <div class="pipeline-node" data-step="sugar"><span class="pn-year">1967</span><span class="pn-label">Sugar Fix</span></div>
+      <div class="pipeline-node" data-step="pdufa"><span class="pn-year">1992</span><span class="pn-label">PDUFA</span></div>
+      <div class="pipeline-node" data-step="oxy"><span class="pn-year">1996</span><span class="pn-label">OxyContin</span></div>
+      <div class="pipeline-node" data-step="monsanto"><span class="pn-year">2017</span><span class="pn-label">Monsanto Papers</span></div>
+      <div class="pipeline-node" data-step="fluoride"><span class="pn-year">2024</span><span class="pn-label">Fluoride Ruling</span></div>
+      <div class="pipeline-node" data-step="cracks"><span class="pn-year">NOW</span><span class="pn-label">The Cracks</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ Act Indicator ═══ -->
+  <div class="act-indicator" id="act-indicator"></div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- TITLE SCREEN                                             -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="title-screen" id="title-screen">
+    <div class="title-content">
+      <a href="/" class="back-link">&larr; Disclosure Scrolls</a>
+      <div class="title-label">Scroll 007</div>
+      <div class="title-reading-time">~30 min read</div>
+      <h1 class="title-main">Body Wars</h1>
+      <p class="title-sub">In 1910, one report funded by one family shut down half the medical schools in America. By 1967, the sugar industry had paid Harvard to blame fat for heart disease. By 1996, a single painkiller would kill 600,000 people and generate $35&nbsp;billion. The war for your body was never a fair fight &mdash; because you didn&rsquo;t know it was happening.</p>
+      <div class="title-meta">
+        <span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fbbf24"></span> Credible</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
+      </div>
+      <div class="scroll-cue">&darr; Begin scrolling</div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT I — WHAT YOU THINK YOU KNOW                          -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="I" data-act-label="What You Think You Know">
+    <div class="act-header">
+      <div class="act-number">Act I</div>
+      <h2 class="act-title">What You Think You Know</h2>
+    </div>
+
+    <div class="scroll-block" data-block="1-1">
+      <p>The United States spends more on healthcare than any nation on Earth.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-2">
+      <h3 class="node-title">The Numbers</h3>
+      <p>Annual U.S. healthcare spending:</p>
+      <p style="font-size:2.2rem; font-weight:700; color:#f0f0f4; text-align:center; margin:1.5rem 0;">$<span class="countup" data-target="4300000000000">4,300,000,000,000</span></p>
+      <p>More than the GDP of Germany. More than the military budgets of every country on Earth combined. The most expensive healthcare system ever built.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-3">
+      <p>And the people inside it are the sickest in the developed world.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-4">
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Chronic disease</span><span class="pr-value"><span class="countup" data-target="60" data-suffix="% of American adults">60% of American adults</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Two+ chronic diseases</span><span class="pr-value"><span class="countup" data-target="40" data-suffix="% of American adults">40% of American adults</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Ultra-processed food</span><span class="pr-value"><span class="countup" data-target="57" data-suffix="% of all calories consumed">57% of all calories consumed</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Life expectancy</span><span class="pr-value">Declining since 2015 &mdash; before COVID</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-5">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The United States is the only developed country where life expectancy has been <strong>declining</strong>. Americans spend the most per capita on healthcare and have the worst health outcomes in the OECD. 60% of adults have at least one chronic disease. The system is not failing &mdash; it is succeeding at something other than health.</div>
+        <div class="evidence-source">CDC National Center for Health Statistics; OECD Health Statistics 2024; CMS National Health Expenditure data.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-6">
+      <div class="pull-quote">
+        <p class="pq-text">If the system is designed to make us healthy&hellip; why are we so sick?</p>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-7">
+      <p>This scroll answers that question. Not with speculation. With receipts.</p>
+      <p>Congressional records. Court settlements. Litigation discovery. The industry&rsquo;s own internal memos. The federal government&rsquo;s own reports.</p>
+      <p>The war for your body is the most documented war in this series.</p>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT II — THE ARCHITECTURE                                -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="II" data-act-label="The Architecture" data-pipeline="flexner">
+    <div class="act-header">
+      <div class="act-number">Act II</div>
+      <h2 class="act-title">The Architecture</h2>
+    </div>
+
+    <div class="scroll-block" data-block="2-1">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/rockefeller.jpg" alt="John D. Rockefeller Sr.">
+          <div class="vr-name">John D. Rockefeller Sr.</div>
+          <div class="vr-role">Standard Oil founder &mdash; richest man in history</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/flexner.jpg" alt="Abraham Flexner">
+          <div class="vr-name">Abraham Flexner</div>
+          <div class="vr-role">Schoolteacher who wrote the report that shut down half of America&rsquo;s medical schools</div>
+        </div>
+      </div>
+      <p>Most people know John D. Rockefeller as the oil monopolist. Standard Oil. The richest man in history. What they don&rsquo;t know is what he did after the breakup.</p>
+      <p>He didn&rsquo;t lose power. He <em>redirected</em> it.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-2">
+      <h3 class="node-title">The Flexner Report (1910)</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In 1910, the Carnegie Foundation published a report by <strong>Abraham Flexner</strong> &mdash; a schoolteacher with no medical credentials whose brother directed the Rockefeller Institute &mdash; surveying all 155 medical schools in America. The report recommended closing most of them. The <strong>AMA Council on Medical Education</strong> had secretly requested the Carnegie survey in 1907, documented in their own minutes. They wanted an outside body to eliminate their competitors.</div>
+        <div class="evidence-source">Flexner, Abraham. <em>Medical Education in the United States and Canada</em>, Carnegie Foundation Bulletin No. 4, 1910. AMA Council on Medical Education minutes, 1907. Starr, Paul. <em>The Social Transformation of American Medicine</em>, 1982 (Pulitzer Prize).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-3">
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Medical schools (1904)</span><span class="pr-value"><span class="countup" data-target="160">160</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Medical schools (1935)</span><span class="pr-value"><span class="countup" data-target="66">66</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Eclectic (herbal) schools</span><span class="pr-value">All eliminated</span></div>
+        <div class="pattern-row"><span class="pr-label">Homeopathic schools (1900)</span><span class="pr-value">22 &rarr; 0</span></div>
+        <div class="pattern-row"><span class="pr-label">Black medical schools closed</span><span class="pr-value">5 of 7</span></div>
+        <div class="pattern-row"><span class="pr-label">GEB grants to conforming schools</span><span class="pr-value">$<span class="countup" data-target="91" data-suffix=" million">91 million</span></span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-4">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The Rockefeller General Education Board distributed over <strong>$91 million</strong> (~$2 billion today) to medical schools that adopted the pharmaceutical/laboratory model. Schools that didn&rsquo;t conform received nothing. Their students couldn&rsquo;t get licensed. They closed. Every homeopathic, eclectic, and naturopathic college either shut down or converted. Flexner&rsquo;s report also explicitly recommended that Black physicians &ldquo;limit practice to their own race.&rdquo;</div>
+        <div class="evidence-source">Rockefeller Archive Center, GEB records. Brown, E.R. <em>Rockefeller Medicine Men</em>, University of California Press, 1979. Flexner Report, p. 180.</div>
+      </div>
+    </div>
+
+    <!-- The Enforcer -->
+    <div class="scroll-block" data-block="2-5">
+      <h3 class="node-title">The Enforcer: Morris Fishbein</h3>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/fishbein.jpg" alt="Morris Fishbein">
+          <div class="vr-name">Morris Fishbein</div>
+          <div class="vr-role">JAMA editor 1924&ndash;1950 &mdash; never practiced medicine</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/ama.jpg" alt="American Medical Association headquarters">
+          <div class="vr-name">AMA Headquarters</div>
+          <div class="vr-role">Private organization &mdash; not a government agency</div>
+        </div>
+      </div>
+      <p><strong>Morris Fishbein</strong> edited the Journal of the American Medical Association for 26 years (1924&ndash;1950). He never practiced medicine after his internship. He admitted under oath that he failed anatomy. He ran the AMA&rsquo;s Bureau of Investigation, which targeted any practitioner using non-pharmaceutical approaches. He carried tobacco ads in JAMA for two decades. He was the most powerful figure in American medicine, and he used that power as a weapon.</p>
+    </div>
+
+    <!-- The Casualties -->
+    <div class="scroll-block" data-block="2-6">
+      <h3 class="node-title">The Casualties</h3>
+      <p>Five practitioners. Five documented destructions.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-7">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/rife.jpg" alt="Royal Raymond Rife in his laboratory">
+          <div class="vr-name">Royal Raymond Rife</div>
+          <div class="vr-role">Microscope inventor &mdash; documented by the Smithsonian</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/reich.jpg" alt="Wilhelm Reich">
+          <div class="vr-name">Wilhelm Reich</div>
+          <div class="vr-role">Books burned by FDA order &mdash; died in prison, 1957</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Royal Raymond Rife</strong> built a high-magnification optical microscope documented by the Smithsonian Institution (Annual Report, 1944). He developed frequency therapy devices. The AMA campaign against his work destroyed his lab and his career. Whether his therapy worked is debatable &mdash; but it was never allowed to be properly evaluated.</div>
+        <div class="evidence-source">Seidel, R.E. &ldquo;The New Microscopes,&rdquo; <em>Smithsonian Annual Report</em>, 1944, pp. 193-220. Beam Ray Corporation trial records, San Diego Superior Court, 1939.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-7b">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/hoxsey.jpg" alt="Harry Hoxsey">
+          <div class="vr-name">Harry Hoxsey</div>
+          <div class="vr-role">Won libel case vs AMA &mdash; clinic still operates in Mexico</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/gerson.jpg" alt="Max Gerson">
+          <div class="vr-name">Max Gerson</div>
+          <div class="vr-role">Testified before U.S. Senate with 5 recovered cancer patients</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-8">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Harry Hoxsey</strong> operated the largest private cancer center in America (12,000 patients). He sued Morris Fishbein for libel &mdash; and <strong>won</strong>. The judge stated from the bench that Hoxsey&rsquo;s treatment &ldquo;does cure certain forms of cancer.&rdquo; The FDA responded by posting Hoxsey&rsquo;s photograph in all <strong>46,000 U.S. post offices</strong> as a warning. His clinics were shut down. The treatment moved to Mexico, where the clinic still operates today.</div>
+        <div class="evidence-source">Hoxsey v. Fishbein, U.S. District Court, Northern District of Texas, 1949. FDA enforcement records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-9">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>The Fitzgerald Report</strong> (1953): Special counsel Benedict Fitzgerald, commissioned by the U.S. Senate Commerce Committee, investigated whether alternative cancer treatments were being suppressed. His conclusion, entered into the Congressional Record: <em>&ldquo;There is reason to believe that the AMA and the FDA have been, and are now, engaged in a conspiracy to suppress alternative cancer treatments.&rdquo;</em> No action was taken.</div>
+        <div class="evidence-source">Congressional Record, August 3, 1953. Fitzgerald Report, submitted to Senator William Langer.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-10">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Max Gerson</strong>, a German-born physician, testified before the U.S. Senate in 1946 with <strong>five recovered cancer patients</strong>. Senator Pepper&rsquo;s bill to fund $100 million in alternative cancer research was defeated by <strong>four votes</strong> after AMA lobbying. Gerson was expelled from the New York Medical Society. His hospital privileges were revoked.</div>
+        <div class="evidence-source">Congressional Record, 79th Congress, 2nd Session, July 1-3, 1946 (Pepper-Neely hearings).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-11">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Wilhelm Reich</strong>: On August 23, 1956, FDA agents supervised the burning of several tons of Reich&rsquo;s published scientific works at the Gansevoort incinerator in New York City. Orgone accumulators were destroyed with axes. This is the <strong>last known government-ordered book burning in American history</strong> &mdash; eleven years after the U.S. helped prosecute Nazis at Nuremberg, partly for the same crime. Reich died in Lewisburg Federal Penitentiary in 1957.</div>
+        <div class="evidence-source">United States v. Wilhelm Reich, U.S. District Court, District of Maine, 1954-1956. Federal Bureau of Prisons records.</div>
+      </div>
+    </div>
+
+    <!-- AMA corruption -->
+    <div class="scroll-block" data-block="2-12">
+      <h3 class="node-title">The Institution</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The AMA carried <strong>tobacco advertising</strong> in JAMA for 20 years (1933&ndash;1953). After the 1964 Surgeon General&rsquo;s Report confirmed smoking caused cancer, the AMA accepted <strong>$10 million from tobacco companies</strong> and lobbied <em>against</em> cigarette warning labels. The AMA did not call for a ban on tobacco advertising until <strong>1985</strong> &mdash; 21 years after the Surgeon General&rsquo;s confirmation.</div>
+        <div class="evidence-source">JAMA advertising archives. Brandt, Allan. <em>The Cigarette Century</em>, Harvard University Press, 2007. Congressional testimony during tobacco regulation hearings.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-13">
+      <p>This was the architecture. A private organization, funded by one family, used one report to reshape an entire profession. Alternatives were eliminated. Practitioners were destroyed. The institution itself took tobacco money for decades. And the pharmaceutical model &mdash; the only model left standing &mdash; was built on a petrochemical foundation.</p>
+      <p>Standard Oil&rsquo;s cartel agreement with IG Farben &mdash; the company that made Zyklon B &mdash; is documented in the Kilgore Committee hearings and the Nuremberg trial records. IG Farben&rsquo;s successor companies &mdash; Bayer, BASF, Hoechst/Sanofi &mdash; became the modern pharmaceutical industry.</p>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT III — THE POISON                                     -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="III" data-act-label="The Poison" data-pipeline="sugar">
+    <div class="act-header">
+      <div class="act-number">Act III</div>
+      <h2 class="act-title">The Poison</h2>
+    </div>
+
+    <div class="scroll-block" data-block="3-1">
+      <p>The architecture built the walls. Now: what they put inside them.</p>
+      <p>Two parallel tracks &mdash; food and pharma &mdash; running through the same revolving door.</p>
+    </div>
+
+    <!-- Sugar cover-up -->
+    <div class="scroll-block" data-block="3-1a">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/kearns.jpg" alt="Cristin Kearns">
+          <div class="vr-name">Cristin Kearns</div>
+          <div class="vr-role">UCSF researcher &mdash; uncovered the sugar industry documents</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-2">
+      <h3 class="node-title">The Sugar Fix</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In 1967, the <strong>Sugar Research Foundation</strong> paid three Harvard scientists &mdash; <strong>D. Mark Hegsted</strong>, Robert McGandy, and Frederick Stare &mdash; <strong>$48,900</strong> (inflation-adjusted) to publish a literature review in the <em>New England Journal of Medicine</em> that minimized the link between sugar and heart disease while blaming dietary fat. The SRF set the objective, selected the papers, and received drafts before publication. The funding was not disclosed.</div>
+        <div class="evidence-source">Kearns CE, Schmidt LA, Glantz SA. &ldquo;Sugar Industry and Coronary Heart Disease Research.&rdquo; <em>JAMA Internal Medicine</em>, 2016;176(11):1680-1685. SRF internal documents (Project 226), archived at University of Illinois.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Project 259</strong>: The SRF funded an animal study at the University of Birmingham that found sugar consumption was linked to elevated triglycerides and bladder cancer. When preliminary results came back unfavorable in 1969, the SRF <strong>terminated funding</strong> in 1971 &mdash; 12 months before the study was to be completed. The results were never published. The evidence was buried for nearly 50 years.</div>
+        <div class="evidence-source">Kearns CE, Apollonio D, Glantz SA. &ldquo;Sugar Industry Sponsorship of Germ-Free Rodent Studies.&rdquo; <em>PLOS Biology</em>, 2017;15(11):e2003460.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-4">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/yudkin.jpg" alt="John Yudkin">
+          <div class="vr-name">John Yudkin</div>
+          <div class="vr-role"><em>Pure, White and Deadly</em> &mdash; career destroyed, vindicated posthumously</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/ancel_keys.jpg" alt="Ancel Keys">
+          <div class="vr-name">Ancel Keys</div>
+          <div class="vr-role">Seven Countries Study &mdash; the man who blamed fat</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>John Yudkin</strong>, a British physiologist, published <em>Pure, White and Deadly</em> in 1972, arguing that sugar &mdash; not fat &mdash; was the primary dietary cause of heart disease. Ancel Keys called his work &ldquo;a mountain of nonsense.&rdquo; The sugar industry&rsquo;s World Sugar Research Organisation worked to discredit him. Yudkin was denied lab facilities, excluded from conferences, and died in 1995 largely forgotten &mdash; <strong>decades before the 2016 JAMA paper proved the consensus that destroyed him had been bought</strong>.</div>
+        <div class="evidence-source">Yudkin, John. <em>Pure, White and Deadly</em>, 1972 (reissued 2012). Keys, A. &ldquo;Sucrose in the diet,&rdquo; <em>Atherosclerosis</em>, 1971.</div>
+      </div>
+    </div>
+
+    <!-- Food pyramid -->
+    <div class="scroll-block" data-block="3-5">
+      <h3 class="node-title">The Pyramid Scheme</h3>
+      <p><strong>Luise Light</strong>, the USDA&rsquo;s Director of Dietary Guidance, designed the original food pyramid. Her version recommended 3&ndash;4 servings of whole grains. The USDA&rsquo;s political leadership overrode her, tripling it to <strong>6&ndash;11 servings of bread, cereal, rice, and pasta</strong> &mdash; without specifying &ldquo;whole&rdquo; grain. The meat and dairy recommendations were also increased. Light later said: &ldquo;I vehemently protested that the changes, if followed, could lead to an epidemic of obesity and diabetes &mdash; and I was right.&rdquo;</p>
+      <p>The same USDA that sets your dietary guidelines is legally mandated to <em>promote</em> American agriculture. The agency telling you what to eat is the agency selling what farms produce.</p>
+    </div>
+
+    <div class="scroll-block" data-block="3-6">
+      <p><strong>D. Mark Hegsted</strong> &mdash; the Harvard scientist paid by the Sugar Research Foundation &mdash; became the USDA&rsquo;s chief nutritionist, where he helped draft the 1977 Dietary Goals that enshrined the low-fat orthodoxy his industry funders had paid him to establish.</p>
+    </div>
+
+    <!-- The Monsanto Papers -->
+    <div class="scroll-block" data-block="3-7a">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/johnson.jpg" alt="Dewayne Johnson">
+          <div class="vr-name">Dewayne Johnson</div>
+          <div class="vr-role">Groundskeeper &mdash; first Roundup plaintiff to win ($289M verdict)</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/monsanto.jpg" alt="Monsanto facility">
+          <div class="vr-name">Monsanto</div>
+          <div class="vr-role">94% of U.S. soybeans &mdash; name retired after Bayer acquisition</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/bayer.jpg" alt="Bayer cross logo illuminated">
+          <div class="vr-name">Bayer AG</div>
+          <div class="vr-role">IG Farben successor &mdash; acquired Monsanto for $63B</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-7">
+      <h3 class="node-title">The Monsanto Papers</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Internal Monsanto documents, obtained through litigation discovery in <em>Dewayne Johnson v. Monsanto</em> (2018), revealed that the company <strong>ghost-wrote scientific papers</strong> on glyphosate safety, then recruited academics to sign them. Monsanto toxicologist William Heydens wrote in a 2015 email: &ldquo;We would just ghost write it... they would just edit &amp; sign their names so to speak.&rdquo; Internal emails also showed toxicologist Donna Farmer acknowledging: &ldquo;You cannot say that Roundup is not a carcinogen... we have not done the necessary testing.&rdquo;</div>
+        <div class="evidence-source">Monsanto Papers, litigation discovery documents. Dewayne Johnson v. Monsanto Company, Case No. CGC-16-550128 (San Francisco Superior Court). Gillam, Carey. <em>Whitewash</em>, Island Press, 2017.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-8">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In 2015, the WHO&rsquo;s International Agency for Research on Cancer classified glyphosate as <strong>&ldquo;probably carcinogenic to humans&rdquo; (Group 2A)</strong>. The EPA said &ldquo;not likely.&rdquo; The Monsanto Papers revealed the company had advance warning of the IARC classification and developed a strategy to undermine it. EPA official <strong>Jess Rowland</strong>, who chaired the cancer review committee, told a Monsanto executive: <em>&ldquo;If I can kill this I should get a medal.&rdquo;</em> Rowland retired before he could be deposed.</div>
+        <div class="evidence-source">IARC Monograph 112, March 2015. Monsanto Papers (litigation discovery). EPA CARC report, 2016.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-9">
+      <p>Roundup Ready seeds now cover <strong>94%</strong> of U.S. soybeans and <strong>89%</strong> of U.S. corn. Seed costs have risen <strong>325%</strong>. Glyphosate use increased <strong>16-fold</strong>. Bayer acquired Monsanto for $63 billion &mdash; then lost billions more in court. Total litigation provisions: <strong>$16 billion</strong>.</p>
+      <p>Bayer retired the Monsanto name immediately. The brand was too toxic. The product is still on shelves.</p>
+    </div>
+
+    <!-- Fluoride -->
+    <div class="scroll-block" data-block="3-10">
+      <h3 class="node-title">The Fluoride Question</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">90% of U.S. water fluoridation uses <strong>fluorosilicic acid</strong> &mdash; a byproduct captured from the smokestack scrubbers of phosphate fertilizer plants. The CDC&rsquo;s own materials acknowledge it is &ldquo;a byproduct of the manufacture of phosphate fertilizers.&rdquo; The Public Health Service endorsed fluoridation in 1950 &mdash; only 5 years into a planned 15-year safety study in Grand Rapids, Michigan.</div>
+        <div class="evidence-source">CDC Water Fluoridation documentation. NSF/ANSI Standard 60. Grand Rapids fluoridation study records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-11">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">On September 24, 2024, U.S. District Judge <strong>Edward Chen</strong> ruled in <em>Food &amp; Water Watch v. EPA</em> that fluoride in drinking water at current levels poses <strong>&ldquo;an unreasonable risk of injury to health&rdquo;</strong> &mdash; specifically to children&rsquo;s neurological development. The NTP&rsquo;s 2024 monograph, analyzing 72 studies, concluded fluoride is <strong>&ldquo;a presumed cognitive neurodevelopmental hazard to humans,&rdquo;</strong> associated with a 2&ndash;5 point IQ reduction. This is the first federal court ruling against water fluoridation in American history.</div>
+        <div class="evidence-source"><em>Food &amp; Water Watch v. EPA</em>, Case No. 3:17-cv-02162-EMC (N.D. Cal., Sept. 24, 2024). NTP Monograph on Fluoride Exposure, August 2024.</div>
+      </div>
+    </div>
+
+    <!-- Revolving door -->
+    <div class="scroll-block" data-block="3-12" data-pipeline="pdufa">
+      <h3 class="node-title">The Revolving Door</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Michael Taylor</span><span class="pr-value">FDA &rarr; Monsanto VP &rarr; FDA Deputy Commissioner &rarr; approved same products he helped develop</span></div>
+        <div class="pattern-row"><span class="pr-label">Scott Gottlieb</span><span class="pr-value">FDA Commissioner &rarr; Pfizer Board (2 months later)</span></div>
+        <div class="pattern-row"><span class="pr-label">Billy Tauzin</span><span class="pr-value">Chaired House committee, banned Medicare price negotiation &rarr; PhRMA president ($2.5M/yr)</span></div>
+        <div class="pattern-row"><span class="pr-label">Curtis Wright</span><span class="pr-value">FDA reviewer who approved OxyContin &rarr; Purdue Pharma ($400K/yr)</span></div>
+        <div class="pattern-row"><span class="pr-label">Mark Hegsted</span><span class="pr-value">Paid by Sugar Research Foundation &rarr; USDA chief nutritionist &rarr; wrote the Dietary Goals</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-13">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>Prescription Drug User Fee Act (PDUFA)</strong>, enacted in 1992, requires pharmaceutical companies to pay the FDA to review their drug applications. User fees now constitute approximately <strong>65% of the FDA&rsquo;s drug review budget</strong>. A single new drug application costs <strong>$3.1 million</strong>. The agency that approves your medicine is funded by the companies selling it.</div>
+        <div class="evidence-source">FDA PDUFA Financial Reports. FDA FY2023 fee schedule (Federal Register). Carpenter, Daniel. <em>Reputation and Power</em>, Princeton University Press, 2010.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-14">
+      <p>Crisco was introduced in 1911 by Procter &amp; Gamble &mdash; converting industrial cottonseed oil into &ldquo;food.&rdquo; Trans fats from hydrogenated oils would cause an estimated <strong>30,000&ndash;100,000 premature cardiac deaths per year</strong> at peak consumption. The FDA didn&rsquo;t ban them until <strong>2018</strong> &mdash; 107 years later.</p>
+      <p>Ultra-processed food now accounts for 57% of American calories. A 2024 <em>BMJ</em> umbrella review found &ldquo;convincing evidence&rdquo; that UPF consumption is associated with <strong>50% higher cardiovascular death risk</strong>, <strong>12% higher diabetes risk</strong>, and <strong>48&ndash;53% higher depression risk</strong>.</p>
+      <p>The global ultra-processed food market is worth <strong>$3 trillion</strong>.</p>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT IV — THE KILL SHOT (Opioid Crisis)                   -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-reveal" data-act="IV" data-act-label="The Kill Shot" data-pipeline="oxy">
+    <div class="act-header">
+      <div class="act-number">Act IV</div>
+      <h2 class="act-title">The Kill Shot</h2>
+    </div>
+
+    <div class="scroll-block" data-block="4-1">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/arthur_sackler.jpg" alt="Arthur Sackler">
+          <div class="vr-name">Arthur Sackler</div>
+          <div class="vr-role">Invented pharmaceutical advertising &mdash; made Valium the first $100M drug</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/richard_sackler.jpg" alt="Richard Sackler">
+          <div class="vr-name">Richard Sackler</div>
+          <div class="vr-role">Purdue Pharma president &mdash; &ldquo;a blizzard of prescriptions&rdquo;</div>
+        </div>
+      </div>
+      <p>Everything documented so far &mdash; the captured schools, the bought science, the revolving door &mdash; created the conditions. This act shows the body count.</p>
+    </div>
+
+    <div class="scroll-block chain-summary" data-block="4-2">
+      <div class="typed-terminal" id="oxy-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING PIPELINE...","OxyContin APPROVAL (1995) ^500&rarr; MARKETING BLITZ (1996) ^500&rarr; 259M PRESCRIPTIONS (2012) ^500&rarr; 600,000 DEAD","PURDUE PHARMA. ^500 THE SACKLER FAMILY. ^500 $35 BILLION."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">Approval</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Marketing</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Peak Rx</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">600K Dead</span>
+      </div>
+      <p class="chain-decode">FDA reviewer Curtis Wright &rarr; Purdue Pharma ($400K/yr) &rarr; &ldquo;less than 1% addiction&rdquo; &rarr; half a million graves.</p>
+    </div>
+
+    <div class="scroll-block" data-block="4-3a">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/fda.jpg" alt="U.S. Food and Drug Administration">
+          <div class="vr-name">FDA</div>
+          <div class="vr-role">65% of drug review budget funded by pharma user fees</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/purdue_pharma.jpg" alt="Purdue Pharma headquarters">
+          <div class="vr-name">Purdue Pharma</div>
+          <div class="vr-role">$35 billion in OxyContin revenue &mdash; filed bankruptcy 2019</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>OxyContin</strong> was approved by the FDA on December 28, 1995. The label included an unprecedented claim: that its delayed absorption was &ldquo;believed to reduce the abuse liability.&rdquo; No other opioid had received such language. The FDA reviewer who wrote those words &mdash; <strong>Curtis Wright IV</strong> &mdash; left the FDA within two years and was hired by Purdue Pharma at a reported salary of <strong>$400,000</strong>.</div>
+        <div class="evidence-source">FDA NDA 20-553 approval records. GAO-03-482, &ldquo;OxyContin: FDA Oversight of Its Promotion,&rdquo; 2003. Senate Finance Committee investigation records.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-4">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Purdue&rsquo;s primary citation for OxyContin&rsquo;s safety was a <strong>five-sentence letter to the editor</strong> in the <em>New England Journal of Medicine</em> (Porter &amp; Jick, 1980) about hospitalized patients receiving short-term monitored doses. That letter was cited over 600 times &mdash; overwhelmingly to justify long-term outpatient opioid prescribing. It was not a study. It was not peer-reviewed research. It was a paragraph.</div>
+        <div class="evidence-source">Porter &amp; Jick, <em>NEJM</em>, 1980, 302(2):123. Leung et al., &ldquo;A 1980 Letter on the Risk of Opioid Addiction,&rdquo; <em>NEJM</em>, June 1, 2017.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-5">
+      <p>The marketing blitz: <span class="countup" data-target="1000" data-suffix=" sales reps">1,000 sales reps</span>. 34,000 branded promotional items &mdash; fishing hats, plush toys, music CDs. 5,000 physicians flown to resort conferences. Free starter coupons for patients. OxyContin sales rose from <strong>$48 million</strong> (1996) to <strong>$1.1 billion</strong> (2000). A 2,000% increase.</p>
+    </div>
+
+    <div class="scroll-block" data-block="4-6">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Richard Sackler</strong>, president of Purdue Pharma, sent an email at OxyContin&rsquo;s launch: &ldquo;The launch of OxyContin Tablets will be followed by a blizzard of prescriptions that will bury the competition.&rdquo; As abuse reports mounted in 2001, he wrote: &ldquo;We have to hammer on the abusers in every way possible. They are the culprits and the problem.&rdquo; The strategy: blame the dying for their deaths.</div>
+        <div class="evidence-source">Sackler deposition transcripts, <em>Massachusetts v. Purdue Pharma</em>. Internal Purdue emails released through litigation discovery.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-7">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>McKinsey &amp; Company</strong> consulted for Purdue from 2004&ndash;2019. In 2017, McKinsey proposed strategies to &ldquo;turbocharge&rdquo; OxyContin sales &mdash; including a proposal to pay distributors a <strong>rebate for every OxyContin overdose</strong>. When the crisis became a legal matter, McKinsey consultants discussed <strong>deleting documents</strong>. Senior partner Martin Elling pled guilty to obstruction of justice. McKinsey paid <strong>$651 million</strong> in settlements.</div>
+        <div class="evidence-source">State AG settlement agreements, February 2021. DOJ press release, December 14, 2023. U.S. v. Martin Elling.</div>
+      </div>
+    </div>
+
+    <!-- The death toll -->
+    <div class="scroll-block" data-block="4-8">
+      <h3 class="node-title">The Body Count</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Opioid deaths (1999&ndash;2023)</span><span class="pr-value"><span class="countup" data-target="600000" data-suffix="+">600,000+</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Peak prescriptions (2012)</span><span class="pr-value"><span class="countup" data-target="259900000">259,900,000</span> &mdash; one for every U.S. adult</span></div>
+        <div class="pattern-row"><span class="pr-label">OxyContin revenue (cumulative)</span><span class="pr-value">$<span class="countup" data-target="35" data-suffix=" billion">35 billion</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Sackler family withdrawals</span><span class="pr-value">$<span class="countup" data-target="10.4" data-suffix=" billion">10.4 billion</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Sackler settlement</span><span class="pr-value">$<span class="countup" data-target="6" data-suffix=" billion">6 billion</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Opioid crisis annual cost (2020)</span><span class="pr-value">$<span class="countup" data-target="1.5" data-suffix=" trillion">1.5 trillion</span></span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-9">
+      <p>600,000 dead. That exceeds American combat deaths in World War I, World War II, Korea, and Vietnam <strong>combined</strong>.</p>
+      <p>The accountability: $6 billion from a family that withdrew $10.4 billion. No prison time for any Sackler. That&rsquo;s roughly <strong>$10,000 per death</strong>.</p>
+    </div>
+
+    <div class="scroll-block" data-block="4-9a">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/wright.jpg" alt="Curtis Wright IV">
+          <div class="vr-name">Curtis Wright IV</div>
+          <div class="vr-role">FDA reviewer &rarr; approved OxyContin &rarr; hired by Purdue</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/graham.jpg" alt="David Graham testifying before the Senate">
+          <div class="vr-name">David Graham</div>
+          <div class="vr-role">FDA whistleblower &mdash; &ldquo;incapable of protecting America&rdquo;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-10">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Purdue Pharma is not an anomaly. <strong>Merck&rsquo;s Vioxx</strong> caused an estimated 88,000&ndash;139,000 heart attacks before being withdrawn in 2004. Internal emails revealed a &ldquo;hit list&rdquo; of critical doctors. <strong>GlaxoSmithKline</strong> paid $3 billion for hiding safety data and promoting drugs off-label (2012). <strong>Pfizer</strong> paid $2.3 billion &mdash; its <em>fourth</em> fraud settlement. These are not exceptions. They are the business model.</div>
+        <div class="evidence-source">Senate Finance Committee hearing, November 18, 2004 (David Graham testimony). DOJ press releases: GSK (2012), Pfizer (2009). Merck litigation discovery documents.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-11">
+      <div class="pull-quote">
+        <p class="pq-text">The system didn&rsquo;t fail. It performed exactly as designed. The product was never health. The product was dependency.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT V — THE WEB                                          -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="V" data-act-label="The Web" data-pipeline="monsanto">
+    <div class="act-header">
+      <div class="act-number">Act V</div>
+      <h2 class="act-title">The Web</h2>
+    </div>
+
+    <div class="scroll-block" data-block="5-1">
+      <p>Pull back. See the whole system at once.</p>
+    </div>
+
+    <!-- The Rockefeller through-line -->
+    <div class="scroll-block chain-summary" data-block="5-2">
+      <div class="typed-terminal" id="rockefeller-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING NETWORK...","STANDARD OIL (1870) ^500&rarr; ROCKEFELLER FOUNDATION (1913) ^500&rarr; FLEXNER REPORT ^500&rarr; GEB MEDICAL GRANTS ^500&rarr; PHARMACEUTICAL MONOPOLY","ONE FAMILY. ^500 THREE DOMAINS. ^500 ONE CENTURY."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">Oil</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Foundation</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Medical Education</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Pharma</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Food</span>
+      </div>
+      <p class="chain-decode">Petroleum monopoly &rarr; philanthropic control &rarr; pharmaceutical paradigm &rarr; petrochemical agriculture &rarr; captured nutrition science.</p>
+    </div>
+
+    <div class="scroll-block" data-block="5-3">
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim"><strong>The structural pattern connecting all five acts:</strong> One family&rsquo;s oil monopoly funded the report that reshaped medical education (Flexner). That education system trained doctors in pharmaceutical intervention exclusively. The pharmaceutical companies descended from the same petrochemical complex (IG Farben). The food system was rebuilt on petrochemical fertilizers and pesticides (Green Revolution). The regulators are funded by the companies they regulate (PDUFA). The guidelines are written by scientists paid by the industries they evaluate. Each layer reinforces the others. This is not a conspiracy &mdash; it is a system.</div>
+        <div class="evidence-source">Structural analysis from documented evidence presented across all acts of this investigation.</div>
+      </div>
+    </div>
+
+    <!-- The money -->
+    <div class="scroll-block" data-block="5-4">
+      <h3 class="node-title">The Money</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Pharma lobbying (1998&ndash;2023)</span><span class="pr-value">$<span class="countup" data-target="5.9" data-suffix=" billion">5.9 billion</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Pharma lobbyists per congressmember</span><span class="pr-value"><span class="countup" data-target="3.4">3.4</span> to 1</span></div>
+        <div class="pattern-row"><span class="pr-label">Pharma payments to doctors (2022)</span><span class="pr-value">$<span class="countup" data-target="12.1" data-suffix=" billion">12.1 billion</span></span></div>
+        <div class="pattern-row"><span class="pr-label">DTC pharma ad spending</span><span class="pr-value">$<span class="countup" data-target="6" data-suffix=" billion/year">6 billion/year</span> &mdash; one of only 2 countries that allow it</span></div>
+        <div class="pattern-row"><span class="pr-label">Industry-funded clinical trials</span><span class="pr-value"><span class="countup" data-target="65" data-suffix="%">65%</span></span></div>
+        <div class="pattern-row"><span class="pr-label">FDA drug review funded by pharma</span><span class="pr-value"><span class="countup" data-target="65" data-suffix="%">65%</span></span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-5">
+      <p>The pharmaceutical industry spends more on lobbying than any other industry in the United States. They fund the FDA. They fund the clinical trials. They fund the doctors. They fund the TV ads. They fund the medical education. And the largest fraud settlements in American history &mdash; $3 billion, $2.3 billion, $2.2 billion &mdash; are treated as the cost of doing business. No major pharmaceutical company has ever been excluded from federal healthcare programs, despite <em>repeat</em> criminal convictions.</p>
+    </div>
+
+    <!-- IG Farben → Bayer → Monsanto -->
+    <div class="scroll-block" data-block="5-5a">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/ig_farben.jpg" alt="IG Farben building, Frankfurt">
+          <div class="vr-name">IG Farben Building</div>
+          <div class="vr-role">Frankfurt &mdash; headquarters of the company that made Zyklon B</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block chain-summary" data-block="5-6">
+      <div class="typed-terminal" id="farben-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING CORPORATE LINEAGE...","IG FARBEN (1925) ^500&rarr; NUREMBERG (1947) ^500&rarr; BAYER RECONSTITUTED (1951) ^500&rarr; MONSANTO ACQUIRED (2018) ^500&rarr; YOUR FOOD SUPPLY","THE COMPANY THAT MADE ZYKLON B ^500 NOW CONTROLS YOUR SEEDS."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">IG Farben</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Nuremberg</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Bayer</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Monsanto</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">94% of U.S. Soybeans</span>
+      </div>
+      <p class="chain-decode">Chemical weapons conglomerate &rarr; war crimes tribunal &rarr; pharmaceutical giant &rarr; $63B acquisition &rarr; your grocery store.</p>
+    </div>
+
+    <!-- Cross-scroll connections -->
+    <div class="scroll-block" data-block="5-7">
+      <h3 class="node-title">Across the Scrolls</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Oil Wars</span><span class="pr-value">Rockefeller&rsquo;s oil monopoly &rarr; petrochemical medicine &rarr; petrochemical agriculture</span></div>
+        <div class="pattern-row"><span class="pr-label">Money Wars</span><span class="pr-value">Pharma is the most profitable U.S. industry. Medical debt is the leading cause of bankruptcy.</span></div>
+        <div class="pattern-row"><span class="pr-label">Mind Wars</span><span class="pr-value">The same playbook: suppress the evidence, control the narrative, destroy the dissenters</span></div>
+        <div class="pattern-row"><span class="pr-label">AI Wars</span><span class="pr-value">Health data is the new oil. The body is being digitized into the same surveillance systems.</span></div>
+        <div class="pattern-row"><span class="pr-label">Media Wars</span><span class="pr-value">$6B in pharma ads makes pharma the largest advertiser on broadcast media. Editorial independence dies quietly.</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-8">
+      <div class="pull-quote">
+        <p class="pq-text">They didn&rsquo;t just control your energy, your money, your mind, and your information. They controlled your body.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT VI — THE CRACKS                                      -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-light" data-act="VI" data-act-label="The Cracks" data-pipeline="cracks">
+    <div class="act-header">
+      <div class="act-number">Act VI</div>
+      <h2 class="act-title">The Cracks</h2>
+    </div>
+
+    <div class="scroll-block" data-block="6-1">
+      <p>The wall held for a century. It is cracking now.</p>
+    </div>
+
+    <div class="scroll-block" data-block="6-2">
+      <h3 class="node-title">The Receipts Go Public</h3>
+      <div class="timeline">
+        <div class="timeline-block"><strong>2016:</strong> Cristin Kearns publishes the sugar industry documents. 50 years of manufactured scientific consensus, exposed.</div>
+        <div class="timeline-block"><strong>2017:</strong> The Monsanto Papers are released through litigation discovery. Ghost-writing, regulatory capture, and internal admissions &mdash; in their own words.</div>
+        <div class="timeline-block"><strong>2019:</strong> Purdue Pharma files for bankruptcy amid 2,600 lawsuits. The Sackler family withdrawals are documented in court: $10.4 billion moved out while the bodies piled up.</div>
+        <div class="timeline-block"><strong>2020:</strong> Purdue pleads guilty to federal felonies. The Open Payments database now lets you search how much pharma paid your doctor.</div>
+        <div class="timeline-block"><strong>2024:</strong> A federal court rules that water fluoridation poses &ldquo;unreasonable risk.&rdquo; 80 years of &ldquo;settled science&rdquo; is formally unsettled by a federal judge citing the government&rsquo;s own toxicology program.</div>
+        <div class="timeline-block"><strong>2024:</strong> The BMJ publishes its umbrella review: &ldquo;convincing evidence&rdquo; that ultra-processed food is killing us. The science the food industry delayed for decades is now mainstream.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-3">
+      <h3 class="node-title">The System Responds</h3>
+      <p>FDA additive reviews are underway. Red Dye No. 3 banned. Brominated vegetable oil revoked. GRAS substances under new scrutiny &mdash; 66 years after the loophole was created. School lunch programs are being overhauled. Dietary guidelines are being revised with stated goals of reducing industry influence. Multiple states have introduced legislation on food additives, fluoride, and pharmaceutical transparency.</p>
+      <p>Whether these reforms survive the lobbying apparatus documented in this scroll remains to be seen. But the conversation has changed. The institutional critique that was once &ldquo;fringe&rdquo; is now entering federal courtrooms, congressional hearings, and mainstream medical journals.</p>
+    </div>
+
+    <!-- The Lock pattern -->
+    <div class="scroll-block" data-block="6-4">
+      <h3 class="node-title">The Architecture &mdash; One Last Look</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Education</span><span class="pr-value">Flexner Report &rarr; pharmaceutical-only curricula &rarr; doctors trained to prescribe, not prevent</span></div>
+        <div class="pattern-row"><span class="pr-label">Regulation</span><span class="pr-value">PDUFA &rarr; pharma funds its own regulator &rarr; revolving door normalizes capture</span></div>
+        <div class="pattern-row"><span class="pr-label">Science</span><span class="pr-value">Industry funds 65% of clinical trials &rarr; publication bias &rarr; ghost-written papers</span></div>
+        <div class="pattern-row"><span class="pr-label">Food</span><span class="pr-value">Sugar fix &rarr; food pyramid &rarr; petrochemical agriculture &rarr; ultra-processed everything</span></div>
+        <div class="pattern-row"><span class="pr-label">Enforcement</span><span class="pr-value">AMA gatekeeping &rarr; FDA suppression &rarr; alternatives eliminated &rarr; pharmaceutical monopoly</span></div>
+        <div class="pattern-row"><span class="pr-label">Narrative</span><span class="pr-value">$6B in TV ads &rarr; media dependency &rarr; &ldquo;trust the science&rdquo; means trust the funding</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-5">
+      <div class="anim-you-dot">
+        <span class="dot"></span> You are here
+      </div>
+    </div>
+
+    <!-- Closing terminal -->
+    <div class="scroll-block chain-summary" data-block="6-6">
+      <div class="typed-terminal" id="body-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["ANALYSIS COMPLETE.","FLEXNER (1910) ^500&rarr; SUGAR FIX (1967) ^500&rarr; PDUFA (1992) ^500&rarr; OXYCONTIN (1996) ^500&rarr; MONSANTO PAPERS (2017) ^500&rarr; FLUORIDE RULING (2024)","THE WAR FOR YOUR BODY ^500 WAS NEVER A FAIR FIGHT. ^1000 NOW YOU HAVE THE RECEIPTS."]'></span>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-7">
+      <p>The war for your body was fought with bought science, captured regulators, destroyed careers, and 600,000 graves. Every weapon is documented. Every name is on the record. Every dollar is traceable.</p>
+      <p>The question was never whether the evidence existed. The question was whether anyone would look at it.</p>
+      <p>You just did.</p>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- CLOSING                                                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <section class="closing" id="closing">
+    <div class="closing-content">
+      <div class="closing-statement">The war for your body is the most documented war in this series. Congressional records. Court settlements. Litigation discovery. The industry&rsquo;s own internal memos. Every claim in this scroll is classified by evidence tier. Nothing documented is speculative. The pattern is the argument.</div>
+      <div class="closing-sub">This investigation draws on the Flexner Report (1910), the Fitzgerald Report (Congressional Record, 1953), the Pepper-Neely hearings (1946), the Monsanto Papers (litigation discovery, 2017-2018), the Sugar Research Foundation documents (JAMA Internal Medicine, 2016), Purdue Pharma DOJ filings, the NTP fluoride monograph (2024), and the TSCA federal court ruling (2024). Primary sources are cited for every evidence card.</div>
+
+      <div class="closing-legend">
+        <div class="closing-legend-item"><span class="el-dot" style="background:#34d399"></span> Documented &mdash; official records, FOIA releases, government reports, court documents, corporate filings, peer-reviewed research</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fbbf24"></span> Credible &mdash; credentialed witness testimony, verified backgrounds, consistent accounts</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fb923c"></span> Inference &mdash; pattern analysis connecting documented and credible evidence</div>
+      </div>
+
+      <div class="closing-cta">
+        <p>Disclosure is not a single event. It&rsquo;s a process. And it only works if people are paying attention.</p>
+      </div>
+
+      <div class="closing-links">
+        <a href="/media-wars/" class="closing-link">&larr; Scroll 006: Media Wars &mdash; the war that hides all the others</a>
+        <a href="/oil-wars/" class="closing-link">&larr; Scroll 005: Oil Wars &mdash; one molecule controls everything</a>
+        <a href="/mind-wars/" class="closing-link">&larr; Scroll 004: Mind Wars &mdash; the war on consciousness</a>
+        <a href="/space-wars/" class="closing-link">&larr; Scroll 003: Space Wars &mdash; two histories of space</a>
+        <a href="/money-wars/" class="closing-link">&larr; Scroll 002: Money Wars &mdash; every country that left the dollar</a>
+        <a href="/ai-wars/" class="closing-link">&larr; Scroll 001: AI Wars &mdash; the 44-year surveillance pipeline</a>
+        <a href="https://qav2.github.io/intel-console/" class="closing-link" target="_blank" rel="noopener">Explore the Intel Console &mdash; 825 entities, 1,411 relationships &rarr;</a>
+        <a href="/" class="closing-link-home">&larr; Disclosure Scrolls &mdash; full archive</a>
+      </div>
+
+      <div class="closing-support">
+        <div class="support-label">Independent research. No sponsors. No algorithm.</div>
+        <a href="https://buymeacoffee.com/joeyv23" class="support-link" target="_blank" rel="noopener">Support this work</a>
+      </div>
+
+      <div class="closing-footer">
+        <p>Disclosure Scrolls &mdash; documented investigations you can scroll through.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ Scripts ═══ -->
+  <script src="../ai-wars/js/engine.js" defer></script>
+  <script src="../ai-wars/js/gsap-effects.js" defer></script>
+
+</body>
+</html>
