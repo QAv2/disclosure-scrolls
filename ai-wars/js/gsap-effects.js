@@ -144,15 +144,18 @@
     });
   });
 
-  // ── Pattern grid rows — slide in from left with stagger ────
-  gsap.utils.toArray('.pattern-row').forEach(function (row, i) {
-    gsap.from(row, {
-      x: -35,
-      opacity: 0,
-      duration: 0.5,
-      delay: i * 0.12,
-      ease: 'power2.out',
-      scrollTrigger: revealTrigger(row)
+  // ── Pattern grid rows — slide in from left with stagger (per grid) ──
+  gsap.utils.toArray('.pattern-grid').forEach(function (grid) {
+    var rows = grid.querySelectorAll('.pattern-row');
+    rows.forEach(function (row, i) {
+      gsap.from(row, {
+        x: -35,
+        opacity: 0,
+        duration: 0.5,
+        delay: i * 0.12,
+        ease: 'power2.out',
+        scrollTrigger: revealTrigger(row)
+      });
     });
   });
 
