@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sky Wars &mdash; Disclosure Scrolls</title>
+  <meta name="description" content="Operation Popeye. The Welsbach Patent. 37,000 Chinese weather modification employees. 147 sulfur balloons over Nevada. No governance. The war for your sky is documented.">
+  <meta property="og:title" content="Sky Wars">
+  <meta property="og:description" content="The U.S. weaponized weather in Vietnam. A defense contractor patented spraying aluminum in the stratosphere. A startup is already launching sulfur from Nevada. Nobody stopped them.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://disclosure-scrolls.netlify.app/sky-wars/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Disclosure Scrolls">
+  <meta property="og:url" content="https://disclosure-scrolls.netlify.app/sky-wars/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sky Wars">
+  <meta name="twitter:description" content="Operation Popeye. The Welsbach Patent. 37,000 employees. 147 sulfur balloons. No governance. The war for your sky &mdash; documented.">
+  <meta name="twitter:image" content="https://disclosure-scrolls.netlify.app/sky-wars/og-image.png">
+  <meta name="theme-color" content="#06060b">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://disclosure-scrolls.netlify.app/sky-wars/">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="../ai-wars/css/style.css">
+
+  <!-- CountUp.js -->
+  <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js" defer></script>
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+
+  <style>
+    /* ── Sky Wars overrides ── */
+
+    /* Ice-blue accent for selection */
+    ::selection { background: rgba(96, 165, 250, 0.25); color: #fff; }
+
+    /* Company/org badges */
+    .badge-usaf { color: #60a5fa; border-color: rgba(96,165,250,0.25); background: rgba(96,165,250,0.06); }
+    .badge-raytheon { color: #94a3b8; border-color: rgba(148,163,184,0.25); background: rgba(148,163,184,0.06); }
+    .badge-bae { color: #f87171; border-color: rgba(248,113,113,0.25); background: rgba(248,113,113,0.06); }
+    .badge-noaa { color: #38bdf8; border-color: rgba(56,189,248,0.25); background: rgba(56,189,248,0.06); }
+    .badge-cia { color: #94a3b8; border-color: rgba(148,163,184,0.25); background: rgba(148,163,184,0.06); }
+    .badge-darpa { color: #f87171; border-color: rgba(248,113,113,0.25); background: rgba(248,113,113,0.06); }
+    .badge-make-sunsets { color: #fbbf24; border-color: rgba(251,191,36,0.25); background: rgba(251,191,36,0.06); }
+    .badge-hughes { color: #94a3b8; border-color: rgba(148,163,184,0.25); background: rgba(148,163,184,0.06); }
+
+    /* Act IV — amber reveal (it's happening now) */
+    .act-reveal .act-title { color: #fbbf24; }
+    .act-reveal .act-number { color: rgba(251, 191, 36, 0.4); }
+    .act-reveal .node-title { color: #fbbf24; border-bottom-color: rgba(251,191,36,0.15); }
+    .act-reveal .pull-quote { border-left-color: rgba(251,191,36,0.25); }
+    .act-reveal .evidence-card { border-left-color: rgba(251,191,36,0.35); }
+
+    /* Act VI — white light (the sky is open) */
+    .act-light .act-title { color: #f0f0f4; }
+    .act-light .act-number { color: rgba(240,240,244,0.4); }
+    .act-light .node-title { color: #f0f0f4; border-bottom-color: rgba(240,240,244,0.15); }
+    .act-light .pull-quote { border-left-color: rgba(240,240,244,0.25); }
+
+    /* Organization square frame — prevents circle crop from swallowing logos/text */
+    .visual-row .visual-figure.org-square img {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .visual-row .visual-figure.org-square img {
+        width: 80px;
+        height: 80px;
+      }
+      .pattern-row { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ Particle Network Background ═══ -->
+  <canvas id="particle-net" class="particle-canvas"></canvas>
+
+  <!-- ═══ Progress Bar ═══ -->
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <!-- ═══ Pipeline Tracker ═══ -->
+  <div class="pipeline-track" id="pipeline-track">
+    <div class="pipeline-inner">
+      <div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
+      <div class="pipeline-node" data-step="cirrus"><span class="pn-year">1946</span><span class="pn-label">Cirrus</span></div>
+      <div class="pipeline-node" data-step="popeye"><span class="pn-year">1967</span><span class="pn-label">Popeye</span></div>
+      <div class="pipeline-node" data-step="enmod"><span class="pn-year">1977</span><span class="pn-label">ENMOD</span></div>
+      <div class="pipeline-node" data-step="welsbach"><span class="pn-year">1991</span><span class="pn-label">Welsbach</span></div>
+      <div class="pipeline-node" data-step="deploy"><span class="pn-year">2022</span><span class="pn-label">Make Sunsets</span></div>
+      <div class="pipeline-node" data-step="vacuum"><span class="pn-year">2025</span><span class="pn-label">22 State Bans</span></div>
+      <div class="pipeline-node" data-step="open"><span class="pn-year">NOW</span><span class="pn-label">Sky Open</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ Act Indicator ═══ -->
+  <div class="act-indicator" id="act-indicator"></div>
+
+
+  <!-- ═════════��══════════════════════════════════════════════ -->
+  <!-- TITLE SCREEN                                             -->
+  <!-- ═══════���══════════════════════════════════════��═════════ -->
+
+  <div class="title-screen" id="title-screen">
+    <div class="title-content">
+      <a href="/" class="back-link">&larr; Disclosure Scrolls</a>
+      <div class="title-label">Scroll 008</div>
+      <div class="title-reading-time">~35 min read</div>
+      <h1 class="title-main">Sky Wars</h1>
+      <p class="title-sub">In 1967, the U.S. Air Force flew 2,600 cloud-seeding sorties over Vietnam. It was classified. It was exposed. It caused a treaty. In 1991, a defense contractor patented spraying aluminum in the stratosphere. In 2022, a startup began launching sulfur balloons from Nevada. Nobody stopped them. The war for your sky is not a conspiracy theory &mdash; it&rsquo;s public record.</p>
+      <div class="title-meta">
+        <span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fbbf24"></span> Credible</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
+      </div>
+      <div class="scroll-cue">&darr; Begin scrolling</div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════���═════════════════════ -->
+  <!-- ACT I — WHAT YOU THINK YOU KNOW                          -->
+  <!-- ══════════��════════��════════════════════════════════════ -->
+
+  <div class="act" data-act="I" data-act-label="What You Think You Know">
+    <div class="act-header">
+      <div class="act-number">Act I</div>
+      <h2 class="act-title">What You Think You Know</h2>
+    </div>
+
+    <div class="scroll-block" data-block="1-1">
+      <p>The word &ldquo;chemtrails&rdquo; is a trap.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-2">
+      <p>It was designed to sound ridiculous, and it works &mdash; the moment you say it, you&rsquo;ve lost the room. The conversation is over before it begins. That&rsquo;s by design.</p>
+      <p>But here&rsquo;s the thing: <strong>you don&rsquo;t need that word.</strong></p>
+    </div>
+
+    <div class="scroll-block" data-block="1-3">
+      <p>What most people mean when they say &ldquo;chemtrails&rdquo; is:</p>
+      <div class="pull-quote">
+        <p class="pq-text">Is the government spraying things in the atmosphere without telling us?</p>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-4">
+      <p>The honest answer is more nuanced than &ldquo;yes&rdquo; or &ldquo;no&rdquo; &mdash; and far more unsettling than either.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-5">
+      <h3 class="node-title">The Documented Reality</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Years of government weather modification</span><span class="pr-value"><span class="countup" data-target="80">80</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Chinese weather mod employees</span><span class="pr-value"><span class="countup" data-target="37000" data-suffix="+">37,000+</span></span></div>
+        <div class="pattern-row"><span class="pr-label">U.S. states running cloud seeding</span><span class="pr-value"><span class="countup" data-target="9">9</span></span></div>
+        <div class="pattern-row"><span class="pr-label">State ban bills introduced (2024&ndash;2025)</span><span class="pr-value"><span class="countup" data-target="22">22</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Defense contractor atmospheric patents</span><span class="pr-value">Filed, granted, owned by Raytheon</span></div>
+        <div class="pattern-row"><span class="pr-label">Sulfur balloons launched from Nevada</span><span class="pr-value"><span class="countup" data-target="147">147</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Comprehensive SAI governance</span><span class="pr-value">None</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-6">
+      <p>None of that requires the word &ldquo;chemtrails.&rdquo; It&rsquo;s all documented. Declassified military records. Active patents. Government reports. Corporate filings. Congressional testimony.</p>
+      <p>The documented reality is more concerning than the conspiracy theory.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-7">
+      <p>This scroll follows the documents. Every claim is tiered by evidence level. Every source is cited. If something is speculative, it says so. If something is documented, you can read it yourself.</p>
+      <p>Let&rsquo;s look at the documents.</p>
+    </div>
+  </div>
+
+
+  <!-- ═════════════════════════════════════════��══════════════ -->
+  <!-- ACT II — THE HISTORY                                     -->
+  <!-- ════════════════════════════════════���═══════════════════ -->
+
+  <div class="act" data-act="II" data-act-label="The History" data-pipeline="cirrus">
+    <div class="act-header">
+      <div class="act-number">Act II</div>
+      <h2 class="act-title">The History</h2>
+    </div>
+
+    <div class="scroll-block" data-block="2-1">
+      <p>Weather modification is not theoretical. Governments have been doing it since 1946. The history is declassified, published, and available to anyone willing to read it.</p>
+    </div>
+
+    <!-- Project Cirrus -->
+    <div class="scroll-block" data-block="2-2">
+      <h3 class="node-title">Project Cirrus (1946)</h3>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/vincent_schaefer.jpg" alt="Vincent Schaefer">
+          <div class="vr-name">Vincent Schaefer</div>
+          <div class="vr-role">GE researcher &mdash; first cloud-seeding flight</div>
+        </div>
+        <div class="visual-figure org-square">
+          <img src="assets/usaf.jpg" alt="United States Air Force">
+          <div class="vr-name">USAF</div>
+          <div class="vr-role">Army Signal Corps funding</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The first U.S. government weather modification program. <strong>Vincent Schaefer</strong> at General Electric, funded by the Army Signal Corps, conducted the first cloud-seeding flight. In October 1947, 80 kg of dry ice was dropped into a hurricane &mdash; which then reversed course and struck Georgia, causing $2 million in damage. The era of human weather modification had begun.</div>
+        <div class="evidence-source">Earth Magazine, &ldquo;Benchmarks: October 13, 1947 &mdash; Disaster of Project Cirrus.&rdquo;</div>
+      </div>
+    </div>
+
+    <!-- Project Stormfury -->
+    <div class="scroll-block" data-block="2-3">
+      <h3 class="node-title">Project Stormfury (1962&ndash;1983)</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">A joint NOAA/Navy program to weaken hurricanes by seeding them with silver iodide. Hurricane Debbie (1969) showed a <strong>31% wind speed reduction</strong> after seeding. The program ran for 21 years before being cancelled when scientists realized natural hurricane variability couldn&rsquo;t be distinguished from the intervention. Two decades of trying to control hurricanes.</div>
+        <div class="evidence-source">NOAA Atlantic Oceanographic and Meteorological Laboratory, Project Stormfury documentation.</div>
+      </div>
+    </div>
+
+    <!-- Operation Popeye -->
+    <div class="scroll-block" data-block="2-4" data-pipeline="popeye">
+      <h3 class="node-title">Operation Popeye (1967&ndash;1972)</h3>
+      <p><strong>This is the big one.</strong></p>
+    </div>
+
+    <div class="scroll-block" data-block="2-5">
+      <div class="visual-row">
+        <div class="visual-figure org-square">
+          <img src="assets/usaf.jpg" alt="United States Air Force">
+          <div class="vr-name">USAF</div>
+          <div class="vr-role">2,600+ cloud-seeding sorties</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The U.S. Air Force ran a <strong>classified cloud-seeding campaign</strong> over the Ho Chi Minh Trail to extend monsoon season by 30&ndash;45 days. Over <strong>2,600 sorties</strong> were flown from Thailand using silver iodide and lead iodide. Cost: ~$3.6 million per year. Intelligence confirmed <strong>30&ndash;45% precipitation increases</strong> in targeted areas. The motto: &ldquo;Make mud, not war.&rdquo;</div>
+        <div class="evidence-source">State Department FRUS &mdash; Declassified Documents, frus1964-68v28/d274. Popular Science, &ldquo;Operation Popeye.&rdquo;</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-6">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">It was classified. It was exposed by journalist <strong>Jack Anderson</strong> in 1971. It was confirmed in Senate hearings in 1974. The U.S. government weaponized weather, got caught, and the world passed a treaty to stop it. That&rsquo;s not a theory.</div>
+        <div class="evidence-source">Senate hearings, 1974. Congressional Record. Wikipedia &mdash; Operation Popeye (sourced from declassified records).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-7">
+      <div class="pull-quote">
+        <p class="pq-text">The United States weaponized weather in a war zone. It was classified, exposed, confirmed under oath, and caused an international treaty. That is not disputed &mdash; it is in the Congressional Record.</p>
+      </div>
+    </div>
+
+    <!-- ENMOD Treaty -->
+    <div class="scroll-block" data-block="2-8" data-pipeline="enmod">
+      <h3 class="node-title">The ENMOD Treaty (1977)</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The Convention on the Prohibition of Military or Any Other Hostile Use of Environmental Modification Techniques. <strong>78 state parties.</strong> The U.S. ratified in 1980. Bans weather modification for hostile purposes with &ldquo;widespread, long-lasting or severe effects.&rdquo; <strong>Does NOT address non-hostile uses</strong> &mdash; a gap that matters enormously today.</div>
+        <div class="evidence-source">UN Office for Disarmament Affairs &mdash; ENMOD Convention.</div>
+      </div>
+    </div>
+
+    <!-- Soviet/Russian programs -->
+    <div class="scroll-block" data-block="2-9">
+      <h3 class="node-title">The Global Scale</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The Soviet Union began weather modification in the 1930s. By 1976, hail suppression covered ~5 million hectares. Methods: 70mm artillery firing silver iodide projectiles, An-30M &ldquo;Sky Cleaner&rdquo; aircraft, ground-launched rockets. Russia&rsquo;s operational hail suppression program has now run <strong>continuously for 65+ years</strong>. The CIA documented Soviet cloud physics programs in declassified reports.</div>
+        <div class="evidence-source">CIA FOIA &mdash; Soviet Weather Modification (document 06541158). ResearchGate &mdash; &ldquo;Results of 65-Years Project of Hail Suppression in Russian Federation.&rdquo;</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-10">
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Project Cirrus</span><span class="pr-value">1946 &mdash; first U.S. cloud seeding</span></div>
+        <div class="pattern-row"><span class="pr-label">Project Cumulus (UK)</span><span class="pr-value">1949 &mdash; RAF cloud seeding, Lynmouth flood</span></div>
+        <div class="pattern-row"><span class="pr-label">Project Stormfury</span><span class="pr-value">1962 &mdash; 21-year hurricane modification program</span></div>
+        <div class="pattern-row"><span class="pr-label">Operation Popeye</span><span class="pr-value">1967 &mdash; classified weather warfare, 2,600 sorties</span></div>
+        <div class="pattern-row"><span class="pr-label">ENMOD Treaty</span><span class="pr-value">1977 &mdash; bans hostile weather mod (not non-hostile)</span></div>
+        <div class="pattern-row"><span class="pr-label">Soviet programs</span><span class="pr-value">1930s &mdash; still running after 65+ years</span></div>
+      </div>
+      <p>This is not fringe history. This is the documented record of governments deliberately modifying weather for military and agricultural purposes across eight decades.</p>
+    </div>
+  </div>
+
+
+  <!-- ══════════��════════════════════════���════════════════════ -->
+  <!-- ACT III — THE PATENTS                                    -->
+  <!-- ════��═══════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="III" data-act-label="The Patents" data-pipeline="welsbach">
+    <div class="act-header">
+      <div class="act-number">Act III</div>
+      <h2 class="act-title">The Patents</h2>
+    </div>
+
+    <div class="scroll-block" data-block="3-1">
+      <p>Patents don&rsquo;t prove deployment. But they prove that serious organizations &mdash; including defense contractors &mdash; have designed, documented, and filed intellectual property for atmospheric modification technologies.</p>
+    </div>
+
+    <!-- Welsbach Patent -->
+    <div class="scroll-block" data-block="3-2">
+      <h3 class="node-title">The Welsbach Patent (1991)</h3>
+      <div class="visual-row">
+        <div class="visual-figure org-square">
+          <img src="assets/hughes_aircraft.jpg" alt="Hughes Aircraft Company">
+          <div class="vr-name">Hughes Aircraft</div>
+          <div class="vr-role">Now Raytheon</div>
+        </div>
+        <div class="visual-figure org-square">
+          <img src="assets/raytheon.jpg" alt="Raytheon">
+          <div class="vr-name">Raytheon</div>
+          <div class="vr-role">Current patent holder</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>US Patent 5,003,186</strong> &mdash; &ldquo;Stratospheric Welsbach Seeding for Reduction of Global Warming.&rdquo; Filed by Hughes Aircraft Company (now Raytheon). Proposes dispersing tiny particles of <strong>aluminum oxide and thorium oxide</strong> into the stratosphere at 7&ndash;13 km altitude. The particles would convert trapped infrared radiation into far-infrared radiation that escapes to space. Particle size: 10&ndash;100 microns. One proposed delivery method: &ldquo;via the jet fuel.&rdquo; Particles &ldquo;may remain in suspension for up to one year.&rdquo;</div>
+        <div class="evidence-source">Google Patents &mdash; US 5,003,186. Inventors: David B. Chang, I-Fu Shih. Filed 1990, granted 1991.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Was it deployed?</strong> No evidence of operational deployment. The patent expired without documented test flights, pilot programs, or government contracts. The citation chain is remarkably thin &mdash; only a handful of forward citations in 35 years, suggesting no substantial follow-on R&amp;D. The inventors were IR/optics engineers, not atmospheric scientists. <strong>But it exists.</strong> A defense contractor patented spraying aluminum oxide in the stratosphere. And it&rsquo;s now owned by Raytheon.</div>
+        <div class="evidence-source">Google Patents citation chain analysis. Metabunk &mdash; Welsbach Patent Analysis.</div>
+      </div>
+    </div>
+
+    <!-- Eastlund/HAARP Patent -->
+    <div class="scroll-block" data-block="3-4">
+      <h3 class="node-title">The Eastlund Patent (1987)</h3>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/bernard_eastlund.jpg" alt="Bernard J. Eastlund">
+          <div class="vr-name">Bernard J. Eastlund</div>
+          <div class="vr-role">HAARP patent inventor</div>
+        </div>
+        <div class="visual-figure org-square">
+          <img src="assets/haarp.jpg" alt="HAARP facility">
+          <div class="vr-name">HAARP</div>
+          <div class="vr-role">High-freq Active Auroral Research</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>US Patent 4,686,605</strong> &mdash; &ldquo;Method and Apparatus for Altering a Region in the Earth&rsquo;s Atmosphere.&rdquo; The &ldquo;HAARP patent.&rdquo; Describes using a ground-based antenna array to transmit electromagnetic radiation upward, exciting electron cyclotron resonance in the ionosphere. Listed applications: disrupting missiles/aircraft, interfering with communications, and altering upper-atmosphere wind patterns. <strong>The power problem:</strong> the patent specifies 1&ndash;100 GW. HAARP operates at ~3.6 MW &mdash; roughly 300 to 30,000 times less.</div>
+        <div class="evidence-source">Google Patents &mdash; US 4,686,605. Filed 1985, granted 1987. APTI, Inc. (now BAE Systems).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block chain-summary" data-block="3-5">
+      <h3 class="node-title">The Ownership Chain</h3>
+      <div class="typed-terminal" id="patent-chain-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING PATENT OWNERSHIP...","ARCO (oil) ^500&rarr; APTI (defense) ^500&rarr; E-SYSTEMS (defense) ^500&rarr; RAYTHEON (defense) ^500&rarr; BAE SYSTEMS (defense)","EVERY LINK IS A DEFENSE CONTRACTOR."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">ARCO</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">APTI</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">E-Systems</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Raytheon</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">BAE Systems</span>
+      </div>
+      <p class="chain-decode">Oil company &rarr; defense subsidiary &rarr; defense contractor &rarr; defense giant &rarr; defense giant. The HAARP patent traveled exclusively through the defense industry until the facility was transferred to the University of Alaska Fairbanks in 2014.</p>
+    </div>
+
+    <!-- More patents -->
+    <div class="scroll-block" data-block="3-6">
+      <h3 class="node-title">The Patent Landscape</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>US 3,813,875</strong> (1974) &mdash; A rocket system specifically designed to release barium into the atmosphere to create ion clouds. Yes, barium. In the atmosphere. From rockets. Patented.</div>
+        <div class="evidence-source">Google Patents &mdash; US 3,813,875.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-7">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>US 11,116,150</strong> (2021) &mdash; &ldquo;Aerial Electrostatic System for Weather Modification.&rdquo; Assigned to the United States of America (Secretary of Agriculture). A government-assigned patent from 2021 for electrostatically charged cloud seeding. Demonstrates <strong>ongoing federal interest</strong> in weather modification technology.</div>
+        <div class="evidence-source">Google Patents &mdash; US 11,116,150.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-8">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>EP 4,301,126</strong> (2025) &mdash; Eastman Kodak filed a patent for porous polymeric particles (2&ndash;20 microns) for stratospheric dispersal at 10+ km altitude. Granted January 2025. A major corporation filing a geoengineering patent in 2025 signals growing commercial interest.</div>
+        <div class="evidence-source">Google Patents &mdash; EP 4,301,126. Eastman Kodak Company.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-9">
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Climate engineering patent families</span><span class="pr-value"><span class="countup" data-target="143">143</span> (910 members worldwide)</span></div>
+        <div class="pattern-row"><span class="pr-label">Solar Radiation Management patents</span><span class="pr-value">28 families &mdash; &ldquo;very limited activity&rdquo;</span></div>
+        <div class="pattern-row"><span class="pr-label">Welsbach citation chain</span><span class="pr-value">Thin &mdash; not the pattern of active deployment</span></div>
+        <div class="pattern-row"><span class="pr-label">Defense contractor involvement</span><span class="pr-value">Hughes &rarr; Raytheon &rarr; BAE at every node</span></div>
+      </div>
+      <p>The patent landscape is not consistent with a massive covert program. But the patents exist, the defense contractor chain is real, and the technology has been designed on paper.</p>
+    </div>
+  </div>
+
+
+  <!-- ══════���═════════════════════════════════════════════════ -->
+  <!-- ACT IV — THE DEPLOYMENT (amber reveal)                   -->
+  <!-- ═════════════════════════════════════════════════════���══ -->
+
+  <div class="act act-reveal" data-act="IV" data-act-label="The Deployment" data-pipeline="deploy">
+    <div class="act-header">
+      <div class="act-number">Act IV</div>
+      <h2 class="act-title">The Deployment</h2>
+    </div>
+
+    <div class="scroll-block" data-block="4-1">
+      <p>While institutions debate governance frameworks, <strong>private actors have started deploying</strong>. The governance gap isn&rsquo;t hypothetical &mdash; it&rsquo;s being exploited right now.</p>
+    </div>
+
+    <!-- China -->
+    <div class="scroll-block" data-block="4-2">
+      <h3 class="node-title">China Weather Modification Office</h3>
+      <div class="visual-row">
+        <div class="visual-figure org-square">
+          <img src="assets/china_weather.jpg" alt="China Weather Modification Office">
+          <div class="vr-name">China WMOC</div>
+          <div class="vr-role">37,000+ employees</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The world&rsquo;s largest weather modification program. <strong>37,000+ employees.</strong> Uses rockets and aircraft for silver iodide cloud seeding. In 2020, China&rsquo;s State Council announced plans to cover <strong>5.5 million km&sup2;</strong> with artificial rainfall and 580,000 km&sup2; with hail suppression by 2025. In 2024, China established its first dedicated Institute of Weather Modification in Chengdu.</div>
+        <div class="evidence-source">China State Council announcement, December 2020. Global Times, December 2024.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-3">
+      <p style="font-size:2.2rem; font-weight:700; color:#fbbf24; text-align:center; margin:1.5rem 0;"><span class="countup" data-target="37000" data-suffix=" employees">37,000 employees</span></p>
+      <p style="text-align:center; color:rgba(255,255,255,0.5);">More than the FBI has special agents.</p>
+    </div>
+
+    <!-- UAE -->
+    <div class="scroll-block" data-block="4-4">
+      <h3 class="node-title">UAE Cloud Seeding</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">~<strong>300 cloud-seeding missions per year</strong> using 6 aircraft. 172 flights by mid-2025. Developing a proprietary &ldquo;nano material&rdquo; seeding agent &mdash; salt coated with titanium oxide, 3x more effective than standard flares. <strong>AI-powered systems</strong> for real-time autonomous cloud analysis. The most technologically advanced weather modification program on Earth.</div>
+        <div class="evidence-source">Gulf News, &ldquo;UAE Conducts 172 Cloud Seeding Flights in 2025.&rdquo; CNBC, &ldquo;UAE Cloud Seeding Technology,&rdquo; March 2024.</div>
+      </div>
+    </div>
+
+    <!-- U.S. States + GAO -->
+    <div class="scroll-block" data-block="4-5">
+      <h3 class="node-title">Nine U.S. States</h3>
+      <div class="visual-row">
+        <div class="visual-figure org-square">
+          <img src="assets/noaa.jpg" alt="NOAA">
+          <div class="vr-name">NOAA</div>
+          <div class="vr-role">Oversight failure documented by GAO</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">California, Nevada, Idaho, Utah, Wyoming, Colorado, New Mexico, Texas, and North Dakota all run <strong>active cloud seeding programs</strong> using silver iodide. Operators must report to NOAA under the Weather Modification Reporting Act of 1972. A <strong>February 2026 GAO report</strong> found NOAA is &ldquo;not fully meeting its responsibilities&rdquo; to oversee weather modification reporting, with <strong>over half of filed reports likely containing errors.</strong></div>
+        <div class="evidence-source">GAO-25-107328, Cloud Seeding Technology Assessment. GAO-26-108013, NOAA Weather Modification Oversight (2026).</div>
+      </div>
+    </div>
+
+    <!-- Make Sunsets -->
+    <div class="scroll-block" data-block="4-6">
+      <h3 class="node-title">Make Sunsets</h3>
+      <div class="visual-row">
+        <div class="visual-figure org-square">
+          <img src="assets/make_sunsets.jpg" alt="Make Sunsets">
+          <div class="vr-name">Make Sunsets</div>
+          <div class="vr-role">Sulfur balloons from Nevada</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/luke_iseman.jpg" alt="Luke Iseman">
+          <div class="vr-name">Luke Iseman</div>
+          <div class="vr-role">Founder &mdash; launched without approval</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-7">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In April 2022, founder <strong>Luke Iseman</strong> lit sulfur and pumped SO&#8322; into a helium balloon in Baja California, Mexico &mdash; <strong>without scientific or government approval.</strong> Mexico responded by banning all solar geoengineering experiments in January 2023. Make Sunsets relocated to Nevada. By 2025: <strong>147 balloons launched, 128,000 &ldquo;cooling credits&rdquo; sold.</strong> In April 2025, the EPA issued a Clean Air Act information demand. <strong>Nobody stopped them before they started.</strong></div>
+        <div class="evidence-source">MIT Technology Review, December 2022. TIME, &ldquo;Make Sunsets U.S. Launch,&rdquo; 2023. Inside Climate News, &ldquo;EPA Investigation,&rdquo; April 2025.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-8">
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Balloons launched</span><span class="pr-value"><span class="countup" data-target="147">147</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Cooling credits sold</span><span class="pr-value"><span class="countup" data-target="128000" data-suffix="+">128,000+</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Seed funding</span><span class="pr-value">$750K (Boost VC, Pioneer Fund)</span></div>
+        <div class="pattern-row"><span class="pr-label">Government approval obtained</span><span class="pr-value">None</span></div>
+      </div>
+    </div>
+
+    <!-- Stardust Solutions -->
+    <div class="scroll-block" data-block="4-9">
+      <h3 class="node-title">Stardust Solutions</h3>
+      <div class="visual-row">
+        <div class="visual-figure org-square">
+          <img src="assets/stardust.jpg" alt="Stardust Solutions">
+          <div class="vr-name">Stardust Solutions</div>
+          <div class="vr-role">$60M geoengineering startup</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim">Israeli-founded, U.S.-incorporated. Led by a <strong>former Israel Atomic Energy Commission official</strong>. Plans to disperse proprietary particles from aircraft in the stratosphere. <strong>Has not disclosed chemical composition.</strong> Announced outdoor experiments beginning April 2026. Claims nations will eventually pay $1B+/year for its services. $60 million in funding. Undisclosed chemicals. Stratospheric aircraft dispersal. Starting now.</div>
+        <div class="evidence-source">Heatmap News, &ldquo;Stardust Solutions.&rdquo; Bulletin of the Atomic Scientists, March 2025.</div>
+      </div>
+    </div>
+
+    <!-- Marine Cloud Brightening -->
+    <div class="scroll-block" data-block="4-10">
+      <h3 class="node-title">San Francisco Bay (2024)</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">University of Washington researchers sprayed sea salt particles from the USS Hornet museum ship in Alameda, CA. The experiment was halted by the city council after it emerged the city was <strong>not informed</strong> and the activity violated the museum&rsquo;s lease. <strong>Nobody asked permission.</strong> Demonstrated the governance gap in practice.</div>
+        <div class="evidence-source">Smithsonian, &ldquo;A Secretive Experiment Released Salt Crystals Over San Francisco Bay,&rdquo; 2024.</div>
+      </div>
+    </div>
+
+    <!-- Harvard SCoPEx -->
+    <div class="scroll-block" data-block="4-11">
+      <h3 class="node-title">Harvard SCoPEx &mdash; Cancelled</h3>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/frank_keutsch.jpg" alt="Frank Keutsch">
+          <div class="vr-name">Frank Keutsch</div>
+          <div class="vr-role">Harvard PI &mdash; cancelled SCoPEx after a decade</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The Stratospheric Controlled Perturbation Experiment &mdash; conceived ~2014 as the first solar geoengineering experiment in the stratosphere. Planned to release calcium carbonate from a high-altitude balloon. A 2021 test flight in Sweden was halted after opposition from the Saami Council. PI <strong>Frank Keutsch</strong> cancelled the experiment in March 2024 after a decade of delays. Harvard tried to do a small-scale test &mdash; a few kilograms &mdash; and couldn&rsquo;t get through the public backlash.</div>
+        <div class="evidence-source">MIT Technology Review, &ldquo;Harvard Halts Its Long-Planned Atmospheric Geoengineering Experiment,&rdquo; March 2024.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-12">
+      <div class="pull-quote">
+        <p class="pq-text">Harvard couldn&rsquo;t launch a test balloon with calcium carbonate. A startup launched 147 sulfur balloons with nobody&rsquo;s permission. That is the governance gap in a single sentence.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════���═══════════════════════════════════���═════════════ -->
+  <!-- ACT V — THE VACUUM                                       -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="V" data-act-label="The Vacuum" data-pipeline="vacuum">
+    <div class="act-header">
+      <div class="act-number">Act V</div>
+      <h2 class="act-title">The Vacuum</h2>
+    </div>
+
+    <div class="scroll-block" data-block="5-1">
+      <p><strong>There is no comprehensive international regulation of stratospheric aerosol injection.</strong> The regulatory landscape is &ldquo;a patchwork of potentially applicable norms,&rdquo; not a coherent framework. Scientific capacity is advancing faster than governance.</p>
+    </div>
+
+    <div class="scroll-block" data-block="5-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">SAI has low direct cost, immediate benefit to the deployer, but widely distributed risks. <strong>A single wealthy country &mdash; or even an individual &mdash; could theoretically deploy unilaterally.</strong> This is called the &ldquo;free driver&rdquo; problem. The cost of deploying stratospheric aerosol injection is estimated at $2&ndash;8 billion per year &mdash; within the budget of a single billionaire.</div>
+        <div class="evidence-source">Harvard ILJ, &ldquo;Geoengineering Wars and Atmospheric Governance,&rdquo; 2025. National Academies, <em>Reflecting Sunlight</em>, 2021.</div>
+      </div>
+    </div>
+
+    <!-- Key researchers -->
+    <div class="scroll-block" data-block="5-3">
+      <h3 class="node-title">The Researchers</h3>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/david_keith.jpg" alt="David Keith">
+          <div class="vr-name">David Keith</div>
+          <div class="vr-role">Leading SAI advocate &mdash; U of Chicago</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/ken_caldeira.jpg" alt="Ken Caldeira">
+          <div class="vr-name">Ken Caldeira</div>
+          <div class="vr-role">Carnegie/Stanford &mdash; first 3D SAI model</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/alan_robock.jpg" alt="Alan Robock">
+          <div class="vr-name">Alan Robock</div>
+          <div class="vr-role">Rutgers &mdash; &ldquo;20 reasons why it may be a bad idea&rdquo;</div>
+        </div>
+      </div>
+      <p><strong>500+ academics</strong> from 61 countries signed an Open Letter for an International Non-Use Agreement on Solar Geoengineering (2022). The scientific community is deeply divided. The governance community is barely engaged.</p>
+    </div>
+
+    <!-- NAS + IPCC + White House -->
+    <div class="scroll-block" data-block="5-4">
+      <h3 class="node-title">Institutional Endorsement</h3>
+      <div class="visual-row">
+        <div class="visual-figure org-square">
+          <img src="assets/nas.jpg" alt="National Academies of Sciences">
+          <div class="vr-name">NAS</div>
+          <div class="vr-role">2021 report endorsed SAI research</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>National Academies (2021)</strong> recommended a U.S. research program on stratospheric aerosol injection. The <strong>IPCC AR6 (2023)</strong> concluded SRM is &ldquo;conceptually possible&rdquo; with &ldquo;high agreement&rdquo; it could limit warming below 1.5&deg;C. The <strong>White House OSTP (June 2023)</strong> issued a congressionally mandated report supporting a five-year SRM research program. This is no longer fringe. The most prestigious institutions on Earth are actively studying it.</div>
+        <div class="evidence-source">NAS, <em>Reflecting Sunlight</em>, 2021. IPCC AR6. White House OSTP SRM Report, June 2023.</div>
+      </div>
+    </div>
+
+    <!-- 22 State Bans -->
+    <div class="scroll-block" data-block="5-5">
+      <h3 class="node-title">The Backlash</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Tennessee</strong> became the first state to ban intentional atmospheric injection for weather/climate modification (signed by Gov. Bill Lee, 2024). <strong>Florida</strong> enacted a broader prohibition in 2025. As of 2025, <strong>22 states have introduced geoengineering ban bills.</strong> At the federal level, Rep. Marjorie Taylor Greene introduced the &ldquo;Clear Skies Act&rdquo; (H.R. 4403, July 2025) &mdash; making weather modification a felony punishable by up to $100,000 and/or 5 years imprisonment.</div>
+        <div class="evidence-source">NBC News, &ldquo;Tennessee Geoengineering Ban,&rdquo; 2024. CNN, &ldquo;22 States Introduce Ban Bills,&rdquo; March 2025. Congress.gov, H.R. 4403.</div>
+      </div>
+    </div>
+
+    <!-- Congressional Hearings -->
+    <div class="scroll-block" data-block="5-6">
+      <h3 class="node-title">Congressional Hearings</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Congress has held hearings on geoengineering in 2009, 2010, 2017, and 2025. The September 2025 hearing was titled <em>&ldquo;Playing God with the Weather &mdash; a Disastrous Forecast.&rdquo;</em> The topic has moved from academic journals to the Congressional Record.</div>
+        <div class="evidence-source">GovInfo, CHRG-111hhrg53007 (2009). ABC News, &ldquo;Fact-checking Lawmakers at 2025 Congressional Weather Hearing.&rdquo;</div>
+      </div>
+    </div>
+
+    <!-- CIA/DARPA -->
+    <div class="scroll-block" data-block="5-7">
+      <h3 class="node-title">The Intelligence Angle</h3>
+      <div class="visual-row">
+        <div class="visual-figure org-square">
+          <img src="assets/cia.jpg" alt="CIA">
+          <div class="vr-name">CIA</div>
+          <div class="vr-role">Co-funded NAS geoengineering study</div>
+        </div>
+        <div class="visual-figure org-square">
+          <img src="assets/darpa.jpg" alt="DARPA">
+          <div class="vr-name">DARPA</div>
+          <div class="vr-role">Atmospheric research programs</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The <strong>CIA co-funded</strong> (with NOAA, NASA, and others) the National Academies&rsquo; 2015 geoengineering study. Total cost: $630,000. NAS listed &ldquo;the US intelligence community&rdquo; as a sponsor; a spokesperson confirmed this meant the CIA. The CIA&rsquo;s interest was framed as understanding geoengineering as a national security variable &mdash; what happens if other countries deploy? <em>Note: This was publicly reported in 2013. It is NOT from the Snowden documents.</em></div>
+        <div class="evidence-source">Slate, &ldquo;CIA Funds NAS Study into Geoengineering and Climate Change,&rdquo; July 2013.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-8">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim"><strong>DARPA</strong> has explored geoengineering through the Defense Sciences Research Council. Its AI-assisted Climate Tipping-point Modeling (ACTM) program uses AI to model climate processes and tipping points. Some climate scientists attended DARPA meetings specifically <em>&ldquo;to try to get DARPA not to develop geoengineering techniques.&rdquo;</em> HAARP (1992&ndash;2014) was funded by USAF, Navy, and DARPA. It was a 3.6MW ionospheric research facility, not a weather weapon &mdash; but the military funded it, defense contractors built it, and the patents traveled through the defense industry chain.</div>
+        <div class="evidence-source">Science/AAAS, &ldquo;DARPA to Explore Geoengineering.&rdquo; DARPA ACTM Program page.</div>
+      </div>
+    </div>
+
+    <!-- USAF "Owning the Weather" -->
+    <div class="scroll-block" data-block="5-9">
+      <h3 class="node-title">&ldquo;Owning the Weather in 2025&rdquo;</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">A 1996 USAF research paper by seven military officers as part of Air Force 2025, a speculative futures study. Outlined strategies for using weather modification for military advantage: storm intensification, fog creation, ionospheric modification. The paper carries disclaimers and contains &ldquo;fictional representations.&rdquo; It is better understood as a speculative exercise than a blueprint. But the fact that the Air Force asked officers to design weather weapons scenarios &mdash; and published the results &mdash; is a matter of public record.</div>
+        <div class="evidence-source">Internet Archive &mdash; &ldquo;Weather as a Force Multiplier: Owning the Weather in 2025.&rdquo; DTIC, Air Force 2025 Study.</div>
+      </div>
+    </div>
+
+    <!-- Admiral Gallaudet -->
+    <div class="scroll-block" data-block="5-10">
+      <h3 class="node-title">The Admiral&rsquo;s Testimony</h3>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/gallaudet.jpg" alt="Admiral Tim Gallaudet">
+          <div class="vr-name">RADM Tim Gallaudet (Ret.)</div>
+          <div class="vr-role">Former Acting NOAA Administrator</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-11">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Admiral Tim Gallaudet &mdash; retired Navy Rear Admiral, former Acting NOAA Administrator, PhD in oceanography from Scripps &mdash; confirmed in a May 2024 interview: <em>&ldquo;The Air Force did this a while ago using weather modification as a weapon.&rdquo;</em> When asked directly if the U.S. has deployed weather modification: <em>&ldquo;I don&rsquo;t know. I probably would know too if we had. So I really doubt it. In my last job, I think I would have known.&rdquo;</em></div>
+        <div class="evidence-source">Shawn Ryan Show #113, May 2024. Admiral Gallaudet interview.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-12">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>This is a significant data point.</strong> The former acting administrator of the agency responsible for atmospheric science says: geoengineering research is real, the Air Force studied weather weapons, but he doubts the U.S. has operationally deployed weather modification &mdash; because he would have known. Either he genuinely wasn&rsquo;t read in, or large-scale covert atmospheric programs don&rsquo;t exist at the scale claimed.</div>
+        <div class="evidence-source">Same source. His testimony confirms the research pipeline while casting doubt on covert deployment.</div>
+      </div>
+    </div>
+
+    <!-- The Pattern -->
+    <div class="scroll-block" data-block="5-13">
+      <h3 class="node-title">The Pattern</h3>
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim">The military has historically conducted weather modification (Operation Popeye). Defense contractors hold atmospheric modification patents (Hughes/Raytheon/BAE). DARPA has explored geoengineering. The CIA funded the NAS study. Early geoengineering papers came from institutions with Pentagon ties (Lawrence Livermore, Hoover Institution). <strong>No public evidence exists of any active military SAI deployment program.</strong> But the constellation of history + patents + intelligence funding + governance gap creates conditions where covert deployment would be possible and difficult to detect.</div>
+        <div class="evidence-source">Pattern analysis connecting documented evidence. Explicitly labeled inference-tier.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-14">
+      <div class="pull-quote">
+        <p class="pq-text">The sky has no locks. The question is not whether someone could spray the atmosphere without telling you. The question is what would stop them.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════���═════════════════════════════���═════════════ -->
+  <!-- ACT VI — THE SKY IS OPEN                                 -->
+  <!-- ══════��════════��════════════════════════════════════════ -->
+
+  <div class="act act-light" data-act="VI" data-act-label="The Sky Is Open" data-pipeline="open">
+    <div class="act-header">
+      <div class="act-number">Act VI</div>
+      <h2 class="act-title">The Sky Is Open</h2>
+    </div>
+
+    <div class="scroll-block" data-block="6-1">
+      <p>If you want to be taken seriously on this topic, you have to be honest about what the evidence does and doesn&rsquo;t support.</p>
+    </div>
+
+    <!-- 77-scientist survey -->
+    <div class="scroll-block" data-block="6-2">
+      <h3 class="node-title">The Scientific Consensus</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">A 2016 study published in <em>Environmental Research Letters</em>, led by Carnegie&rsquo;s Ken Caldeira, surveyed 77 atmospheric chemists and geochemists. <strong>76 of 77 (98.7%) said they had NOT encountered evidence of a secret large-scale atmospheric program.</strong> The one dissenting expert cited unusually high levels of atmospheric barium in a remote area. All 77 agreed the cited evidence could be explained by normal contrail formation and poor sampling methods.</div>
+        <div class="evidence-source">University of California, &ldquo;Surveyed Scientists Debunk Chemtrails Conspiracy Theory,&rdquo; 2016. <em>Environmental Research Letters</em>.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Contrail persistence</strong> is a well-understood phenomenon. Jet exhaust mixes with cold upper-atmosphere air; ice crystals form on soot nuclei. Whether a contrail dissipates quickly or persists for hours depends entirely on ambient humidity and temperature. <strong>Long-lasting contrails have been documented since World War II.</strong> Contrail cirrus contributes more than half of aviation-induced radiative forcing and may triple by 2050.</div>
+        <div class="evidence-source">Royal Aeronautical Society, &ldquo;Contrails Explained.&rdquo; Nature Communications, &ldquo;Contrail Cirrus Climate Impact,&rdquo; 2018.</div>
+      </div>
+    </div>
+
+    <!-- The Ledger -->
+    <div class="scroll-block" data-block="6-4">
+      <h3 class="node-title">The Ledger</h3>
+    </div>
+
+    <div class="scroll-block" data-block="6-5">
+      <p><strong>Established (Documented):</strong></p>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Weather modification since 1946</span><span class="pr-value">Governments, 50+ countries</span></div>
+        <div class="pattern-row"><span class="pr-label">Operation Popeye</span><span class="pr-value">Declassified weather warfare, Vietnam</span></div>
+        <div class="pattern-row"><span class="pr-label">Cloud seeding operational</span><span class="pr-value">9+ U.S. states, China, UAE, Russia</span></div>
+        <div class="pattern-row"><span class="pr-label">Defense contractor patents</span><span class="pr-value">Hughes/Raytheon/BAE &mdash; atmospheric modification</span></div>
+        <div class="pattern-row"><span class="pr-label">Institutional research</span><span class="pr-value">Harvard, NAS, IPCC, White House OSTP</span></div>
+        <div class="pattern-row"><span class="pr-label">Governance framework for SAI</span><span class="pr-value">Does not exist</span></div>
+        <div class="pattern-row"><span class="pr-label">Active rogue deployment</span><span class="pr-value">Make Sunsets &mdash; 147 balloons, no permission</span></div>
+        <div class="pattern-row"><span class="pr-label">State-level backlash</span><span class="pr-value">22 ban bills introduced (2024&ndash;2025)</span></div>
+        <div class="pattern-row"><span class="pr-label">CIA co-funding</span><span class="pr-value">$630K to NAS geoengineering study</span></div>
+        <div class="pattern-row"><span class="pr-label">NOAA oversight</span><span class="pr-value">Broken &mdash; half of reports contain errors (GAO)</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-6">
+      <p><strong>Not Established:</strong></p>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Covert SAI via commercial aircraft</span><span class="pr-value">No evidence</span></div>
+        <div class="pattern-row"><span class="pr-label">Herndon coal fly ash thesis</span><span class="pr-value">Retracted &mdash; computational errors</span></div>
+        <div class="pattern-row"><span class="pr-label">HAARP as weather weapon</span><span class="pr-value">Denied by program; power insufficient</span></div>
+        <div class="pattern-row"><span class="pr-label">Population control via spraying</span><span class="pr-value">No evidence</span></div>
+        <div class="pattern-row"><span class="pr-label">Snowden docs on geoengineering</span><span class="pr-value">Common misattribution &mdash; he didn&rsquo;t</span></div>
+        <div class="pattern-row"><span class="pr-label">Rainwater metals = aerial spraying</span><span class="pr-value">No causal link established</span></div>
+      </div>
+    </div>
+
+    <!-- Cross-scroll connections -->
+    <div class="scroll-block" data-block="6-7">
+      <h3 class="node-title">Across the Scrolls</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Oil Wars</span><span class="pr-value">ARCO &rarr; APTI &rarr; HAARP. The oil-defense pipeline feeds atmospheric modification.</span></div>
+        <div class="pattern-row"><span class="pr-label">AI Wars</span><span class="pr-value">UAE uses AI for autonomous cloud analysis. DARPA uses AI for climate tipping-point modeling.</span></div>
+        <div class="pattern-row"><span class="pr-label">Money Wars</span><span class="pr-value">$2&ndash;8B/year for SAI deployment. &ldquo;Cooling credits&rdquo; sold for profit before anyone proves they work.</span></div>
+        <div class="pattern-row"><span class="pr-label">Body Wars</span><span class="pr-value">Same playbook: suppress the evidence, control the narrative, deploy before governance catches up.</span></div>
+        <div class="pattern-row"><span class="pr-label">Media Wars</span><span class="pr-value">&ldquo;Chemtrails&rdquo; = the word that kills the conversation. Language as weapon, again.</span></div>
+        <div class="pattern-row"><span class="pr-label">Mind Wars</span><span class="pr-value">Atmospheric modification research runs through the same intelligence-defense complex.</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-8">
+      <div class="anim-you-dot">
+        <span class="dot"></span> You are here
+      </div>
+    </div>
+
+    <!-- Closing terminal -->
+    <div class="scroll-block chain-summary" data-block="6-9">
+      <div class="typed-terminal" id="sky-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["ANALYSIS COMPLETE.","PROJECT CIRRUS (1946) ^500&rarr; OPERATION POPEYE (1967) ^500&rarr; ENMOD TREATY (1977) ^500&rarr; WELSBACH PATENT (1991) ^500&rarr; MAKE SUNSETS (2022) ^500&rarr; STARDUST (2026)","THE SKY HAS NO LOCKS. ^1000 NOW YOU KNOW WHO HAS THE KEYS."]'></span>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-10">
+      <p>The question was never whether governments can modify weather. They&rsquo;ve been doing it since 1946. The question was never whether defense contractors have patented atmospheric modification. They have, and you can read the patents right now.</p>
+      <p>The real question is: <strong>who decides what goes into the air you breathe?</strong></p>
+      <p>Right now, the answer is: anyone with the money and the will. Because the sky has no locks. No international framework. No comprehensive oversight. Nine U.S. states are seeding clouds and half the reports are wrong. A startup launched 147 sulfur balloons and nobody stopped them. A $60 million company is preparing to spray undisclosed chemicals from aircraft.</p>
+      <p>The sky is open. The only question is who fills it.</p>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- CLOSING                                                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <section class="closing" id="closing">
+    <div class="closing-content">
+      <div class="closing-statement">The war for your sky is documented across eight decades of government records, defense contractor patents, congressional testimony, and corporate filings. Every claim in this scroll is classified by evidence tier. This investigation does not claim covert mass spraying &mdash; it presents the documented programs, the patent landscape, the governance vacuum, and the rogue deployments already underway. The pattern is the argument.</div>
+      <div class="closing-sub">This investigation draws on declassified records of Operation Popeye (State Dept FRUS), the ENMOD Treaty, the Welsbach Patent (US 5,003,186), the Eastlund Patent (US 4,686,605), GAO reports on NOAA oversight (2025&ndash;2026), the National Academies&rsquo; <em>Reflecting Sunlight</em> (2021), the White House OSTP SRM Report (2023), IPCC AR6, EPA enforcement actions, congressional hearing records, Admiral Tim Gallaudet&rsquo;s public testimony, and the 77-scientist atmospheric survey (2016). Primary sources are cited for every evidence card.</div>
+
+      <div class="closing-legend">
+        <div class="closing-legend-item"><span class="el-dot" style="background:#34d399"></span> Documented &mdash; official records, FOIA releases, government reports, patents, corporate filings, peer-reviewed research</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fbbf24"></span> Credible &mdash; credentialed testimony, verified backgrounds, plausible but unconfirmed</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fb923c"></span> Inference &mdash; pattern analysis connecting documented and credible evidence</div>
+      </div>
+
+      <div class="closing-cta">
+        <p>Disclosure is not a single event. It&rsquo;s a process. And it only works if people look up.</p>
+      </div>
+
+      <div class="closing-links">
+        <a href="/body-wars/" class="closing-link">&larr; Scroll 007: Body Wars &mdash; the war for your body</a>
+        <a href="/media-wars/" class="closing-link">&larr; Scroll 006: Media Wars &mdash; the war that hides all the others</a>
+        <a href="/oil-wars/" class="closing-link">&larr; Scroll 005: Oil Wars &mdash; one molecule controls everything</a>
+        <a href="/mind-wars/" class="closing-link">&larr; Scroll 004: Mind Wars &mdash; the war on consciousness</a>
+        <a href="/space-wars/" class="closing-link">&larr; Scroll 003: Space Wars &mdash; two histories of space</a>
+        <a href="/money-wars/" class="closing-link">&larr; Scroll 002: Money Wars &mdash; every country that left the dollar</a>
+        <a href="/ai-wars/" class="closing-link">&larr; Scroll 001: AI Wars &mdash; the 44-year surveillance pipeline</a>
+        <a href="https://qav2.github.io/intel-console/" class="closing-link" target="_blank" rel="noopener">Explore the Intel Console &mdash; 825 entities, 1,411 relationships &rarr;</a>
+        <a href="/" class="closing-link-home">&larr; Disclosure Scrolls &mdash; full archive</a>
+      </div>
+
+      <div class="closing-support">
+        <div class="support-label">Independent research. No sponsors. No algorithm.</div>
+        <a href="https://buymeacoffee.com/joeyv23" class="support-link" target="_blank" rel="noopener">Support this work</a>
+      </div>
+
+      <div class="closing-footer">
+        <p>Disclosure Scrolls &mdash; documented investigations you can scroll through.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ Scripts ═══ -->
+  <script src="../ai-wars/js/engine.js" defer></script>
+  <script src="../ai-wars/js/gsap-effects.js" defer></script>
+
+</body>
+</html>
