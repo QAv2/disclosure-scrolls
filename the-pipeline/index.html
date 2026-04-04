@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Pipeline &mdash; Disclosure Scrolls</title>
+  <meta name="description" content="MKUltra. Esalen. Stargate. Lucis Trust. The counterculture wasn't organic — it was a managed replacement for everything they suppressed. The pipeline from CIA labs to your crystal shop is documented.">
+  <meta property="og:title" content="The Pipeline">
+  <meta property="og:description" content="The CIA distributed LSD through MKUltra. The military ran remote viewing for 23 years. A UN-recognized NGO was originally called Lucifer Publishing. The New Age movement has a supply chain — and it starts in Langley.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://disclosure-scrolls.netlify.app/the-pipeline/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Disclosure Scrolls">
+  <meta property="og:url" content="https://disclosure-scrolls.netlify.app/the-pipeline/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Pipeline">
+  <meta name="twitter:description" content="MKUltra. Esalen. Stargate. Lucis Trust. The managed replacement for everything they suppressed &mdash; documented.">
+  <meta name="twitter:image" content="https://disclosure-scrolls.netlify.app/the-pipeline/og-image.png">
+  <meta name="theme-color" content="#06060b">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://disclosure-scrolls.netlify.app/the-pipeline/">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="../ai-wars/css/style.css">
+
+  <!-- CountUp.js -->
+  <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js" defer></script>
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+
+  <style>
+    /* -- The Pipeline overrides -- */
+
+    /* Deep violet accent for selection */
+    ::selection { background: rgba(168, 85, 247, 0.25); color: #fff; }
+
+    /* Company/org badges */
+    .badge-cia { color: #94a3b8; border-color: rgba(148,163,184,0.25); background: rgba(148,163,184,0.06); }
+    .badge-sri { color: #a78bfa; border-color: rgba(167,139,250,0.25); background: rgba(167,139,250,0.06); }
+    .badge-esalen { color: #34d399; border-color: rgba(52,211,153,0.25); background: rgba(52,211,153,0.06); }
+    .badge-fbi { color: #60a5fa; border-color: rgba(96,165,250,0.25); background: rgba(96,165,250,0.06); }
+    .badge-army { color: #fbbf24; border-color: rgba(251,191,36,0.25); background: rgba(251,191,36,0.06); }
+    .badge-lucis { color: #f0f0f4; border-color: rgba(240,240,244,0.25); background: rgba(240,240,244,0.06); }
+
+    /* Act IV -- amber reveal (the honeypot) */
+    .act-reveal .act-title { color: #fbbf24; }
+    .act-reveal .act-number { color: rgba(251, 191, 36, 0.4); }
+    .act-reveal .node-title { color: #fbbf24; border-bottom-color: rgba(251,191,36,0.15); }
+    .act-reveal .pull-quote { border-left-color: rgba(251,191,36,0.25); }
+    .act-reveal .evidence-card { border-left-color: rgba(251,191,36,0.35); }
+
+    /* Act VI -- white light (the arrival) */
+    .act-light .act-title { color: #f0f0f4; }
+    .act-light .act-number { color: rgba(240,240,244,0.4); }
+    .act-light .node-title { color: #f0f0f4; border-bottom-color: rgba(240,240,244,0.15); }
+    .act-light .pull-quote { border-left-color: rgba(240,240,244,0.25); }
+
+    /* Organization square frame */
+    .visual-row .visual-figure.org-square img {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .visual-row .visual-figure.org-square img {
+        width: 80px;
+        height: 80px;
+      }
+      .pattern-row { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- === Particle Network Background === -->
+  <canvas id="particle-net" class="particle-canvas"></canvas>
+
+  <!-- === Progress Bar === -->
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <!-- === Pipeline Tracker === -->
+  <div class="pipeline-track" id="pipeline-track">
+    <div class="pipeline-inner">
+      <div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
+      <div class="pipeline-node" data-step="theosophy"><span class="pn-year">1875</span><span class="pn-label">Theosophy</span></div>
+      <div class="pipeline-node" data-step="mkultra"><span class="pn-year">1953</span><span class="pn-label">MKUltra</span></div>
+      <div class="pipeline-node" data-step="esalen"><span class="pn-year">1962</span><span class="pn-label">Esalen</span></div>
+      <div class="pipeline-node" data-step="stargate"><span class="pn-year">1972</span><span class="pn-label">Stargate</span></div>
+      <div class="pipeline-node" data-step="aquarian"><span class="pn-year">1980</span><span class="pn-label">Aquarian</span></div>
+      <div class="pipeline-node" data-step="declassified"><span class="pn-year">1995</span><span class="pn-label">Declassified</span></div>
+      <div class="pipeline-node" data-step="loop"><span class="pn-year">NOW</span><span class="pn-label">The Loop</span></div>
+    </div>
+  </div>
+
+  <!-- === Act Indicator === -->
+  <div class="act-indicator" id="act-indicator"></div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- TITLE SCREEN                                             -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="title-screen" id="title-screen">
+    <div class="title-content">
+      <a href="/" class="back-link">&larr; Disclosure Scrolls</a>
+      <div class="title-label">Scroll 009</div>
+      <div class="title-reading-time">~40 min read</div>
+      <h1 class="title-main">The Pipeline</h1>
+      <p class="title-sub">You&rsquo;ve scrolled through eight wars &mdash; for your technology, your money, your history, your mind, your energy, your information, your body, and your sky. This one is different. Mind Wars showed what they suppressed &mdash; remote viewing defunded, psychedelic research criminalized, consciousness science ridiculed. The Pipeline shows what they put in its place. The CIA distributed LSD through MKUltra. The military ran remote viewing for 23 years, then the retired officers sold courses. A UN-recognized NGO was originally called Lucifer Publishing Company. The New Age movement has a supply chain &mdash; and it starts in Langley.</p>
+      <div class="title-meta">
+        <span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fbbf24"></span> Credible</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
+      </div>
+      <div class="scroll-cue">&darr; Begin scrolling</div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT I — THE EMPTY PEW                                    -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="I" data-act-label="The Empty Pew">
+    <div class="act-header">
+      <div class="act-number">Act I</div>
+      <h2 class="act-title">The Empty Pew</h2>
+    </div>
+
+    <div class="scroll-block" data-block="1-1">
+      <p>Every empire needs a church. Not for God &mdash; for compliance. For two thousand years, organized religion performed the same function as a border wall: it kept the inner world mapped, surveilled, and taxed. You wanted to talk to the divine? You went through a priest. You wanted forgiveness? You paid for it. You wanted revelation? You read the one book they hadn&rsquo;t burned.</p>
+      <p>Then the 20th century cracked the wall. Two world wars. The Holocaust. Vietnam on television. Exposed pedophilia. The pews emptied. People didn&rsquo;t stop seeking. They stopped believing the building.</p>
+      <p>That should have been liberation. It was an opening.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Between 1960 and 2000, mainline Protestant membership in the United States dropped by over <strong><span class="countup" data-target="40" data-suffix="%">40%</span></strong>. The Catholic Church lost a quarter of its American parishes. By 2023, <strong><span class="countup" data-target="27" data-suffix="%">27%</span></strong> of U.S. adults identified as &ldquo;spiritual but not religious&rdquo; &mdash; a category that barely existed in polling before the 1990s. The pews emptied. The seeking didn&rsquo;t stop. It moved.</div>
+        <div class="evidence-source">Gallup historical church attendance data. Pew Research Center, &ldquo;Religious Landscape Study,&rdquo; 2023.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-3">
+      <p>When a hundred million people walk out the front door of one cage, someone is already building the next one on the sidewalk. They just make sure it doesn&rsquo;t look like a cage. They make sure it looks like freedom.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-4">
+      <h3 class="node-title">The Marketplace</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">U.S. &ldquo;spiritual but not religious&rdquo; adults</span><span class="pr-value"><span class="countup" data-target="27" data-suffix="%">27%</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Annual U.S. wellness industry revenue</span><span class="pr-value">$<span class="countup" data-target="54" data-suffix=" billion">54 billion</span></span></div>
+        <div class="pattern-row"><span class="pr-label">U.S. meditation app market</span><span class="pr-value">$<span class="countup" data-target="4.2" data-suffix=" billion">4.2 billion</span></span></div>
+        <div class="pattern-row"><span class="pr-label">U.S. yoga industry</span><span class="pr-value">$<span class="countup" data-target="12.8" data-suffix=" billion">12.8 billion</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Psychic services market</span><span class="pr-value">$<span class="countup" data-target="2.2" data-suffix=" billion">2.2 billion</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Crystal market</span><span class="pr-value">$<span class="countup" data-target="1.3" data-suffix=" billion">1.3 billion</span></span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-5">
+      <p>The question was never whether people would keep seeking. The question was who would be standing at the exit.</p>
+      <p>This is their product catalog.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-6">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In the same decades the pews emptied, U.S. intelligence agencies ran documented programs in consciousness modification (MKUltra, 1953&ndash;1973), psychedelic distribution (Sub-projects across 80+ institutions), remote viewing (Stargate, 1972&ndash;1995), and cultural manipulation (Congress for Cultural Freedom, 1950&ndash;1967). Every one of these programs is confirmed in declassified records and Congressional testimony. What replaced institutional religion didn&rsquo;t come from nowhere.</div>
+        <div class="evidence-source">Church Committee Final Report, Book I (1976). Senate Select Committee MKUltra Hearings (1977). CIA Stargate declassification (1995). Frances Stonor Saunders, <em>The Cultural Cold War</em> (1999).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-7">
+      <div class="pull-quote">
+        <p class="pq-text">The pews emptied. The seekers scattered. And someone was waiting at the exit with a product catalog. This scroll traces the supply chain.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT II — THE ACID SACRAMENT                              -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="II" data-act-label="The Acid Sacrament" data-pipeline="mkultra">
+    <div class="act-header">
+      <div class="act-number">Act II</div>
+      <h2 class="act-title">The Acid Sacrament</h2>
+    </div>
+
+    <div class="scroll-block" data-block="2-1">
+      <p>The CIA didn&rsquo;t just study LSD. They distributed it.</p>
+      <p>Project MKUltra ran from 1953 to 1973. <strong><span class="countup" data-target="149">149</span>+ sub-projects</strong> across <strong><span class="countup" data-target="80">80</span>+ institutions</strong> &mdash; universities, hospitals, prisons, pharmaceutical companies. Budget: at least <strong>$<span class="countup" data-target="25" data-suffix=" million">25 million</span></strong>. Director: <strong>Sidney Gottlieb</strong>, Chief of the CIA&rsquo;s Technical Services Division. In 1973, DCI Richard Helms ordered all files destroyed. Twenty thousand pages survived by accident &mdash; misfiled in a financial records office and discovered via FOIA request in 1977.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-2">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/gottlieb.jpg" alt="Sidney Gottlieb">
+          <div class="vr-name">Sidney Gottlieb</div>
+          <div class="vr-role">MKUltra Director &mdash; CIA Technical Services</div>
+        </div>
+        <div class="visual-figure org-square">
+          <img src="assets/cia.jpg" alt="Central Intelligence Agency">
+          <div class="vr-name">CIA</div>
+          <div class="vr-role">Authorized MKUltra &mdash; April 13, 1953</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">MKUltra was authorized on April 13, 1953 by DCI Allen Dulles. The program studied &ldquo;every vector of psychological influence&rdquo; &mdash; LSD, hypnosis, electroshock, sensory deprivation, and &ldquo;magic and social control&rdquo; (Sub-project 58). The CIA purchased LSD in bulk from <strong>Sandoz Laboratories</strong> in Basel, Switzerland. At one point, the Agency considered buying Sandoz&rsquo;s entire world supply. Admiral Stansfield Turner testified to the Senate in August 1977: &ldquo;The files were destroyed in 1973 on the orders of the then-Director of Central Intelligence.&rdquo;</div>
+        <div class="evidence-source">Senate Select Committee on Intelligence, MKUltra Hearings (August 3, 1977). CIA Inspector General Report (1963, declassified 1975). John Marks, <em>The Search for the Manchurian Candidate</em> (1979). Stephen Kinzer, <em>Poisoner in Chief</em> (2019).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-3">
+      <h3 class="node-title">The LSD Pipeline</h3>
+      <p>The substance that defined the counterculture entered through a CIA supply chain. This is not inference. It is documented in the surviving financial records.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-4">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/kesey.jpg" alt="Ken Kesey">
+          <div class="vr-name">Ken Kesey</div>
+          <div class="vr-role">MKUltra test subject &mdash; Menlo Park VA Hospital, 1959</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/leary.jpg" alt="Timothy Leary">
+          <div class="vr-name">Timothy Leary</div>
+          <div class="vr-role">Harvard &mdash; LSD research from CIA-seeded supply chain</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Ken Kesey</strong> received LSD as a paid volunteer in MKUltra-funded experiments at Menlo Park Veterans Hospital in 1959. He later obtained more from the hospital, launched the Acid Tests, founded the Merry Pranksters, and seeded the psychedelic counterculture. <strong>Robert Hunter</strong> &mdash; Grateful Dead lyricist &mdash; participated in the same experiments. The substance that powered the Summer of Love came from a CIA lab.</div>
+        <div class="evidence-source">Tom Wolfe, <em>The Electric Kool-Aid Acid Test</em> (1968). Martin Lee &amp; Bruce Shlain, <em>Acid Dreams</em> (1985). Kesey and Hunter both confirmed participation publicly.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-5">
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim"><strong>Timothy Leary</strong> began LSD research at Harvard in 1960. His supply came through academic channels seeded by CIA distribution networks. In his 1983 autobiography <em>Flashbacks</em>, Leary recounted a quote attributed to CIA operative Cord Meyer&rsquo;s ex-wife Mary Pinchot Meyer: &ldquo;Am I the only person in America na&iuml;ve enough not to know that the CIA was behind Leary?&rdquo; Leary stated he &ldquo;apparently was&rdquo; unwittingly serving CIA goals. The direct supply chain is documented; Leary&rsquo;s witting involvement is unproven.</div>
+        <div class="evidence-source">Timothy Leary, <em>Flashbacks</em> (1983). Lee &amp; Shlain, <em>Acid Dreams</em>, pp. 95&ndash;100.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-6">
+      <p><strong>R. Gordon Wasson</strong> &mdash; Vice President of J.P. Morgan &mdash; published the first mainstream Western account of psilocybin mushrooms in <em>Life</em> magazine on May 13, 1957. His research was funded under MKUltra Sub-project 58. A CIA chemist named James Moore accompanied Wasson on the 1956 expedition to Oaxaca, Mexico, to obtain mushroom samples for the Agency.</p>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/wasson.jpg" alt="R. Gordon Wasson">
+          <div class="vr-name">R. Gordon Wasson</div>
+          <div class="vr-role">VP J.P. Morgan &mdash; MKUltra Sub-project 58</div>
+        </div>
+        <div class="visual-figure org-square">
+          <img src="assets/sandoz.jpg" alt="Sandoz Laboratories">
+          <div class="vr-name">Sandoz Labs</div>
+          <div class="vr-role">Supplied LSD to the CIA &mdash; bulk purchases from 1953</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block chain-summary" data-block="2-7">
+      <div class="typed-terminal" id="acid-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING ACID PIPELINE...","SANDOZ LABS (1953) ^500&rarr; CIA/GOTTLIEB ^500&rarr; 80+ INSTITUTIONS ^500&rarr; KESEY/MENLO PARK (1959) ^500&rarr; MERRY PRANKSTERS ^500&rarr; GRATEFUL DEAD ^500&rarr; MASS COUNTERCULTURE","THE SACRAMENT WAS A SUPPLY CHAIN. ^1000 THE SUPPLY CHAIN WAS GOVERNMENT-ISSUED."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">Sandoz Labs</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">CIA / Gottlieb</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">80+ Institutions</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Kesey / Menlo Park</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Merry Pranksters</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Grateful Dead</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Mass Counterculture</span>
+      </div>
+      <p class="chain-decode">Swiss pharma &rarr; CIA mind control division &rarr; university researchers &rarr; MKUltra test subject &rarr; counterculture movement &rarr; cultural icon &rarr; mass distribution. Every link documented.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-8">
+      <h3 class="node-title">The Canyon</h3>
+      <p>While the CIA was distributing LSD through academic channels, a remarkable cluster of musicians emerged from a single neighborhood in Los Angeles &mdash; Laurel Canyon. Their family backgrounds tell a story that the music histories leave out.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-9">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/morrison.jpg" alt="Jim Morrison">
+          <div class="vr-name">Jim Morrison</div>
+          <div class="vr-role">The Doors &mdash; publicly claimed his parents were dead</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/morrison_sr.jpg" alt="Admiral George Morrison">
+          <div class="vr-name">Adm. George S. Morrison</div>
+          <div class="vr-role">Commanded fleet at Gulf of Tonkin &mdash; the pretext for Vietnam</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Jim Morrison&rsquo;s father</strong>, Rear Admiral George Stephen Morrison, commanded the naval forces present during the <strong>Gulf of Tonkin incident</strong> in August 1964 &mdash; the event now acknowledged as partly fabricated that escalated the Vietnam War. <strong>Frank Zappa&rsquo;s father</strong>, Francis Zappa, was a chemical warfare specialist at Edgewood Arsenal. <strong>David Crosby</strong> came from the Van Cortlandt dynasty &mdash; old New York aristocracy &mdash; and his father Floyd Crosby did wartime filmmaking for the military. <strong>Stephen Stills</strong> grew up in a military family, spent his childhood in Central America during peak CIA activity. <strong>John Phillips</strong> attended the U.S. Naval Academy.</div>
+        <div class="evidence-source">Navy service records. George Morrison obituary (2008). Frank Zappa, <em>The Real Frank Zappa Book</em> (1989). Barry Miles, <em>Zappa: A Biography</em> (2004). Dave McGowan, <em>Weird Scenes Inside the Canyon</em> (2014).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-10">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/zappa.jpg" alt="Frank Zappa">
+          <div class="vr-name">Frank Zappa</div>
+          <div class="vr-role">Father: chemical warfare specialist, Edgewood Arsenal</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim">The individual military connections are documented in service records and obituaries. The <strong>clustering</strong> of intelligence-adjacent family backgrounds among Laurel Canyon musicians is statistically notable. Located in the same neighborhood: <strong>Lookout Mountain Air Force Station</strong> &mdash; a classified military film studio at 8000 Lookout Mountain Avenue that produced <strong><span class="countup" data-target="19000">19,000</span>+ classified films</strong> from 1947 to 1969. What is NOT proven: that any musician was a knowing intelligence asset. The pattern is documented. The conspiracy is inference.</div>
+        <div class="evidence-source">National Register of Historic Places (Lookout Mountain AFS, listed 1994). Peter Kuran, <em>How to Photograph an Atomic Bomb</em> (2006).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-11">
+      <h3 class="node-title">COINTELPRO: The Documented Infiltration</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">While the question of whether the counterculture was <em>created</em> remains inference, the question of whether it was <em>infiltrated</em> is settled. <strong>COINTELPRO</strong> (1956&ndash;1971) was the FBI&rsquo;s documented program to infiltrate, disrupt, and destroy domestic political organizations. J. Edgar Hoover&rsquo;s May 1968 memo explicitly called for preventing the rise of a &ldquo;messiah who could unify&rdquo; the movement. Tactics: informants, agents provocateurs, forged correspondence, baseless arrests, and &ldquo;bad-jacketing&rdquo; &mdash; making members suspect each other of being informants. Discovered when citizens broke into an FBI field office in Media, Pennsylvania in 1971.</div>
+        <div class="evidence-source">Church Committee Final Report, Book III (1976). FBI COINTELPRO files (FOIA, vault.fbi.gov). Ward Churchill &amp; Jim Vander Wall, <em>The COINTELPRO Papers</em> (1990).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-12">
+      <div class="visual-row">
+        <div class="visual-figure org-square">
+          <img src="assets/fbi.jpg" alt="Federal Bureau of Investigation">
+          <div class="vr-name">FBI</div>
+          <div class="vr-role">COINTELPRO &mdash; infiltrated every domestic movement</div>
+        </div>
+      </div>
+      <div class="pull-quote">
+        <p class="pq-text">You don&rsquo;t suppress a sacrament. You mass-produce it without the ceremony, flood the zone, and let the culture do the discrediting for you. The acid opened a door. Millions walked through. On the other side, someone had already built the gift shop.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT III — THE GIFT SHOP                                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="III" data-act-label="The Gift Shop" data-pipeline="esalen">
+    <div class="act-header">
+      <div class="act-number">Act III</div>
+      <h2 class="act-title">The Gift Shop</h2>
+    </div>
+
+    <div class="scroll-block" data-block="3-1">
+      <p>The Human Potential Movement didn&rsquo;t start in a commune. It started at <strong>Stanford Research Institute</strong> &mdash; the same facility running classified remote viewing for the CIA.</p>
+    </div>
+
+    <div class="scroll-block" data-block="3-2">
+      <h3 class="node-title">SRI and the Stargate Program</h3>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/puthoff.jpg" alt="Hal Puthoff">
+          <div class="vr-name">Hal Puthoff</div>
+          <div class="vr-role">SRI &mdash; NSA background, OT VII Scientologist, remote viewing co-founder</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/targ.jpg" alt="Russell Targ">
+          <div class="vr-name">Russell Targ</div>
+          <div class="vr-role">SRI &mdash; laser physicist, remote viewing co-founder</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Project Stargate</strong> (also: SCANATE, GRILL FLAME, CENTER LANE, SUN STREAK) ran from 1972 to 1995. Funded by the CIA and DIA. Cost: approximately <strong>$<span class="countup" data-target="20" data-suffix=" million">20 million</span></strong> over <strong><span class="countup" data-target="23">23</span> years</strong>. Co-founded by <strong>Hal Puthoff</strong> (former NSA, Scientology OT VII) and <strong>Russell Targ</strong> at SRI International. They developed the Coordinate Remote Viewing protocol &mdash; a systematic method for perceiving distant locations using nothing but the mind. The U.S. government funded psychic research for over two decades.</div>
+        <div class="evidence-source">CIA Stargate declassification (1995). AIR evaluation report (1995). Paul H. Smith, <em>Reading the Enemy&rsquo;s Mind</em> (2005). Puthoff&rsquo;s professional CV. Scientology&rsquo;s <em>Advance!</em> magazine, Issue 24.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-3">
+      <p>When Stargate was declassified and shut down in 1995, the trained military remote viewers did something predictable. They started selling courses.</p>
+    </div>
+
+    <div class="scroll-block" data-block="3-4">
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Years of classified government psi research</span><span class="pr-value"><span class="countup" data-target="23">23</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Retired viewers now selling commercial courses</span><span class="pr-value"><span class="countup" data-target="6">6</span>+</span></div>
+        <div class="pattern-row"><span class="pr-label">Ed Dames appearances on Coast to Coast AM</span><span class="pr-value">Dozens</span></div>
+        <div class="pattern-row"><span class="pr-label">Commercial remote viewing course cost</span><span class="pr-value">$<span class="countup" data-target="3000" data-suffix="+">3,000+</span></span></div>
+      </div>
+      <p><strong>Ed Dames</strong>, <strong>Paul Smith</strong>, <strong>Lyn Buchanan</strong>, <strong>David Morehouse</strong>, <strong>Joe McMoneagle</strong> &mdash; they all began offering &ldquo;Technical Remote Viewing&rdquo; training. Art Bell&rsquo;s <em>Coast to Coast AM</em> was the primary vector. Classified military methodology became a consumer product. The protocol was identical. The institutional container was gone.</p>
+    </div>
+
+    <div class="scroll-block" data-block="3-5">
+      <h3 class="node-title">Esalen: Where the Pipelines Cross</h3>
+      <div class="visual-row">
+        <div class="visual-figure org-square">
+          <img src="assets/esalen.jpg" alt="Esalen Institute">
+          <div class="vr-name">Esalen Institute</div>
+          <div class="vr-role">Founded 1962, Big Sur &mdash; birthplace of the Human Potential Movement</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/huxley.jpg" alt="Aldous Huxley">
+          <div class="vr-name">Aldous Huxley</div>
+          <div class="vr-role">Spoke at Esalen &mdash; <em>Doors of Perception</em> (1954)</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim"><strong>Esalen Institute</strong>, founded in 1962, hosted the intersection of classified research and public spirituality. Puthoff and Targ lectured there while simultaneously running classified programs at SRI. <strong>Andrija Puharich</strong> &mdash; Army intelligence officer, Uri Geller handler, channel for &ldquo;The Nine&rdquo; (alleged extraterrestrial intelligences) &mdash; brought channeled material into Esalen&rsquo;s programming through Jenny O&rsquo;Connor. <strong>Aldous Huxley</strong> was an early influence &mdash; his brother Julian was UNESCO Director. The institute was not created by intelligence agencies, but intelligence-connected individuals flowed through it freely.</div>
+        <div class="evidence-source">Jeffrey Kripal, <em>Esalen: America and the Religion of No Religion</em> (2007) &mdash; authorized academic history with full archive access. Puharich, <em>Uri</em> (1974). Picknett &amp; Prince, <em>The Stargate Conspiracy</em> (1999).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block chain-summary" data-block="3-6">
+      <div class="typed-terminal" id="esalen-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING ESALEN WEB...","CIA/DIA ^500&rarr; SRI (PUTHOFF/TARG) ^500&rarr; ESALEN INSTITUTE ^500&rarr; HUMAN POTENTIAL MOVEMENT ^500&rarr; CORPORATE MINDFULNESS ^500&rarr; MEDITATION APP INDUSTRY ($4.2B)","CLASSIFIED RESEARCH BECAME A SUBSCRIPTION SERVICE."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">CIA / DIA</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">SRI</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Esalen</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Human Potential Movement</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Corporate Mindfulness</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">$4.2B App Market</span>
+      </div>
+      <p class="chain-decode">Intelligence funding &rarr; classified research lab &rarr; consciousness retreat center &rarr; social movement &rarr; corporate adoption &rarr; consumer product. Every genuine technology of consciousness either got classified or commercialized. The classified version went to intelligence. The commercial version went to you &mdash; with the active ingredient removed.</p>
+    </div>
+
+    <div class="scroll-block" data-block="3-7">
+      <h3 class="node-title">The Theosophy Pipeline</h3>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/blavatsky.jpg" alt="Helena Blavatsky">
+          <div class="vr-name">Helena Blavatsky</div>
+          <div class="vr-role">Theosophical Society &mdash; founded 1875</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/bailey.jpg" alt="Alice Bailey">
+          <div class="vr-name">Alice Bailey</div>
+          <div class="vr-role">Lucis Trust &mdash; originally &ldquo;Lucifer Publishing Company&rdquo;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-8">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Alice Bailey</strong> broke from the Theosophical Society and founded the <strong>Lucis Trust</strong> in 1922. The organization was originally incorporated as <strong>&ldquo;Lucifer Publishing Company&rdquo;</strong> &mdash; changed to Lucis in 1925. Lucis Trust holds <strong>consultative status with the UN Economic and Social Council (ECOSOC)</strong>. Its &ldquo;World Goodwill&rdquo; program is recognized by the UN Department of Global Communications. Former UN Assistant Secretary-General <strong>Robert Muller</strong> explicitly credited &ldquo;the teachings of Alice A. Bailey&rdquo; as the philosophical framework for his World Core Curriculum &mdash; printed on the dedication page.</div>
+        <div class="evidence-source">Lucis Trust corporate records (New Jersey incorporation). UN ECOSOC NGO database. Robert Muller, World Core Curriculum (dedication page). UNESCO Peace Education Prize records (1989).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-9">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/muller.jpg" alt="Robert Muller">
+          <div class="vr-name">Robert Muller</div>
+          <div class="vr-role">UN Asst. Secretary-General &mdash; credited Alice Bailey in World Core Curriculum</div>
+        </div>
+        <div class="visual-figure org-square">
+          <img src="assets/lucis_trust.jpg" alt="Lucis Trust">
+          <div class="vr-name">Lucis Trust</div>
+          <div class="vr-role">UN ECOSOC consultative status</div>
+        </div>
+      </div>
+      <p>To be clear: ECOSOC consultative status is held by over 6,000 NGOs. Lucis Trust does not &ldquo;run&rdquo; the United Nations. But a former Assistant Secretary-General printing Alice Bailey&rsquo;s name on his education framework &mdash; and that framework winning a UNESCO prize &mdash; is not nothing. It&rsquo;s a documented organizational chain from 19th-century occultism to 20th-century global governance.</p>
+    </div>
+
+    <div class="scroll-block chain-summary" data-block="3-10">
+      <div class="typed-terminal" id="theosophy-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING THEOSOPHY PIPELINE...","BLAVATSKY (1875) ^500&rarr; BESANT ^500&rarr; BAILEY ^500&rarr; LUCIFER PUBLISHING (1922) ^500&rarr; LUCIS TRUST (1925) ^500&rarr; UN ECOSOC STATUS","DOCUMENTED ORGANIZATIONAL LINEAGE. ^1000 FROM OCCULT SOCIETY TO GLOBAL GOVERNANCE."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">Blavatsky (1875)</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Besant</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Bailey</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Lucifer Publishing</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Lucis Trust</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">UN ECOSOC</span>
+      </div>
+      <p class="chain-decode">Theosophical Society &rarr; political activist successor &rarr; breakaway occultist &rarr; original corporate name &rarr; renamed trust &rarr; United Nations consultative status. Each link documented in organizational records.</p>
+    </div>
+
+    <div class="scroll-block" data-block="3-11">
+      <h3 class="node-title">The Aquarian Conspiracy</h3>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/ferguson.jpg" alt="Marilyn Ferguson">
+          <div class="vr-name">Marilyn Ferguson</div>
+          <div class="vr-role"><em>The Aquarian Conspiracy</em> (1980) &mdash; foundational New Age text</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/harman.jpg" alt="Willis Harman">
+          <div class="vr-name">Willis Harman</div>
+          <div class="vr-role">SRI social scientist &mdash; IONS president &mdash; &ldquo;Changing Images of Man&rdquo;</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In 1974, SRI published <strong>&ldquo;Changing Images of Man&rdquo;</strong> &mdash; a study funded by the Charles F. Kettering Foundation analyzing how dominant cultural narratives about human nature could be shifted toward a &ldquo;transcendent&rdquo; image. Lead author: <strong>Willis Harman</strong>, SRI senior social scientist who later became president of Edgar Mitchell&rsquo;s Institute of Noetic Sciences. In 1980, <strong>Marilyn Ferguson</strong> published <em>The Aquarian Conspiracy</em>, describing a &ldquo;leaderless but powerful network&rdquo; working to transform society through consciousness expansion. She cited Harman&rsquo;s SRI work extensively. The foundational New Age manifesto was built on a defense contractor&rsquo;s social engineering research.</div>
+        <div class="evidence-source">Willis Harman &amp; O.W. Markley, <em>Changing Images of Man</em>, SRI Report No. 4 (1974; Pergamon Press, 1982). Marilyn Ferguson, <em>The Aquarian Conspiracy</em> (1980).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-12">
+      <h3 class="node-title">A Course in Miracles</h3>
+      <div class="evidence-card" data-tier="credible">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+        <div class="evidence-claim"><strong>Bill Thetford</strong>, co-scribe of <em>A Course in Miracles</em> (one of the best-selling spiritual texts of the 20th century, <strong><span class="countup" data-target="3" data-suffix=" million+ copies">3 million+ copies</span></strong> sold), was head of the Psychology Department at Columbia-Presbyterian Medical Center. Before Columbia, he worked at the <strong>Society for the Investigation of Human Ecology</strong> &mdash; a <strong>confirmed CIA front organization</strong> used to channel MKUltra funding to researchers (Church Committee, 1975). Thetford later encouraged Helen Schucman&rsquo;s channeling process that produced ACIM. His CIA-adjacent employment is documented. Whether it connects causally to the text is unproven.</div>
+        <div class="evidence-source">Church Committee hearings (Human Ecology Fund confirmed as CIA conduit). Columbia-Presbyterian employment records. Colin Ross, <em>The CIA Doctors</em> (2006).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-13">
+      <div class="pull-quote">
+        <p class="pq-text">Every genuine technology of consciousness was either classified or commercialized. The classified version went to intelligence. The commercial version went to you &mdash; with the active ingredient removed.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT IV — THE HONEYPOT                                    -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-reveal" data-act="IV" data-act-label="The Honeypot" data-pipeline="stargate">
+    <div class="act-header">
+      <div class="act-number">Act IV</div>
+      <h2 class="act-title">The Honeypot</h2>
+    </div>
+
+    <div class="scroll-block" data-block="4-1">
+      <p>Paul Bennewitz wasn&rsquo;t crazy. They made him crazy. And his story is the template for every genuine seeker who gets too close.</p>
+    </div>
+
+    <div class="scroll-block" data-block="4-2">
+      <h3 class="node-title">The Bennewitz Affair</h3>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/bennewitz.jpg" alt="Paul Bennewitz">
+          <div class="vr-name">Paul Bennewitz</div>
+          <div class="vr-role">Physicist &mdash; detected real signals near Kirtland AFB &mdash; destroyed by AFOSI</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/doty.jpg" alt="Richard Doty">
+          <div class="vr-name">Richard Doty</div>
+          <div class="vr-role">AFOSI agent &mdash; confessed to the operation on camera</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>Paul Bennewitz</strong> was a physicist and president of Thunder Scientific Corporation, living near Kirtland Air Force Base in Albuquerque, New Mexico. In the late 1970s, he detected genuine electromagnetic anomalies near the base &mdash; likely emissions from the classified <strong>Manzano Weapons Storage Area</strong> (nuclear weapons) or the <strong>Starfire Optical Range</strong> (directed energy). He reported his findings through proper channels. The Air Force&rsquo;s response: AFOSI Special Agent <strong>Richard Doty</strong> was tasked with feeding Bennewitz escalating disinformation &mdash; fabricated alien communications, underground bases, alien-government treaties &mdash; until Bennewitz suffered a complete <strong>psychological breakdown</strong> and was institutionalized in 1988.</div>
+        <div class="evidence-source">Mark Pilkington, <em>Mirage Men</em> (2010 book, 2013 documentary &mdash; includes Doty&rsquo;s filmed confession). William Moore&rsquo;s public confession at 1989 MUFON Symposium (on tape). Greg Bishop, <em>Project Beta</em> (2005).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-3">
+      <p><strong>William Moore</strong> &mdash; co-author of <em>The Roswell Incident</em> (1980) and a prominent UFO researcher &mdash; publicly confessed at the 1989 MUFON Symposium that he had cooperated with AFOSI in feeding disinformation to Bennewitz in exchange for access to supposedly real UFO information. The confession is on tape. A leading researcher in the field was a knowing participant in the destruction of a fellow investigator.</p>
+    </div>
+
+    <div class="scroll-block" data-block="4-4">
+      <div class="visual-row">
+        <div class="visual-figure org-square">
+          <img src="assets/afosi.jpg" alt="Air Force Office of Special Investigations">
+          <div class="vr-name">AFOSI</div>
+          <div class="vr-role">Air Force Office of Special Investigations</div>
+        </div>
+      </div>
+      <div class="pull-quote">
+        <p class="pq-text reveal-climax">It was easier to make him look crazy than to confirm what he was actually detecting. If he talked about underground alien bases, nobody would take him seriously &mdash; and the classified programs would stay hidden. The disinformation wasn&rsquo;t the failure. It was the plan.</p>
+      </div>
+    </div>
+
+    <div class="scroll-block chain-summary" data-block="4-5">
+      <div class="typed-terminal" id="discredit-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING DISCREDITING MACHINE...","REAL PHENOMENON ^500&rarr; GENUINE SEEKER INVESTIGATES ^500&rarr; INTELLIGENCE CONTACT ^500&rarr; DISINFORMATION LAYERED ^500&rarr; CLAIMS BECOME UNBELIEVABLE ^500&rarr; MEDIA RIDICULE ^500&rarr; PUBLIC INOCULATED","THE TARGET WAS NEVER THE CRAZY PEOPLE. ^500 THEY ARE USEFUL. ^1000 THE TARGET WAS ALWAYS THE CREDIBLE ONES."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">Real Phenomenon</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Genuine Seeker</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Intel Contact</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Disinfo Layered</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Claims Unbelievable</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Media Ridicule</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Public Inoculated</span>
+      </div>
+      <p class="chain-decode">Genuine anomaly &rarr; honest investigator &rarr; intelligence infiltration &rarr; disinformation campaign &rarr; investigator discredited &rarr; media coverage mocks topic &rarr; public learns not to ask. Bennewitz proves the template exists. The question is how many times it&rsquo;s been used.</p>
+    </div>
+
+    <div class="scroll-block" data-block="4-6">
+      <h3 class="node-title">The Academic Cost</h3>
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/mack.jpg" alt="John Mack">
+          <div class="vr-name">John Mack</div>
+          <div class="vr-role">Harvard psychiatrist &mdash; Pulitzer Prize winner &mdash; investigated for researching consciousness</div>
+        </div>
+      </div>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim"><strong>John Mack</strong> was a Harvard Medical School professor of psychiatry and Pulitzer Prize winner (for <em>A Prince of Our Disorder</em>, 1977). In the early 1990s, he began taking &ldquo;experiencers&rdquo; &mdash; people reporting anomalous encounters &mdash; seriously as a clinical population. He published <em>Abduction</em> (1994). Harvard convened a <strong>special committee to review his clinical practices</strong> &mdash; a nearly unprecedented step for a tenured full professor. The committee found no grounds for sanction but issued a critical statement. The message to every other academic was clear: this line of inquiry will cost you everything.</div>
+        <div class="evidence-source">Harvard Gazette (committee proceedings). John Mack, <em>Abduction: Human Encounters with Aliens</em> (1994). Ralph Blumenthal, <em>The Believer</em> (2021).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-7">
+      <p>Mack died in a traffic accident in London in 2004. His research program did not survive him at Harvard.</p>
+    </div>
+
+    <div class="scroll-block" data-block="4-8">
+      <h3 class="node-title">The Cult Shield</h3>
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim">Every time genuine UAP evidence surfaces, the same pattern activates. <strong>Heaven&rsquo;s Gate</strong> (39 dead, 1997). <strong>Raelians</strong> (fake cloning claim, 2002). These groups receive outsized media coverage, associating the subject with mental illness and mass death. The pattern is observable: cults function as inoculation against taking the subject seriously. Whether they are deliberately amplified or merely convenient is inference. But the Bennewitz affair proves the template &mdash; intelligence agencies have used true believers to discredit real phenomena at least once. The question is scope.</div>
+        <div class="evidence-source">Pattern analysis. Heaven&rsquo;s Gate: law enforcement records, San Diego County (1997). Raelians: AP/Reuters coverage of Clonaid claim (2002).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-9">
+      <h3 class="node-title">The Entertainment Shield</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The Pentagon maintains a documented <strong>entertainment liaison office</strong> that has influenced over <strong><span class="countup" data-target="2700">2,700</span> productions</strong> &mdash; reviewing scripts and requesting changes in exchange for military hardware access. <strong>Phil Strub</strong> ran the office from 1989 to 2018. The <strong>CIA established its entertainment liaison in 1996</strong> with <strong>Chase Brandon</strong> as its first officer. Both offices are publicly acknowledged. The stated goal is &ldquo;correcting misperceptions.&rdquo; The structural effect is that every major film depicting military, intelligence, or anomalous topics passes through a filter designed to protect institutional narratives.</div>
+        <div class="evidence-source">Matthew Alford &amp; Tom Secker, <em>National Security Cinema</em> (2017) &mdash; FOIA-verified database. CIA public affairs (office acknowledged on CIA.gov). Cross-ref: Media Wars (Scroll 006), Space Wars (Scroll 003).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-10">
+      <div class="pull-quote">
+        <p class="pq-text">You thought this scroll was about fake spirituality replacing real religion. It&rsquo;s not. It&rsquo;s about a containment architecture &mdash; a system designed to catch the people who see through <em>both</em> cages and neutralize them before they connect with each other. Bennewitz was destroyed because he detected something real. Mack was investigated because he listened to people. The pipeline doesn&rsquo;t just sell you crystals. It identifies the credible ones and takes them out.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT V — THE LOOP                                         -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="V" data-act-label="The Loop" data-pipeline="aquarian">
+    <div class="act-header">
+      <div class="act-number">Act V</div>
+      <h2 class="act-title">The Loop</h2>
+    </div>
+
+    <div class="scroll-block" data-block="5-1">
+      <p>The most profitable customer is the one who almost finds what they&rsquo;re looking for.</p>
+    </div>
+
+    <div class="scroll-block" data-block="5-2">
+      <h3 class="node-title">The Self-Sustaining Cycle</h3>
+      <p>The pipeline&rsquo;s final product isn&rsquo;t belief or disbelief. It&rsquo;s an endless loop: institutional religion fails &rarr; seeker enters the marketplace &rarr; buys crystals, apps, retreats &rarr; experiences something real (meditation works, psychedelics open perception) &rarr; tries to go deeper &rarr; encounters ridicule, disinfo, or financial gatekeeping &rarr; retreats to safer consumption &rarr; burns out &rarr; returns to cynicism &rarr; tells others &ldquo;it&rsquo;s all nonsense.&rdquo;</p>
+      <p>The loop is self-sustaining. It doesn&rsquo;t need new operations. The architecture maintains itself through social pressure, market incentives, and exhaustion.</p>
+    </div>
+
+    <div class="scroll-block" data-block="5-3">
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Annual U.S. wellness industry spending</span><span class="pr-value">$<span class="countup" data-target="54" data-suffix=" billion">54 billion</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Ayahuasca tourism market</span><span class="pr-value">$<span class="countup" data-target="400" data-suffix=" million+">400 million+</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Average retreat center cost per week</span><span class="pr-value">$<span class="countup" data-target="5000" data-suffix="+">5,000+</span></span></div>
+        <div class="pattern-row"><span class="pr-label">FDA-pathway psychedelic therapy minimum cost</span><span class="pr-value">$<span class="countup" data-target="25000" data-suffix="+">25,000+</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Modalities cycled through by average seeker per decade</span><span class="pr-value"><span class="countup" data-target="5">5</span>&ndash;7</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-4">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">After decades of criminalization, psychedelic therapy is being re-legalized &mdash; but <strong>only through pharmaceutical gatekeeping</strong>. The MAPS/Lykos MDMA therapy pathway requires FDA approval, clinical supervision, and treatment protocols costing <strong>$25,000+</strong>. The technology of consciousness that the CIA distributed for free through MKUltra is now being sold back through the medical system at premium prices. The substance changed hands. The control never left.</div>
+        <div class="evidence-source">MAPS (Multidisciplinary Association for Psychedelic Studies) clinical trial data. FDA regulatory pathway documentation. Treatment cost estimates from published clinical frameworks.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-5">
+      <p>Notice what gets funded and what doesn&rsquo;t. Mindfulness apps get venture capital. Collective consciousness research gets nothing. Yoga studios get commercial real estate. Psi research labs close. Individual seeking is encouraged. Collective investigation is defunded.</p>
+    </div>
+
+    <div class="scroll-block" data-block="5-6">
+      <h3 class="node-title">The Channeling Industry</h3>
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim">The major channeling franchises &mdash; <strong>Jane Roberts/Seth</strong> (1963), <strong>JZ Knight/Ramtha</strong> (1977), <strong>A Course in Miracles</strong> (1976), <strong>Abraham-Hicks</strong> (1985), <strong>Bashar/Darryl Anka</strong> (1983) &mdash; share a remarkably consistent message: reality creation through thought, the irrelevance of political action, &ldquo;don&rsquo;t focus on the negative,&rdquo; individual consciousness as the only lever. Across supposedly independent &ldquo;sources,&rdquo; the message never says: <em>organize. investigate. hold power accountable.</em> Jerry Hicks&rsquo;s background before Abraham? <strong>Amway</strong>. The channeling industry doesn&rsquo;t threaten anything. That&rsquo;s the point.</div>
+        <div class="evidence-source">Primary texts of each channeling tradition (observable pattern). JZ Knight / Ramtha School legal disputes (court records). Jerry Hicks&rsquo;s Amway background acknowledged in early Abraham-Hicks publications.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-7">
+      <div class="typed-terminal" id="loop-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["ANALYZING LOOP ARCHITECTURE...","CHURCH FAILS ^500&rarr; SEEKER EXITS ^500&rarr; MARKETPLACE ^500&rarr; BUYS ^500&rarr; ALMOST FINDS ^500&rarr; PAYWALL ^500&rarr; BURNS OUT ^500&rarr; CYNICISM ^500&rarr; REPEAT","THE PIPELINE DOES NOT NEED YOU TO BELIEVE OR DISBELIEVE. ^1000 IT NEEDS YOU TO KEEP SHOPPING."]'></span>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-8">
+      <div class="pull-quote">
+        <p class="pq-text">Programs don&rsquo;t disappear. They get rebranded as wellness. Suppression doesn&rsquo;t end. It gets a subscription model. And the pipeline doesn&rsquo;t close &mdash; it just adds another loop.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT VI — THE ARRIVAL                                     -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <div class="act act-light" data-act="VI" data-act-label="The Arrival" data-pipeline="declassified">
+    <div class="act-header">
+      <div class="act-number">Act VI</div>
+      <h2 class="act-title">The Arrival</h2>
+    </div>
+
+    <div class="scroll-block" data-block="6-1">
+      <p>Read the pipeline backwards.</p>
+    </div>
+
+    <div class="scroll-block" data-block="6-2">
+      <h3 class="node-title">What the Containment Reveals</h3>
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">They didn&rsquo;t build a <strong>$<span class="countup" data-target="54">54</span>-billion marketplace</strong> to contain nothing. They didn&rsquo;t classify remote viewing for <strong><span class="countup" data-target="23">23</span> years</strong> because it didn&rsquo;t work. They didn&rsquo;t drive Paul Bennewitz insane because he was wrong. They didn&rsquo;t investigate John Mack because his research was sloppy. They didn&rsquo;t spend <strong><span class="countup" data-target="20">20</span> years</strong> and <strong>$<span class="countup" data-target="25" data-suffix=" million">25 million</span></strong> on MKUltra because consciousness is irrelevant.</div>
+        <div class="evidence-source">All sources previously cited in this investigation. Every claim in this card is documented in Acts I&ndash;V.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-3">
+      <p>The pipeline is a map. Every wall tells you what&rsquo;s on the other side. Every defunded program tells you what worked. Every ridiculed researcher tells you who was close. Every commercialized practice tells you what the original version could do.</p>
+    </div>
+
+    <div class="scroll-block" data-block="6-4">
+      <p><a href="/mind-wars/">Mind Wars</a> showed you the suppression. The Pipeline shows you the replacement. Together, they draw the outline of something they&rsquo;ve spent seventy years making sure you never experience directly &mdash; and trillions making sure you never experience collectively.</p>
+    </div>
+
+    <div class="scroll-block" data-block="6-5">
+      <h3 class="node-title">Nine Wars. One Pattern.</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Wars documented across Disclosure Scrolls</span><span class="pr-value"><span class="countup" data-target="9">9</span></span></div>
+        <div class="pattern-row"><span class="pr-label">MKUltra sub-projects</span><span class="pr-value"><span class="countup" data-target="149" data-suffix="+">149+</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Years of classified remote viewing</span><span class="pr-value"><span class="countup" data-target="23">23</span></span></div>
+        <div class="pattern-row"><span class="pr-label">MKUltra budget (confirmed minimum)</span><span class="pr-value">$<span class="countup" data-target="25" data-suffix=" million">25 million</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Entertainment productions with DOD/CIA involvement</span><span class="pr-value"><span class="countup" data-target="2700" data-suffix="+">2,700+</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Annual wellness industry revenue</span><span class="pr-value">$<span class="countup" data-target="54" data-suffix=" billion">54 billion</span></span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-6">
+      <div class="typed-terminal" id="pipeline-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["ANALYSIS COMPLETE.","MKULTRA (1953) ^500&rarr; LSD PIPELINE ^500&rarr; COUNTERCULTURE ^500&rarr; SRI/ESALEN ^500&rarr; HUMAN POTENTIAL ^500&rarr; NEW AGE MARKET ^500&rarr; $54B WELLNESS LOOP","NINE WARS. ^500 ONE PIPELINE. ^1000 THE EXIT IS NOT FOR SALE."]'></span>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-7">
+      <p>You&rsquo;ve scrolled through nine wars now. Artificial intelligence, money, space, mind, energy, information, bodies, atmosphere, spirit. Nine domains. One pattern. Programs don&rsquo;t disappear. They get rebranded as wellness. Suppression doesn&rsquo;t end. It gets a subscription model. And the pipeline doesn&rsquo;t close &mdash; it just adds another loop.</p>
+    </div>
+
+    <div class="scroll-block" data-block="6-8">
+      <p>The exit is not for sale.</p>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- CLOSING                                                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+
+  <section class="closing" id="closing">
+    <div class="closing-content">
+      <div class="closing-statement">The pipeline from intelligence agency labs to your crystal shop is documented across declassified MKUltra records, Congressional testimony, CIA Stargate program files, AFOSI disinformation operations, organizational records, and published primary sources. Every claim is classified by evidence tier. This investigation distinguishes what is documented from what is credible inference. The pattern is the argument.</div>
+      <div class="closing-sub">This investigation draws on the Church Committee Final Report (1976), the Senate MKUltra Hearings (1977), CIA Stargate declassification (1995), COINTELPRO files (FBI FOIA), the &ldquo;Mirage Men&rdquo; documentary (2013, Richard Doty&rsquo;s confession), Alford &amp; Secker&rsquo;s <em>National Security Cinema</em> (2017, FOIA-verified), Kripal&rsquo;s <em>Esalen</em> (2007), Marks&rsquo;s <em>The Search for the Manchurian Candidate</em> (1979), Lee &amp; Shlain&rsquo;s <em>Acid Dreams</em> (1985), Lucis Trust incorporation records, UN ECOSOC NGO database, and Robert Muller&rsquo;s own published writings. Primary sources are cited for every evidence card.</div>
+
+      <div class="closing-legend">
+        <div class="closing-legend-item"><span class="el-dot" style="background:#34d399"></span> Documented &mdash; declassified records, Congressional testimony, organizational filings, FOIA releases, government reports</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fbbf24"></span> Credible &mdash; credentialed testimony, verified employment records, documented but not causally proven</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fb923c"></span> Inference &mdash; pattern analysis connecting documented and credible evidence</div>
+      </div>
+
+      <div class="closing-cta">
+        <p>Nine wars. One pipeline. Every scroll in this series is documented, sourced, and verifiable. The reason most people haven&rsquo;t heard the full story isn&rsquo;t that the evidence is hidden &mdash; it&rsquo;s that the pipeline caught them first.</p>
+        <p>The exit is not for sale. But it is free.</p>
+      </div>
+
+      <div class="closing-links">
+        <a href="/sky-wars/" class="closing-link">&larr; Scroll 008: Sky Wars &mdash; the war for your sky</a>
+        <a href="/body-wars/" class="closing-link">&larr; Scroll 007: Body Wars &mdash; the war for your body</a>
+        <a href="/media-wars/" class="closing-link">&larr; Scroll 006: Media Wars &mdash; the war that hides all the others</a>
+        <a href="/oil-wars/" class="closing-link">&larr; Scroll 005: Oil Wars &mdash; one molecule controls everything</a>
+        <a href="/mind-wars/" class="closing-link">&larr; Scroll 004: Mind Wars &mdash; the war on consciousness</a>
+        <a href="/space-wars/" class="closing-link">&larr; Scroll 003: Space Wars &mdash; two histories of space</a>
+        <a href="/money-wars/" class="closing-link">&larr; Scroll 002: Money Wars &mdash; every country that left the dollar</a>
+        <a href="/ai-wars/" class="closing-link">&larr; Scroll 001: AI Wars &mdash; the 44-year surveillance pipeline</a>
+        <a href="https://qav2.github.io/intel-console/" class="closing-link" target="_blank" rel="noopener">Explore the Intel Console &mdash; 825 entities, 1,411 relationships &rarr;</a>
+        <a href="/" class="closing-link-home">&larr; Disclosure Scrolls &mdash; full archive</a>
+      </div>
+
+      <div class="closing-support">
+        <div class="support-label">Independent research. No sponsors. No algorithm.</div>
+        <a href="https://buymeacoffee.com/joeyv23" class="support-link" target="_blank" rel="noopener">Support this work</a>
+      </div>
+
+      <div class="closing-footer">
+        <p>Disclosure Scrolls &mdash; documented investigations you can scroll through.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- === Scripts === -->
+  <script src="../ai-wars/js/engine.js" defer></script>
+  <script src="../ai-wars/js/gsap-effects.js" defer></script>
+
+</body>
+</html>
