@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faith Wars &mdash; Disclosure Scrolls</title>
+  <meta name="description" content="The oldest war. The original severance. For seventeen centuries, someone has controlled the door between you and direct spiritual experience. This scroll traces the template — and shows you it's the same one behind every war you've already read.">
+  <meta property="og:title" content="Faith Wars">
+  <meta property="og:description" content="Every war in this series took something from you and replaced it with a mediated version. This scroll traces the original template — the one that taught every other war how to work.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://disclosure-scrolls.netlify.app/faith-wars/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Disclosure Scrolls">
+  <meta property="og:url" content="https://disclosure-scrolls.netlify.app/faith-wars/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Faith Wars">
+  <meta name="twitter:description" content="The oldest war. The original severance. Eleven scrolls. One lock. The door was never locked — you were just told it was.">
+  <meta name="twitter:image" content="https://disclosure-scrolls.netlify.app/faith-wars/og-image.png">
+  <meta name="theme-color" content="#06060b">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://disclosure-scrolls.netlify.app/faith-wars/">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="../ai-wars/css/style.css">
+
+  <!-- CountUp.js -->
+  <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js" defer></script>
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+
+  <style>
+    /* -- Faith Wars overrides -- */
+
+    /* Deep gold selection — ecclesiastical */
+    ::selection { background: rgba(212, 160, 23, 0.25); color: #fff; }
+
+    /* Badge colors */
+    .badge-vatican { color: #fbbf24; border-color: rgba(251,191,36,0.25); background: rgba(251,191,36,0.06); }
+    .badge-council { color: #a78bfa; border-color: rgba(167,139,250,0.25); background: rgba(167,139,250,0.06); }
+    .badge-inquisition { color: #f87171; border-color: rgba(248,113,113,0.25); background: rgba(248,113,113,0.06); }
+    .badge-gnostic { color: #34d399; border-color: rgba(52,211,153,0.25); background: rgba(52,211,153,0.06); }
+    .badge-megachurch { color: #60a5fa; border-color: rgba(96,165,250,0.25); background: rgba(96,165,250,0.06); }
+    .badge-colonial { color: #f0f0f4; border-color: rgba(240,240,244,0.25); background: rgba(240,240,244,0.06); }
+
+    /* Act IV -- amber reveal */
+    .act-reveal .act-title { color: #fbbf24; }
+    .act-reveal .act-number { color: rgba(251, 191, 36, 0.4); }
+    .act-reveal .node-title { color: #fbbf24; border-bottom-color: rgba(251,191,36,0.15); }
+    .act-reveal .pull-quote { border-left-color: rgba(251,191,36,0.25); }
+    .act-reveal .evidence-card { border-left-color: rgba(251,191,36,0.35); }
+
+    /* Act VI -- white light (the door) */
+    .act-light .act-title { color: #f0f0f4; }
+    .act-light .act-number { color: rgba(240,240,244,0.4); }
+    .act-light .node-title { color: #f0f0f4; border-bottom-color: rgba(240,240,244,0.15); }
+    .act-light .pull-quote { border-left-color: rgba(240,240,244,0.25); }
+
+    /* Organization square frame */
+    .visual-row .visual-figure.org-square img {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .visual-row .visual-figure.org-square img {
+        width: 80px;
+        height: 80px;
+      }
+      .pattern-row { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- === Particle Network Background === -->
+  <canvas id="particle-net" class="particle-canvas"></canvas>
+
+  <!-- === Progress Bar === -->
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <!-- === Pipeline Tracker === -->
+  <div class="pipeline-track" id="pipeline-track">
+    <div class="pipeline-inner">
+      <div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
+      <div class="pipeline-node" data-step="nicaea"><span class="pn-year">325</span><span class="pn-label">Nicaea</span></div>
+      <div class="pipeline-node" data-step="cathars"><span class="pn-year">1209</span><span class="pn-label">Cathars</span></div>
+      <div class="pipeline-node" data-step="inquisition"><span class="pn-year">1478</span><span class="pn-label">Inquisition</span></div>
+      <div class="pipeline-node" data-step="bruno"><span class="pn-year">1600</span><span class="pn-label">Bruno</span></div>
+      <div class="pipeline-node" data-step="naghammadi"><span class="pn-year">1945</span><span class="pn-label">Nag Hammadi</span></div>
+      <div class="pipeline-node" data-step="door"><span class="pn-year">NOW</span><span class="pn-label">The Door</span></div>
+    </div>
+  </div>
+
+  <!-- === Act Indicator === -->
+  <div class="act-indicator" id="act-indicator"></div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- TITLE SCREEN                                             -->
+  <!-- ═════════════════════════════════════════════════════════ -->
+
+  <div class="title-screen" id="title-screen">
+    <div class="title-content">
+      <a href="/" class="back-link">&larr; Disclosure Scrolls</a>
+      <div class="title-label">Scroll 011</div>
+      <div class="title-reading-time">~50 min read</div>
+      <h1 class="title-main">Faith Wars</h1>
+      <p class="title-sub">You&rsquo;ve scrolled through ten wars &mdash; for your technology, your money, your history, your mind, your energy, your information, your body, your sky, your spirit, and the org chart that connects them all. This is the eleventh. The oldest. The one that was running before any of the others had names. Every war in this series took something from you and replaced it with a mediated version controlled by an institution. This scroll traces the original template &mdash; the moment humanity&rsquo;s direct access to spiritual experience was severed and replaced with authorized intermediaries. Not because God is real or not real. Because access is the oldest currency &mdash; and someone has been charging admission for seventeen centuries.</p>
+      <div class="title-meta">
+        <span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fbbf24"></span> Credible</span>
+        <span class="evidence-legend"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
+      </div>
+      <div class="scroll-cue">&darr; Begin scrolling</div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT I — WHAT YOU THINK YOU KNOW                          -->
+  <!-- ═════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="I" data-act-label="What You Think You Know">
+    <div class="act-header">
+      <div class="act-number">Act I</div>
+      <h2 class="act-title">What You Think You Know</h2>
+    </div>
+
+    <div class="scroll-block" data-block="1-1">
+      <p>Church attendance is declining. &ldquo;Spiritual but not religious&rdquo; is the fastest-growing religious category in America. Evangelicals fight culture wars on television. The Pope posts on Instagram. Megachurches have fog machines and Spotify playlists. Religion, in the public narrative, is either dying or weaponized &mdash; a relic or a bludgeon.</p>
+      <p>That&rsquo;s the surface. Underneath it is a question nobody on cable news will ask: not whether God exists, but who controls the door between you and the experience of finding out for yourself. Because for seventeen centuries, that door has had a lock on it. And the lock wasn&rsquo;t put there by atheists.</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Between 1960 and 2024, mainline Protestant membership in the United States dropped by over <strong>40%</strong>. Catholic Mass attendance fell from <strong>75%</strong> to <strong>20%</strong>. Americans with no religious affiliation &mdash; the &ldquo;nones&rdquo; &mdash; rose from under <strong><span class="countup" data-target="5" data-suffix="%">5%</span></strong> in 1970 to <strong><span class="countup" data-target="28" data-suffix="%">28%</span></strong> by 2023. But <strong>75%</strong> of nones say they still believe in &ldquo;something&rdquo; &mdash; a higher power, a spiritual dimension, a force beyond the material. People didn&rsquo;t stop seeking. They stopped trusting the building.</div>
+        <div class="evidence-source">Gallup historical church attendance data. Pew Research Center, &ldquo;Religious Landscape Study&rdquo; (2023). PRRI, &ldquo;The 2023 Census of American Religion&rdquo; (2024).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-3">
+      <p>This scroll isn&rsquo;t about belief. It isn&rsquo;t about whether any religion is true or false. It&rsquo;s about infrastructure. Who built the system that sits between human beings and direct spiritual experience? When was it built? What did it replace? And what does the blueprint look like when you lay it next to the ten wars you&rsquo;ve already scrolled through?</p>
+    </div>
+
+    <div class="scroll-block" data-block="1-4">
+      <h3 class="node-title">The Interface</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Years the Catholic Church has held institutional authority</span><span class="pr-value"><span class="countup" data-target="1700" data-suffix="+">1,700+</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Texts excluded from the biblical canon</span><span class="pr-value"><span class="countup" data-target="50" data-suffix="+">50+</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Years the Nag Hammadi texts were buried</span><span class="pr-value"><span class="countup" data-target="1578">1,578</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Vatican Archives: miles of shelving</span><span class="pr-value"><span class="countup" data-target="52">52</span></span></div>
+        <div class="pattern-row"><span class="pr-label">U.S. religious tax exemption (annual)</span><span class="pr-value">$<span class="countup" data-target="71" data-suffix=" billion">71 billion</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Americans who left religion but still &ldquo;believe in something&rdquo;</span><span class="pr-value"><span class="countup" data-target="75" data-suffix="%">75%</span></span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="1-5">
+      <div class="pull-quote">
+        <p class="pq-text">This isn&rsquo;t about faith. It&rsquo;s about access. Who holds the key to the door between you and direct experience &mdash; and when did they change the locks?</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT II — THE SEVERANCE                                   -->
+  <!-- ═════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="II" data-act-label="The Severance" data-pipeline="nicaea">
+    <div class="act-header">
+      <div class="act-number">Act II</div>
+      <h2 class="act-title">The Severance</h2>
+    </div>
+
+    <div class="scroll-block" data-block="2-1">
+      <p>For the first three centuries after the death of Jesus of Nazareth, there was no single Christian church. There were dozens of communities across the Mediterranean, each with different texts, different practices, different understandings of what the teacher had meant. Some believed in a hierarchy of priests. Others believed every person had direct access to the divine &mdash; that the kingdom of heaven was already inside you, and no intermediary was required. The Greek word for this direct knowing was <em>gnosis</em>. The people who practiced it were called Gnostics.</p>
+      <p>They were about to be erased.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In <strong>325 AD</strong>, Emperor Constantine &mdash; unbaptized, fresh from unifying the Roman Empire &mdash; convened the Council of Nicaea. Approximately <strong><span class="countup" data-target="318">318</span></strong> bishops attended. The council produced the Nicene Creed, establishing orthodox doctrine and, by definition, heresy. Only <strong>2</strong> bishops refused to sign &mdash; they were exiled. Arius&rsquo;s writings were ordered burned. Anyone caught hiding them faced the death penalty. Over the following decades, church councils formalized the biblical canon: <strong>27</strong> books included in the New Testament, <strong>50+</strong> known texts excluded. The criterion was not historical accuracy. It was institutional compatibility.</div>
+        <div class="evidence-source">Socrates Scholasticus, <em>Church History</em> I.8. Theodoret, <em>Church History</em> I.7&ndash;8. Eusebius, <em>Vita Constantini</em> II.64&ndash;72. Bruce Metzger, <em>The Canon of the New Testament</em> (1987).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-3">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/constantine.jpg" alt="Constantine">
+          <div class="vr-name">Constantine</div>
+          <div class="vr-role">Unbaptized emperor who defined Christian orthodoxy &mdash; 325 AD</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-4">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In December <strong>1945</strong>, an Egyptian farmer named Muhammad Ali al-Samman discovered <strong><span class="countup" data-target="13">13</span></strong> leather-bound codices buried in a sealed jar near Nag Hammadi, Egypt. The texts had been buried approximately <strong>367 AD</strong> &mdash; the same year Bishop Athanasius of Alexandria issued his 39th Festal Letter, defining the authorized canon and ordering all non-canonical texts destroyed. Someone buried them instead. The Nag Hammadi library contained <strong><span class="countup" data-target="52">52</span></strong> texts, including Gnostic gospels that described a radically different Christianity: one where salvation came through direct inner knowledge (<em>gnosis</em>), not through faith in institutional authority (<em>pistis</em>). The texts had been hidden for <strong><span class="countup" data-target="1578">1,578</span></strong> years.</div>
+        <div class="evidence-source">James M. Robinson, ed., <em>The Nag Hammadi Library in English</em> (1978/1990). Elaine Pagels, <em>The Gnostic Gospels</em> (1979, National Book Award).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-5">
+      <p>The Gospel of Thomas &mdash; one of the buried texts &mdash; records 114 sayings of Jesus with no crucifixion, no resurrection, no priesthood needed. Saying 3: <em>&ldquo;The kingdom is inside of you, and it is outside of you. When you come to know yourselves, then you will become known.&rdquo;</em> Saying 70: <em>&ldquo;If you bring forth what is within you, what you bring forth will save you. If you do not bring forth what is within you, what you do not bring forth will destroy you.&rdquo;</em></p>
+      <p>They didn&rsquo;t bury these texts because they were wrong. They buried them because they worked. Direct experience doesn&rsquo;t need a priest. And a church without a congregation is just a building.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-6">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The Dead Sea Scrolls were discovered in <strong>1947</strong> in caves near Qumran. <strong><span class="countup" data-target="981">981</span></strong> manuscripts across <strong>11</strong> caves. An international team of <strong>8</strong> scholars &mdash; overwhelmingly Christian, appointed by a Dominican-run institution &mdash; controlled access for over <strong><span class="countup" data-target="44">44</span></strong> years. Only <strong>20%</strong> of Cave 4 texts were published by 1991. In September 1991, the Huntington Library broke the monopoly by releasing photographs against the team&rsquo;s objections. The scrolls revealed that Judaism before Christianity was far more diverse than any institution had admitted. Full publication took <strong><span class="countup" data-target="62">62</span></strong> years.</div>
+        <div class="evidence-source">Hershel Shanks, <em>Freeing the Dead Sea Scrolls</em> (2010). Geza Vermes, <em>The Complete Dead Sea Scrolls in English</em> (1997). Emanuel Tov, <em>Revised Lists of the Texts from the Judaean Desert</em> (2010).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="2-7">
+      <div class="visual-row">
+        <div class="visual-figure org-square">
+          <img src="assets/nag_hammadi.jpg" alt="Nag Hammadi Codex">
+          <div class="vr-name">Nag Hammadi Library</div>
+          <div class="vr-role">52 texts buried in 367 AD &mdash; found 1945</div>
+        </div>
+        <div class="visual-figure org-square">
+          <img src="assets/dead_sea_scrolls.jpg" alt="Dead Sea Scrolls">
+          <div class="vr-name">Dead Sea Scrolls</div>
+          <div class="vr-role">981 manuscripts &mdash; 44 years of restricted access</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block chain-summary" data-block="2-8">
+      <div class="typed-terminal" id="canon-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING CANON FORMATION...","DIVERSE COMMUNITIES (1st-3rd c.) ^500→ CONSTANTINE/NICAEA (325) ^500→ ATHANASIUS CANON (367) ^500→ NAG HAMMADI BURIED (367) ^500→ GNOSTIC TEXTS BANNED ^500→ SINGLE AUTHORIZED VERSION","DOZENS OF TRADITIONS. ^500 ONE INSTITUTION SURVIVED. ^1000 THE REST WERE BURIED — LITERALLY."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">Diverse Communities</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Nicaea (325)</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Athanasius Canon (367)</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Nag Hammadi Buried</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Gnostic Ban</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">One Church</span>
+      </div>
+      <p class="chain-decode">Open-access spirituality consolidated into a single authorized institution. Everything that offered direct experience was buried, banned, or burned.</p>
+    </div>
+
+    <div class="scroll-block" data-block="2-9">
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Texts in the Nag Hammadi library</span><span class="pr-value"><span class="countup" data-target="52">52</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Years they were buried</span><span class="pr-value"><span class="countup" data-target="1578">1,578</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Dead Sea Scroll manuscripts</span><span class="pr-value"><span class="countup" data-target="981">981</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Scholars with access (first 40 years)</span><span class="pr-value"><span class="countup" data-target="8">8</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Years to full public access</span><span class="pr-value"><span class="countup" data-target="62">62</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Surviving institutional Gnostic traditions today</span><span class="pr-value">0</span></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT III — THE BURNING                                    -->
+  <!-- ═════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="III" data-act-label="The Burning" data-pipeline="cathars">
+    <div class="act-header">
+      <div class="act-number">Act III</div>
+      <h2 class="act-title">The Burning</h2>
+    </div>
+
+    <div class="scroll-block" data-block="3-1">
+      <p>The canon was decided. The institution was built. But the direct experience didn&rsquo;t stop. Across the next twelve centuries, communities kept emerging &mdash; mystics, heretics, indigenous traditions, wandering teachers &mdash; who claimed you didn&rsquo;t need permission to access the divine. Every single one was destroyed. Not debated. Not refuted. Destroyed.</p>
+      <p>And if you track the method of destruction across cultures and centuries, a pattern emerges that has nothing to do with theology and everything to do with access control.</p>
+    </div>
+
+    <div class="scroll-block" data-block="3-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The Cathars were a Christian movement in southern France who practiced direct spiritual experience, rejected material authority, had no church buildings, and believed every person could access the divine without priestly mediation. In <strong>1209</strong>, Pope Innocent III launched the Albigensian Crusade &mdash; a <strong><span class="countup" data-target="20">20</span></strong>-year military campaign to exterminate them. At the siege of B&eacute;ziers (July 22, 1209), Papal legate Arnaud Amalric reportedly said: <strong>&ldquo;Kill them all. God will know his own.&rdquo;</strong> An estimated <strong><span class="countup" data-target="20000">20,000</span></strong> people were massacred at B&eacute;ziers alone. At Monts&eacute;gur in 1244, over 200 Cathars walked into a bonfire rather than recant. The last known Cathar <em>parfait</em>, Guillaume Belibaste, was burned in <strong>1321</strong>.</div>
+        <div class="evidence-source">Mark Gregory Pegg, <em>A Most Holy War</em> (2008). R.I. Moore, <em>The War on Heresy</em> (2012). Malcolm Barber, <em>The Cathars</em> (2000).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Giordano Bruno was a Dominican friar who proposed that the universe was infinite, that stars were distant suns with their own planets, and that direct experience of the cosmos was communion with the divine. After an <strong>8</strong>-year trial by the Roman Inquisition, he was burned alive on <strong>February 17, 1600</strong>, in the Campo de&rsquo; Fiori in Rome. His tongue was nailed to his jaw so he couldn&rsquo;t speak at the pyre. His works were placed on the Index of Forbidden Books for over <strong><span class="countup" data-target="260">260</span></strong> years. In the exact square where he was burned, there is now a statue of him &mdash; erected in 1889 over Vatican objections.</div>
+        <div class="evidence-source">Ingrid Rowland, <em>Giordano Bruno: Philosopher/Heretic</em> (2008). Frances Yates, <em>Giordano Bruno and the Hermetic Tradition</em> (1964). Roman Inquisition trial records (Vatican Archives).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-4">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/bruno.jpg" alt="Giordano Bruno">
+          <div class="vr-name">Giordano Bruno</div>
+          <div class="vr-role">Burned alive, 1600 &mdash; tongue nailed shut so he couldn&rsquo;t speak</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/hypatia.jpg" alt="Hypatia">
+          <div class="vr-name">Hypatia of Alexandria</div>
+          <div class="vr-role">Murdered by Christian mob, 415 AD &mdash; skin flayed with oyster shells</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-5">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The Spanish Inquisition operated for <strong><span class="countup" data-target="356">356</span></strong> years (1478&ndash;1834). Over <strong><span class="countup" data-target="150000">150,000</span></strong> people were tried. An estimated <strong>3,000&ndash;5,000</strong> were executed. The Roman Inquisition that burned Bruno still exists &mdash; reformed in 1965 as the Congregation for the Doctrine of the Faith. Cardinal Joseph Ratzinger headed it from 1981 to 2005 &mdash; before becoming Pope Benedict XVI. The Inquisition also produced the <strong>Index of Forbidden Books</strong> (1559&ndash;1966): <strong><span class="countup" data-target="4000">4,000</span></strong> banned titles over <strong><span class="countup" data-target="407">407</span></strong> years. Banned authors included Galileo, Copernicus, Descartes, Locke, Voltaire, Kant &mdash; and every translation of the Bible not approved by the Church.</div>
+        <div class="evidence-source">Henry Kamen, <em>The Spanish Inquisition: A Historical Revision</em> (1998). Edward Peters, <em>Inquisition</em> (1988). Index Librorum Prohibitorum, final 1948 edition.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-6">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">On <strong>July 12, 1562</strong>, Franciscan Bishop Diego de Landa ordered the burning of every Maya codex, idol, and religious artifact he could find in the Yucat&aacute;n. His auto-da-f&eacute; at Man&iacute; destroyed <strong><span class="countup" data-target="27">27</span></strong> codices and <strong><span class="countup" data-target="5000">5,000</span></strong> cult images &mdash; centuries of astronomical, spiritual, and mathematical knowledge. De Landa wrote: <em>&ldquo;We found a large number of books, and as they contained nothing in which were not to be seen as superstition and lies of the devil, we burned them all.&rdquo;</em> Of the thousands of codices that existed, only <strong>4</strong> survive today. The surviving Dresden Codex contains Venus cycle calculations accurate to within <strong>2 hours over 481 years</strong>. De Landa was promoted to Bishop of Yucat&aacute;n.</div>
+        <div class="evidence-source">Diego de Landa, <em>Relaci&oacute;n de las cosas de Yucat&aacute;n</em> (1566). Michael D. Coe, <em>Breaking the Maya Code</em> (1992).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-7">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The Library of Alexandria, at its peak holding an estimated <strong>400,000&ndash;700,000</strong> scrolls, was destroyed through multiple events between 48 BC and 391 AD. In 391 AD, a Christian mob destroyed the Serapeum &mdash; its daughter library &mdash; under Bishop Theophilus, backed by Emperor Theodosius I&rsquo;s anti-pagan edicts. In <strong>415 AD</strong>, Hypatia of Alexandria &mdash; mathematician, philosopher, the last great scholar of the classical tradition &mdash; was murdered by a Christian mob. Today, the Vatican Apostolic Archive contains <strong><span class="countup" data-target="52">52</span></strong> miles of shelving spanning <strong><span class="countup" data-target="1000" data-suffix="+ years">1,000+ years</span></strong> of documents. No complete catalog has ever been published. No browsing is permitted. Researchers must specify exact documents in advance.</div>
+        <div class="evidence-source">Lionel Casson, <em>Libraries in the Ancient World</em> (2001). Socrates Scholasticus, <em>Church History</em> V.16. Vatican Apostolic Archive official access policies.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-8">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Canada operated <strong><span class="countup" data-target="139">139</span></strong> residential schools from the 1880s to <strong>1996</strong>. An estimated <strong><span class="countup" data-target="150000">150,000</span></strong> Indigenous children were removed from their families, forbidden from speaking their languages or practicing spiritual traditions. The Truth and Reconciliation Commission confirmed at least <strong><span class="countup" data-target="4100">4,100</span></strong> children died. In 2021, ground-penetrating radar at the former Kamloops school revealed <strong>215</strong> unmarked graves. The U.S. operated <strong><span class="countup" data-target="408">408</span></strong> federal boarding schools across 37 states. Captain Richard Henry Pratt&rsquo;s philosophy: <strong>&ldquo;Kill the Indian, save the man.&rdquo;</strong> Aboriginal Australians &mdash; the longest continuous spiritual tradition on Earth, at least <strong><span class="countup" data-target="65000">65,000</span></strong> years &mdash; had their ceremonies banned, sacred sites destroyed, and <strong><span class="countup" data-target="100000">100,000</span></strong> children stolen.</div>
+        <div class="evidence-source">Truth and Reconciliation Commission of Canada, Final Report (2015). U.S. Department of the Interior, Federal Indian Boarding School Initiative (2022). <em>Bringing Them Home</em> report, Australia (1997).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block chain-summary" data-block="3-9">
+      <div class="typed-terminal" id="burning-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING DESTRUCTION PATTERN...","GNOSTICS (2nd c.) ^500→ HYPATIA (415) ^500→ CATHARS (1209) ^500→ MAYA CODICES (1562) ^500→ BRUNO (1600) ^500→ INDIGENOUS TRADITIONS (1500-1996)","DIFFERENT CENTURIES. ^500 DIFFERENT CONTINENTS. ^500 SAME PATTERN: ^1000 ANYONE WHO OFFERED DIRECT ACCESS WAS DESTROYED."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">Gnostics</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Hypatia (415)</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Cathars (1209)</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Maya Codices (1562)</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Bruno (1600)</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Indigenous (1500&ndash;1996)</span>
+      </div>
+      <p class="chain-decode">Twelve centuries. Six continents. The target was never a specific belief. It was anyone who said you don&rsquo;t need permission.</p>
+    </div>
+
+    <div class="scroll-block" data-block="3-10">
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">Cathars killed at B&eacute;ziers (1209)</span><span class="pr-value">~<span class="countup" data-target="20000">20,000</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Spanish Inquisition trials (356 years)</span><span class="pr-value"><span class="countup" data-target="150000" data-suffix="+">150,000+</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Index of Forbidden Books: banned titles</span><span class="pr-value"><span class="countup" data-target="4000">4,000</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Maya codices surviving (of thousands)</span><span class="pr-value">4</span></div>
+        <div class="pattern-row"><span class="pr-label">Canadian residential schools</span><span class="pr-value"><span class="countup" data-target="139">139</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Indigenous children removed (Canada)</span><span class="pr-value"><span class="countup" data-target="150000">150,000</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Vatican Archives: complete catalogs published</span><span class="pr-value">0</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="3-11">
+      <div class="pull-quote">
+        <p class="pq-text">The pattern isn&rsquo;t theological. It&rsquo;s operational. Across twelve centuries and six continents, the target was never a specific belief. It was anyone who said you don&rsquo;t need permission.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT IV — THE REPLACEMENT                                 -->
+  <!-- ═════════════════════════════════════════════════════════ -->
+
+  <div class="act act-reveal" data-act="IV" data-act-label="The Replacement" data-pipeline="inquisition">
+    <div class="act-header">
+      <div class="act-number">Act IV</div>
+      <h2 class="act-title">The Replacement</h2>
+    </div>
+
+    <div class="scroll-block" data-block="4-1">
+      <p>You thought this was about ancient history. Councils and crusades and codex burnings. Something that happened to other people in other centuries.</p>
+      <p>It isn&rsquo;t. The same pattern &mdash; centralize authority, control the interface, destroy alternatives &mdash; is running right now. It just traded robes for stadium seating and a tax exemption worth $71 billion a year. The institution changed its clothes. The lock on the door didn&rsquo;t move.</p>
+    </div>
+
+    <div class="scroll-block" data-block="4-2">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">In 1452, Pope Nicholas V issued <em>Dum Diversas</em>, granting Portugal the right to <strong>&ldquo;invade, search out, capture, vanquish, and subdue all Saracens and pagans&rdquo;</strong> and <strong>&ldquo;reduce their persons to perpetual slavery.&rdquo;</strong> In 1493, Pope Alexander VI divided the New World between Spain and Portugal. These Papal Bulls &mdash; the <strong>Doctrine of Discovery</strong> &mdash; became the legal foundation for European colonization. In <strong>1823</strong>, the U.S. Supreme Court cited the Doctrine in <em>Johnson v. M&rsquo;Intosh</em> to deny Native American land rights. The Vatican formally repudiated it on <strong>March 30, 2023</strong> &mdash; <strong><span class="countup" data-target="571">571</span></strong> years after the first bull was issued. With a press release.</div>
+        <div class="evidence-source">Papal Bull <em>Dum Diversas</em> (1452). <em>Inter Caetera</em> (1493). <em>Johnson v. M&rsquo;Intosh</em>, 21 U.S. 543 (1823). Vatican Dicasteries statement (March 30, 2023).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-3">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">As of 2024, there are over <strong><span class="countup" data-target="1750">1,750</span></strong> megachurches in the United States. Joel Osteen&rsquo;s Lakewood Church in Houston holds <strong><span class="countup" data-target="45000">45,000</span></strong> people and generates an estimated <strong>$90 million</strong> in annual revenue. Kenneth Copeland&rsquo;s personal net worth is estimated at <strong>$760 million</strong>; he owns <strong>3</strong> private jets. Creflo Dollar asked his congregation for <strong>$65 million</strong> for a Gulfstream G650. The prosperity gospel &mdash; the doctrine that God rewards faith with material wealth &mdash; is the theological justification for a revenue extraction system targeting the working poor. U.S. churches are automatically tax-exempt and are <strong>not required</strong> to file Form 990 financial disclosures. Estimated annual value of religious tax exemptions: <strong>$<span class="countup" data-target="71" data-suffix=" billion">71 billion</span></strong>.</div>
+        <div class="evidence-source">Hartford Institute for Religion Research, megachurch database (2024). Ryan Cragun et al., &ldquo;How Secular Humanists Subsidize Religion,&rdquo; <em>Free Inquiry</em> (2012). IRS Publication 1828.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-4">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/osteen.jpg" alt="Joel Osteen">
+          <div class="vr-name">Joel Osteen</div>
+          <div class="vr-role">Lakewood Church &mdash; $90M annual, locked doors during Hurricane Harvey</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/copeland.jpg" alt="Kenneth Copeland">
+          <div class="vr-name">Kenneth Copeland</div>
+          <div class="vr-role">$760M net worth &mdash; 3 private jets, &ldquo;tube full of demons&rdquo;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-5">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">The Catholic Church has paid over <strong>$<span class="countup" data-target="4" data-suffix=" billion">4 billion</span></strong> in abuse settlements in the United States alone. The Pennsylvania Grand Jury Report (2018) documented <strong><span class="countup" data-target="1000" data-suffix="+">1,000+</span></strong> child victims and <strong><span class="countup" data-target="300">300</span></strong> predator priests across 6 dioceses. Internal documents revealed the Church maintained secret protocols (<em>crimen sollicitationis</em>) for handling abuse allegations internally. Cardinal Bernard Law of Boston, whose archdiocese covered up abuse by at least <strong><span class="countup" data-target="271">271</span></strong> priests, was not prosecuted. He was transferred to Rome, given a ceremonial position at the Basilica di Santa Maria Maggiore, and served there until his death in 2017.</div>
+        <div class="evidence-source">Pennsylvania Grand Jury Report (August 14, 2018). Boston Globe Spotlight Team (2002). John Jay Report (2004). BishopAccountability.org.</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-6">
+      <div class="visual-row">
+        <div class="visual-figure">
+          <img src="assets/bernard_law.jpg" alt="Cardinal Bernard Law">
+          <div class="vr-name">Cardinal Bernard Law</div>
+          <div class="vr-role">Covered up 271 predator priests &mdash; promoted to Rome</div>
+        </div>
+        <div class="visual-figure">
+          <img src="assets/roberto_calvi.jpg" alt="Roberto Calvi">
+          <div class="vr-name">Roberto Calvi</div>
+          <div class="vr-role">&ldquo;God&rsquo;s Banker&rdquo; &mdash; found hanging under Blackfriars Bridge, 1982</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-7">
+      <div class="evidence-card" data-tier="documented">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+        <div class="evidence-claim">Roberto Calvi, chairman of Banco Ambrosiano &mdash; Italy&rsquo;s largest private bank &mdash; was found hanging under Blackfriars Bridge in London on <strong>June 18, 1982</strong>, his pockets stuffed with bricks and cash. Banco Ambrosiano collapsed with <strong>$<span class="countup" data-target="1.3" data-suffix=" billion">1.3 billion</span></strong> in debt, much channeled through Vatican Bank shell companies. The P2 Lodge &mdash; a secret Masonic lodge led by Licio Gelli &mdash; connected the collapse to Italian intelligence, military, and politics: <strong><span class="countup" data-target="962">962</span></strong> names on the membership list. Archbishop Paul Marcinkus, head of the Vatican Bank, was indicted but never extradited. The Vatican made a &ldquo;goodwill payment&rdquo; of <strong>$244 million</strong>. Peter&rsquo;s Pence &mdash; the annual collection ostensibly for charity &mdash; brings in <strong>$50&ndash;70 million</strong> per year. A 2019 <em>Wall Street Journal</em> investigation found the majority was used not for the poor but for the Vatican&rsquo;s operating budget.</div>
+        <div class="evidence-source">Senate BCCI Report (Kerry-Brown, 1992). P2 Lodge membership list (Italian authorities, 1981). <em>Wall Street Journal</em>, Peter&rsquo;s Pence investigation (2019).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block chain-summary" data-block="4-8">
+      <div class="typed-terminal" id="replacement-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["MAPPING MODERN INFRASTRUCTURE...","DOCTRINE OF DISCOVERY (1452) ^500→ 571 YEARS ^500→ MEGACHURCH ($90M/YEAR) ^500→ TAX EXEMPTION ($71B) ^500→ ABUSE COVER-UP ($4B PAID) ^500→ NO TRANSPARENCY","THE ROBES CHANGED. ^500 THE LOCK DIDN&apos;T MOVE. ^1000 SAME PATTERN. DIFFERENT CENTURY."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">Doctrine of Discovery (1452)</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">571 Years</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Megachurch ($90M)</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Tax Exemption ($71B)</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Abuse Cover-up ($4B)</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">No Transparency</span>
+      </div>
+      <p class="chain-decode">The institution that burned the mystics now runs fog machines. The lock on the door didn&rsquo;t break. It got a marketing budget.</p>
+    </div>
+
+    <div class="scroll-block" data-block="4-9">
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">U.S. megachurches</span><span class="pr-value"><span class="countup" data-target="1750" data-suffix="+">1,750+</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Annual U.S. religious tax exemption</span><span class="pr-value">$<span class="countup" data-target="71" data-suffix=" billion">71 billion</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Catholic abuse settlements (U.S.)</span><span class="pr-value">$<span class="countup" data-target="4" data-suffix=" billion+">4 billion+</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Predator priests (PA Grand Jury)</span><span class="pr-value"><span class="countup" data-target="300">300</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Doctrine of Discovery: years of legal force</span><span class="pr-value"><span class="countup" data-target="571">571</span></span></div>
+        <div class="pattern-row"><span class="pr-label">P2 Lodge members</span><span class="pr-value"><span class="countup" data-target="962">962</span></span></div>
+        <div class="pattern-row"><span class="pr-label">Copeland&rsquo;s private jets</span><span class="pr-value">3</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="4-10">
+      <p>The Pipeline (Scroll 009) showed what was waiting at the exit when people left institutional religion &mdash; a managed replacement of crystals, apps, and CIA-seeded counterculture. This is what they were leaving. A $71 billion tax-exempt institution that covered up the abuse of children, authorized the enslavement of entire continents, and never published its own financial records. The people leaving aren&rsquo;t confused. They saw the invoice.</p>
+    </div>
+
+    <div class="scroll-block" data-block="4-11">
+      <div class="pull-quote reveal-climax">
+        <p class="pq-text">The institution that burned the mystics now runs fog machines. The institution that burned the libraries now livestreams on YouTube. The lock on the door didn&rsquo;t break. It got a marketing budget.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT V — THE TEMPLATE                                     -->
+  <!-- ═════════════════════════════════════════════════════════ -->
+
+  <div class="act" data-act="V" data-act-label="The Template" data-pipeline="naghammadi">
+    <div class="act-header">
+      <div class="act-number">Act V</div>
+      <h2 class="act-title">The Template</h2>
+    </div>
+
+    <div class="scroll-block" data-block="5-1">
+      <p>Ten scrolls. Ten wars. Ten domains of human experience &mdash; technology, money, space, consciousness, energy, information, health, atmosphere, seeking, and the organizational chart behind them all. Each one documented a different system of control. Each one showed the same architecture: centralize the authority, control the interface, destroy anyone who offers a direct alternative, classify what you find, and replace what you suppress.</p>
+      <p>That architecture wasn&rsquo;t invented by the CIA. It wasn&rsquo;t invented by the Federal Reserve. It wasn&rsquo;t invented by Standard Oil or the CFR or the Flexner Report. It was invented here. In the oldest war. The one that taught every other war how to work.</p>
+    </div>
+
+    <div class="scroll-block" data-block="5-2">
+      <h3 class="node-title">The Blueprint</h3>
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim"><strong>Money Wars</strong> (Scroll 002): The Federal Reserve replaced economic sovereignty the same way the Church replaced spiritual sovereignty. Jekyll Island is Nicaea &mdash; six men in a closed room defining the orthodoxy. The petrodollar is the tithe. SWIFT sanctions are excommunication. Every country that tried to go direct &mdash; Libya, Iraq, Iran &mdash; was bombed back into the system. The Fed doesn&rsquo;t open its books to public audit. Neither does the Vatican.</div>
+        <div class="evidence-source">Pattern analysis connecting documented evidence from Scroll 002 (Money Wars) and Scroll 011 (Faith Wars).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-3">
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim"><strong>Body Wars</strong> (Scroll 007): The Flexner Report shut down half the medical schools in America &mdash; homeopathy, naturopathy, eclectic medicine, all gone. Nicaea shut down half the spiritual traditions in the Mediterranean &mdash; Gnosticism, Marcionism, Montanism, all gone. One authorized system. Everything else is quackery or heresy. Same verb. Same architecture. Same result: you can&rsquo;t access healing &mdash; or the sacred &mdash; without paying the authorized intermediary.</div>
+        <div class="evidence-source">Pattern analysis connecting Scroll 007 (Body Wars) and Scroll 011 (Faith Wars).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-4">
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim"><strong>Media Wars</strong> (Scroll 006): Operation Mockingbird replaced independent journalism the same way the canon replaced independent gospels. Control the narrative, burn the alternatives. 400 journalists worked for the CIA. 6 corporations control 90% of media. The Index of Forbidden Books banned 4,000 titles over 407 years. The mechanism is identical: one authorized version of reality, everything else is dangerous misinformation &mdash; or heresy.</div>
+        <div class="evidence-source">Pattern analysis connecting Scroll 006 (Media Wars) and Scroll 011 (Faith Wars).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-5">
+      <div class="evidence-card" data-tier="inference">
+        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+        <div class="evidence-claim"><strong>Mind Wars</strong> (Scroll 004): The CIA spent 20 years studying consciousness through MKULTRA, then classified what they found. The Gateway Process report was buried. The Church spent centuries studying mystics &mdash; then classified what they found. The Vatican Archives hold 52 miles of documents, no catalog published, no browsing permitted. Both institutions investigated direct experience, confirmed it was real, and locked the results away.</div>
+        <div class="evidence-source">Pattern analysis connecting Scroll 004 (Mind Wars) and Scroll 011 (Faith Wars).</div>
+      </div>
+    </div>
+
+    <div class="scroll-block chain-summary" data-block="5-6">
+      <div class="typed-terminal" id="template-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["MAPPING TEMPLATE ACROSS ALL WARS...","NICAEA = JEKYLL ISLAND = FLEXNER REPORT ^500→ ONE AUTHORIZED VERSION ^500→ INQUISITION = SANCTIONS = QUACKERY LABEL ^500→ DESTROY ALTERNATIVES ^500→ VATICAN ARCHIVES = CLASSIFIED PROGRAMS = NO AUDIT ^500→ LOCK THE RESULTS","ONE ARCHITECTURE. ^500 ELEVEN WARS. ^1000 THE OLDEST ONE WROTE THE PLAYBOOK."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">Centralize</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Authorize</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Destroy Alternatives</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Classify Results</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Replace</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Repeat</span>
+      </div>
+      <p class="chain-decode">Nicaea &rarr; Jekyll Island &rarr; Flexner Report &rarr; Operation Mockingbird &rarr; MKULTRA &rarr; the same architecture, rebuilt in every domain.</p>
+    </div>
+
+    <div class="scroll-block" data-block="5-7">
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">AI Wars: surveillance as confessional</span><span class="pr-value">Total information awareness</span></div>
+        <div class="pattern-row"><span class="pr-label">Money Wars: Fed as financial priesthood</span><span class="pr-value">No public audit</span></div>
+        <div class="pattern-row"><span class="pr-label">Space Wars: classified what they found</span><span class="pr-value">Same as Vatican Archives</span></div>
+        <div class="pattern-row"><span class="pr-label">Mind Wars: studied consciousness, buried it</span><span class="pr-value">Gateway Process = Gnostic texts</span></div>
+        <div class="pattern-row"><span class="pr-label">Oil Wars: monopoly &ldquo;broken up,&rdquo; merged back</span><span class="pr-value">Reformation = controlled opposition</span></div>
+        <div class="pattern-row"><span class="pr-label">Media Wars: one authorized narrative</span><span class="pr-value">Index of Forbidden Books</span></div>
+        <div class="pattern-row"><span class="pr-label">Body Wars: one authorized system</span><span class="pr-value">Heresy = quackery</span></div>
+        <div class="pattern-row"><span class="pr-label">Sky Wars: no governance, no accountability</span><span class="pr-value">Spiritual authority without oversight</span></div>
+        <div class="pattern-row"><span class="pr-label">The Pipeline: looks like liberation, still mediated</span><span class="pr-value">Reformation 2.0</span></div>
+        <div class="pattern-row"><span class="pr-label">The Web: same families, same rooms</span><span class="pr-value">Same org chart, same cathedral</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-8">
+      <div class="pull-quote">
+        <p class="pq-text">Every war in this series used the same five moves: centralize, authorize, destroy, classify, replace. The Faith Wars template is the original. The other ten are franchises.</p>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="5-9">
+      <p>The Reformation looked like liberation &mdash; but it replaced one intermediary (the Pope) with another (the pastor and the printed Bible). Standard Oil was &ldquo;broken up&rdquo; into 34 companies that merged back into 3. The New Age movement (Scroll 009) replaced institutional religion with a managed pipeline of crystals, apps, and CIA-seeded counterculture. Each time, the door stays locked. The lock just gets a new brand.</p>
+      <p>Programs don&rsquo;t disappear. They get sacraments. Intermediaries don&rsquo;t retire. They get rebranded. And the door between you and direct experience has been guarded by the same architecture for seventeen centuries &mdash; whether the guard wears a cassock, a lab coat, or a fog machine.</p>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- ACT VI — THE DOOR                                        -->
+  <!-- ═════════════════════════════════════════════════════════ -->
+
+  <div class="act act-light" data-act="VI" data-act-label="The Door" data-pipeline="door">
+    <div class="act-header">
+      <div class="act-number">Act VI</div>
+      <h2 class="act-title">The Door</h2>
+    </div>
+
+    <div class="scroll-block" data-block="6-1">
+      <p>Eleven scrolls. One question. Who controls the door?</p>
+      <p>The door to your technology (AI Wars). The door to your money (Money Wars). The door to your history (Space Wars). The door to your consciousness (Mind Wars). The door to your energy (Oil Wars). The door to your information (Media Wars). The door to your body (Body Wars). The door to your sky (Sky Wars). The door to your seeking (The Pipeline). The organizational chart behind every door (The Web).</p>
+      <p>And behind all of them: the oldest door. The one between you and direct experience. The one that was locked first. The one that taught every other lock how to work.</p>
+    </div>
+
+    <div class="scroll-block chain-summary" data-block="6-2">
+      <div class="typed-terminal" id="door-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING ELEVEN WARS...","AI ^500→ MONEY ^500→ SPACE ^500→ MIND ^500→ OIL ^500→ MEDIA ^500→ BODY ^500→ SKY ^500→ PIPELINE ^500→ WEB ^500→ FAITH","ELEVEN DOORS. ^500 ONE ARCHITECTURE. ^500 ONE ORIGINAL LOCK. ^1000 YOU HAVE SEEN THE GUARDS."]'></span>
+      </div>
+      <div class="chain-text">
+        <span class="chain-link">AI</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Money</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Space</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Mind</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Oil</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Media</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Body</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Sky</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Pipeline</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Web</span> <span class="chain-arrow">&rarr;</span>
+        <span class="chain-link">Faith</span>
+      </div>
+      <p class="chain-decode">Eleven wars. One architecture. One original severance. The door was never locked. You were just told it was.</p>
+    </div>
+
+    <div class="scroll-block" data-block="6-3">
+      <h3 class="node-title">What Was Established</h3>
+      <div class="pattern-grid">
+        <div class="pattern-row"><span class="pr-label">That diverse spiritual traditions existed before Nicaea</span><span class="pr-value" style="color:#34d399">Established</span></div>
+        <div class="pattern-row"><span class="pr-label">That Gnostic texts were deliberately buried or burned</span><span class="pr-value" style="color:#34d399">Established</span></div>
+        <div class="pattern-row"><span class="pr-label">That the Dead Sea Scrolls were restricted for 44 years</span><span class="pr-value" style="color:#34d399">Established</span></div>
+        <div class="pattern-row"><span class="pr-label">That the Cathars were exterminated for practicing direct access</span><span class="pr-value" style="color:#34d399">Established</span></div>
+        <div class="pattern-row"><span class="pr-label">That indigenous spiritual traditions were systematically destroyed</span><span class="pr-value" style="color:#34d399">Established</span></div>
+        <div class="pattern-row"><span class="pr-label">That the Church covers up abuse and hides its finances</span><span class="pr-value" style="color:#34d399">Established</span></div>
+        <div class="pattern-row"><span class="pr-label">That every war in this series uses the same architecture</span><span class="pr-value" style="color:#fb923c">Pattern</span></div>
+        <div class="pattern-row"><span class="pr-label">That the Faith Wars template is the original</span><span class="pr-value" style="color:#fb923c">Pattern</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-4">
+      <div class="typed-terminal" id="closing-terminal">
+        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["PROCESSING ELEVEN SCROLLS...","325 AD: Nicaea locks the door ^500→ 1209: Cathars burned for trying to open it ^500→ 1600: Bruno burned for describing what&apos;s on the other side ^500→ 1945: Nag Hammadi found — the door was documented all along ^500→ 2024: 28% have walked away from the building","THE DOOR WAS NEVER LOCKED. ^1000 YOU WERE JUST TOLD IT WAS."]'></span>
+      </div>
+    </div>
+
+    <div class="scroll-block" data-block="6-5">
+      <p>This scroll didn&rsquo;t preach. It didn&rsquo;t tell you what to believe. It laid a timeline &mdash; from Nicaea to Nag Hammadi, from the Cathars to the megachurch, from the Inquisition to the Index to the Vatican Archive &mdash; and let the pattern speak.</p>
+      <p>The pattern says: every institution that promises to connect you to the divine eventually becomes more interested in protecting itself than in keeping the connection open. And every system documented in the previous ten scrolls follows the same blueprint &mdash; centralize, authorize, destroy, classify, replace &mdash; that was first perfected here. In the oldest war. Against the oldest door.</p>
+      <p>Twenty-eight percent of Americans have already walked away from the building. They didn&rsquo;t stop seeking. They stopped paying the toll. And the door they&rsquo;re looking for &mdash; the one between themselves and direct experience &mdash; was never locked.</p>
+      <p>You were just told it was.</p>
+    </div>
+
+    <div class="scroll-block" data-block="6-6">
+      <div class="pull-quote">
+        <p class="pq-text">The door was never locked. You were just told it was.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- CLOSING                                                  -->
+  <!-- ═════════════════════════════════════════════════════════ -->
+
+  <section class="closing" id="closing">
+    <div class="closing-content">
+      <div class="closing-statement">Every claim in this scroll is sourced from primary documents: council records, papal bulls, inquisition trial proceedings, government reports, archaeological evidence, court filings, and the institutions&rsquo; own publications. The Council of Nicaea produced 20 surviving canons. The Nag Hammadi codices are in the Coptic Museum in Cairo. The Dead Sea Scrolls are fully published through Oxford University Press. The Doctrine of Discovery is on the Vatican&rsquo;s own website. The Pennsylvania Grand Jury Report is public record. This is not speculation. This is the documented architecture of the oldest war &mdash; and the template for every war that followed.</div>
+      <div class="closing-sub">This investigation draws on Elaine Pagels&rsquo; <em>The Gnostic Gospels</em> (1979), James M. Robinson&rsquo;s <em>The Nag Hammadi Library in English</em> (1978/1990), Bart Ehrman&rsquo;s <em>Lost Christianities</em> (2003), Mark Gregory Pegg&rsquo;s <em>A Most Holy War</em> (2008), Ingrid Rowland&rsquo;s <em>Giordano Bruno: Philosopher/Heretic</em> (2008), Henry Kamen&rsquo;s <em>The Spanish Inquisition</em> (1998), the Truth and Reconciliation Commission of Canada Final Report (2015), the Pennsylvania Grand Jury Report (2018), and the U.S. Department of the Interior Federal Indian Boarding School Initiative (2022). Primary sources are cited for every evidence card.</div>
+
+      <div class="closing-legend">
+        <div class="closing-legend-item"><span class="el-dot" style="background:#34d399"></span> Documented &mdash; council records, papal bulls, archaeological finds, government reports, court filings, institutional publications</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fbbf24"></span> Credible &mdash; peer-reviewed scholarship, credentialed analysis, reliable reporting</div>
+        <div class="closing-legend-item"><span class="el-dot" style="background:#fb923c"></span> Inference &mdash; pattern analysis connecting documented evidence across scrolls</div>
+      </div>
+
+      <div class="closing-cta">
+        <p>Eleven scrolls. One architecture. Every war documented in this series used the same five moves: centralize, authorize, destroy, classify, replace. The Faith Wars template is the original. The other ten are franchises.</p>
+        <p>The door was never locked. You were just told it was.</p>
+      </div>
+
+      <div class="closing-links">
+        <a href="/the-web/" class="closing-link">&larr; Scroll 010: The Web &mdash; the org chart behind every door</a>
+        <a href="/the-pipeline/" class="closing-link">&larr; Scroll 009: The Pipeline &mdash; the managed replacement for everything they suppressed</a>
+        <a href="/sky-wars/" class="closing-link">&larr; Scroll 008: Sky Wars &mdash; the war for your sky</a>
+        <a href="/body-wars/" class="closing-link">&larr; Scroll 007: Body Wars &mdash; the war for your body</a>
+        <a href="/media-wars/" class="closing-link">&larr; Scroll 006: Media Wars &mdash; the war that hides all the others</a>
+        <a href="/oil-wars/" class="closing-link">&larr; Scroll 005: Oil Wars &mdash; one molecule controls everything</a>
+        <a href="/mind-wars/" class="closing-link">&larr; Scroll 004: Mind Wars &mdash; the war on consciousness</a>
+        <a href="/space-wars/" class="closing-link">&larr; Scroll 003: Space Wars &mdash; two histories of space</a>
+        <a href="/money-wars/" class="closing-link">&larr; Scroll 002: Money Wars &mdash; every country that left the dollar</a>
+        <a href="/ai-wars/" class="closing-link">&larr; Scroll 001: AI Wars &mdash; the 44-year surveillance pipeline</a>
+        <a href="https://qav2.github.io/intel-console/" class="closing-link" target="_blank" rel="noopener">Explore the Intel Console &mdash; 825 entities, 1,411 relationships &rarr;</a>
+        <a href="/" class="closing-link-home">&larr; Disclosure Scrolls &mdash; full archive</a>
+      </div>
+
+      <div class="closing-support">
+        <div class="support-label">Independent research. No sponsors. No algorithm.</div>
+        <a href="https://buymeacoffee.com/joeyv23" class="support-link" target="_blank" rel="noopener">Support this work</a>
+      </div>
+
+      <div class="closing-footer">
+        <p>Disclosure Scrolls &mdash; documented investigations you can scroll through.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- === Scripts === -->
+  <script src="../ai-wars/js/engine.js" defer></script>
+  <script src="../ai-wars/js/gsap-effects.js" defer></script>
+
+</body>
+</html>
