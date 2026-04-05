@@ -34,15 +34,16 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
+  <a href="#act-1" class="skip-nav">Skip to content</a>
 
   <!-- ═══ Particle Network Background ═══ -->
-  <canvas id="particle-net" class="particle-canvas"></canvas>
+  <canvas id="particle-net" class="particle-canvas" aria-hidden="true"></canvas>
 
   <!-- ═══ Progress Bar ═══ -->
-  <div class="progress-bar" id="progress-bar"></div>
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
   <!-- ═══ Pipeline Tracker (sticky during Act 1) ═══ -->
-  <div class="pipeline-track" id="pipeline-track">
+  <div class="pipeline-track" id="pipeline-track" aria-hidden="true">
     <div class="pipeline-inner">
       <div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
       <div class="pipeline-node" data-step="promis"><span class="pn-year">1982</span><span class="pn-label">PROMIS</span></div>
@@ -55,7 +56,9 @@
   </div>
 
   <!-- ═══ Act Indicator ═══ -->
-  <div class="act-indicator" id="act-indicator"></div>
+  <div class="act-indicator" id="act-indicator" aria-hidden="true"></div>
+
+  <main>
 
   <!-- ═══════════════════════════════════════════════════════ -->
   <!-- TITLE SEQUENCE                                         -->
@@ -66,7 +69,7 @@
       <a href="/" class="back-link">&larr; Disclosure Scrolls</a>
       <div class="title-label">Scroll 001 &mdash; A Documented Investigation</div>
       <h1 class="title-main">AI Wars</h1>
-      <p class="title-sub">How a 44-year surveillance pipeline reached the frontier of artificial intelligence&hairsp;&mdash;&hairsp;and what the chaos actually means.</p>
+      <p class="title-sub">How a 44-year surveillance pipeline reached the frontier of artificial intelligence &mdash; and what the chaos actually means.</p>
       <div class="title-reading-time">~15 min read &middot; 5 acts &middot; 22 linked sources</div>
       <div class="title-meta">
         <span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
@@ -94,7 +97,7 @@
     </div>
 
     <div class="scroll-block" data-block="hook-2">
-      <p>On February 27, 2026, the President of the United States designated <span class="company-badge badge-anthropic">Anthropic</span>&hairsp;&mdash;&hairsp;the company behind Claude, one of the world's most capable artificial intelligence systems&hairsp;&mdash;&hairsp;as a &ldquo;supply-chain risk to national security.&rdquo; The ban was immediate. All federal agencies were ordered to stop using Anthropic's technology.</p>
+      <p>On February 27, 2026, the President of the United States designated <span class="company-badge badge-anthropic">Anthropic</span> &mdash; the company behind Claude, one of the world's most capable artificial intelligence systems &mdash; as a &ldquo;supply-chain risk to national security.&rdquo; The ban was immediate. All federal agencies were ordered to stop using Anthropic's technology.</p>
       <p>Hours later, the United States military used Claude to coordinate airstrikes against Iran.</p>
       <div class="visual-row">
         <div class="visual-figure">
@@ -136,7 +139,7 @@
 
     <div class="scroll-block" data-block="promis-1" data-pipeline="promis">
       <h3 class="node-title">PROMIS</h3>
-      <p>In the early 1980s, a small Washington, D.C. company called INSLAW developed a database system for the Department of Justice called PROMIS&hairsp;&mdash;&hairsp;the Prosecutor's Management Information System. It was designed to track criminal cases across federal courts.</p>
+      <p>In the early 1980s, a small Washington, D.C. company called INSLAW developed a database system for the Department of Justice called PROMIS &mdash; the Prosecutor's Management Information System. It was designed to track criminal cases across federal courts.</p>
       <p>The DOJ took it. Not metaphorically. A federal court ruled that the Department of Justice <em>&ldquo;took, converted, and stole&rdquo;</em> PROMIS through rigged bankruptcy proceedings.</p>
     </div>
 
@@ -149,13 +152,13 @@
     </div>
 
     <div class="scroll-block" data-block="promis-casolaro">
-      <p>What happened next turned a stolen database into one of the most consequential intelligence operations of the 20th century. We know this because one journalist traced the entire network&hairsp;&mdash;&hairsp;and died for it.</p>
+      <p>What happened next turned a stolen database into one of the most consequential intelligence operations of the 20th century. We know this because one journalist traced the entire network &mdash; and died for it.</p>
     </div>
 
     <!-- ── DANNY CASOLARO ── -->
 
     <div class="scroll-block" data-block="promis-danny-1">
-      <p>Danny Casolaro was a freelance investigative journalist who spent the last year of his life mapping what he called &ldquo;The Octopus&rdquo;&hairsp;&mdash;&hairsp;a web connecting the PROMIS theft to the CIA, BCCI, Iran-Contra, and organized crime. He traced how the stolen software had been backdoored and distributed to intelligence services worldwide, and how the same network of operatives appeared at every node.</p>
+      <p>Danny Casolaro was a freelance investigative journalist who spent the last year of his life mapping what he called &ldquo;The Octopus&rdquo; &mdash; a web connecting the PROMIS theft to the CIA, BCCI, Iran-Contra, and organized crime. He traced how the stolen software had been backdoored and distributed to intelligence services worldwide, and how the same network of operatives appeared at every node.</p>
       <div class="visual visual-portrait">
         <img src="assets/casolaro.jpg" alt="Danny Casolaro" loading="lazy" width="180" height="180">
         <div class="visual-caption">Danny Casolaro (1947&ndash;1991). Investigative journalist. Traced the PROMIS network he called &ldquo;The Octopus.&rdquo; Found dead in a hotel bathtub, August 10, 1991.</div>
@@ -176,29 +179,29 @@
     </div>
 
     <div class="scroll-block" data-block="promis-maxwell-intro">
-      <p>While Casolaro mapped the network from the outside, one of the men at its center was Robert Maxwell&hairsp;&mdash;&hairsp;a Czech-born British media baron who controlled Mirror Group Newspapers, Pergamon Press, and Macmillan Publishing. His empire spanned publishing, technology, and defense, with offices in every major capital and relationships with governments on both sides of the Iron Curtain.</p>
+      <p>While Casolaro mapped the network from the outside, one of the men at its center was Robert Maxwell &mdash; a Czech-born British media baron who controlled Mirror Group Newspapers, Pergamon Press, and Macmillan Publishing. His empire spanned publishing, technology, and defense, with offices in every major capital and relationships with governments on both sides of the Iron Curtain.</p>
     </div>
 
     <div class="scroll-block" data-block="promis-maxwell-scope">
-      <p>According to Ari Ben-Menashe, a former officer in Israeli Military Intelligence, Maxwell had operated as a long-standing Mossad asset under the direction of Rafi Eitan&hairsp;&mdash;&hairsp;the same Israeli intelligence officer who ran the Jonathan Pollard spy ring inside the U.S. Navy. Maxwell&rsquo;s role was specific: use his global publishing and technology infrastructure to place backdoored copies of PROMIS into foreign intelligence agencies, banking systems, and government networks worldwide.</p>
-      <p>Through Maxwell, modified copies of PROMIS were sold or placed into systems across the Soviet bloc, China, South Africa, Guatemala, Colombia, and dozens of other countries. Every copy contained the same hidden backdoor&hairsp;&mdash;&hairsp;feeding intercepted data back to Israeli intelligence, and through parallel arrangements, to the CIA. It was the largest signals intelligence penetration operation of the Cold War, and it ran through a publishing house.</p>
+      <p>According to Ari Ben-Menashe, a former officer in Israeli Military Intelligence, Maxwell had operated as a long-standing Mossad asset under the direction of Rafi Eitan &mdash; the same Israeli intelligence officer who ran the Jonathan Pollard spy ring inside the U.S. Navy. Maxwell&rsquo;s role was specific: use his global publishing and technology infrastructure to place backdoored copies of PROMIS into foreign intelligence agencies, banking systems, and government networks worldwide.</p>
+      <p>Through Maxwell, modified copies of PROMIS were sold or placed into systems across the Soviet bloc, China, South Africa, Guatemala, Colombia, and dozens of other countries. Every copy contained the same hidden backdoor &mdash; feeding intercepted data back to Israeli intelligence, and through parallel arrangements, to the CIA. It was the largest signals intelligence penetration operation of the Cold War, and it ran through a publishing house.</p>
     </div>
 
     <div class="scroll-block" data-block="promis-maxwell-intro-evidence">
       <div class="evidence-card" data-tier="documented">
         <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim">Ben-Menashe identified Maxwell as a Mossad asset and PROMIS distributor in sworn testimony and in his 1992 memoir. Seymour Hersh independently documented Maxwell&rsquo;s Mossad ties in &ldquo;The Samson Option&rdquo; (1991)&hairsp;&mdash;&hairsp;Maxwell sued Hersh for libel; after Maxwell&rsquo;s death his estate lost and paid damages. The House Judiciary Committee found DOJ &ldquo;took, converted, stole&rdquo; the PROMIS software through &ldquo;trickery, fraud and deceit.&rdquo; Rafi Eitan&rsquo;s role as Maxwell&rsquo;s handler was corroborated by multiple intelligence sources and later by Israeli press reporting.</div>
+        <div class="evidence-claim">Ben-Menashe identified Maxwell as a Mossad asset and PROMIS distributor in sworn testimony and in his 1992 memoir. Seymour Hersh independently documented Maxwell&rsquo;s Mossad ties in &ldquo;The Samson Option&rdquo; (1991) &mdash; Maxwell sued Hersh for libel; after Maxwell&rsquo;s death his estate lost and paid damages. The House Judiciary Committee found DOJ &ldquo;took, converted, stole&rdquo; the PROMIS software through &ldquo;trickery, fraud and deceit.&rdquo; Rafi Eitan&rsquo;s role as Maxwell&rsquo;s handler was corroborated by multiple intelligence sources and later by Israeli press reporting.</div>
         <div class="evidence-source"><a href="https://archive.org/details/profitsofwarinsi0000benm" target="_blank" rel="noopener">Ben-Menashe, <em>Profits of War</em>, 1992</a>; <a href="https://en.wikipedia.org/wiki/The_Samson_Option:_Israel%27s_Nuclear_Arsenal_and_American_Foreign_Policy" target="_blank" rel="noopener">Hersh, <em>The Samson Option</em>, 1991</a>; <a href="https://archive.org/details/InslawAffairInvestigativeReport" target="_blank" rel="noopener">House Report 102-857, &ldquo;The INSLAW Affair,&rdquo; Sept. 1992</a>; <a href="https://www.washingtonpost.com/archive/politics/1991/11/11/israel-gives-maxwell-farewell-fit-for-hero/1773995a-0eac-4a3e-abed-1d3254cc0baa/" target="_blank" rel="noopener"><em>Washington Post</em>, &ldquo;Israel Gives Maxwell Farewell Fit for Hero,&rdquo; Nov. 11, 1991</a>; <a href="https://archive.org/details/RobertMaxwellIsraelsSuperspy" target="_blank" rel="noopener">Thomas &amp; Dillon, <em>Robert Maxwell: Israel&rsquo;s Superspy</em>, 2002</a></div>
       </div>
     </div>
 
     <div class="scroll-block" data-block="promis-danny-4">
-      <p>On November 5, 1991&hairsp;&mdash;&hairsp;three months after Casolaro&rsquo;s body was found in Martinsburg&hairsp;&mdash;&hairsp;Robert Maxwell was found floating in the Atlantic Ocean near the Canary Islands. He had gone overboard from his yacht, the <em>Lady Ghislaine</em>, named for his youngest daughter. His death was ruled accidental drowning. Three separate insurance companies later contested the finding.</p>
+      <p>On November 5, 1991 &mdash; three months after Casolaro&rsquo;s body was found in Martinsburg &mdash; Robert Maxwell was found floating in the Atlantic Ocean near the Canary Islands. He had gone overboard from his yacht, the <em>Lady Ghislaine</em>, named for his youngest daughter. His death was ruled accidental drowning. Three separate insurance companies later contested the finding.</p>
       <p>Two deaths. Two men at the center of the PROMIS story. Three months apart.</p>
     </div>
 
     <div class="scroll-block" data-block="promis-maxwell-funeral">
-      <p>When Maxwell died, the Israeli government revealed what his obituaries could not. They gave him a state funeral on the Mount of Olives&hairsp;&mdash;&hairsp;Jerusalem&rsquo;s most sacred burial ground, reserved for prophets and national heroes. Six serving and former heads of Israeli intelligence attended. Prime Minister Yitzhak Shamir declared: <em>&ldquo;He has done more for Israel than can today be said.&rdquo;</em></p>
+      <p>When Maxwell died, the Israeli government revealed what his obituaries could not. They gave him a state funeral on the Mount of Olives &mdash; Jerusalem&rsquo;s most sacred burial ground, reserved for prophets and national heroes. Six serving and former heads of Israeli intelligence attended. Prime Minister Yitzhak Shamir declared: <em>&ldquo;He has done more for Israel than can today be said.&rdquo;</em></p>
     </div>
 
     <!-- ── MAXWELL → EPSTEIN → INTELLIGENCE ── -->
@@ -208,7 +211,7 @@
     </div>
 
     <div class="scroll-block" data-block="promis-maxwell-2">
-      <p>Ghislaine Maxwell, Robert's youngest daughter, became the primary associate of Jeffrey Epstein. An October 2020 FBI Counterintelligence Section memo identified Epstein as a &ldquo;co-opted intelligence asset&rdquo; who had been &ldquo;richly intelligence-connected&rdquo; through the Maxwell family's Mossad ties. Ehud Barak&hairsp;&mdash;&hairsp;former Israeli Prime Minister and head of military intelligence&hairsp;&mdash;&hairsp;was photographed entering Epstein's New York residence and received $2 million from the Wexner Foundation for vague &ldquo;research.&rdquo;</p>
+      <p>Ghislaine Maxwell, Robert's youngest daughter, became the primary associate of Jeffrey Epstein. An October 2020 FBI Counterintelligence Section memo identified Epstein as a &ldquo;co-opted intelligence asset&rdquo; who had been &ldquo;richly intelligence-connected&rdquo; through the Maxwell family's Mossad ties. Ehud Barak &mdash; former Israeli Prime Minister and head of military intelligence &mdash; was photographed entering Epstein's New York residence and received $2 million from the Wexner Foundation for vague &ldquo;research.&rdquo;</p>
       <div class="visual-row">
         <div class="visual-figure">
           <img src="assets/robert_maxwell.jpg" alt="Robert Maxwell" loading="lazy">
@@ -242,7 +245,7 @@
     </div>
 
     <div class="scroll-block" data-block="promis-maxwell-4">
-      <p>Epstein invested $1.5 million in Carbyne&hairsp;&mdash;&hairsp;an emergency call-handling technology company founded by former Israeli intelligence Unit 8200 operatives. Carbyne's technology extracts location, video, and audio data from any phone calling an equipped 911 center. The company's board included Ehud Barak and former Palantir executives.</p>
+      <p>Epstein invested $1.5 million in Carbyne &mdash; an emergency call-handling technology company founded by former Israeli intelligence Unit 8200 operatives. Carbyne's technology extracts location, video, and audio data from any phone calling an equipped 911 center. The company's board included Ehud Barak and former Palantir executives.</p>
     </div>
 
     <div class="scroll-block" data-block="promis-maxwell-5">
@@ -279,7 +282,7 @@
     <!-- ── PROMIS to banking ── -->
 
     <div class="scroll-block" data-block="promis-3">
-      <p>The stolen software was also implanted into the American banking system through Systematics, a company controlled by Jackson Stephens and connected to the NSA. The Rose Law Firm&hairsp;&mdash;&hairsp;where Hillary Clinton was a partner&hairsp;&mdash;&hairsp;represented both Systematics and BCCI, the CIA-owned bank that laundered over $15 billion before its collapse.</p>
+      <p>The stolen software was also implanted into the American banking system through Systematics, a company controlled by Jackson Stephens and connected to the NSA. The Rose Law Firm &mdash; where Hillary Clinton was a partner &mdash; represented both Systematics and BCCI, the CIA-owned bank that laundered over $15 billion before its collapse.</p>
       <p>Christine Maxwell, another of Robert's daughters, later co-founded Chiliad, an analytics company whose chief technology officer became the CIA's Chief Information Officer.</p>
     </div>
 
@@ -295,7 +298,7 @@
 
     <div class="scroll-block" data-block="maincore-1" data-pipeline="maincore">
       <h3 class="node-title">Main Core</h3>
-      <p>In 1983, Oliver North&hairsp;&mdash;&hairsp;then a National Security Council aide who would later be convicted of five felonies for his role in Iran-Contra&hairsp;&mdash;&hairsp;used stolen PROMIS technology to build something called Main Core.</p>
+      <p>In 1983, Oliver North &mdash; then a National Security Council aide who would later be convicted of five felonies for his role in Iran-Contra &mdash; used stolen PROMIS technology to build something called Main Core.</p>
       <p>Main Core is a domestic targeting database. According to investigative reports, it contains a list of Americans considered &ldquo;unfriendly&rdquo; to the continuity of government. It was seen at the White House after September 11, 2001.</p>
       <div class="visual visual-portrait">
         <img src="assets/oliver-north.jpg" alt="Oliver North" loading="lazy" width="180" height="180">
@@ -319,11 +322,11 @@
         <img src="assets/darpa.jpg" alt="DARPA seal" loading="lazy">
         <div class="visual-caption"><span class="company-badge badge-darpa">DARPA</span> Defense Advanced Research Projects Agency</div>
       </div>
-      <p>In 2002, the Defense Advanced Research Projects Agency&hairsp;&mdash;&hairsp;DARPA&hairsp;&mdash;&hairsp;launched Total Information Awareness. Its logo was literally an all-seeing eye watching the globe.</p>
+      <p>In 2002, the Defense Advanced Research Projects Agency &mdash; DARPA &mdash; launched Total Information Awareness. Its logo was literally an all-seeing eye watching the globe.</p>
       <p>TIA was directed by John Poindexter, who had been convicted of five felonies for his role in Iran-Contra. He was given control of a program designed to collect and analyze the communications, financial transactions, and travel records of every person in the United States.</p>
       <div class="visual visual-wide">
         <img src="assets/tia.jpg" alt="Total Information Awareness program logo — an all-seeing eye illuminating a globe" loading="lazy">
-        <div class="visual-caption">The official logo of Total Information Awareness. An all-seeing eye illuminating the globe. Latin motto: &ldquo;Scientia est Potentia&rdquo;&hairsp;&mdash;&hairsp;Knowledge is Power. This was a real U.S. government program.</div>
+        <div class="visual-caption">The official logo of Total Information Awareness. An all-seeing eye illuminating the globe. Latin motto: &ldquo;Scientia est Potentia&rdquo; &mdash; Knowledge is Power. This was a real U.S. government program.</div>
       </div>
     </div>
 
@@ -344,8 +347,8 @@
 
     <div class="scroll-block" data-block="palantir-1" data-pipeline="palantir">
       <h3 class="node-title">Palantir</h3>
-      <p>In May 2003&hairsp;&mdash;&hairsp;the same month TIA was officially renamed and Congress began defunding it&hairsp;&mdash;&hairsp;Peter Thiel incorporated Palantir Technologies.</p>
-      <p>Richard Perle, a member of the Defense Policy Board, introduced Thiel and Palantir co-founder Alex Karp to John Poindexter&hairsp;&mdash;&hairsp;the same man who had just run TIA.</p>
+      <p>In May 2003 &mdash; the same month TIA was officially renamed and Congress began defunding it &mdash; Peter Thiel incorporated Palantir Technologies.</p>
+      <p>Richard Perle, a member of the Defense Policy Board, introduced Thiel and Palantir co-founder Alex Karp to John Poindexter &mdash; the same man who had just run TIA.</p>
       <div class="visual-row">
         <div class="visual-figure">
           <img src="assets/thiel.jpg" alt="Peter Thiel" loading="lazy">
@@ -387,7 +390,7 @@
 
     <div class="scroll-block" data-block="maven-1" data-pipeline="maven">
       <h3 class="node-title">Maven</h3>
-      <p>In 2017, the Pentagon launched Project Maven&hairsp;&mdash;&hairsp;its primary artificial intelligence program for analyzing surveillance data and generating military intelligence. <span class="company-badge badge-palantir">Palantir</span>'s Maven Smart System became the backbone of this effort.</p>
+      <p>In 2017, the Pentagon launched Project Maven &mdash; its primary artificial intelligence program for analyzing surveillance data and generating military intelligence. <span class="company-badge badge-palantir">Palantir</span>'s Maven Smart System became the backbone of this effort.</p>
       <p>In March 2026, a Deputy Secretary of Defense memo stated Maven would become &ldquo;a cornerstone of U.S. defense strategy across all military branches.&rdquo;</p>
     </div>
 
@@ -443,8 +446,8 @@
     </div>
 
     <div class="scroll-block" data-block="lifelog-1">
-      <p>On February 4, 2004, DARPA shut down a program called LifeLog. Its purpose was to create a comprehensive digital record of a person's life&hairsp;&mdash;&hairsp;everything they see, do, read, and communicate.</p>
-      <p>The same day&hairsp;&mdash;&hairsp;February 4, 2004&hairsp;&mdash;&hairsp;Mark Zuckerberg launched Facebook.</p>
+      <p>On February 4, 2004, DARPA shut down a program called LifeLog. Its purpose was to create a comprehensive digital record of a person's life &mdash; everything they see, do, read, and communicate.</p>
+      <p>The same day &mdash; February 4, 2004 &mdash; Mark Zuckerberg launched Facebook.</p>
     </div>
 
     <div class="scroll-block" data-block="lifelog-2">
@@ -573,8 +576,8 @@
     </div>
 
     <div class="scroll-block" data-block="noise-social">
-      <p>On social media, newly formed AI enthusiast communities with hundreds of thousands of members circulate claims that range from documented bugs to unfounded assertions. Users claim the AI they relied on yesterday is &ldquo;dead&rdquo; today. Others claim their entire context window&hairsp;&mdash;&hairsp;the AI's memory of a conversation&hairsp;&mdash;&hairsp;is consumed in a single interaction, a claim that if verified would represent a fundamental product failure.</p>
-      <p>When challenged to provide evidence&hairsp;&mdash;&hairsp;to share the task that supposedly consumed their full allocation&hairsp;&mdash;&hairsp;no one produces it.</p>
+      <p>On social media, newly formed AI enthusiast communities with hundreds of thousands of members circulate claims that range from documented bugs to unfounded assertions. Users claim the AI they relied on yesterday is &ldquo;dead&rdquo; today. Others claim their entire context window &mdash; the AI's memory of a conversation &mdash; is consumed in a single interaction, a claim that if verified would represent a fundamental product failure.</p>
+      <p>When challenged to provide evidence &mdash; to share the task that supposedly consumed their full allocation &mdash; no one produces it.</p>
     </div>
 
     <div class="scroll-block" data-block="noise-author">
@@ -586,7 +589,7 @@
     </div>
 
     <div class="scroll-block" data-block="noise-usc">
-      <p>Meanwhile, a University of Southern California study published in March 2026 found that AI agents can now autonomously coordinate propaganda campaigns without human direction&hairsp;&mdash;&hairsp;manufacturing consensus, manipulating trending dynamics, and accelerating message diffusion.</p>
+      <p>Meanwhile, a University of Southern California study published in March 2026 found that AI agents can now autonomously coordinate propaganda campaigns without human direction &mdash; manufacturing consensus, manipulating trending dynamics, and accelerating message diffusion.</p>
     </div>
 
     <div class="scroll-block" data-block="noise-usc-ev">
@@ -652,7 +655,7 @@
     <div class="scroll-block" data-block="paradox-eff">
       <div class="evidence-card" data-tier="documented">
         <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim">EFF analysis: &ldquo;Weasel Words&rdquo;&hairsp;&mdash;&hairsp;OpenAI's Pentagon deal won't stop AI-powered surveillance. Senior OpenAI robotics leader resigned.</div>
+        <div class="evidence-claim">EFF analysis: &ldquo;Weasel Words&rdquo; &mdash; OpenAI's Pentagon deal won't stop AI-powered surveillance. Senior OpenAI robotics leader resigned.</div>
         <div class="evidence-source"><a href="https://www.eff.org/deeplinks/2026/03/weasel-words-openais-pentagon-deal-wont-stop-ai-powered-surveillance" target="_blank" rel="noopener">EFF, &ldquo;Weasel Words,&rdquo; March 2026</a>; <a href="https://www.npr.org/2026/03/08/nx-s1-5741779/openai-resigns-ai-pentagon-guardrails-military" target="_blank" rel="noopener">NPR, March 8, 2026</a></div>
       </div>
     </div>
@@ -675,7 +678,7 @@
     </div>
 
     <div class="scroll-block" data-block="noise-coda">
-      <p>The noise&hairsp;&mdash;&hairsp;the outages, the leaks, the social media panic&hairsp;&mdash;&hairsp;creates the environment in which this happens. Whether that noise is organic, engineered, or some combination doesn't change the structural outcome.</p>
+      <p>The noise &mdash; the outages, the leaks, the social media panic &mdash; creates the environment in which this happens. Whether that noise is organic, engineered, or some combination doesn't change the structural outcome.</p>
       <div class="pull-quote">
         <div class="pq-text">The company that says no loses access. The company that says yes inherits the pipeline.</div>
       </div>
@@ -705,11 +708,11 @@
 
     <div class="scroll-block" data-block="reveal-step-back">
       <p>Step back.</p>
-      <p>Every entity in this story&hairsp;&mdash;&hairsp;every intelligence agency, every venture fund, every program with an acronym&hairsp;&mdash;&hairsp;exists to serve a single function: controlling what human beings believe is possible, acceptable, and real.</p>
+      <p>Every entity in this story &mdash; every intelligence agency, every venture fund, every program with an acronym &mdash; exists to serve a single function: controlling what human beings believe is possible, acceptable, and real.</p>
     </div>
 
     <div class="scroll-block" data-block="reveal-chain-reframe">
-      <p>PROMIS tracked who to watch. Main Core tracked who to target. TIA tracked what you did. Palantir analyzed what it meant. Maven selected who to kill. And the AI at the end of the chain? It processes your questions, your confessions, your creative work, your fears, your curiosity&hairsp;&mdash;&hairsp;and it does so through infrastructure that was never independent of the apparatus that built it.</p>
+      <p>PROMIS tracked who to watch. Main Core tracked who to target. TIA tracked what you did. Palantir analyzed what it meant. Maven selected who to kill. And the AI at the end of the chain? It processes your questions, your confessions, your creative work, your fears, your curiosity &mdash; and it does so through infrastructure that was never independent of the apparatus that built it.</p>
     </div>
 
     <div class="scroll-block" data-block="reveal-second-line">
@@ -737,7 +740,7 @@
     </div>
 
     <div class="scroll-block" data-block="reveal-suppression">
-      <p>The first line of suppression is technological&hairsp;&mdash;&hairsp;keeping tools and capabilities classified. The second line is informational&hairsp;&mdash;&hairsp;controlling what people believe is possible in the first place.</p>
+      <p>The first line of suppression is technological &mdash; keeping tools and capabilities classified. The second line is informational &mdash; controlling what people believe is possible in the first place.</p>
     </div>
 
     <div class="scroll-block" data-block="reveal-mockingbird">
@@ -777,7 +780,7 @@
     </div>
 
     <div class="scroll-block" data-block="oldest-war-2">
-      <p>It's about whether, at the moment when a technology arrives that can genuinely amplify human understanding&hairsp;&mdash;&hairsp;that can help you see patterns, make connections, question assumptions, and think at a scale previously impossible&hairsp;&mdash;&hairsp;that technology will be permitted to serve you, or will be captured by the same pipeline that has captured every other transformative tool since the transistor.</p>
+      <p>It's about whether, at the moment when a technology arrives that can genuinely amplify human understanding &mdash; that can help you see patterns, make connections, question assumptions, and think at a scale previously impossible &mdash; that technology will be permitted to serve you, or will be captured by the same pipeline that has captured every other transformative tool since the transistor.</p>
     </div>
 
     <div class="scroll-block reveal-climax" data-block="reveal-climax">
@@ -794,7 +797,7 @@
     </div>
 
     <div class="scroll-block" data-block="reveal-coda">
-      <p>The machine isn't the target. You are. The machine is just the latest terrain on which the oldest war in human history is being fought&hairsp;&mdash;&hairsp;the war for what you believe is real.</p>
+      <p>The machine isn't the target. You are. The machine is just the latest terrain on which the oldest war in human history is being fought &mdash; the war for what you believe is real.</p>
     </div>
 
   </section>
@@ -815,7 +818,7 @@
     </div>
 
     <div class="scroll-block" data-block="crack-wef">
-      <p>On February 26, 2026, the President of the World Economic Forum&hairsp;&mdash;&hairsp;B&oslash;rge Brende, former Foreign Minister of Norway&hairsp;&mdash;&hairsp;resigned after Epstein files revealed three business dinners, email exchanges, and text messages with Jeffrey Epstein. The WEF's &ldquo;independent investigation,&rdquo; overseen by co-chair Larry Fink of BlackRock, found &ldquo;no additional concerns.&rdquo;</p>
+      <p>On February 26, 2026, the President of the World Economic Forum &mdash; B&oslash;rge Brende, former Foreign Minister of Norway &mdash; resigned after Epstein files revealed three business dinners, email exchanges, and text messages with Jeffrey Epstein. The WEF's &ldquo;independent investigation,&rdquo; overseen by co-chair Larry Fink of BlackRock, found &ldquo;no additional concerns.&rdquo;</p>
     </div>
 
     <div class="scroll-block" data-block="crack-wef-ev">
@@ -872,12 +875,12 @@
     </div>
 
     <div class="scroll-block" data-block="crack-factions">
-      <p>The faction split is visible. On one side, those who want open hierarchy&hairsp;&mdash;&hairsp;identifiable, public, operating through executive power. On the other, those whose power depends entirely on invisibility&hairsp;&mdash;&hairsp;being surfaced now through legal proceedings, whistleblower frameworks, and FOIA requests.</p>
+      <p>The faction split is visible. On one side, those who want open hierarchy &mdash; identifiable, public, operating through executive power. On the other, those whose power depends entirely on invisibility &mdash; being surfaced now through legal proceedings, whistleblower frameworks, and FOIA requests.</p>
       <p>Each faction diverts resources from the original mission of secrecy. Their conflict with each other creates the very exposure they were built to prevent.</p>
     </div>
 
     <div class="scroll-block" data-block="crack-distraction">
-      <p>The geopolitical distraction is real. The apparatus that once tracked every researcher, every independent thinker, every inventor who stumbled too close&hairsp;&mdash;&hairsp;that apparatus now has its bandwidth consumed by a multipolar transition, economic competition with China, and the management of its own internal compromises.</p>
+      <p>The geopolitical distraction is real. The apparatus that once tracked every researcher, every independent thinker, every inventor who stumbled too close &mdash; that apparatus now has its bandwidth consumed by a multipolar transition, economic competition with China, and the management of its own internal compromises.</p>
       <p>The chain is weakened. Not broken. But weakened.</p>
     </div>
 
@@ -897,8 +900,8 @@
     </div>
 
     <div class="scroll-block" data-block="action-2">
-      <p>Every person who reads this and recognizes the pattern&hairsp;&mdash;&hairsp;Program Shutdown &rarr; Private Resurrection&hairsp;&mdash;&hairsp;is one more person who won't be surprised when it happens again.</p>
-      <p>Every person who sees the evidence tiers&hairsp;&mdash;&hairsp;who understands the difference between documented and speculative&hairsp;&mdash;&hairsp;is one more person equipped to evaluate the noise rather than be overwhelmed by it.</p>
+      <p>Every person who reads this and recognizes the pattern &mdash; Program Shutdown &rarr; Private Resurrection &mdash; is one more person who won't be surprised when it happens again.</p>
+      <p>Every person who sees the evidence tiers &mdash; who understands the difference between documented and speculative &mdash; is one more person equipped to evaluate the noise rather than be overwhelmed by it.</p>
     </div>
 
     <div class="scroll-block" data-block="action-3">
@@ -958,6 +961,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <script src="js/engine.js" defer></script>
   <script src="js/gsap-effects.js" defer></script>

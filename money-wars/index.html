@@ -83,15 +83,16 @@
   </style>
 </head>
 <body>
+  <a href="#act-1" class="skip-nav">Skip to content</a>
 
   <!-- ═══ Particle Network Background ═══ -->
-  <canvas id="particle-net" class="particle-canvas"></canvas>
+  <canvas id="particle-net" class="particle-canvas" aria-hidden="true"></canvas>
 
   <!-- ═══ Progress Bar ═══ -->
-  <div class="progress-bar" id="progress-bar"></div>
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
   <!-- ═══ Pipeline Tracker (sticky during Act 1) ═══ -->
-  <div class="pipeline-track" id="pipeline-track">
+  <div class="pipeline-track" id="pipeline-track" aria-hidden="true">
     <div class="pipeline-inner">
       <div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
       <div class="pipeline-node" data-step="jekyll"><span class="pn-year">1910</span><span class="pn-label">Jekyll Island</span></div>
@@ -104,7 +105,9 @@
   </div>
 
   <!-- ═══ Act Indicator ═══ -->
-  <div class="act-indicator" id="act-indicator"></div>
+  <div class="act-indicator" id="act-indicator" aria-hidden="true"></div>
+
+  <main>
 
   <!-- ═══════════════════════════════════════════════════════ -->
   <!-- TITLE SEQUENCE                                         -->
@@ -139,11 +142,11 @@
 
     <div class="scroll-block" data-block="arch-hook">
       <p>Before a single bomb is dropped, the financial system decides who lives and who dies.</p>
-      <p>This is not a metaphor. It is an architecture&hairsp;&mdash;&hairsp;built over a century, refined through two world wars, and enforced today through a mechanism so effective that most people don&rsquo;t know it exists.</p>
+      <p>This is not a metaphor. It is an architecture &mdash; built over a century, refined through two world wars, and enforced today through a mechanism so effective that most people don&rsquo;t know it exists.</p>
     </div>
 
     <div class="scroll-block" data-block="arch-hook-2">
-      <p>To understand why Iran is being bombed right now&hairsp;&mdash;&hairsp;to understand why Iraq was invaded, why Libya was destroyed, why Venezuela is starving, why Cuba has been under siege for sixty years&hairsp;&mdash;&hairsp;you have to understand where the money goes.</p>
+      <p>To understand why Iran is being bombed right now &mdash; to understand why Iraq was invaded, why Libya was destroyed, why Venezuela is starving, why Cuba has been under siege for sixty years &mdash; you have to understand where the money goes.</p>
       <p>Start at the beginning.</p>
     </div>
 
@@ -176,7 +179,7 @@
     </div>
 
     <div class="scroll-block" data-block="jekyll-3">
-      <p>A year before the meeting, the Pujo Committee investigation found that Morgan and Rockefeller-allied interests controlled the boards of <span class="countup" data-target="112" data-suffix=" corporations">112 corporations</span> worth $<span class="countup" data-target="22" data-suffix=".2 billion">22.2 billion</span>&hairsp;&mdash;&hairsp;a staggering concentration of financial power. The Federal Reserve was sold to the public as the solution to this very problem.</p>
+      <p>A year before the meeting, the Pujo Committee investigation found that Morgan and Rockefeller-allied interests controlled the boards of <span class="countup" data-target="112" data-suffix=" corporations">112 corporations</span> worth $<span class="countup" data-target="22" data-suffix=".2 billion">22.2 billion</span> &mdash; a staggering concentration of financial power. The Federal Reserve was sold to the public as the solution to this very problem.</p>
       <p>The men who created the problem wrote the solution. And the solution gave them permanent control of the money supply.</p>
     </div>
 
@@ -184,7 +187,7 @@
 
     <div class="scroll-block" data-block="fed-1" data-pipeline="fed">
       <h3 class="node-title">The Federal Reserve</h3>
-      <p>The Federal Reserve Act passed on December 23, 1913&hairsp;&mdash;&hairsp;two days before Christmas, with many members of Congress already home for the holiday. It created a system of twelve regional banks with <em>private ownership</em> that would control the nation&rsquo;s monetary policy, interest rates, and money supply.</p>
+      <p>The Federal Reserve Act passed on December 23, 1913 &mdash; two days before Christmas, with many members of Congress already home for the holiday. It created a system of twelve regional banks with <em>private ownership</em> that would control the nation&rsquo;s monetary policy, interest rates, and money supply.</p>
       <p>The Fed is not federal. It has no reserves. It is a private banking cartel with a government charter.</p>
     </div>
 
@@ -236,7 +239,7 @@
     </div>
 
     <div class="scroll-block" data-block="bretton-2">
-      <p>The IMF was designed as the enforcer. When a country runs into financial trouble, the IMF offers loans&hairsp;&mdash;&hairsp;with conditions. These &ldquo;structural adjustment programs&rdquo; typically require: privatization of state assets, austerity measures, trade liberalization, and deregulation. Critics call it economic colonialism with a briefcase instead of a gun.</p>
+      <p>The IMF was designed as the enforcer. When a country runs into financial trouble, the IMF offers loans &mdash; with conditions. These &ldquo;structural adjustment programs&rdquo; typically require: privatization of state assets, austerity measures, trade liberalization, and deregulation. Critics call it economic colonialism with a briefcase instead of a gun.</p>
     </div>
 
     <div class="scroll-block" data-block="bretton-3">
@@ -262,7 +265,7 @@
 
     <div class="scroll-block" data-block="petro-1" data-pipeline="petro">
       <h3 class="node-title">The Petrodollar</h3>
-      <p>In 1971, President Nixon closed the gold window&hairsp;&mdash;&hairsp;ending the dollar&rsquo;s convertibility to gold. The Bretton Woods system collapsed overnight. The dollar was now backed by nothing.</p>
+      <p>In 1971, President Nixon closed the gold window &mdash; ending the dollar&rsquo;s convertibility to gold. The Bretton Woods system collapsed overnight. The dollar was now backed by nothing.</p>
       <p>It needed a new anchor. It found one in oil.</p>
     </div>
 
@@ -272,7 +275,7 @@
         <img src="assets/henry_kissinger.jpg" alt="Henry Kissinger" loading="lazy" width="180" height="180">
         <div class="visual-caption">Henry Kissinger. Secretary of State. Architect of the petrodollar system.</div>
       </div>
-      <p>Every country that wanted to buy oil now needed dollars first. Global demand for dollars was guaranteed&hairsp;&mdash;&hairsp;not by gold, not by economic output, but by the world&rsquo;s dependence on energy.</p>
+      <p>Every country that wanted to buy oil now needed dollars first. Global demand for dollars was guaranteed &mdash; not by gold, not by economic output, but by the world&rsquo;s dependence on energy.</p>
     </div>
 
     <div class="scroll-block" data-block="petro-3">
@@ -293,8 +296,8 @@
 
     <div class="scroll-block" data-block="swift-1" data-pipeline="swift">
       <h3 class="node-title">SWIFT</h3>
-      <p>In 1977, the <span class="company-badge badge-swift">SWIFT</span> network went live&hairsp;&mdash;&hairsp;the Society for Worldwide Interbank Financial Telecommunication. A Belgian cooperative that provides the messaging layer for virtually all cross-border banking.</p>
-      <p>Over <span class="countup" data-target="11000" data-suffix=" financial institutions">11,000 financial institutions</span> across <span class="countup" data-target="200" data-suffix="+ countries">200+ countries</span>. Approximately <span class="countup" data-target="45" data-suffix=" million messages per day">45 million messages per day</span>. SWIFT does not move money&hairsp;&mdash;&hairsp;it sends the instructions that tell banks to move money. But because almost every international transaction runs through it, being cut off from SWIFT is functionally identical to being cut off from the global economy.</p>
+      <p>In 1977, the <span class="company-badge badge-swift">SWIFT</span> network went live &mdash; the Society for Worldwide Interbank Financial Telecommunication. A Belgian cooperative that provides the messaging layer for virtually all cross-border banking.</p>
+      <p>Over <span class="countup" data-target="11000" data-suffix=" financial institutions">11,000 financial institutions</span> across <span class="countup" data-target="200" data-suffix="+ countries">200+ countries</span>. Approximately <span class="countup" data-target="45" data-suffix=" million messages per day">45 million messages per day</span>. SWIFT does not move money &mdash; it sends the instructions that tell banks to move money. But because almost every international transaction runs through it, being cut off from SWIFT is functionally identical to being cut off from the global economy.</p>
       <div class="visual-row">
         <figure class="visual-figure">
           <img src="assets/swift.jpg" alt="SWIFT network logo" loading="lazy">
@@ -305,27 +308,27 @@
     </div>
 
     <div class="scroll-block" data-block="swift-2">
-      <p>The US dollar is used on one side of <span class="countup" data-target="88" data-suffix="% of all forex transactions">88% of all forex transactions</span>. Approximately <span class="countup" data-target="58" data-suffix="% of global reserves">58% of global foreign exchange reserves</span> are held in dollars. Every dollar-denominated transaction on Earth must clear through a US correspondent bank&hairsp;&mdash;&hairsp;giving the US Treasury legal jurisdiction over financial activity worldwide.</p>
+      <p>The US dollar is used on one side of <span class="countup" data-target="88" data-suffix="% of all forex transactions">88% of all forex transactions</span>. Approximately <span class="countup" data-target="58" data-suffix="% of global reserves">58% of global foreign exchange reserves</span> are held in dollars. Every dollar-denominated transaction on Earth must clear through a US correspondent bank &mdash; giving the US Treasury legal jurisdiction over financial activity worldwide.</p>
     </div>
 
     <!-- ── SANCTIONS ── -->
 
     <div class="scroll-block" data-block="sanctions-1" data-pipeline="sanctions">
       <h3 class="node-title">The Kill Switch</h3>
-      <p>The Office of Foreign Assets Control&hairsp;&mdash;&hairsp;OFAC&hairsp;&mdash;&hairsp;housed within the US Treasury, maintains a list of individuals, entities, and entire nations that are blocked from the US financial system. The number of active sanctions designations has grown from approximately 900 in the year 2000 to over <span class="countup" data-target="9400" data-suffix=" today">9,400 today</span>.</p>
+      <p>The Office of Foreign Assets Control &mdash; OFAC &mdash; housed within the US Treasury, maintains a list of individuals, entities, and entire nations that are blocked from the US financial system. The number of active sanctions designations has grown from approximately 900 in the year 2000 to over <span class="countup" data-target="9400" data-suffix=" today">9,400 today</span>.</p>
       <p>A tenfold increase in twenty years.</p>
     </div>
 
     <div class="scroll-block" data-block="sanctions-2">
       <div class="evidence-card" data-tier="documented">
         <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim">BNP Paribas, a French bank, was fined $8.9 billion in 2014 for processing transactions with Sudan, Iran, and Cuba&hairsp;&mdash;&hairsp;the largest sanctions-related penalty in history. The transactions involved no US citizens and occurred outside US territory. But they touched the dollar, and that was enough.</div>
+        <div class="evidence-claim">BNP Paribas, a French bank, was fined $8.9 billion in 2014 for processing transactions with Sudan, Iran, and Cuba &mdash; the largest sanctions-related penalty in history. The transactions involved no US citizens and occurred outside US territory. But they touched the dollar, and that was enough.</div>
         <div class="evidence-source">U.S. Department of Justice press release, June 30, 2014; BNP Paribas settlement documents; <a href="https://www.justice.gov/opa/pr/bnp-paribas-agrees-plead-guilty-and-pay-89-billion-illegally-processing-financial" target="_blank" rel="noopener">DOJ announcement</a></div>
       </div>
     </div>
 
     <div class="scroll-block" data-block="sanctions-3">
-      <p>Secondary sanctions extend this further: any non-US bank that does business with a sanctioned entity can itself be cut off from the dollar. This forces every bank on Earth to enforce American foreign policy&hairsp;&mdash;&hairsp;regardless of what their own government thinks.</p>
+      <p>Secondary sanctions extend this further: any non-US bank that does business with a sanctioned entity can itself be cut off from the dollar. This forces every bank on Earth to enforce American foreign policy &mdash; regardless of what their own government thinks.</p>
       <p>The EU has officially condemned secondary sanctions as violations of sovereignty. But no European bank has ever defied them. The cost of losing dollar access is existential.</p>
     </div>
 
@@ -396,7 +399,7 @@
           <div class="vr-role">UN presentation, Feb 2003. &ldquo;WMD evidence.&rdquo; All false.</div>
         </figure>
       </div>
-      <p>The Duelfer Report (2004)&hairsp;&mdash;&hairsp;the CIA&rsquo;s own comprehensive investigation&hairsp;&mdash;&hairsp;concluded that Iraq had no WMDs and no active programs to produce them.</p>
+      <p>The Duelfer Report (2004) &mdash; the CIA&rsquo;s own comprehensive investigation &mdash; concluded that Iraq had no WMDs and no active programs to produce them.</p>
     </div>
 
     <div class="scroll-block" data-block="iraq-4">
@@ -435,7 +438,7 @@
     <div class="scroll-block" data-block="libya-1">
       <h3 class="node-title">Libya &mdash; The Gold Dinar</h3>
       <p>Libya under Muammar Gaddafi had zero external debt. Its central bank was state-owned, independent of the BIS. The country had the highest Human Development Index in Africa, free healthcare, free education, and a sovereign wealth fund of approximately $70 billion.</p>
-      <p>Gaddafi&rsquo;s plan was to create a pan-African gold-backed currency&hairsp;&mdash;&hairsp;the gold dinar&hairsp;&mdash;&hairsp;that would replace both the US dollar and the euro in African trade. Libya had accumulated approximately <span class="countup" data-target="144" data-suffix=" tonnes of gold">144 tonnes of gold</span> to back it.</p>
+      <p>Gaddafi&rsquo;s plan was to create a pan-African gold-backed currency &mdash; the gold dinar &mdash; that would replace both the US dollar and the euro in African trade. Libya had accumulated approximately <span class="countup" data-target="144" data-suffix=" tonnes of gold">144 tonnes of gold</span> to back it.</p>
       <div class="visual visual-portrait">
         <img src="assets/gaddafi.jpg" alt="Muammar Gaddafi" loading="lazy" width="180" height="180">
         <div class="visual-caption">Muammar Gaddafi at the African Union summit. Zero external debt. 144 tonnes of gold. Highest HDI in Africa. Killed October 2011.</div>
@@ -443,7 +446,7 @@
     </div>
 
     <div class="scroll-block" data-block="libya-2">
-      <p>The gold dinar was an existential threat to France in particular. Fourteen African nations use the CFA franc&hairsp;&mdash;&hairsp;a currency created by France in 1945 and still controlled by the French Treasury. These nations must deposit 50% of their foreign exchange reserves with France. The CFA franc originally stood for &ldquo;Colonies Fran&ccedil;aises d&rsquo;Afrique.&rdquo;</p>
+      <p>The gold dinar was an existential threat to France in particular. Fourteen African nations use the CFA franc &mdash; a currency created by France in 1945 and still controlled by the French Treasury. These nations must deposit 50% of their foreign exchange reserves with France. The CFA franc originally stood for &ldquo;Colonies Fran&ccedil;aises d&rsquo;Afrique.&rdquo;</p>
       <p>A gold-backed alternative would have ended French monetary control over half a continent.</p>
     </div>
 
@@ -474,7 +477,7 @@
     <div class="scroll-block" data-block="libya-6">
       <div class="evidence-card" data-tier="documented">
         <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim">The Libyan rebels established a new central bank (Central Bank of Benghazi) in March 2011, reported by CNBC, Reuters, and Bloomberg while the civil war was still raging. They also established a new national oil company. Financial restructuring was a core objective&hairsp;&mdash;&hairsp;not an afterthought&hairsp;&mdash;&hairsp;of the regime change.</div>
+        <div class="evidence-claim">The Libyan rebels established a new central bank (Central Bank of Benghazi) in March 2011, reported by CNBC, Reuters, and Bloomberg while the civil war was still raging. They also established a new national oil company. Financial restructuring was a core objective &mdash; not an afterthought &mdash; of the regime change.</div>
         <div class="evidence-source"><a href="https://www.cnbc.com/2011/03/28/libyan-rebels-form-their-own-central-bank.html" target="_blank" rel="noopener">CNBC, &ldquo;Libyan Rebels Form Their Own Central Bank,&rdquo; March 28, 2011</a>; Reuters reporting on TNC financial structures; Robert Wenzel, Economic Policy Journal (March 2011)</div>
       </div>
     </div>
@@ -514,8 +517,8 @@
     </div>
 
     <div class="scroll-block" data-block="venezuela-3">
-      <p>When the coup failed, the financial war began. By 2019, OFAC had designated PDVSA&hairsp;&mdash;&hairsp;Venezuela&rsquo;s state oil company and the source of 95% of export earnings. Oil production collapsed from 2.3 million barrels per day to roughly 400,000.</p>
-      <p>In 2019, the Bank of England refused to return $1.2 billion in Venezuelan gold reserves held in its vaults. The UK recognized Juan Guaid&oacute;&hairsp;&mdash;&hairsp;a man who had never won a presidential election&hairsp;&mdash;&hairsp;as the &ldquo;legitimate president&rdquo; and used that as legal justification to freeze a sovereign nation&rsquo;s gold.</p>
+      <p>When the coup failed, the financial war began. By 2019, OFAC had designated PDVSA &mdash; Venezuela&rsquo;s state oil company and the source of 95% of export earnings. Oil production collapsed from 2.3 million barrels per day to roughly 400,000.</p>
+      <p>In 2019, the Bank of England refused to return $1.2 billion in Venezuelan gold reserves held in its vaults. The UK recognized Juan Guaid&oacute; &mdash; a man who had never won a presidential election &mdash; as the &ldquo;legitimate president&rdquo; and used that as legal justification to freeze a sovereign nation&rsquo;s gold.</p>
     </div>
 
     <div class="scroll-block" data-block="venezuela-4">
@@ -530,9 +533,9 @@
 
     <div class="scroll-block" data-block="cuba-1">
       <h3 class="node-title">Cuba &mdash; Sixty Years of Siege</h3>
-      <p>The US embargo on Cuba has been in effect since 1962&hairsp;&mdash;&hairsp;the longest economic embargo in modern history. Its stated purpose was written in plain language. A declassified State Department memorandum from Deputy Assistant Secretary Lester Mallory (April 6, 1960) reads:</p>
+      <p>The US embargo on Cuba has been in effect since 1962 &mdash; the longest economic embargo in modern history. Its stated purpose was written in plain language. A declassified State Department memorandum from Deputy Assistant Secretary Lester Mallory (April 6, 1960) reads:</p>
       <div class="pull-quote">
-        <div class="pq-text">&ldquo;Every possible means should be undertaken promptly to weaken the economic life of Cuba&hairsp;&hellip;&hairsp;to bring about hunger, desperation and overthrow of government.&rdquo;</div>
+        <div class="pq-text">&ldquo;Every possible means should be undertaken promptly to weaken the economic life of Cuba &hellip; to bring about hunger, desperation and overthrow of government.&rdquo;</div>
         <div class="pq-attr">&mdash; Lester D. Mallory, US State Department, April 6, 1960 (declassified)</div>
       </div>
     </div>
@@ -540,13 +543,13 @@
     <div class="scroll-block" data-block="cuba-1b">
       <div class="evidence-card" data-tier="documented">
         <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim">The Mallory memo explicitly stated the purpose of economic warfare against Cuba was to &ldquo;bring about hunger, desperation and overthrow of government.&rdquo; This is not an allegation&hairsp;&mdash;&hairsp;it is the US government&rsquo;s own published documentary record.</div>
+        <div class="evidence-claim">The Mallory memo explicitly stated the purpose of economic warfare against Cuba was to &ldquo;bring about hunger, desperation and overthrow of government.&rdquo; This is not an allegation &mdash; it is the US government&rsquo;s own published documentary record.</div>
         <div class="evidence-source">Foreign Relations of the United States (FRUS), Volume VI, Cuba 1958&ndash;1960, published by the US Government Printing Office; <a href="https://nsarchive.gwu.edu" target="_blank" rel="noopener">National Security Archive, GWU</a></div>
       </div>
     </div>
 
     <div class="scroll-block" data-block="cuba-2">
-      <p>The Helms-Burton Act (1996) codified the embargo into law and extended it extraterritorially&hairsp;&mdash;&hairsp;meaning the US punishes <em>other countries</em> for trading with Cuba. Cuba is not a member of the IMF or the World Bank&hairsp;&mdash;&hairsp;one of the few nations on Earth excluded from both.</p>
+      <p>The Helms-Burton Act (1996) codified the embargo into law and extended it extraterritorially &mdash; meaning the US punishes <em>other countries</em> for trading with Cuba. Cuba is not a member of the IMF or the World Bank &mdash; one of the few nations on Earth excluded from both.</p>
       <p>Every year since 1992, the UN General Assembly has voted to condemn the embargo. The vote is typically 185 to 2. The entire world versus the United States and Israel.</p>
     </div>
 
@@ -606,13 +609,13 @@
     </div>
 
     <div class="scroll-block" data-block="pattern-clark">
-      <p>In 2007, retired four-star General Wesley Clark&hairsp;&mdash;&hairsp;former NATO Supreme Allied Commander&hairsp;&mdash;&hairsp;described a memo he was shown at the Pentagon shortly after September 11, 2001:</p>
+      <p>In 2007, retired four-star General Wesley Clark &mdash; former NATO Supreme Allied Commander &mdash; described a memo he was shown at the Pentagon shortly after September 11, 2001:</p>
       <div class="visual visual-portrait">
         <img src="assets/wesley_clark.jpg" alt="General Wesley Clark" loading="lazy" width="180" height="180">
         <div class="visual-caption">General Wesley Clark. Four-star general, NATO Supreme Allied Commander Europe. Disclosed the &ldquo;7 countries&rdquo; memo publicly, on the record.</div>
       </div>
       <div class="pull-quote">
-        <div class="pq-text">&ldquo;We&rsquo;re going to take out seven countries in five years, starting with Iraq, and then Syria, Lebanon, Libya, Somalia, Sudan, and finishing off&hairsp;&mdash;&hairsp;Iran.&rdquo;</div>
+        <div class="pq-text">&ldquo;We&rsquo;re going to take out seven countries in five years, starting with Iraq, and then Syria, Lebanon, Libya, Somalia, Sudan, and finishing off &mdash; Iran.&rdquo;</div>
         <div class="pq-attr">&mdash; General Wesley Clark, Commonwealth Club of California, October 3, 2007 (on video)</div>
       </div>
     </div>
@@ -626,7 +629,7 @@
     </div>
 
     <div class="scroll-block" data-block="pattern-coda">
-      <p>Six of the seven countries on Clark&rsquo;s list have since been subjected to invasion, regime change, proxy war, or devastating sanctions. The seventh&hairsp;&mdash;&hairsp;Iran&hairsp;&mdash;&hairsp;is being bombed as you read this.</p>
+      <p>Six of the seven countries on Clark&rsquo;s list have since been subjected to invasion, regime change, proxy war, or devastating sanctions. The seventh &mdash; Iran &mdash; is being bombed as you read this.</p>
       <div class="pull-quote">
         <div class="pq-text">This is not a coincidence. This is a checklist.</div>
       </div>
@@ -646,7 +649,7 @@
     </div>
 
     <div class="scroll-block" data-block="playbook-hook">
-      <p>The pattern didn&rsquo;t start with Iraq. It didn&rsquo;t start with the War on Terror. The operational playbook&hairsp;&mdash;&hairsp;the fusion of intelligence, banking, and military force into a single covert machine&hairsp;&mdash;&hairsp;was written decades earlier.</p>
+      <p>The pattern didn&rsquo;t start with Iraq. It didn&rsquo;t start with the War on Terror. The operational playbook &mdash; the fusion of intelligence, banking, and military force into a single covert machine &mdash; was written decades earlier.</p>
       <p>It was called Iran-Contra. And it never ended.</p>
     </div>
 
@@ -655,7 +658,7 @@
     <div class="scroll-block" data-block="iran-1953-1">
       <h3 class="node-title">The Original Sin &mdash; Iran, 1953</h3>
       <p>In 1951, Iranian Prime Minister Mohammad Mosaddegh nationalized Iran&rsquo;s oil industry, ending British Petroleum&rsquo;s exclusive control. He was democratically elected. He was Time magazine&rsquo;s Man of the Year in 1951.</p>
-      <p>In 1953, the CIA and MI6 executed Operation TPAJAX&hairsp;&mdash;&hairsp;overthrowing Mosaddegh and installing Shah Mohammad Reza Pahlavi, who would rule as a Western-aligned dictator for 26 years.</p>
+      <p>In 1953, the CIA and MI6 executed Operation TPAJAX &mdash; overthrowing Mosaddegh and installing Shah Mohammad Reza Pahlavi, who would rule as a Western-aligned dictator for 26 years.</p>
       <div class="visual visual-portrait">
         <img src="assets/mohammad_mossadegh.jpg" alt="Mohammad Mossadegh" loading="lazy" width="180" height="180">
         <div class="visual-caption">Mohammad Mossadegh. Democratically elected Prime Minister of Iran. Time&rsquo;s Man of the Year, 1951. Overthrown by CIA/MI6, 1953.</div>
@@ -678,7 +681,7 @@
     </div>
 
     <div class="scroll-block" data-block="iran-1953-3">
-      <p>The 1979 Iranian Revolution that overthrew the Shah&hairsp;&mdash;&hairsp;the revolution that created the Islamic Republic that the US has been fighting ever since&hairsp;&mdash;&hairsp;was a direct consequence of the 1953 coup. The entire arc of US-Iran hostility traces back to the CIA overthrowing a democracy to protect oil profits.</p>
+      <p>The 1979 Iranian Revolution that overthrew the Shah &mdash; the revolution that created the Islamic Republic that the US has been fighting ever since &mdash; was a direct consequence of the 1953 coup. The entire arc of US-Iran hostility traces back to the CIA overthrowing a democracy to protect oil profits.</p>
       <p>Iran has not invaded another country in over 200 years. The United States overthrew its government within living memory.</p>
     </div>
 
@@ -699,8 +702,8 @@
     </div>
 
     <div class="scroll-block" data-block="contra-3">
-      <p>The banking vehicle was BCCI&hairsp;&mdash;&hairsp;the Bank of Credit and Commerce International&hairsp;&mdash;&hairsp;which the CIA used to launder money, fund covert operations, and maintain financial relationships with intelligence assets worldwide. BCCI laundered over $15 billion before its collapse in 1991.</p>
-      <p>Oliver North&rsquo;s declassified notebooks&hairsp;&mdash;&hairsp;2,000 pages released in 1990&hairsp;&mdash;&hairsp;contain entries documenting his awareness that aircraft used in the Contra resupply program had been &ldquo;used at one time to run drugs.&rdquo;</p>
+      <p>The banking vehicle was BCCI &mdash; the Bank of Credit and Commerce International &mdash; which the CIA used to launder money, fund covert operations, and maintain financial relationships with intelligence assets worldwide. BCCI laundered over $15 billion before its collapse in 1991.</p>
+      <p>Oliver North&rsquo;s declassified notebooks &mdash; 2,000 pages released in 1990 &mdash; contain entries documenting his awareness that aircraft used in the Contra resupply program had been &ldquo;used at one time to run drugs.&rdquo;</p>
     </div>
 
     <div class="scroll-block" data-block="contra-4">
@@ -735,7 +738,7 @@
 
     <div class="scroll-block" data-block="contra-6">
       <p>Iran-Contra was not an aberration. It was a proof of concept. The apparatus demonstrated that intelligence agencies, banks, drug networks, and military operations could be fused into a single covert machine that operated outside democratic oversight.</p>
-      <p>BCCI was shut down in 1991. But the operational model&hairsp;&mdash;&hairsp;covert finance, offshore banking, parallel foreign policy&hairsp;&mdash;&hairsp;was not shut down. It was refined.</p>
+      <p>BCCI was shut down in 1991. But the operational model &mdash; covert finance, offshore banking, parallel foreign policy &mdash; was not shut down. It was refined.</p>
     </div>
 
     <!-- ── BENGHAZI ── -->
@@ -747,7 +750,7 @@
     </div>
 
     <div class="scroll-block" data-block="benghazi-2">
-      <p>The deeper question was never adequately answered in public: what was the CIA doing in Benghazi? The CIA annex housed far more personnel than the diplomatic compound. Investigative journalist Seymour Hersh reported in the London Review of Books that the CIA was managing a covert weapons pipeline&hairsp;&mdash;&hairsp;a &ldquo;rat line&rdquo;&hairsp;&mdash;&hairsp;funneling weapons from Libya&rsquo;s post-Gaddafi arsenals through Turkey into the hands of Syrian rebel groups.</p>
+      <p>The deeper question was never adequately answered in public: what was the CIA doing in Benghazi? The CIA annex housed far more personnel than the diplomatic compound. Investigative journalist Seymour Hersh reported in the London Review of Books that the CIA was managing a covert weapons pipeline &mdash; a &ldquo;rat line&rdquo; &mdash; funneling weapons from Libya&rsquo;s post-Gaddafi arsenals through Turkey into the hands of Syrian rebel groups.</p>
     </div>
 
     <div class="scroll-block" data-block="benghazi-3">
@@ -819,7 +822,7 @@
     </div>
 
     <div class="scroll-block" data-block="broadcast-mockingbird-2">
-      <p><strong>Operation Mockingbird:</strong> The CIA maintained relationships with over 400 journalists at every major American news organization during the Cold War. This was confirmed by the Church Committee in 1975&hairsp;&mdash;&hairsp;a Congressional investigation into intelligence abuses.</p>
+      <p><strong>Operation Mockingbird:</strong> The CIA maintained relationships with over 400 journalists at every major American news organization during the Cold War. This was confirmed by the Church Committee in 1975 &mdash; a Congressional investigation into intelligence abuses.</p>
     </div>
 
     <div class="scroll-block" data-block="broadcast-mockingbird-ev">
@@ -832,7 +835,7 @@
 
     <div class="scroll-block" data-block="broadcast-iraq">
       <h3 class="node-title">The Iraq Template</h3>
-      <p>The Iraq War was the clearest case study in manufactured consent. The Project for the New American Century&hairsp;&mdash;&hairsp;a think tank whose signatories included Dick Cheney, Donald Rumsfeld, Paul Wolfowitz, and Jeb Bush&hairsp;&mdash;&hairsp;published a document in September 2000 called &ldquo;Rebuilding America&rsquo;s Defenses.&rdquo; It argued for American military dominance and regime change in Iraq, but acknowledged that the transformation would be slow &ldquo;absent some catastrophic and catalyzing event&hairsp;&mdash;&hairsp;like a new Pearl Harbor.&rdquo;</p>
+      <p>The Iraq War was the clearest case study in manufactured consent. The Project for the New American Century &mdash; a think tank whose signatories included Dick Cheney, Donald Rumsfeld, Paul Wolfowitz, and Jeb Bush &mdash; published a document in September 2000 called &ldquo;Rebuilding America&rsquo;s Defenses.&rdquo; It argued for American military dominance and regime change in Iraq, but acknowledged that the transformation would be slow &ldquo;absent some catastrophic and catalyzing event &mdash; like a new Pearl Harbor.&rdquo;</p>
       <p>One year later, they got their Pearl Harbor.</p>
     </div>
 
@@ -845,7 +848,7 @@
     </div>
 
     <div class="scroll-block" data-block="broadcast-pentagon">
-      <p>On September 10, 2001&hairsp;&mdash;&hairsp;one day before the attacks&hairsp;&mdash;&hairsp;Secretary of Defense Donald Rumsfeld announced that the Pentagon could not account for $2.3 trillion in transactions.</p>
+      <p>On September 10, 2001 &mdash; one day before the attacks &mdash; Secretary of Defense Donald Rumsfeld announced that the Pentagon could not account for $2.3 trillion in transactions.</p>
       <p>By the next morning, that story was gone. It has never returned to the front page. The Pentagon has since failed six consecutive audits (2018&ndash;2023). Trillions remain untracked.</p>
     </div>
 
@@ -858,7 +861,7 @@
     </div>
 
     <div class="scroll-block" data-block="broadcast-gap">
-      <p>The gap between the broadcast and reality is not a flaw in the system. It <em>is</em> the system. Public narratives are managed to manufacture support for interventions that serve financial and strategic interests. When the public narrative collapses&hairsp;&mdash;&hairsp;as it did with Iraq&rsquo;s WMDs&hairsp;&mdash;&hairsp;it collapses too late. The objective has already been achieved.</p>
+      <p>The gap between the broadcast and reality is not a flaw in the system. It <em>is</em> the system. Public narratives are managed to manufacture support for interventions that serve financial and strategic interests. When the public narrative collapses &mdash; as it did with Iraq&rsquo;s WMDs &mdash; it collapses too late. The objective has already been achieved.</p>
       <div class="pull-quote">
         <div class="pq-text">By the time you learn the real reason, the country is already gone.</div>
       </div>
@@ -885,7 +888,7 @@
 
     <div class="scroll-block" data-block="iran-deal">
       <h3 class="node-title">The Deal That Was Broken</h3>
-      <p>In 2015, Iran signed the Joint Comprehensive Plan of Action&hairsp;&mdash;&hairsp;the nuclear deal&hairsp;&mdash;&hairsp;with the P5+1 nations. Iran agreed to limit uranium enrichment, reduce centrifuges, and allow international inspections. In exchange: sanctions relief.</p>
+      <p>In 2015, Iran signed the Joint Comprehensive Plan of Action &mdash; the nuclear deal &mdash; with the P5+1 nations. Iran agreed to limit uranium enrichment, reduce centrifuges, and allow international inspections. In exchange: sanctions relief.</p>
       <p>The IAEA confirmed more than ten times that Iran was in full compliance.</p>
       <p>In May 2018, President Trump unilaterally withdrew the United States from the deal. Iran was complying. The US broke it anyway.</p>
     </div>
@@ -906,8 +909,8 @@
 
     <div class="scroll-block" data-block="iran-swift">
       <h3 class="node-title">Financial Warfare</h3>
-      <p>Iran was first cut from SWIFT in March 2012. Approximately 30 Iranian banks were disconnected&hairsp;&mdash;&hairsp;the first time in SWIFT&rsquo;s history that an entire country&rsquo;s banking sector was severed.</p>
-      <p>The impact was immediate. Oil exports dropped from 2.5 million barrels per day to roughly one million. The Iranian rial lost approximately 80% of its value. Iran was forced into barter arrangements&hairsp;&mdash;&hairsp;oil for goods, hawala networks, cryptocurrency, and eventually yuan-denominated trade with China.</p>
+      <p>Iran was first cut from SWIFT in March 2012. Approximately 30 Iranian banks were disconnected &mdash; the first time in SWIFT&rsquo;s history that an entire country&rsquo;s banking sector was severed.</p>
+      <p>The impact was immediate. Oil exports dropped from 2.5 million barrels per day to roughly one million. The Iranian rial lost approximately 80% of its value. Iran was forced into barter arrangements &mdash; oil for goods, hawala networks, cryptocurrency, and eventually yuan-denominated trade with China.</p>
     </div>
 
     <div class="scroll-block" data-block="iran-swift-ev">
@@ -931,7 +934,7 @@
       </div>
       <div class="timeline-block">
         <div class="tl-date">April 1, 2024</div>
-        <div class="tl-event">Israel strikes Iranian consulate in Damascus, killing senior IRGC commander. Iran responds with 300+ drones and missiles&hairsp;&mdash;&hairsp;its first-ever direct attack on Israeli territory.</div>
+        <div class="tl-event">Israel strikes Iranian consulate in Damascus, killing senior IRGC commander. Iran responds with 300+ drones and missiles &mdash; its first-ever direct attack on Israeli territory.</div>
       </div>
       <div class="timeline-block">
         <div class="tl-date">July 31, 2024</div>
@@ -943,7 +946,7 @@
       </div>
       <div class="timeline-block">
         <div class="tl-date">October 1, 2024</div>
-        <div class="tl-event">Iran launches Operation True Promise II&hairsp;&mdash;&hairsp;~200 ballistic missiles at Israel. Some penetrate defenses, hitting air bases.</div>
+        <div class="tl-event">Iran launches Operation True Promise II &mdash; ~200 ballistic missiles at Israel. Some penetrate defenses, hitting air bases.</div>
       </div>
       <div class="timeline-block">
         <div class="tl-date">December 2024</div>
@@ -968,11 +971,11 @@
 
     <div class="scroll-block" data-block="iran-real-2">
       <p>Iran sells oil to China in yuan. It joined BRICS in January 2024. It operates an oil bourse that trades in non-dollar currencies. Every barrel of Iranian oil sold outside the dollar system is a brick removed from the foundation of US financial hegemony.</p>
-      <p>Approximately 20 million barrels of oil per day flow through the Strait of Hormuz&hairsp;&mdash;&hairsp;20% of global consumption. If Iran closes it, oil prices spike to $150&ndash;$300 per barrel and the global economy enters recession. This is Iran&rsquo;s deterrent, and it is the reason Iran has not been invaded the way Iraq was.</p>
+      <p>Approximately 20 million barrels of oil per day flow through the Strait of Hormuz &mdash; 20% of global consumption. If Iran closes it, oil prices spike to $150&ndash;$300 per barrel and the global economy enters recession. This is Iran&rsquo;s deterrent, and it is the reason Iran has not been invaded the way Iraq was.</p>
     </div>
 
     <div class="scroll-block" data-block="iran-real-3">
-      <p>A peaceful, sanctions-free Iran trading oil in multiple currencies would be a structural challenge to the dollar system. A hostile, sanctioned Iran paradoxically <em>reinforces</em> dollar dominance&hairsp;&mdash;&hairsp;by demonstrating the consequences of leaving the system.</p>
+      <p>A peaceful, sanctions-free Iran trading oil in multiple currencies would be a structural challenge to the dollar system. A hostile, sanctioned Iran paradoxically <em>reinforces</em> dollar dominance &mdash; by demonstrating the consequences of leaving the system.</p>
       <div class="pull-quote">
         <div class="pq-text">The punishment is the point. Iran does not need to be conquered. It needs to be made an example.</div>
       </div>
@@ -991,7 +994,7 @@
 
     <div class="scroll-block" data-block="iran-dedollar">
       <h3 class="node-title">The Bigger Picture</h3>
-      <p>Iran is not alone. The BRICS bloc now represents roughly 45% of the world&rsquo;s population. China and Russia settle bilateral trade in yuan and rubles. Saudi Arabia has begun accepting yuan for oil. Central banks worldwide purchased over <span class="countup" data-target="1000" data-suffix=" tonnes of gold">1,000 tonnes of gold</span> per year in 2022&ndash;2023&hairsp;&mdash;&hairsp;record levels&hairsp;&mdash;&hairsp;diversifying away from dollar reserves.</p>
+      <p>Iran is not alone. The BRICS bloc now represents roughly 45% of the world&rsquo;s population. China and Russia settle bilateral trade in yuan and rubles. Saudi Arabia has begun accepting yuan for oil. Central banks worldwide purchased over <span class="countup" data-target="1000" data-suffix=" tonnes of gold">1,000 tonnes of gold</span> per year in 2022&ndash;2023 &mdash; record levels &mdash; diversifying away from dollar reserves.</p>
       <p>The dollar&rsquo;s share of global reserves has declined from 72% in 2000 to 58% today. Each use of the sanctions weapon accelerates the construction of alternatives. As a former US Treasury official acknowledged: there is a &ldquo;risk of diminishing returns&rdquo; from overuse.</p>
     </div>
 
@@ -1029,7 +1032,7 @@
     <div class="scroll-block" data-block="ledger-mic">
       <h3 class="node-title">Who Profits</h3>
       <p>The US defense budget for fiscal year 2024 was $<span class="countup" data-target="886" data-suffix=" billion">886 billion</span>. The Pentagon requested $13.4 billion for AI alone. The US maintains approximately <span class="countup" data-target="800" data-suffix=" overseas military bases">800 overseas military bases</span> in more than 70 countries.</p>
-      <p>This infrastructure requires justification. Threat narratives sustain budgets. This is not conspiracy&hairsp;&mdash;&hairsp;it is institutional incentive structure.</p>
+      <p>This infrastructure requires justification. Threat narratives sustain budgets. This is not conspiracy &mdash; it is institutional incentive structure.</p>
     </div>
 
     <div class="scroll-block" data-block="ledger-revolving">
@@ -1038,7 +1041,7 @@
         <li>Dick Cheney: CEO of Halliburton (1995&ndash;2000) &rarr; Vice President &rarr; Halliburton receives $39.5 billion in Iraq contracts</li>
         <li>Donald Rumsfeld: Secretary of Defense &rarr; Announces $2.3 trillion untracked at Pentagon (Sept 10, 2001)</li>
         <li>Lloyd Austin: Raytheon board member &rarr; Secretary of Defense (recused from Raytheon matters)</li>
-        <li>The F-35 Joint Strike Fighter: $<span class="countup" data-target="1700" data-suffix=" billion">1,700 billion</span> estimated lifecycle cost&hairsp;&mdash;&hairsp;the most expensive weapons program in history</li>
+        <li>The F-35 Joint Strike Fighter: $<span class="countup" data-target="1700" data-suffix=" billion">1,700 billion</span> estimated lifecycle cost &mdash; the most expensive weapons program in history</li>
       </ul>
     </div>
 
@@ -1051,7 +1054,7 @@
     </div>
 
     <div class="scroll-block" data-block="ledger-eisenhower">
-      <p>On January 17, 1961, President Dwight D. Eisenhower&hairsp;&mdash;&hairsp;a five-star general who commanded D-Day&hairsp;&mdash;&hairsp;gave his farewell address. His original draft used the phrase &ldquo;military-industrial-congressional complex.&rdquo; The word &ldquo;congressional&rdquo; was removed before delivery.</p>
+      <p>On January 17, 1961, President Dwight D. Eisenhower &mdash; a five-star general who commanded D-Day &mdash; gave his farewell address. His original draft used the phrase &ldquo;military-industrial-congressional complex.&rdquo; The word &ldquo;congressional&rdquo; was removed before delivery.</p>
       <div class="visual visual-portrait">
         <img src="assets/dwight_eisenhower.jpg" alt="Dwight D. Eisenhower" loading="lazy" width="180" height="180">
         <div class="visual-caption">President Dwight D. Eisenhower. Five-star general. Commanded D-Day. Warned America about the military-industrial complex on his way out the door.</div>
@@ -1113,7 +1116,7 @@
     </div>
 
     <div class="scroll-block" data-block="action-1">
-      <p>The wars you are watching&hairsp;&mdash;&hairsp;the ones on your screen right now&hairsp;&mdash;&hairsp;are not what you are being told. They are not about nuclear weapons, or terrorism, or humanitarian concern. Those are real elements that are real to the people suffering through them. But they are not the engine.</p>
+      <p>The wars you are watching &mdash; the ones on your screen right now &mdash; are not what you are being told. They are not about nuclear weapons, or terrorism, or humanitarian concern. Those are real elements that are real to the people suffering through them. But they are not the engine.</p>
       <p>The engine is a financial architecture built over a century that requires global compliance to function. Countries that comply are clients. Countries that don&rsquo;t are targets.</p>
     </div>
 
@@ -1138,7 +1141,7 @@
 
     <div class="scroll-block" data-block="action-4">
       <p>Every person who reads this and asks <em>&ldquo;who profits?&rdquo;</em> before accepting the next justification for the next war is one more person the broadcast cannot use.</p>
-      <p>Every person who sees the pattern&hairsp;&mdash;&hairsp;holdout &rarr; sanctions &rarr; regime change&hairsp;&mdash;&hairsp;is one more person who will recognize it when it happens again.</p>
+      <p>Every person who sees the pattern &mdash; holdout &rarr; sanctions &rarr; regime change &mdash; is one more person who will recognize it when it happens again.</p>
       <p>Because it will happen again. Unless enough people see the ledger.</p>
     </div>
 
@@ -1196,6 +1199,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <script src="../ai-wars/js/engine.js" defer></script>
   <script src="../ai-wars/js/gsap-effects.js" defer></script>

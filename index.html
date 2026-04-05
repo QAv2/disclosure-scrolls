@@ -242,6 +242,8 @@
   </style>
 </head>
 <body>
+  <a href="#scroll-list" class="skip-nav" style="position:absolute;top:-100%;left:1rem;z-index:10000;padding:0.75rem 1.5rem;background:#06060b;color:#34d399;border:2px solid #34d399;border-radius:4px;font-family:monospace;font-size:0.75rem;text-decoration:none" onfocus="this.style.top='1rem'" onblur="this.style.top='-100%'">Skip to scrolls</a>
+  <main>
   <div class="landing">
     <div class="site-label">Disclosure Scrolls</div>
     <h1>Documented investigations you can scroll through.</h1>
@@ -253,12 +255,12 @@
       <span class="el-item"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
     </div>
 
-    <div class="scroll-list">
+    <div class="scroll-list" id="scroll-list">
 
       <a href="/ai-wars/" class="scroll-card">
         <div class="card-label">Scroll 001</div>
         <div class="card-title">AI Wars</div>
-        <div class="card-desc">How a 44-year surveillance pipeline reached the frontier of artificial intelligence&hairsp;&mdash;&hairsp;and what the chaos actually means.</div>
+        <div class="card-desc">How a 44-year surveillance pipeline reached the frontier of artificial intelligence &mdash; and what the chaos actually means.</div>
         <div class="card-meta">
           <span>5 acts</span>
           <span>93 evidence blocks</span>
@@ -394,14 +396,15 @@
 
     </div>
 
-    <div class="landing-footer">
+    <footer class="landing-footer">
       <div class="footer-links">
         <a href="https://qav2.github.io/intel-console/" target="_blank" rel="noopener">Intel Console</a>
         <a href="https://qav2.github.io/disclosure-files/" target="_blank" rel="noopener">Disclosure Files</a>
         <a href="https://buymeacoffee.com/joeyv23" target="_blank" rel="noopener">Support</a>
       </div>
       <div class="footer-tagline">Independent research. No sponsors. No algorithm.</div>
-    </div>
+    </footer>
   </div>
+  </main>
 </body>
 </html>

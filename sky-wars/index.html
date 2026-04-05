@@ -82,15 +82,16 @@
   </style>
 </head>
 <body>
+  <a href="#act-1" class="skip-nav">Skip to content</a>
 
   <!-- ═══ Particle Network Background ═══ -->
-  <canvas id="particle-net" class="particle-canvas"></canvas>
+  <canvas id="particle-net" class="particle-canvas" aria-hidden="true"></canvas>
 
   <!-- ═══ Progress Bar ═══ -->
-  <div class="progress-bar" id="progress-bar"></div>
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
   <!-- ═══ Pipeline Tracker ═══ -->
-  <div class="pipeline-track" id="pipeline-track">
+  <div class="pipeline-track" id="pipeline-track" aria-hidden="true">
     <div class="pipeline-inner">
       <div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
       <div class="pipeline-node" data-step="cirrus"><span class="pn-year">1946</span><span class="pn-label">Cirrus</span></div>
@@ -104,7 +105,9 @@
   </div>
 
   <!-- ═══ Act Indicator ═══ -->
-  <div class="act-indicator" id="act-indicator"></div>
+  <div class="act-indicator" id="act-indicator" aria-hidden="true"></div>
+
+  <main>
 
 
   <!-- ════════════════════════════════════════════════════════ -->
@@ -860,6 +863,8 @@
 
 
   <!-- ═══ Scripts ═══ -->
+  </main>
+
   <script src="../ai-wars/js/engine.js" defer></script>
   <script src="../ai-wars/js/gsap-effects.js" defer></script>
 

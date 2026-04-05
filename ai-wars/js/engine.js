@@ -182,6 +182,8 @@
     if (!output) return;
 
     typedFired.add(terminal.id);
+    terminal.setAttribute('aria-live', 'polite');
+    terminal.setAttribute('role', 'status');
 
     var customStrings = output.getAttribute('data-typed-strings');
     var strings;
@@ -225,6 +227,7 @@
 
         if (countupFired.has(id)) return;
         countupFired.add(id);
+        el.setAttribute('aria-live', 'polite');
 
         var target = parseFloat(el.getAttribute('data-target'));
         var suffix = el.getAttribute('data-suffix') || '';
@@ -311,6 +314,11 @@
   function initParticles() {
     var canvas = document.getElementById('particle-net');
     if (!canvas) return;
+    canvas.setAttribute('aria-hidden', 'true');
+
+    // Respect reduced-motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     var ctx = canvas.getContext('2d');
 
     var particles = [];
