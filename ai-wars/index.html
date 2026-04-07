@@ -956,9 +956,149 @@
         <a href="https://buymeacoffee.com/joeyv23" class="support-link" target="_blank" rel="noopener">Support this research &rarr;</a>
       </div>
 
+      <button id="seed-tap-trigger" class="seed-trigger-btn">Help make this work immortal</button>
+
       <div class="closing-footer">
         <p>Built with documented evidence. No speculation presented as fact.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SEED LAYER                                              -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <section class="seed-section" id="seed-section" aria-hidden="true">
+    <div class="seed-content">
+      <div class="seed-divider"></div>
+
+      <p class="seed-header">Classified // Distribution Protocol</p>
+      <h2 class="seed-title">The Complete Archive Is Inside This Image</h2>
+      <p class="seed-desc">The image below contains all eleven Disclosure Scrolls &mdash; every page, every image, every line of code &mdash; encoded into its pixels using least-significant-bit steganography. Save it. You now carry the complete archive.</p>
+
+      <div class="seed-image-container">
+        <img class="seed-image" data-src="../seed-full.png"
+             alt="Steganographic seed image containing the complete Disclosure Scrolls archive"
+             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+        <p class="seed-image-caption">Right-Click &rarr; Save Image As</p>
+      </div>
+
+      <p class="seed-transparency">Save it, let your virus scanner do its thing. It&rsquo;s a PNG &mdash; what you see is what you get. Once it clears, you have this entire website saved locally to your device as an image file.</p>
+
+      <div class="seed-steps">
+        <p class="seed-steps-header">Extraction Protocol</p>
+        <ol>
+          <li class="seed-step">Right-click the image above &rarr; <strong>Save Image As</strong></li>
+          <li class="seed-step">Download or copy <code class="seed-code">extract.py</code> below</li>
+          <li class="seed-step">Install Pillow: <code class="seed-code">pip install Pillow</code></li>
+          <li class="seed-step">Run: <code class="seed-code">python3 extract.py seed-full.png ./output/</code></li>
+          <li class="seed-step">Open <code class="seed-code">output/index.html</code> &mdash; you now have the complete archive</li>
+        </ol>
+      </div>
+
+      <p class="seed-transparency">The script below is open source &mdash; 80 lines of Python that do exactly one thing: read the pixels and unpack the files inside. You can read every line before you run it.</p>
+
+      <div class="seed-extract">
+        <div class="seed-extract-header">
+          <span class="seed-extract-label">extract.py</span>
+          <button class="seed-copy-btn">COPY</button>
+          <a class="seed-download-link" id="seed-download-extract">DOWNLOAD</a>
+        </div>
+        <pre class="seed-extract-code"><code id="seed-extract-code">#!/usr/bin/env python3
+"""
+Extract files hidden in a CNTYSEED steganographic image.
+Only requires: pip install Pillow
+Usage: python3 extract.py &lt;image.png&gt; &lt;output_dir&gt;
+"""
+import hashlib, io, os, struct, sys, tarfile, zlib
+from PIL import Image
+
+MAGIC = b"CNTYSEED"
+HDR_SIZE = 64
+HDR_FMT = "!8sBBBBII32sHH8s"
+
+
+def lsb_decode(flat, depth, num_bytes):
+    total_bits = num_bytes * 8
+    pad = depth - (total_bits % depth) if total_bits % depth else 0
+    slots = (total_bits + pad) // depth
+    mask = (1 &lt;&lt; depth) - 1
+    bits = []
+    for i in range(slots):
+        val = flat[i] &amp; mask
+        for shift in range(depth - 1, -1, -1):
+            bits.append((val &gt;&gt; shift) &amp; 1)
+    out = bytearray()
+    for i in range(0, num_bytes * 8, 8):
+        byte = 0
+        for b in range(8):
+            byte = (byte &lt;&lt; 1) | bits[i + b]
+        out.append(byte)
+    return bytes(out)
+
+
+def extract(image_path, output_dir):
+    img = Image.open(image_path).convert("RGB")
+    flat = [ch for px in img.getdata() for ch in px]
+
+    hdr = None
+    for depth in (1, 2, 3, 4):
+        raw = lsb_decode(flat, depth, HDR_SIZE)
+        if raw[:8] != MAGIC:
+            continue
+        fields = struct.unpack(HDR_FMT, raw)
+        if fields[3] == depth:
+            hdr = {
+                "flags": fields[2], "lsb_depth": depth,
+                "compression": fields[4], "original_size": fields[5],
+                "compressed_size": fields[6], "sha256": fields[7],
+            }
+            break
+
+    if not hdr:
+        print("No embedded data found.")
+        sys.exit(1)
+
+    if hdr["flags"] &amp; 0x01:
+        print("This image is encrypted.")
+        sys.exit(1)
+
+    print(f"Found: {hdr['original_size']:,} bytes, {hdr['lsb_depth']}-LSB")
+
+    total = HDR_SIZE + hdr["compressed_size"]
+    raw = lsb_decode(flat, hdr["lsb_depth"], total)
+    payload = raw[HDR_SIZE:]
+
+    if hdr["compression"] == 1:
+        payload = zlib.decompress(payload)
+    elif hdr["compression"] == 2:
+        import lzma
+        payload = lzma.decompress(payload)
+
+    if hashlib.sha256(payload).digest() == hdr["sha256"]:
+        print("Integrity: VERIFIED")
+    else:
+        print("WARNING: SHA-256 mismatch")
+
+    os.makedirs(output_dir, exist_ok=True)
+    if hdr["flags"] &amp; 0x02:
+        with tarfile.open(fileobj=io.BytesIO(payload), mode="r") as tar:
+            tar.extractall(path=output_dir, filter="data")
+        print(f"Extracted to: {output_dir}/")
+    else:
+        with open(os.path.join(output_dir, "extracted"), "wb") as f:
+            f.write(payload)
+        print(f"Written to: {output_dir}/extracted")
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print(f"Usage: {sys.argv[0]} &lt;image.png&gt; &lt;output_dir&gt;")
+        sys.exit(1)
+    extract(sys.argv[1], sys.argv[2])</code></pre>
+      </div>
+
+      <p class="seed-persistence">As long as one copy exists, this cannot be erased.</p>
     </div>
   </section>
 
@@ -966,5 +1106,6 @@
 
   <script src="js/engine.js" defer></script>
   <script src="js/gsap-effects.js" defer></script>
+  <script src="js/seed.js" defer></script>
 </body>
 </html>

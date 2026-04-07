@@ -403,8 +403,72 @@
         <a href="https://buymeacoffee.com/joeyv23" target="_blank" rel="noopener">Support</a>
       </div>
       <div class="footer-tagline">Independent research. No sponsors. No algorithm.</div>
+      <button id="seed-tap-trigger" style="display:inline-block;font-family:'JetBrains Mono','Fira Code',monospace;font-size:0.7rem;letter-spacing:1px;color:#34d399;background:transparent;border:1px solid rgba(52,211,153,0.3);border-radius:4px;padding:0.6rem 1.5rem;cursor:pointer;margin-top:1.5rem;margin-bottom:0.75rem">Help make this work immortal</button>
     </footer>
   </div>
+
+  <!-- SEED LAYER -->
+  <section id="seed-section" aria-hidden="true" style="max-height:0;overflow:hidden;opacity:0;transition:max-height 0.8s ease,opacity 0.6s ease 0.2s">
+    <div style="max-width:640px;margin:0 auto;padding:0 1.5rem 4rem;text-align:center">
+      <div style="width:100%;height:1px;background:rgba(52,211,153,0.15);margin:2rem 0 3rem"></div>
+
+      <p style="font-family:'JetBrains Mono','Fira Code',monospace;font-size:0.6rem;letter-spacing:5px;color:#34d399;text-transform:uppercase;margin-bottom:1rem">Classified // Distribution Protocol</p>
+      <h2 style="font-family:Georgia,serif;font-size:clamp(1.4rem,3vw,1.9rem);color:#e8e8f0;margin-bottom:1.25rem;line-height:1.3">The Complete Archive Is Inside This Image</h2>
+      <p style="font-family:Georgia,serif;font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:2rem">The image below contains all eleven Disclosure Scrolls &mdash; every page, every image, every line of code &mdash; encoded into its pixels using least-significant-bit steganography. Save it. You now carry the complete archive.</p>
+
+      <div style="margin:2rem auto;max-width:580px">
+        <img id="seed-img" data-src="seed-full.png" alt="Steganographic seed image containing the complete Disclosure Scrolls archive" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="width:100%;display:block;border-radius:6px;border:1px solid rgba(52,211,153,0.2);box-shadow:0 0 30px rgba(52,211,153,0.08);cursor:pointer">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:3px;color:rgba(52,211,153,0.5);margin-top:0.75rem">Right-Click &rarr; Save Image As</p>
+      </div>
+
+      <p style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.35);line-height:1.7;margin-top:1.5rem;max-width:500px;margin-left:auto;margin-right:auto">Save it, let your virus scanner do its thing. It&rsquo;s a PNG &mdash; what you see is what you get. Once it clears, you have this entire archive saved locally to your device as an image file.</p>
+
+      <div style="text-align:left;background:rgba(255,255,255,0.03);border-radius:6px;border-left:3px solid #34d399;padding:1.25rem 1.5rem;margin:2rem 0">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:3px;color:#34d399;margin-bottom:1rem">Extraction Protocol</p>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:rgba(255,255,255,0.65);margin-bottom:0.7rem;line-height:1.6">1. Right-click the image above &rarr; Save Image As</p>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:rgba(255,255,255,0.65);margin-bottom:0.7rem;line-height:1.6">2. Save the extract.py script from any scroll's seed section</p>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:rgba(255,255,255,0.65);margin-bottom:0.7rem;line-height:1.6">3. Run: <code style="background:rgba(0,0,0,0.4);border:1px solid rgba(52,211,153,0.15);border-radius:3px;padding:0.15rem 0.4rem;font-size:0.7rem;color:#34d399">pip install Pillow &amp;&amp; python3 extract.py seed-full.png ./output/</code></p>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:rgba(255,255,255,0.65);line-height:1.6">4. Open <code style="background:rgba(0,0,0,0.4);border:1px solid rgba(52,211,153,0.15);border-radius:3px;padding:0.15rem 0.4rem;font-size:0.7rem;color:#34d399">output/index.html</code> &mdash; you now have the complete archive</p>
+      </div>
+
+      <p style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.35);line-height:1.7;margin-top:1.5rem;max-width:500px;margin-left:auto;margin-right:auto">The script is open source &mdash; 80 lines of Python that do exactly one thing: read the pixels and unpack the files inside. You can read every line before you run it.</p>
+
+      <p style="font-family:Georgia,serif;font-size:1.05rem;color:rgba(255,255,255,0.5);font-style:italic;margin-top:2.5rem;line-height:1.6">As long as one copy exists, this cannot be erased.</p>
+    </div>
+  </section>
+
   </main>
+
+  <script>
+  (function(){
+    var revealed=false,loaded=false,section=document.getElementById('seed-section');
+    if(!section)return;
+    var tap=document.getElementById('seed-tap-trigger');
+    if(tap){tap.addEventListener('click',function(e){e.preventDefault();if(!revealed)show();});}
+    function show(){
+      if(!loaded){var img=document.getElementById('seed-img');if(img&&img.dataset.src){img.src=img.dataset.src;loaded=true;}}
+      section.style.maxHeight='3000px';section.style.opacity='1';
+      section.setAttribute('aria-hidden','false');
+      setTimeout(function(){section.scrollIntoView({behavior:'smooth',block:'start'});},200);
+      revealed=true;
+    }
+    document.addEventListener('keydown',function(e){
+      if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;
+      if(e.key==='s'||e.key==='S'){
+        e.preventDefault();
+        if(!revealed){
+          if(!loaded){var img=document.getElementById('seed-img');if(img&&img.dataset.src){img.src=img.dataset.src;loaded=true;}}
+          section.style.maxHeight='3000px';section.style.opacity='1';
+          section.setAttribute('aria-hidden','false');
+          setTimeout(function(){section.scrollIntoView({behavior:'smooth',block:'start'});},200);
+        }else{
+          section.style.maxHeight='0';section.style.opacity='0';
+          section.setAttribute('aria-hidden','true');
+        }
+        revealed=!revealed;
+      }
+    });
+  })();
+  </script>
 </body>
 </html>
