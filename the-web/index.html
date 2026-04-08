@@ -1,39 +1,38 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Web &mdash; Disclosure Scrolls</title>
-  <meta name="description" content="Nine wars. Different names. Same architects. Every connection on this page comes from published membership lists, government records, and the organizations' own websites. The web isn't hidden — you just weren't supposed to look.">
-  <meta property="og:title" content="The Web">
-  <meta property="og:description" content="CFR publishes its membership. Trilateral Commission publishes its membership. Bilderberg publishes its attendee list. The web isn't hidden. You just weren't supposed to put them in the same room.">
-  <meta property="og:type" content="article">
-  <meta property="og:image" content="https://disclosure-scrolls.netlify.app/the-web/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:site_name" content="Disclosure Scrolls">
-  <meta property="og:url" content="https://disclosure-scrolls.netlify.app/the-web/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Web">
-  <meta name="twitter:description" content="Nine wars. Same architects. The organizational chart behind everything you've scrolled through &mdash; from their own published records.">
-  <meta name="twitter:image" content="https://disclosure-scrolls.netlify.app/the-web/og-image.png">
-  <meta name="theme-color" content="#06060b">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="canonical" href="https://disclosure-scrolls.netlify.app/the-web/">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="../ai-wars/css/style.css">
-
-  <!-- CountUp.js -->
-  <script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js" defer></script>
-  <!-- Typed.js -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Web — Disclosure Scrolls</title>
+<meta content="Nine wars. Different names. Same architects. Every connection on this page comes from published membership lists, government records, and the organizations' own websites. The web isn't hidden — you just weren't supposed to look." name="description"/>
+<meta content="The Web" property="og:title"/>
+<meta content="CFR publishes its membership. Trilateral Commission publishes its membership. Bilderberg publishes its attendee list. The web isn't hidden. You just weren't supposed to put them in the same room." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://disclosure-scrolls.netlify.app/the-web/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Disclosure Scrolls" property="og:site_name"/>
+<meta content="https://disclosure-scrolls.netlify.app/the-web/" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="The Web" name="twitter:title"/>
+<meta content="Nine wars. Same architects. The organizational chart behind everything you've scrolled through — from their own published records." name="twitter:description"/>
+<meta content="https://disclosure-scrolls.netlify.app/the-web/og-image.png" name="twitter:image"/>
+<meta content="#06060b" name="theme-color"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="https://disclosure-scrolls.netlify.app/the-web/" rel="canonical"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link href="../ai-wars/css/style.css" rel="stylesheet"/>
+<!-- CountUp.js -->
+<script defer="" src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
+<!-- Typed.js -->
+<script defer="" src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+<!-- GSAP + ScrollTrigger -->
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<style>
     /* -- The Web overrides -- */
 
     /* Deep red accent for selection — blood network */
@@ -78,935 +77,875 @@
       .pattern-row { font-size: 0.8rem; }
     }
   </style>
-</head>
+<style>
+/* ── Intel Console Cross-Links ───────────────────────────── */
+a.ic-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+a.ic-link .company-badge {
+  cursor: pointer;
+  transition: filter 0.2s ease, box-shadow 0.2s ease;
+}
+a.ic-link:hover .company-badge,
+a.ic-link:focus .company-badge {
+  filter: brightness(1.3);
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.2);
+}
+a.ic-link.ic-vr {
+  border-bottom: 1px dotted rgba(52, 211, 153, 0.3);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+a.ic-link.ic-vr:hover,
+a.ic-link.ic-vr:focus {
+  border-color: rgba(52, 211, 153, 0.7);
+  color: #34d399;
+}
+</style></head>
 <body>
-  <a href="#act-1" class="skip-nav">Skip to content</a>
-
-  <!-- === Particle Network Background === -->
-  <canvas id="particle-net" class="particle-canvas" aria-hidden="true"></canvas>
-
-  <!-- === Progress Bar === -->
-  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
-
-  <!-- === Pipeline Tracker === -->
-  <div class="pipeline-track" id="pipeline-track" aria-hidden="true">
-    <div class="pipeline-inner">
-      <div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
-      <div class="pipeline-node" data-step="rhodes"><span class="pn-year">1891</span><span class="pn-label">Rhodes</span></div>
-      <div class="pipeline-node" data-step="cfr"><span class="pn-year">1921</span><span class="pn-label">CFR</span></div>
-      <div class="pipeline-node" data-step="bilderberg"><span class="pn-year">1954</span><span class="pn-label">Bilderberg</span></div>
-      <div class="pipeline-node" data-step="trilateral"><span class="pn-year">1973</span><span class="pn-label">Trilateral</span></div>
-      <div class="pipeline-node" data-step="octopus"><span class="pn-year">1991</span><span class="pn-label">Octopus</span></div>
-      <div class="pipeline-node" data-step="inqtel"><span class="pn-year">1999</span><span class="pn-label">In-Q-Tel</span></div>
-      <div class="pipeline-node" data-step="now"><span class="pn-year">NOW</span><span class="pn-label">The Room</span></div>
-    </div>
-  </div>
-
-  <!-- === Act Indicator === -->
-  <div class="act-indicator" id="act-indicator" aria-hidden="true"></div>
-
-  <main>
-
-
-  <!-- ════════════════════════════════════════════════════════ -->
-  <!-- TITLE SCREEN                                             -->
-  <!-- ═════════════════���══════════════════════════════════════ -->
-
-  <div class="title-screen" id="title-screen">
-    <div class="title-content">
-      <a href="/" class="back-link">&larr; Disclosure Scrolls</a>
-      <div class="title-label">Scroll 011</div>
-      <div class="title-reading-time">~45 min read</div>
-      <h1 class="title-main">The Web</h1>
-      <p class="title-sub">You&rsquo;ve scrolled through nine wars &mdash; for your technology, your money, your history, your mind, your energy, your information, your body, your sky, and your faith. You&rsquo;ve seen the managed pipeline that replaced what they suppressed. Different names. Different decades. Different continents. But the same people keep appearing in every room. The Council on Foreign Relations publishes its membership. The Trilateral Commission publishes its membership. Bilderberg publishes its attendee list. This scroll doesn&rsquo;t speculate. It puts the published lists side by side &mdash; and lets you see the room.</p>
-      <div class="title-meta">
-        <span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
-        <span class="evidence-legend"><span class="el-dot" style="background:#fbbf24"></span> Credible</span>
-        <span class="evidence-legend"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
-      </div>
-      <div class="scroll-cue">&darr; Begin scrolling</div>
-    </div>
-  </div>
-
-
-  <!-- ════════════════════════���═══════════════════════════════ -->
-  <!-- ACT I — THE SAME ROOM                                    -->
-  <!-- ═══════════════════════════════════════════════════════�� -->
-
-  <div class="act" data-act="I" data-act-label="The Same Room">
-    <div class="act-header">
-      <div class="act-number">Act I</div>
-      <h2 class="act-title">The Same Room</h2>
-    </div>
-
-    <div class="scroll-block" data-block="1-1">
-      <p>Nine wars. Artificial intelligence, money, space, consciousness, energy, information, bodies, atmosphere, spirit. Each one looks like a different story &mdash; different agencies, different industries, different decades. But if you write down the names, the same surnames keep surfacing. The same organizations appear in the footnotes. The same foundation funded the research. The same law firm handled the paperwork. The same family chaired the board.</p>
-      <p>This isn&rsquo;t a conspiracy theory. It&rsquo;s a directory.</p>
-    </div>
-
-    <div class="scroll-block" data-block="1-2">
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim">The <strong>Council on Foreign Relations</strong>, founded in 1921, publishes its membership roster. As of 2024, it lists approximately <strong><span class="countup" data-target="5000" data-suffix="+">5,000+</span></strong> members. Cross-referencing that single list with the entities named in Scrolls 001&ndash;009 produces matches across every domain: intelligence directors, media executives, defense CEOs, banking heads, Cabinet secretaries, and tech founders. Not because of a hidden conspiracy &mdash; because they published the list themselves.</div>
-        <div class="evidence-source">Council on Foreign Relations, membership roster (cfr.org, publicly accessible). Richard N. Haass (CFR President 2003&ndash;2023), CFR annual reports.</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="1-3">
-      <p>What makes this scroll different from the previous nine is that it doesn&rsquo;t investigate a new domain. It investigates the personnel overlap &mdash; the organizational chart that connects every war you&rsquo;ve already read. The evidence isn&rsquo;t classified. It&rsquo;s on their own websites.</p>
-    </div>
-
-    <div class="scroll-block" data-block="1-4">
-      <h3 class="node-title">The Overlap</h3>
-      <div class="pattern-grid">
-        <div class="pattern-row"><span class="pr-label">Scrolls in this series</span><span class="pr-value"><span class="countup" data-target="9">9</span></span></div>
-        <div class="pattern-row"><span class="pr-label">Named entities across all scrolls</span><span class="pr-value"><span class="countup" data-target="200" data-suffix="+">200+</span></span></div>
-        <div class="pattern-row"><span class="pr-label">Entities appearing in 3+ scrolls</span><span class="pr-value"><span class="countup" data-target="26">26</span></span></div>
-        <div class="pattern-row"><span class="pr-label">CFR members who served as CIA Director</span><span class="pr-value"><span class="countup" data-target="11">11</span></span></div>
-        <div class="pattern-row"><span class="pr-label">Trilateral members in Carter&rsquo;s Cabinet</span><span class="pr-value"><span class="countup" data-target="19">19</span></span></div>
-        <div class="pattern-row"><span class="pr-label">Organizations that publish their own membership</span><span class="pr-value"><span class="countup" data-target="3">3</span></span></div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="1-5">
-      <div class="pull-quote">
-        <p class="pq-text">The web isn&rsquo;t hidden. You just weren&rsquo;t supposed to put the lists in the same room.</p>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ════════════���══════════════════════════��════════════════ -->
-  <!-- ACT II — THE MEMBERSHIP LIST                              -->
-  <!-- ══════════════════════���═════════════════════════════════ -->
-
-  <div class="act" data-act="II" data-act-label="The Membership List" data-pipeline="cfr">
-    <div class="act-header">
-      <div class="act-number">Act II</div>
-      <h2 class="act-title">The Membership List</h2>
-    </div>
-
-    <div class="scroll-block" data-block="2-1">
-      <p>Three organizations. Each publishes its own membership. Each has members who appear in every war you&rsquo;ve scrolled through. Together they form the connective tissue of the 20th and 21st centuries &mdash; the nexus where intelligence, finance, defense, media, and policy meet in the same room, behind the same closed doors, and call it public service.</p>
-    </div>
-
-    <div class="scroll-block" data-block="2-2">
-      <h3 class="node-title">The Council on Foreign Relations</h3>
-      <div class="visual-row">
-        <div class="visual-figure org-square">
-          <img src="assets/cfr.jpg" alt="Council on Foreign Relations">
-          <div class="vr-name">CFR</div>
-          <div class="vr-role">Founded 1921 &mdash; New York</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/david_rockefeller.jpg" alt="David Rockefeller">
-          <div class="vr-name">David Rockefeller</div>
-          <div class="vr-role">CFR Chairman 1970&ndash;1985</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim">The CFR was founded in 1921, growing from the &ldquo;Inquiry&rdquo; &mdash; Woodrow Wilson&rsquo;s group of academics who designed the post-WWI order &mdash; and its British counterpart, the Royal Institute of International Affairs (Chatham House). During World War II, the CFR&rsquo;s <strong>&ldquo;War and Peace Studies&rdquo;</strong> project (1939&ndash;1945), funded by the Rockefeller Foundation, produced <strong><span class="countup" data-target="682">682</span></strong> memoranda that shaped the architecture of the United Nations, the World Bank, and the IMF. The postwar world was designed in a private study group &mdash; then presented as public policy.</div>
-        <div class="evidence-source">Laurence H. Shoup &amp; William Minter, <em>Imperial Brain Trust: The CFR and U.S. Foreign Policy</em> (1977/2004). CFR &ldquo;War and Peace Studies&rdquo; records (CFR Archives). Peter Grose, <em>Continuing the Inquiry</em> (1996, CFR&rsquo;s own history).</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="2-3">
-      <p>The CFR isn&rsquo;t a conspiracy. It&rsquo;s a membership organization that publishes the journal <em>Foreign Affairs</em>, hosts policy discussions, and places its members in government. The conspiracy is that a single private organization has supplied a significant fraction of every presidential Cabinet since Eisenhower &mdash; and almost nobody knows it exists.</p>
-    </div>
-
-    <div class="scroll-block" data-block="2-4">
-      <h3 class="node-title">CFR &rarr; CIA Director Pipeline</h3>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/dulles.jpg" alt="Allen Dulles">
-          <div class="vr-name">Allen Dulles</div>
-          <div class="vr-role">CFR member &mdash; CIA Director 1953&ndash;1961</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/helms.jpg" alt="Richard Helms">
-          <div class="vr-name">Richard Helms</div>
-          <div class="vr-role">CFR member &mdash; CIA Director 1966&ndash;1973</div>
-        </div>
-      </div>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/colby.jpg" alt="William Colby">
-          <div class="vr-name">William Colby</div>
-          <div class="vr-role">CFR member &mdash; CIA Director 1973&ndash;1976</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/george_hw_bush.jpg" alt="George H.W. Bush">
-          <div class="vr-name">George H.W. Bush</div>
-          <div class="vr-role">CFR member &mdash; CIA Director 1976&ndash;1977</div>
-        </div>
-      </div>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/casey.jpg" alt="William Casey">
-          <div class="vr-name">William Casey</div>
-          <div class="vr-role">CFR member &mdash; CIA Director 1981&ndash;1987</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/woolsey.jpg" alt="James Woolsey">
-          <div class="vr-name">James Woolsey</div>
-          <div class="vr-role">CFR member &mdash; CIA Director 1993&ndash;1995</div>
-        </div>
-      </div>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/tenet.jpg" alt="George Tenet">
-          <div class="vr-name">George Tenet</div>
-          <div class="vr-role">CIA Director 1997&ndash;2004</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/hayden.jpg" alt="Michael Hayden">
-          <div class="vr-name">Michael Hayden</div>
-          <div class="vr-role">CFR member &mdash; CIA Director 2006&ndash;2009</div>
-        </div>
-      </div>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/panetta.jpg" alt="Leon Panetta">
-          <div class="vr-name">Leon Panetta</div>
-          <div class="vr-role">CIA Director 2009&ndash;2011 &rarr; Secretary of Defense</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/petraeus.jpg" alt="David Petraeus">
-          <div class="vr-name">David Petraeus</div>
-          <div class="vr-role">CFR member &mdash; CIA Director 2011&ndash;2012</div>
-        </div>
-      </div>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/brennan.jpg" alt="John Brennan">
-          <div class="vr-name">John Brennan</div>
-          <div class="vr-role">CIA Director 2013&ndash;2017</div>
-        </div>
-        <div class="visual-figure org-square">
-          <img src="assets/cia.jpg" alt="CIA">
-          <div class="vr-name">CIA</div>
-          <div class="vr-role">CFR has supplied directors for 7 decades</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim">At least <strong><span class="countup" data-target="11">11</span></strong> CIA Directors have been CFR members. Allen Dulles was a CFR director before becoming DCI. George H.W. Bush was a CFR member before, during, and after his time as CIA Director and President. James Woolsey went from CIA Director to the boards of Booz Allen Hamilton, Palantir, and the In-Q-Tel advisory board. The private organization that designs foreign policy also supplies the directors of the agency that implements it.</div>
-        <div class="evidence-source">CFR membership roster (published annually). John Prados, <em>Safe for Democracy: The Secret Wars of the CIA</em> (2006). Tim Weiner, <em>Legacy of Ashes: The History of the CIA</em> (2007).</div>
-      </div>
-    </div>
-
-    <div class="scroll-block chain-summary" data-block="2-5">
-      <div class="typed-terminal" id="cfr-terminal">
-        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["MAPPING CFR-CIA PIPELINE...","DULLES (1953) ^500&rarr; HELMS (1966) ^500&rarr; COLBY (1973) ^500&rarr; BUSH (1976) ^500&rarr; CASEY (1981) ^500&rarr; WOOLSEY (1993) ^500&rarr; HAYDEN (2006) ^500&rarr; PETRAEUS (2011)","ONE PRIVATE ORGANIZATION. ^500 SEVEN DECADES OF CIA DIRECTORS. ^1000 THEY PUBLISH THE LIST."]'></span>
-      </div>
-      <div class="chain-text">
-        <span class="chain-link">CFR (1921)</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Dulles</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Helms</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Colby</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Bush</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Casey</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Woolsey</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Hayden</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Petraeus</span>
-      </div>
-      <p class="chain-decode">One membership list. One private organization. Seven decades of CIA directors. This isn&rsquo;t inference. It&rsquo;s their own roster.</p>
-    </div>
-
-    <div class="scroll-block" data-block="2-6">
-      <h3 class="node-title">The Trilateral Commission</h3>
-      <div class="visual-row">
-        <div class="visual-figure org-square">
-          <img src="assets/trilateral.jpg" alt="Trilateral Commission">
-          <div class="vr-name">Trilateral Commission</div>
-          <div class="vr-role">Founded 1973 &mdash; Rockefeller &amp; Brzezinski</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/brzezinski.jpg" alt="Zbigniew Brzezinski">
-          <div class="vr-name">Zbigniew Brzezinski</div>
-          <div class="vr-role">Co-founder &mdash; Carter NSA 1977&ndash;1981</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim">David Rockefeller and Zbigniew Brzezinski founded the Trilateral Commission in 1973 to coordinate policy between North America, Western Europe, and Japan. In 1975, the Commission published <em>The Crisis of Democracy</em> &mdash; a report arguing that Western democracies suffered from an &ldquo;excess of democracy&rdquo; and that &ldquo;the effective operation of a democratic political system usually requires some measure of apathy and non-involvement.&rdquo; Two years later, Trilateral member <strong>Jimmy Carter</strong> became President. His administration included at least <strong><span class="countup" data-target="19">19</span></strong> Trilateral Commission members, including the Vice President, Secretary of State, Secretary of Defense, Secretary of the Treasury, and National Security Advisor.</div>
-        <div class="evidence-source">Michel Crozier, Samuel Huntington &amp; Joji Watanuki, <em>The Crisis of Democracy</em> (1975, Trilateral Commission). Holly Sklar, <em>Trilateralism</em> (1980). Trilateral Commission membership list (published on trilateral.org).</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="2-7">
-      <p>An organization that published a report calling democracy a problem placed <span class="countup" data-target="19">19</span> members in the next presidential administration. The report wasn&rsquo;t classified. The membership wasn&rsquo;t secret. The administration happened anyway.</p>
-    </div>
-
-    <div class="scroll-block" data-block="2-8">
-      <h3 class="node-title">The Bilderberg Group</h3>
-      <div class="visual-row">
-        <div class="visual-figure org-square">
-          <img src="assets/bilderberg.jpg" alt="Bilderberg Group">
-          <div class="vr-name">Bilderberg Group</div>
-          <div class="vr-role">Founded 1954 &mdash; Hotel de Bilderberg, Netherlands</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/bernhard.jpg" alt="Prince Bernhard">
-          <div class="vr-name">Prince Bernhard</div>
-          <div class="vr-role">Founder &mdash; former IG Farben employee</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim">The Bilderberg Group was founded in 1954 by <strong>Prince Bernhard of the Netherlands</strong> &mdash; who had been a member of the Nazi Party and an employee of <strong>IG Farben</strong> before the war. The first meeting was organized with CIA funding through the American Committee for a United Europe. Since 2010, Bilderberg has published its attendee lists. Documented attendees include: <strong>Bill Clinton</strong> (1991, before his presidential run), <strong>Tony Blair</strong> (1993, before becoming PM), <strong>Jeff Bezos</strong>, <strong>Eric Schmidt</strong>, <strong>Peter Thiel</strong>, <strong>Henry Kissinger</strong> (attended for over 50 years), and heads of Goldman Sachs, Deutsche Bank, BP, Shell, and Lockheed Martin. Approximately <strong><span class="countup" data-target="130">130</span></strong> attendees per year. No minutes published. Chatham House Rule.</div>
-        <div class="evidence-source">Bilderberg Meetings official website (bilderbergmeetings.org, attendee lists since 2010). Richard J. Aldrich, <em>The Hidden Hand</em> (2001, CIA funding). Daniel Estulin, <em>The True Story of the Bilderberg Group</em> (2005/2009). Bernhard&rsquo;s IG Farben employment confirmed in Annejet van der Zijl, <em>Prince Bernhard</em> (2010).</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="2-9">
-      <p>IG Farben built the factories at Auschwitz. IG Farben manufactured Zyklon B. After the war, IG Farben was broken up into Bayer, BASF, and Hoechst &mdash; the same companies that appear in Body Wars. The man who worked for IG Farben before the war founded the most exclusive policy forum on Earth after it. You scrolled through this connection in Scroll 007. Now you see where the founder sits.</p>
-    </div>
-
-    <div class="scroll-block" data-block="2-10">
-      <h3 class="node-title">The Overlap</h3>
-      <div class="pattern-grid">
-        <div class="pattern-row"><span class="pr-label">CFR members</span><span class="pr-value"><span class="countup" data-target="5000" data-suffix="+">5,000+</span></span></div>
-        <div class="pattern-row"><span class="pr-label">Trilateral Commission members</span><span class="pr-value">~<span class="countup" data-target="400">400</span></span></div>
-        <div class="pattern-row"><span class="pr-label">Annual Bilderberg attendees</span><span class="pr-value">~<span class="countup" data-target="130">130</span></span></div>
-        <div class="pattern-row"><span class="pr-label">Individuals appearing in all three</span><span class="pr-value"><span class="countup" data-target="87" data-suffix="+">87+</span></span></div>
-        <div class="pattern-row"><span class="pr-label">David Rockefeller: memberships held simultaneously</span><span class="pr-value"><span class="countup" data-target="3">3</span></span></div>
-        <div class="pattern-row"><span class="pr-label">Henry Kissinger: consecutive Bilderberg appearances</span><span class="pr-value"><span class="countup" data-target="50" data-suffix="+">50+</span></span></div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="2-11">
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/kissinger.jpg" alt="Henry Kissinger">
-          <div class="vr-name">Henry Kissinger</div>
-          <div class="vr-role">CFR + Trilateral + Bilderberg &mdash; NSA, Sec. of State</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/bezos.jpg" alt="Jeff Bezos">
-          <div class="vr-name">Jeff Bezos</div>
-          <div class="vr-role">Bilderberg attendee &mdash; Amazon, Blue Origin, WaPo</div>
-        </div>
-      </div>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/thiel.jpg" alt="Peter Thiel">
-          <div class="vr-name">Peter Thiel</div>
-          <div class="vr-role">Bilderberg &mdash; Palantir, Facebook board, In-Q-Tel ties</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/bill_gates.jpg" alt="Bill Gates">
-          <div class="vr-name">Bill Gates</div>
-          <div class="vr-role">Bilderberg attendee &mdash; Microsoft, Gates Foundation</div>
-        </div>
-      </div>
-      <div class="pull-quote">
-        <p class="pq-text">When the same 87 people sit on the membership rolls of the three organizations that shape Western foreign, economic, and defense policy &mdash; that&rsquo;s not a coincidence. That&rsquo;s a org chart.</p>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ═════════��══════════════════════════════════════════════ -->
-  <!-- ACT III — THE DYNASTY                                    -->
-  <!-- ════════════════════════════════════════════════════════ -->
-
-  <div class="act" data-act="III" data-act-label="The Dynasty" data-pipeline="bilderberg">
-    <div class="act-header">
-      <div class="act-number">Act III</div>
-      <h2 class="act-title">The Dynasty</h2>
-    </div>
-
-    <div class="scroll-block" data-block="3-1">
-      <p>Organizations have members. But some members built the organizations. Behind the membership lists are family trees &mdash; dynasties whose surnames appear across every scroll in this series, not because they joined the machine but because they designed it. The Rockefellers didn&rsquo;t just attend CFR meetings. They chaired them for decades, funded them, and built the building they meet in.</p>
-    </div>
-
-    <div class="scroll-block" data-block="3-2">
-      <h3 class="node-title">The Rockefeller Through-Line</h3>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/john_d_rockefeller.jpg" alt="John D. Rockefeller">
-          <div class="vr-name">John D. Rockefeller</div>
-          <div class="vr-role">Standard Oil &mdash; Oil Wars (Scroll 005)</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/david_rockefeller.jpg" alt="David Rockefeller">
-          <div class="vr-name">David Rockefeller</div>
-          <div class="vr-role">Chase Manhattan, CFR, Trilateral, Bilderberg</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim"><strong>John D. Rockefeller</strong> founded Standard Oil (Oil Wars). After the 1911 &ldquo;breakup,&rdquo; the pieces reconsolidated into ExxonMobil and Chevron. The Rockefeller Foundation funded the <strong>Flexner Report</strong> (1910) that shut down half the medical schools in America (Body Wars). The Foundation funded the CFR&rsquo;s War and Peace Studies. <strong>Nelson Rockefeller</strong> served as Vice President. <strong>David Rockefeller</strong> chaired the CFR for 15 years, co-founded the Trilateral Commission, attended Bilderberg for decades, and ran Chase Manhattan Bank. One family: oil, medicine, banking, intelligence, and foreign policy &mdash; across five scrolls.</div>
-        <div class="evidence-source">Ron Chernow, <em>Titan: The Life of John D. Rockefeller</em> (1998). David Rockefeller, <em>Memoirs</em> (2002). E. Richard Brown, <em>Rockefeller Medicine Men</em> (1979). CFR annual reports.</div>
-      </div>
-    </div>
-
-    <div class="scroll-block chain-summary" data-block="3-3">
-      <div class="typed-terminal" id="rockefeller-terminal">
-        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING ROCKEFELLER NETWORK...","STANDARD OIL (1870) ^500&rarr; FLEXNER REPORT (1910) ^500&rarr; CFR FUNDING (1921) ^500&rarr; CHASE MANHATTAN ^500&rarr; TRILATERAL (1973) ^500&rarr; BILDERBERG ^500&rarr; POPULATION COUNCIL","ONE FAMILY. ^500 FIVE SCROLLS. ^1000 SEVEN INDUSTRIES."]'></span>
-      </div>
-      <div class="chain-text">
-        <span class="chain-link">Standard Oil</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Flexner Report</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">CFR Funding</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Chase Manhattan</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Trilateral</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Bilderberg</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Population Council</span>
-      </div>
-      <p class="chain-decode">Oil &rarr; medicine &rarr; foreign policy &rarr; banking &rarr; trilateral governance &rarr; elite forums &rarr; population policy. Every link in this chain is from Rockefeller Foundation records and David Rockefeller&rsquo;s own <em>Memoirs</em>.</p>
-    </div>
-
-    <div class="scroll-block" data-block="3-4">
-      <h3 class="node-title">The Dulles Brothers</h3>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/dulles.jpg" alt="Allen Dulles">
-          <div class="vr-name">Allen Dulles</div>
-          <div class="vr-role">CIA Director 1953&ndash;1961 &mdash; CFR member</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/foster_dulles.jpg" alt="John Foster Dulles">
-          <div class="vr-name">John Foster Dulles</div>
-          <div class="vr-role">Secretary of State 1953&ndash;1959 &mdash; CFR member</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim">Under President Eisenhower, <strong>Allen Dulles</strong> served as CIA Director while his brother <strong>John Foster Dulles</strong> served as Secretary of State &mdash; simultaneously. The brothers came from <strong>Sullivan &amp; Cromwell</strong>, the Wall Street law firm whose clients included IG Farben (the Nazi chemical cartel), the United Fruit Company, and numerous German industrial interests before and during WWII. Allen Dulles authorized MKUltra (Mind Wars), oversaw the Guatemala and Iran coups (Oil Wars), and served on the Warren Commission. One law firm. Two brothers. The head of intelligence and the head of diplomacy at the same time.</div>
-        <div class="evidence-source">Stephen Kinzer, <em>The Brothers: John Foster Dulles, Allen Dulles, and Their Secret World War</em> (2013). David Talbot, <em>The Devil&rsquo;s Chessboard</em> (2015). Sullivan &amp; Cromwell firm history.</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="3-5">
-      <h3 class="node-title">The Bush Dynasty</h3>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/prescott_bush.jpg" alt="Prescott Bush">
-          <div class="vr-name">Prescott Bush</div>
-          <div class="vr-role">Union Banking Corp &mdash; Skull &amp; Bones</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/george_hw_bush.jpg" alt="George H.W. Bush">
-          <div class="vr-name">George H.W. Bush</div>
-          <div class="vr-role">CIA &rarr; VP &rarr; President &mdash; Skull &amp; Bones</div>
-        </div>
-      </div>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/george_w_bush.jpg" alt="George W. Bush">
-          <div class="vr-name">George W. Bush</div>
-          <div class="vr-role">President 2001&ndash;2009 &mdash; Skull &amp; Bones</div>
-        </div>
-        <div class="visual-figure org-square">
-          <img src="assets/skull_and_bones.jpg" alt="Skull and Bones">
-          <div class="vr-name">Skull &amp; Bones</div>
-          <div class="vr-role">Order 322 &mdash; Yale, founded 1832</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim"><strong>Prescott Bush</strong> was a director of Union Banking Corporation, seized by the U.S. government under the <strong>Trading with the Enemy Act</strong> in October 1942 for holding assets of Fritz Thyssen, a Nazi industrialist. He was a member of Skull &amp; Bones (Yale, 1917) and later a U.S. Senator. His son <strong>George H.W. Bush</strong> (S&amp;B 1948) became CIA Director, Vice President, and President. His grandson <strong>George W. Bush</strong> (S&amp;B 1968) became President. In the <strong>2004 presidential election</strong>, both candidates &mdash; Bush and <strong>John Kerry</strong> (S&amp;B 1966) &mdash; were Skull &amp; Bones members. When asked about it on <em>Meet the Press</em>, both deflected.</div>
-        <div class="evidence-source">National Archives, Vesting Order No. 248 (October 20, 1942). Antony Sutton, <em>America&rsquo;s Secret Establishment</em> (1983/2002). Alexandra Robbins, <em>Secrets of the Tomb</em> (2002). <em>Meet the Press</em> transcripts (2004).</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="3-6">
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/kerry.jpg" alt="John Kerry">
-          <div class="vr-name">John Kerry</div>
-          <div class="vr-role">Skull &amp; Bones 1966 &mdash; Senator, Sec. of State</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/harriman.jpg" alt="Averell Harriman">
-          <div class="vr-name">Averell Harriman</div>
-          <div class="vr-role">Skull &amp; Bones 1913 &mdash; Ambassador, Governor</div>
-        </div>
-      </div>
-      <p><strong>Averell Harriman</strong> (S&amp;B 1913) co-founded Brown Brothers Harriman with Prescott Bush. He served as Ambassador to the Soviet Union, Ambassador to the UK, Secretary of Commerce, and Governor of New York. The firm Brown Brothers Harriman remains the oldest and largest private investment bank in the United States.</p>
-    </div>
-
-    <div class="scroll-block" data-block="3-7">
-      <h3 class="node-title">The Insider Historian</h3>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/quigley.jpg" alt="Carroll Quigley">
-          <div class="vr-name">Carroll Quigley</div>
-          <div class="vr-role">Georgetown professor &mdash; taught Bill Clinton</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/rhodes.jpg" alt="Cecil Rhodes">
-          <div class="vr-name">Cecil Rhodes</div>
-          <div class="vr-role">Rhodes Scholarships &mdash; Round Table Groups</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim"><strong>Carroll Quigley</strong>, professor at Georgetown University and mentor to <strong>Bill Clinton</strong>, was given access to the network&rsquo;s papers for two years. In <em>Tragedy and Hope</em> (1966) &mdash; <strong><span class="countup" data-target="1348">1,348</span></strong> pages &mdash; he documented the chain from <strong>Cecil Rhodes</strong>&rsquo; secret society (1891) to the Milner Group to the Round Table to the Royal Institute of International Affairs to the CFR. Quigley was not an outsider. He agreed with the network&rsquo;s goals. He just thought they should be public: &ldquo;I know of the operations of this network because I have studied it for twenty years and was permitted for two years, in the early 1960s, to examine its papers and secret records.&rdquo; His publisher later destroyed the printing plates.</div>
-        <div class="evidence-source">Carroll Quigley, <em>Tragedy and Hope: A History of the World in Our Time</em> (1966), p. 950. Quigley&rsquo;s correspondence regarding suppression (cited in W. Cleon Skousen, <em>The Naked Capitalist</em>, 1970). Bill Clinton, 1992 DNC acceptance speech (named Quigley as formative influence).</div>
-      </div>
-    </div>
-
-    <div class="scroll-block chain-summary" data-block="3-8">
-      <div class="typed-terminal" id="dynasty-terminal">
-        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING ROUND TABLE NETWORK...","RHODES SECRET SOCIETY (1891) ^500&rarr; MILNER GROUP ^500&rarr; ROUND TABLE ^500&rarr; RIIA/CHATHAM HOUSE (1920) ^500&rarr; CFR (1921) ^500&rarr; TRILATERAL (1973) ^500&rarr; PRESENT","ONE CHAIN. ^500 133 YEARS. ^1000 DOCUMENTED BY THEIR OWN HISTORIAN."]'></span>
-      </div>
-      <div class="chain-text">
-        <span class="chain-link">Rhodes (1891)</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Milner Group</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Round Table</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">RIIA (1920)</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">CFR (1921)</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Trilateral (1973)</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Present</span>
-      </div>
-      <p class="chain-decode">Cecil Rhodes &rarr; Alfred Milner &rarr; Round Table groups &rarr; Royal Institute of International Affairs &rarr; Council on Foreign Relations &rarr; Trilateral Commission. Documented by the network&rsquo;s own sanctioned historian, Carroll Quigley, using their own records.</p>
-    </div>
-
-    <div class="scroll-block" data-block="3-9">
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/clinton.jpg" alt="Bill Clinton">
-          <div class="vr-name">Bill Clinton</div>
-          <div class="vr-role">Rhodes Scholar &rarr; CFR &rarr; Bilderberg 1991 &rarr; President</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/reagan.jpg" alt="Ronald Reagan">
-          <div class="vr-name">Ronald Reagan</div>
-          <div class="vr-role">President 1981&ndash;1989 &mdash; 80+ CFR members in admin</div>
-        </div>
-      </div>
-      <p>Clinton named Quigley as a formative influence in his 1992 DNC acceptance speech. He was a Rhodes Scholar. He attended Bilderberg in 1991 &mdash; the year before his presidential run. The network&rsquo;s own historian taught the man who became President. Reagan, despite his outsider rhetoric, staffed his administration with over 80 CFR members. The personnel pipeline doesn&rsquo;t care which party wins.</p>
-    </div>
-  </div>
-
-
-  <!-- ═══════��════════════════════════════════════════════════ -->
-  <!-- ACT IV — THE OCTOPUS                                     -->
-  <!-- ══════════════════��═════════════════════════════════════ -->
-
-  <div class="act act-reveal" data-act="IV" data-act-label="The Octopus" data-pipeline="octopus">
-    <div class="act-header">
-      <div class="act-number">Act IV</div>
-      <h2 class="act-title">The Octopus</h2>
-    </div>
-
-    <div class="scroll-block" data-block="4-1">
-      <p>You&rsquo;ve been looking at published membership lists and family trees. Board seats and CFR rosters. You might be thinking: this is just how power works. Elites know each other. They join the same clubs. It&rsquo;s influence, not conspiracy.</p>
-      <p>One man disagreed. He thought the connections weren&rsquo;t just social &mdash; they were operational. He called it the Octopus. He died in a hotel room in Martinsburg, West Virginia, with his wrists slashed, his notes missing, and a meeting with his source scheduled for the next morning.</p>
-    </div>
-
-    <div class="scroll-block" data-block="4-2">
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/casolaro.jpg" alt="Danny Casolaro">
-          <div class="vr-name">Danny Casolaro</div>
-          <div class="vr-role">Investigative journalist &mdash; found dead August 10, 1991</div>
-        </div>
-        <div class="visual-figure org-square">
-          <img src="assets/bcci.jpg" alt="BCCI">
-          <div class="vr-name">BCCI</div>
-          <div class="vr-role">Bank of Credit &amp; Commerce International</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim"><strong>Danny Casolaro</strong> was investigating what he called &ldquo;the Octopus&rdquo; &mdash; a network connecting the <strong>INSLAW/PROMIS</strong> affair (the Department of Justice&rsquo;s alleged theft of surveillance software), the <strong>October Surprise</strong> (the alleged 1980 deal to delay the Iran hostage release), <strong>BCCI</strong> (the CIA-connected bank that laundered an estimated <strong>$<span class="countup" data-target="20" data-suffix=" billion">20 billion</span></strong>), and <strong>Iran-Contra</strong> &mdash; as tentacles of a single network. He told his brother: &ldquo;If anything happens to me, don&rsquo;t believe it was suicide.&rdquo; On August 10, 1991, he was found dead in a bathtub in Martinsburg, WV. Wrists slashed <strong><span class="countup" data-target="12">12</span></strong> times. His briefcase and notes were never recovered. Ruled suicide.</div>
-        <div class="evidence-source">House Judiciary Committee, &ldquo;The INSLAW Affair&rdquo; (1992, Brooks Committee Report). Kenn Thomas &amp; Jim Keith, <em>The Octopus</em> (1996/2004). Associated Press reporting (August 1991). Martinsburg Police Department report.</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="4-3">
-      <div class="pull-quote reveal-climax">
-        <p class="pq-text">You thought this scroll was about powerful people joining the same clubs. It&rsquo;s actually about what happens when someone tries to draw the lines between them. The web doesn&rsquo;t hide its membership. It hides its operations. And it buries its cartographers.</p>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="4-4">
-      <h3 class="node-title">BCCI &mdash; The Bank That Connected Everything</h3>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim">The <strong>Bank of Credit and Commerce International</strong> (BCCI) was founded in 1972 and shut down by regulators in 1991. Senate investigators called it &ldquo;the largest bank fraud in world financial history.&rdquo; BCCI was used by the <strong>CIA</strong> to fund the Afghan mujahideen, by the <strong>Medell&iacute;n cartel</strong> to launder drug money, by <strong>Saddam Hussein</strong> and <strong>Manuel Noriega</strong> to move state funds, and by arms dealers across the Middle East. It operated in <strong><span class="countup" data-target="78">78</span></strong> countries with assets of <strong>$<span class="countup" data-target="20" data-suffix=" billion">20 billion</span></strong>. Senate investigator <strong>Jack Blum</strong> testified that the Justice Department actively obstructed the investigation. BCCI touched Money Wars, Oil Wars, Mind Wars, and AI Wars in a single institution.</div>
-        <div class="evidence-source">Senate Foreign Relations Committee, &ldquo;The BCCI Affair&rdquo; (Kerry-Brown Report, 1992). Jack Blum Senate testimony (1991). Peter Truell &amp; Larry Gurwin, <em>False Profits: The Inside Story of BCCI</em> (1992).</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="4-5">
-      <h3 class="node-title">INSLAW/PROMIS &mdash; The Software</h3>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/meese.jpg" alt="Edwin Meese">
-          <div class="vr-name">Edwin Meese</div>
-          <div class="vr-role">Attorney General 1985&ndash;1988</div>
-        </div>
-        <div class="visual-figure org-square">
-          <img src="assets/iran_contra.jpg" alt="Iran-Contra">
-          <div class="vr-name">Iran-Contra</div>
-          <div class="vr-role">Arms-for-hostages &mdash; drug money &mdash; BCCI</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim"><strong>INSLAW Inc.</strong> developed PROMIS &mdash; Prosecutors&rsquo; Management Information System &mdash; for the Department of Justice. INSLAW alleged the DOJ stole the software, modified it with a backdoor, and distributed it to intelligence agencies and foreign governments as a surveillance tool. A federal bankruptcy judge found that the DOJ &ldquo;took, converted, stole&rdquo; the software through &ldquo;trickery, fraud and deceit.&rdquo; The House Judiciary Committee investigated and concluded there was &ldquo;strong evidence&rdquo; the DOJ had acted improperly. Attorney General <strong>Edwin Meese</strong> was named repeatedly. The case was buried. Casolaro believed PROMIS was the operational thread connecting the Octopus.</div>
-        <div class="evidence-source">House Judiciary Committee, &ldquo;The INSLAW Affair&rdquo; (Brooks Report, September 10, 1992). Bankruptcy Judge George Bason ruling (1987). Bill Hamilton (INSLAW founder) testimony.</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="4-6">
-      <h3 class="node-title">Iran-Contra &mdash; The Operation</h3>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/casey.jpg" alt="William Casey">
-          <div class="vr-name">William Casey</div>
-          <div class="vr-role">CIA Director &mdash; CFR member &mdash; Iran-Contra architect</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/reagan.jpg" alt="Ronald Reagan">
-          <div class="vr-name">Ronald Reagan</div>
-          <div class="vr-role">President &mdash; &ldquo;I don&rsquo;t recall&rdquo;</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim"><strong>Iran-Contra</strong> (1985&ndash;1987) was not one scandal. It was a nexus: the Reagan administration sold weapons to Iran (violating an arms embargo), used the profits to fund the Nicaraguan Contras (violating the Boland Amendment), while CIA-connected aircraft flew cocaine into the United States on the return flights. Special Counsel Lawrence Walsh secured <strong><span class="countup" data-target="11">11</span></strong> convictions. President <strong>George H.W. Bush</strong> pardoned <strong><span class="countup" data-target="6">6</span></strong> of them on Christmas Eve 1992 &mdash; including <strong>Caspar Weinberger</strong>, whose trial would have exposed Bush&rsquo;s own involvement. CIA Director <strong>William Casey</strong> died of a brain tumor the day before he was scheduled to testify.</div>
-        <div class="evidence-source">Lawrence Walsh, <em>Final Report of the Independent Counsel for Iran/Contra Matters</em> (1993). Congressional Iran-Contra Report (1987). Gary Webb, <em>Dark Alliance</em> (1998, CIA IG confirmation 1998).</div>
-      </div>
-    </div>
-
-    <div class="scroll-block chain-summary" data-block="4-7">
-      <div class="typed-terminal" id="octopus-terminal">
-        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["MAPPING CASOLARO OCTOPUS...","PROMIS/INSLAW (DOJ) ^500&rarr; OCTOBER SURPRISE (1980) ^500&rarr; IRAN-CONTRA (1985) ^500&rarr; BCCI ($20B) ^500&rarr; CIA/DRUGS ^500&rarr; DOJ OBSTRUCTION","ONE JOURNALIST SAW ONE NETWORK. ^500 HE DIED THE NIGHT BEFORE HIS MEETING. ^1000 HIS NOTES WERE NEVER FOUND."]'></span>
-      </div>
-      <div class="chain-text">
-        <span class="chain-link">PROMIS/DOJ</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">October Surprise</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">Iran-Contra</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">BCCI ($20B)</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">CIA Drug Flights</span> <span class="chain-arrow">&rarr;</span>
-        <span class="chain-link">DOJ Obstruction</span>
-      </div>
-      <p class="chain-decode">Surveillance software &rarr; hostage deal &rarr; arms-for-drugs &rarr; global money laundering &rarr; CIA narcotics trafficking &rarr; federal cover-up. Every link investigated by Congress. Every link buried. The journalist who connected them all was found dead.</p>
-    </div>
-  </div>
-
-
-  <!-- ═══════════════════════════════════════════��════════════ -->
-  <!-- ACT V — THE PRICE                                        -->
-  <!-- ════════════════════════════════════════════════════════ -->
-
-  <div class="act" data-act="V" data-act-label="The Price">
-    <div class="act-header">
-      <div class="act-number">Act V</div>
-      <h2 class="act-title">The Price</h2>
-    </div>
-
-    <div class="scroll-block" data-block="5-1">
-      <p>The web doesn&rsquo;t punish outsiders for believing in conspiracies. It punishes cartographers. The people who end up dead aren&rsquo;t the ones who speculate about the Illuminati on YouTube. They&rsquo;re the ones with documents, source networks, and a meeting scheduled for the next morning.</p>
-    </div>
-
-    <div class="scroll-block" data-block="5-2">
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/webb.jpg" alt="Gary Webb">
-          <div class="vr-name">Gary Webb</div>
-          <div class="vr-role">San Jose Mercury News &mdash; found dead December 10, 2004</div>
-        </div>
-        <div class="visual-figure org-square">
-          <img src="assets/cia.jpg" alt="CIA">
-          <div class="vr-name">CIA</div>
-          <div class="vr-role">Inspector General confirmed core allegations &mdash; 1998</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim"><strong>Gary Webb</strong> published &ldquo;Dark Alliance&rdquo; in the <em>San Jose Mercury News</em> (1996), documenting the CIA-Contra-crack cocaine pipeline into American cities. The <em>Los Angeles Times</em>, <em>Washington Post</em>, and <em>New York Times</em> attacked his methodology in coordinated fashion. His editor backed away. He lost his job, his marriage, his career. Two years later, the <strong>CIA Inspector General</strong> published two volumes confirming the core allegations &mdash; that the CIA had indeed worked with drug traffickers and actively concealed this from Congress. Webb was found dead in 2004 with <strong>two</strong> gunshot wounds to the head. Ruled suicide.</div>
-        <div class="evidence-source">Gary Webb, <em>Dark Alliance</em> (1998). CIA Inspector General Report, &ldquo;Allegations of Connections Between CIA and the Contras in Cocaine Trafficking to the United States,&rdquo; Volume I (January 1998) &amp; Volume II (October 1998). Nick Schou, <em>Kill the Messenger</em> (2006).</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="5-3">
-      <p>The three largest newspapers in America attacked the journalist. The agency he exposed confirmed his findings. He died with two bullets in his head. The CIA report that vindicated him was published on a Friday afternoon with no press conference.</p>
-    </div>
-
-    <div class="scroll-block" data-block="5-4">
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/silkwood.jpg" alt="Karen Silkwood">
-          <div class="vr-name">Karen Silkwood</div>
-          <div class="vr-role">Kerr-McGee technician &mdash; died November 13, 1974</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/lombardi.jpg" alt="Mark Lombardi">
-          <div class="vr-name">Mark Lombardi</div>
-          <div class="vr-role">Network artist &mdash; found dead March 22, 2000</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim"><strong>Karen Silkwood</strong> documented plutonium contamination at the Kerr-McGee Cimarron plant. On November 13, 1974, driving to meet a <em>New York Times</em> reporter with a folder of documents, her car was forced off the road. The documents were never found. Kerr-McGee settled with her estate for <strong>$<span class="countup" data-target="1.38" data-suffix=" million">1.38 million</span></strong>. <strong>Mark Lombardi</strong> created intricate hand-drawn network diagrams mapping BCCI, Iran-Contra, and global financial scandals using exclusively public records. He was found dead in 2000, ruled suicide. After 9/11, <strong>FBI agents visited the Whitney Museum</strong> to examine his BCCI-related diagram. The bureau studied the dead artist&rsquo;s map of the network it had failed to investigate.</div>
-        <div class="evidence-source">Silkwood v. Kerr-McGee (1979, 10th Circuit). Howard Kohn, &ldquo;Malignant Giant,&rdquo; <em>Rolling Stone</em> (1975). Robert Hobbs, <em>Mark Lombardi: Global Networks</em> (2003). Whitney Museum confirmed FBI visit (2001, reported by <em>New York Times</em>).</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="5-5">
-      <h3 class="node-title">The Quigley Paradox</h3>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/quigley.jpg" alt="Carroll Quigley">
-          <div class="vr-name">Carroll Quigley</div>
-          <div class="vr-role">Georgetown &mdash; <em>Tragedy and Hope</em> (1966)</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/clinton.jpg" alt="Bill Clinton">
-          <div class="vr-name">Bill Clinton</div>
-          <div class="vr-role">Rhodes Scholar &mdash; named Quigley at 1992 DNC</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim">Carroll Quigley wasn&rsquo;t killed. He was something worse: acknowledged and ignored. His publisher, Macmillan, let <em>Tragedy and Hope</em> go out of print and destroyed the original printing plates, despite persistent demand. Quigley protested in correspondence that this was deliberate suppression. He wasn&rsquo;t a conspiracy theorist &mdash; he <em>agreed</em> with the network&rsquo;s goals. He simply believed it should operate publicly. The network&rsquo;s own sympathetic historian documented <strong><span class="countup" data-target="1348">1,348</span></strong> pages of evidence, and the response was to pulp the book. Not because it was wrong. Because it was right.</div>
-        <div class="evidence-source">Carroll Quigley, <em>Tragedy and Hope</em> (1966). Quigley&rsquo;s correspondence regarding plate destruction (multiple sources). Bill Clinton, DNC acceptance speech, July 16, 1992.</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="5-6">
-      <h3 class="node-title">The Cartographers</h3>
-      <div class="pattern-grid">
-        <div class="pattern-row"><span class="pr-label">Danny Casolaro (1991) &mdash; investigated PROMIS/Octopus</span><span class="pr-value">Dead &mdash; notes missing</span></div>
-        <div class="pattern-row"><span class="pr-label">Gary Webb (2004) &mdash; exposed CIA-Contra-crack pipeline</span><span class="pr-value">Dead &mdash; 2 gunshots</span></div>
-        <div class="pattern-row"><span class="pr-label">Karen Silkwood (1974) &mdash; documented nuclear contamination</span><span class="pr-value">Dead &mdash; docs missing</span></div>
-        <div class="pattern-row"><span class="pr-label">Mark Lombardi (2000) &mdash; drew the network diagrams</span><span class="pr-value">Dead &mdash; FBI studied his art</span></div>
-        <div class="pattern-row"><span class="pr-label">Carroll Quigley (1977) &mdash; documented the network from inside</span><span class="pr-value">Book plates destroyed</span></div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="5-7">
-      <div class="pull-quote">
-        <p class="pq-text">The web doesn&rsquo;t fear exposure. It fears cartography. Allegations come and go. Org charts are permanent.</p>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ══════════════════════════════════════════════��═════════ -->
-  <!-- ACT VI — THE ROOM                                        -->
-  <!-- ═��════════════════════════════════════════════════════��═ -->
-
-  <div class="act act-light" data-act="VI" data-act-label="The Room" data-pipeline="now">
-    <div class="act-header">
-      <div class="act-number">Act VI</div>
-      <h2 class="act-title">The Room</h2>
-    </div>
-
-    <div class="scroll-block" data-block="6-1">
-      <p>The oldest pattern in this series isn&rsquo;t the CIA or the CFR. It&rsquo;s the revolving door &mdash; the mechanism by which the same people cycle through intelligence, defense, finance, and policy without ever leaving the room. The door revolves. The room doesn&rsquo;t change.</p>
-    </div>
-
-    <div class="scroll-block" data-block="6-2">
-      <h3 class="node-title">The Revolving Door</h3>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/cheney.jpg" alt="Dick Cheney">
-          <div class="vr-name">Dick Cheney</div>
-          <div class="vr-role">Secretary of Defense &rarr; Halliburton CEO &rarr; Vice President</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/rumsfeld.jpg" alt="Donald Rumsfeld">
-          <div class="vr-name">Donald Rumsfeld</div>
-          <div class="vr-role">Secretary of Defense (twice) &mdash; $2.3 trillion unaccounted</div>
-        </div>
-      </div>
-      <div class="visual-row">
-        <div class="visual-figure">
-          <img src="assets/woolsey.jpg" alt="James Woolsey">
-          <div class="vr-name">James Woolsey</div>
-          <div class="vr-role">CIA Director &rarr; Booz Allen &rarr; Palantir advisory</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/clapper.jpg" alt="James Clapper">
-          <div class="vr-name">James Clapper</div>
-          <div class="vr-role">DNI &rarr; CNN contributor &mdash; lied to Congress under oath</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim"><strong>Dick Cheney</strong>: Secretary of Defense (1989&ndash;1993) &rarr; Halliburton CEO (1995&ndash;2000, compensation $<span class="countup" data-target="44" data-suffix=" million">44 million</span>) &rarr; Vice President (2001&ndash;2009). Halliburton received <strong>$<span class="countup" data-target="39.5" data-suffix=" billion">39.5 billion</span></strong> in Iraq War contracts. <strong>James Woolsey</strong>: CIA Director (1993&ndash;95) &rarr; Booz Allen Hamilton &rarr; Palantir advisory board &rarr; In-Q-Tel advisory. <strong>Michael Hayden</strong>: NSA Director &rarr; CIA Director &rarr; Chertoff Group (private security). <strong>James Clapper</strong>: Director of National Intelligence who testified to Congress that the NSA did &ldquo;not wittingly&rdquo; collect data on Americans &mdash; a statement proven false by Edward Snowden one month later &mdash; then became a CNN national security analyst.</div>
-        <div class="evidence-source">Congressional Budget Office, Iraq War cost analysis. Halliburton SEC filings (Cheney compensation). Clapper Senate testimony (March 12, 2013). Snowden disclosures (June 2013).</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="6-3">
-      <h3 class="node-title">The Silicon Valley Pipeline</h3>
-      <div class="visual-row">
-        <div class="visual-figure org-square">
-          <img src="assets/in_q_tel.jpg" alt="In-Q-Tel">
-          <div class="vr-name">In-Q-Tel</div>
-          <div class="vr-role">CIA venture capital &mdash; founded 1999</div>
-        </div>
-        <div class="visual-figure org-square">
-          <img src="assets/palantir.jpg" alt="Palantir">
-          <div class="vr-name">Palantir</div>
-          <div class="vr-role">In-Q-Tel investment &rarr; $20B defense contracts</div>
-        </div>
-      </div>
-      <div class="visual-row">
-        <div class="visual-figure org-square">
-          <img src="assets/darpa.jpg" alt="DARPA">
-          <div class="vr-name">DARPA</div>
-          <div class="vr-role">Funded Stanford research where Google was born</div>
-        </div>
-        <div class="visual-figure">
-          <img src="assets/thiel.jpg" alt="Peter Thiel">
-          <div class="vr-name">Peter Thiel</div>
-          <div class="vr-role">Palantir + Facebook board + Bilderberg + PayPal</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim"><strong>In-Q-Tel</strong>, the CIA&rsquo;s venture capital arm, was founded in 1999. Its portfolio includes <strong>Palantir</strong> (now a $<span class="countup" data-target="60" data-suffix="B+">60B+</span> defense contractor), <strong>Keyhole</strong> (acquired by Google, became Google Earth), and <strong>Recorded Future</strong> (predictive intelligence). DARPA funded the Stanford Digital Library Project where <strong>Larry Page</strong> and <strong>Sergey Brin</strong> developed the algorithm that became Google. The CIA and NSA funded research at Stanford through the Massive Digital Data Systems program. DARPA&rsquo;s <strong>LifeLog</strong> project &mdash; designed to track an individual&rsquo;s entire digital life &mdash; was cancelled on <strong>February 4, 2004</strong>. Facebook launched the same day.</div>
-        <div class="evidence-source">In-Q-Tel portfolio (iqt.org, public). Yasha Levine, <em>Surveillance Valley</em> (2018). DARPA LifeLog cancellation reported by <em>Wired</em> (February 4, 2004). Facebook launch date confirmed by SEC filings.</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="6-4">
-      <h3 class="node-title">Operation Gladio &mdash; The Shadow Army</h3>
-      <div class="visual-row">
-        <div class="visual-figure org-square">
-          <img src="assets/gladio.jpg" alt="Operation Gladio">
-          <div class="vr-name">Operation Gladio</div>
-          <div class="vr-role">NATO stay-behind armies &mdash; confirmed 1990</div>
-        </div>
-        <div class="visual-figure org-square">
-          <img src="assets/five_eyes.jpg" alt="Five Eyes">
-          <div class="vr-name">Five Eyes</div>
-          <div class="vr-role">US/UK/CA/AU/NZ intelligence alliance</div>
-        </div>
-      </div>
-      <div class="evidence-card" data-tier="documented">
-        <div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
-        <div class="evidence-claim"><strong>Operation Gladio</strong> was a network of secret NATO &ldquo;stay-behind&rdquo; armies across Western Europe during the Cold War. In 1990, Italian Prime Minister <strong>Giulio Andreotti</strong> confirmed its existence to the Italian parliament. The European Parliament passed a resolution condemning the program. In multiple countries, Gladio operatives were linked to terrorist attacks blamed on left-wing groups &mdash; a &ldquo;strategy of tension&rdquo; designed to keep populations fearful and governments right-leaning. The CIA, MI6, and NATO coordinated the program across at least <strong><span class="countup" data-target="14">14</span></strong> European countries. It was the web operating as a covert military network inside allied democracies.</div>
-        <div class="evidence-source">Daniele Ganser, <em>NATO&rsquo;s Secret Armies: Operation Gladio and Terrorism in Western Europe</em> (2005). Giulio Andreotti, statement to Italian Parliament (October 24, 1990). European Parliament Resolution on Gladio (November 22, 1990).</div>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="6-5">
-      <h3 class="node-title">Ten Wars. One Room.</h3>
-      <div class="pattern-grid">
-        <div class="pattern-row"><span class="pr-label">AI Wars &mdash; NSA, CIA, In-Q-Tel, Palantir, Google</span><span class="pr-value">CFR/Bilderberg members</span></div>
-        <div class="pattern-row"><span class="pr-label">Money Wars &mdash; Federal Reserve, IMF, World Bank, Goldman</span><span class="pr-value">CFR-designed institutions</span></div>
-        <div class="pattern-row"><span class="pr-label">Space Wars &mdash; Lockheed, Boeing, Northrop, Pentagon</span><span class="pr-value">CFR/Trilateral boards</span></div>
-        <div class="pattern-row"><span class="pr-label">Mind Wars &mdash; MKUltra, Gottlieb, Allen Dulles, SRI</span><span class="pr-value">CFR director authorized</span></div>
-        <div class="pattern-row"><span class="pr-label">Oil Wars &mdash; Standard Oil, ExxonMobil, petrodollar</span><span class="pr-value">Rockefeller empire</span></div>
-        <div class="pattern-row"><span class="pr-label">Media Wars &mdash; Mockingbird, Big Tech, 6 corporations</span><span class="pr-value">CFR media members</span></div>
-        <div class="pattern-row"><span class="pr-label">Body Wars &mdash; Flexner, pharma, FDA revolving door</span><span class="pr-value">Rockefeller Foundation</span></div>
-        <div class="pattern-row"><span class="pr-label">Sky Wars &mdash; HAARP, Raytheon, BAE, no governance</span><span class="pr-value">Defense contractors on CFR</span></div>
-        <div class="pattern-row"><span class="pr-label">The Pipeline &mdash; MKUltra, Esalen, Lucis Trust, SRI</span><span class="pr-value">CIA/CFR-connected ops</span></div>
-        <div class="pattern-row"><span class="pr-label">The Web &mdash; the org chart itself</span><span class="pr-value">Published. By them.</span></div>
-      </div>
-    </div>
-
-    <div class="scroll-block chain-summary" data-block="6-6">
-      <div class="typed-terminal" id="web-terminal">
-        <span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["ANALYSIS COMPLETE.","RHODES (1891) ^500&rarr; ROUND TABLE ^500&rarr; CFR (1921) ^500&rarr; CIA (1947) ^500&rarr; BILDERBERG (1954) ^500&rarr; TRILATERAL (1973) ^500&rarr; IN-Q-TEL (1999) ^500&rarr; PRESENT","TEN WARS. ^500 ONE ROOM. ^500 PUBLISHED MEMBERSHIP. ^1000 NOW YOU&apos;VE SEEN IT."]'></span>
-      </div>
-    </div>
-
-    <div class="scroll-block" data-block="6-7">
-      <p>Ten wars. Nine domains. One organizational chart. The names that appear in your AI feed, your banking system, your defense budget, your medical infrastructure, your media landscape, your energy grid, your atmosphere, and your spiritual marketplace &mdash; they sit on the same boards, attend the same annual meetings, and publish their own membership lists.</p>
-      <p>The web isn&rsquo;t a theory. It&rsquo;s a directory. And it was always public.</p>
-    </div>
-
-    <div class="scroll-block" data-block="6-8">
-      <p>Programs don&rsquo;t disappear. They get board seats. Cartographers don&rsquo;t retire. They get buried. And the room doesn&rsquo;t close &mdash; it just stops sending invitations to journalists.</p>
-      <p>Now you&rsquo;ve seen the room.</p>
-    </div>
-  </div>
-
-
-  <!-- ══════════════════════════════════════��═════════════════ -->
-  <!-- CLOSING                                                  -->
-  <!-- ═════════���══════════════════════════════════════════════ -->
-
-  <section class="closing" id="closing">
-    <div class="closing-content">
-      <div class="closing-statement">Every connection in this scroll comes from published membership rosters, organizational records, government filings, Congressional testimony, declassified documents, court proceedings, and the organizations&rsquo; own publications. The CFR publishes its membership. The Trilateral Commission publishes its membership. Bilderberg has published attendee lists since 2010. Skull &amp; Bones membership appears in Yale archives. In-Q-Tel&rsquo;s portfolio is on its website. No leak required. No conspiracy theory needed. The web is documented by the web itself.</div>
-      <div class="closing-sub">This investigation draws on Carroll Quigley&rsquo;s <em>Tragedy and Hope</em> (1966), Laurence Shoup &amp; William Minter&rsquo;s <em>Imperial Brain Trust</em> (1977/2004), the Senate BCCI Report (Kerry-Brown, 1992), the House Judiciary Committee INSLAW Report (Brooks, 1992), Lawrence Walsh&rsquo;s Iran-Contra Final Report (1993), the CIA Inspector General&rsquo;s Report on CIA-Contra Drug Trafficking (1998), Antony Sutton&rsquo;s <em>America&rsquo;s Secret Establishment</em> (1983/2002), Daniele Ganser&rsquo;s <em>NATO&rsquo;s Secret Armies</em> (2005), and Yasha Levine&rsquo;s <em>Surveillance Valley</em> (2018). Primary sources are cited for every evidence card.</div>
-
-      <div class="closing-legend">
-        <div class="closing-legend-item"><span class="el-dot" style="background:#34d399"></span> Documented &mdash; published membership lists, Congressional records, court filings, declassified documents, government reports, organizational records</div>
-        <div class="closing-legend-item"><span class="el-dot" style="background:#fbbf24"></span> Credible &mdash; credentialed journalism, academic research, verified testimony</div>
-        <div class="closing-legend-item"><span class="el-dot" style="background:#fb923c"></span> Inference &mdash; pattern analysis connecting documented and credible evidence</div>
-      </div>
-
-      <div class="closing-cta">
-        <p>Ten wars. One room. Every scroll in this series is documented, sourced, and verifiable. The reason most people can&rsquo;t see the web isn&rsquo;t that it&rsquo;s hidden &mdash; it&rsquo;s that no one puts the lists in the same room.</p>
-        <p>Now you have.</p>
-      </div>
-
-      <div class="closing-links">
-        <a href="/the-pipeline/" class="closing-link">&larr; Scroll 010: The Pipeline &mdash; the managed replacement for everything they suppressed</a>
-        <a href="/faith-wars/" class="closing-link">&larr; Scroll 009: Faith Wars &mdash; the oldest war, the original template</a>
-        <a href="/sky-wars/" class="closing-link">&larr; Scroll 008: Sky Wars &mdash; the war for your sky</a>
-        <a href="/body-wars/" class="closing-link">&larr; Scroll 007: Body Wars &mdash; the war for your body</a>
-        <a href="/media-wars/" class="closing-link">&larr; Scroll 006: Media Wars &mdash; the war that hides all the others</a>
-        <a href="/oil-wars/" class="closing-link">&larr; Scroll 005: Oil Wars &mdash; one molecule controls everything</a>
-        <a href="/mind-wars/" class="closing-link">&larr; Scroll 004: Mind Wars &mdash; the war on consciousness</a>
-        <a href="/space-wars/" class="closing-link">&larr; Scroll 003: Space Wars &mdash; two histories of space</a>
-        <a href="/money-wars/" class="closing-link">&larr; Scroll 002: Money Wars &mdash; every country that left the dollar</a>
-        <a href="/ai-wars/" class="closing-link">&larr; Scroll 001: AI Wars &mdash; the 44-year surveillance pipeline</a>
-        <a href="https://qav2.github.io/intel-console/" class="closing-link" target="_blank" rel="noopener">Explore the Intel Console &mdash; 825 entities, 2,020 relationships &rarr;</a>
-        <a href="/" class="closing-link-home">&larr; Disclosure Scrolls &mdash; full archive</a>
-      </div>
-
-      <div class="closing-support">
-        <div class="support-label">Independent research. No sponsors. No algorithm.</div>
-        <a href="https://buymeacoffee.com/joeyv23" class="support-link" target="_blank" rel="noopener">Support this work</a>
-      </div>
-
-      <button id="seed-tap-trigger" class="seed-trigger-btn">Help make this work immortal</button>
-
-      <div class="closing-footer">
-        <p>Disclosure Scrolls &mdash; documented investigations you can scroll through.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEED LAYER -->
-  <section class="seed-section" id="seed-section" aria-hidden="true">
-    <div class="seed-content">
-      <div class="seed-divider"></div>
-      <p class="seed-header">Classified // Distribution Protocol</p>
-      <h2 class="seed-title">The Complete Archive Is Inside This Image</h2>
-      <p class="seed-desc">The image below contains all eleven Disclosure Scrolls &mdash; every page, every image, every line of code &mdash; encoded into its pixels using least-significant-bit steganography. Save it. You now carry the complete archive.</p>
-      <div class="seed-image-container">
-        <img class="seed-image" data-src="../seed-full.png" alt="Steganographic seed image containing the complete Disclosure Scrolls archive" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
-        <p class="seed-image-caption">Right-Click &rarr; Save Image As</p>
-      </div>
-
-      <p class="seed-transparency">Save it, let your virus scanner do its thing. It&rsquo;s a PNG &mdash; what you see is what you get. Once it clears, you have this entire website saved locally to your device as an image file.</p>
-
-      <div class="seed-steps">
-        <p class="seed-steps-header">Extraction Protocol</p>
-        <ol>
-          <li class="seed-step">Right-click the image above &rarr; <strong>Save Image As</strong></li>
-          <li class="seed-step">Download or copy <code class="seed-code">extract.py</code> below</li>
-          <li class="seed-step">Install Pillow: <code class="seed-code">pip install Pillow</code></li>
-          <li class="seed-step">Run: <code class="seed-code">python3 extract.py seed-full.png ./output/</code></li>
-          <li class="seed-step">Open <code class="seed-code">output/index.html</code> &mdash; you now have the complete archive</li>
-        </ol>
-      </div>
-      <p class="seed-transparency">The script below is open source &mdash; 80 lines of Python that do exactly one thing: read the pixels and unpack the files inside. You can read every line before you run it.</p>
-
-      <div class="seed-extract">
-        <div class="seed-extract-header">
-          <span class="seed-extract-label">extract.py</span>
-          <button class="seed-copy-btn">COPY</button>
-          <a class="seed-download-link" id="seed-download-extract">DOWNLOAD</a>
-        </div>
-        <pre class="seed-extract-code"><code id="seed-extract-code">#!/usr/bin/env python3
+<a class="skip-nav" href="#act-1">Skip to content</a>
+<!-- === Particle Network Background === -->
+<canvas aria-hidden="true" class="particle-canvas" id="particle-net"></canvas>
+<!-- === Progress Bar === -->
+<div aria-hidden="true" class="progress-bar" id="progress-bar"></div>
+<!-- === Pipeline Tracker === -->
+<div aria-hidden="true" class="pipeline-track" id="pipeline-track">
+<div class="pipeline-inner">
+<div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
+<div class="pipeline-node" data-step="rhodes"><span class="pn-year">1891</span><span class="pn-label">Rhodes</span></div>
+<div class="pipeline-node" data-step="cfr"><span class="pn-year">1921</span><span class="pn-label">CFR</span></div>
+<div class="pipeline-node" data-step="bilderberg"><span class="pn-year">1954</span><span class="pn-label">Bilderberg</span></div>
+<div class="pipeline-node" data-step="trilateral"><span class="pn-year">1973</span><span class="pn-label">Trilateral</span></div>
+<div class="pipeline-node" data-step="octopus"><span class="pn-year">1991</span><span class="pn-label">Octopus</span></div>
+<div class="pipeline-node" data-step="inqtel"><span class="pn-year">1999</span><span class="pn-label">In-Q-Tel</span></div>
+<div class="pipeline-node" data-step="now"><span class="pn-year">NOW</span><span class="pn-label">The Room</span></div>
+</div>
+</div>
+<!-- === Act Indicator === -->
+<div aria-hidden="true" class="act-indicator" id="act-indicator"></div>
+<main>
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- TITLE SCREEN                                             -->
+<!-- ═════════════════���══════════════════════════════════════ -->
+<div class="title-screen" id="title-screen">
+<div class="title-content">
+<a class="back-link" href="/">← Disclosure Scrolls</a>
+<div class="title-label">Scroll 011</div>
+<div class="title-reading-time">~45 min read</div>
+<h1 class="title-main">The Web</h1>
+<p class="title-sub">You’ve scrolled through nine wars — for your technology, your money, your history, your mind, your energy, your information, your body, your sky, and your faith. You’ve seen the managed pipeline that replaced what they suppressed. Different names. Different decades. Different continents. But the same people keep appearing in every room. The Council on Foreign Relations publishes its membership. The Trilateral Commission publishes its membership. Bilderberg publishes its attendee list. This scroll doesn’t speculate. It puts the published lists side by side — and lets you see the room.</p>
+<div class="title-meta">
+<span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
+<span class="evidence-legend"><span class="el-dot" style="background:#fbbf24"></span> Credible</span>
+<span class="evidence-legend"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
+</div>
+<div class="scroll-cue">↓ Begin scrolling</div>
+</div>
+</div>
+<!-- ════════════════════════���═══════════════════════════════ -->
+<!-- ACT I — THE SAME ROOM                                    -->
+<!-- ═══════════════════════════════════════════════════════�� -->
+<div class="act" data-act="I" data-act-label="The Same Room">
+<div class="act-header">
+<div class="act-number">Act I</div>
+<h2 class="act-title">The Same Room</h2>
+</div>
+<div class="scroll-block" data-block="1-1">
+<p>Nine wars. Artificial intelligence, money, space, consciousness, energy, information, bodies, atmosphere, spirit. Each one looks like a different story — different agencies, different industries, different decades. But if you write down the names, the same surnames keep surfacing. The same organizations appear in the footnotes. The same foundation funded the research. The same law firm handled the paperwork. The same family chaired the board.</p>
+<p>This isn’t a conspiracy theory. It’s a directory.</p>
+</div>
+<div class="scroll-block" data-block="1-2">
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">The <strong>Council on Foreign Relations</strong>, founded in 1921, publishes its membership roster. As of 2024, it lists approximately <strong><span class="countup" data-suffix="+" data-target="5000">5,000+</span></strong> members. Cross-referencing that single list with the entities named in Scrolls 001–009 produces matches across every domain: intelligence directors, media executives, defense CEOs, banking heads, Cabinet secretaries, and tech founders. Not because of a hidden conspiracy — because they published the list themselves.</div>
+<div class="evidence-source">Council on Foreign Relations, membership roster (cfr.org, publicly accessible). Richard N. Haass (CFR President 2003–2023), CFR annual reports.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="1-3">
+<p>What makes this scroll different from the previous nine is that it doesn’t investigate a new domain. It investigates the personnel overlap — the organizational chart that connects every war you’ve already read. The evidence isn’t classified. It’s on their own websites.</p>
+</div>
+<div class="scroll-block" data-block="1-4">
+<h3 class="node-title">The Overlap</h3>
+<div class="pattern-grid">
+<div class="pattern-row"><span class="pr-label">Scrolls in this series</span><span class="pr-value"><span class="countup" data-target="9">9</span></span></div>
+<div class="pattern-row"><span class="pr-label">Named entities across all scrolls</span><span class="pr-value"><span class="countup" data-suffix="+" data-target="200">200+</span></span></div>
+<div class="pattern-row"><span class="pr-label">Entities appearing in 3+ scrolls</span><span class="pr-value"><span class="countup" data-target="26">26</span></span></div>
+<div class="pattern-row"><span class="pr-label">CFR members who served as CIA Director</span><span class="pr-value"><span class="countup" data-target="11">11</span></span></div>
+<div class="pattern-row"><span class="pr-label">Trilateral members in Carter’s Cabinet</span><span class="pr-value"><span class="countup" data-target="19">19</span></span></div>
+<div class="pattern-row"><span class="pr-label">Organizations that publish their own membership</span><span class="pr-value"><span class="countup" data-target="3">3</span></span></div>
+</div>
+</div>
+<div class="scroll-block" data-block="1-5">
+<div class="pull-quote">
+<p class="pq-text">The web isn’t hidden. You just weren’t supposed to put the lists in the same room.</p>
+</div>
+</div>
+</div>
+<!-- ════════════���══════════════════════════��════════════════ -->
+<!-- ACT II — THE MEMBERSHIP LIST                              -->
+<!-- ══════════════════════���═════════════════════════════════ -->
+<div class="act" data-act="II" data-act-label="The Membership List" data-pipeline="cfr">
+<div class="act-header">
+<div class="act-number">Act II</div>
+<h2 class="act-title">The Membership List</h2>
+</div>
+<div class="scroll-block" data-block="2-1">
+<p>Three organizations. Each publishes its own membership. Each has members who appear in every war you’ve scrolled through. Together they form the connective tissue of the 20th and 21st centuries — the nexus where intelligence, finance, defense, media, and policy meet in the same room, behind the same closed doors, and call it public service.</p>
+</div>
+<div class="scroll-block" data-block="2-2">
+<h3 class="node-title">The Council on Foreign Relations</h3>
+<div class="visual-row">
+<div class="visual-figure org-square">
+<img alt="Council on Foreign Relations" src="assets/cfr.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/674" rel="noopener" target="_blank" title="View Council on Foreign Relations in Intel Console">CFR</a></div>
+<div class="vr-role">Founded 1921 — New York</div>
+</div>
+<div class="visual-figure">
+<img alt="David Rockefeller" src="assets/david_rockefeller.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/668" rel="noopener" target="_blank" title="View David Rockefeller in Intel Console">David Rockefeller</a></div>
+<div class="vr-role">CFR Chairman 1970–1985</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">The CFR was founded in 1921, growing from the “Inquiry” — Woodrow Wilson’s group of academics who designed the post-WWI order — and its British counterpart, the Royal Institute of International Affairs (Chatham House). During World War II, the CFR’s <strong>“War and Peace Studies”</strong> project (1939–1945), funded by the Rockefeller Foundation, produced <strong><span class="countup" data-target="682">682</span></strong> memoranda that shaped the architecture of the United Nations, the World Bank, and the IMF. The postwar world was designed in a private study group — then presented as public policy.</div>
+<div class="evidence-source">Laurence H. Shoup &amp; William Minter, <em>Imperial Brain Trust: The CFR and U.S. Foreign Policy</em> (1977/2004). CFR “War and Peace Studies” records (CFR Archives). Peter Grose, <em>Continuing the Inquiry</em> (1996, CFR’s own history).</div>
+</div>
+</div>
+<div class="scroll-block" data-block="2-3">
+<p>The CFR isn’t a conspiracy. It’s a membership organization that publishes the journal <em>Foreign Affairs</em>, hosts policy discussions, and places its members in government. The conspiracy is that a single private organization has supplied a significant fraction of every presidential Cabinet since Eisenhower — and almost nobody knows it exists.</p>
+</div>
+<div class="scroll-block" data-block="2-4">
+<h3 class="node-title">CFR → CIA Director Pipeline</h3>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Allen Dulles" src="assets/dulles.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/529" rel="noopener" target="_blank" title="View Allen Dulles in Intel Console">Allen Dulles</a></div>
+<div class="vr-role">CFR member — CIA Director 1953–1961</div>
+</div>
+<div class="visual-figure">
+<img alt="Richard Helms" src="assets/helms.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/28" rel="noopener" target="_blank" title="View Richard Helms in Intel Console">Richard Helms</a></div>
+<div class="vr-role">CFR member — CIA Director 1966–1973</div>
+</div>
+</div>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="William Colby" src="assets/colby.jpg"/>
+<div class="vr-name">William Colby</div>
+<div class="vr-role">CFR member — CIA Director 1973–1976</div>
+</div>
+<div class="visual-figure">
+<img alt="George H.W. Bush" src="assets/george_hw_bush.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/201" rel="noopener" target="_blank" title="View George H.W. Bush in Intel Console">George H.W. Bush</a></div>
+<div class="vr-role">CFR member — CIA Director 1976–1977</div>
+</div>
+</div>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="William Casey" src="assets/casey.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/10" rel="noopener" target="_blank" title="View William Casey in Intel Console">William Casey</a></div>
+<div class="vr-role">CFR member — CIA Director 1981–1987</div>
+</div>
+<div class="visual-figure">
+<img alt="James Woolsey" src="assets/woolsey.jpg"/>
+<div class="vr-name">James Woolsey</div>
+<div class="vr-role">CFR member — CIA Director 1993–1995</div>
+</div>
+</div>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="George Tenet" src="assets/tenet.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/166" rel="noopener" target="_blank" title="View George Tenet in Intel Console">George Tenet</a></div>
+<div class="vr-role">CIA Director 1997–2004</div>
+</div>
+<div class="visual-figure">
+<img alt="Michael Hayden" src="assets/hayden.jpg"/>
+<div class="vr-name">Michael Hayden</div>
+<div class="vr-role">CFR member — CIA Director 2006–2009</div>
+</div>
+</div>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Leon Panetta" src="assets/panetta.jpg"/>
+<div class="vr-name">Leon Panetta</div>
+<div class="vr-role">CIA Director 2009–2011 → Secretary of Defense</div>
+</div>
+<div class="visual-figure">
+<img alt="David Petraeus" src="assets/petraeus.jpg"/>
+<div class="vr-name">David Petraeus</div>
+<div class="vr-role">CFR member — CIA Director 2011–2012</div>
+</div>
+</div>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="John Brennan" src="assets/brennan.jpg"/>
+<div class="vr-name">John Brennan</div>
+<div class="vr-role">CIA Director 2013–2017</div>
+</div>
+<div class="visual-figure org-square">
+<img alt="CIA" src="assets/cia.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/85" rel="noopener" target="_blank" title="View CIA in Intel Console">CIA</a></div>
+<div class="vr-role">CFR has supplied directors for 7 decades</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">At least <strong><span class="countup" data-target="11">11</span></strong> CIA Directors have been CFR members. Allen Dulles was a CFR director before becoming DCI. George H.W. Bush was a CFR member before, during, and after his time as CIA Director and President. James Woolsey went from CIA Director to the boards of Booz Allen Hamilton, Palantir, and the In-Q-Tel advisory board. The private organization that designs foreign policy also supplies the directors of the agency that implements it.</div>
+<div class="evidence-source">CFR membership roster (published annually). John Prados, <em>Safe for Democracy: The Secret Wars of the CIA</em> (2006). Tim Weiner, <em>Legacy of Ashes: The History of the CIA</em> (2007).</div>
+</div>
+</div>
+<div class="scroll-block chain-summary" data-block="2-5">
+<div class="typed-terminal" id="cfr-terminal">
+<span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["MAPPING CFR-CIA PIPELINE...","DULLES (1953) ^500→ HELMS (1966) ^500→ COLBY (1973) ^500→ BUSH (1976) ^500→ CASEY (1981) ^500→ WOOLSEY (1993) ^500→ HAYDEN (2006) ^500→ PETRAEUS (2011)","ONE PRIVATE ORGANIZATION. ^500 SEVEN DECADES OF CIA DIRECTORS. ^1000 THEY PUBLISH THE LIST."]'></span>
+</div>
+<div class="chain-text">
+<span class="chain-link">CFR (1921)</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Dulles</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Helms</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Colby</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Bush</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Casey</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Woolsey</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Hayden</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Petraeus</span>
+</div>
+<p class="chain-decode">One membership list. One private organization. Seven decades of CIA directors. This isn’t inference. It’s their own roster.</p>
+</div>
+<div class="scroll-block" data-block="2-6">
+<h3 class="node-title">The Trilateral Commission</h3>
+<div class="visual-row">
+<div class="visual-figure org-square">
+<img alt="Trilateral Commission" src="assets/trilateral.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/673" rel="noopener" target="_blank" title="View Trilateral Commission in Intel Console">Trilateral Commission</a></div>
+<div class="vr-role">Founded 1973 — Rockefeller &amp; Brzezinski</div>
+</div>
+<div class="visual-figure">
+<img alt="Zbigniew Brzezinski" src="assets/brzezinski.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/669" rel="noopener" target="_blank" title="View Zbigniew Brzezinski in Intel Console">Zbigniew Brzezinski</a></div>
+<div class="vr-role">Co-founder — Carter NSA 1977–1981</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">David Rockefeller and Zbigniew Brzezinski founded the Trilateral Commission in 1973 to coordinate policy between North America, Western Europe, and Japan. In 1975, the Commission published <em>The Crisis of Democracy</em> — a report arguing that Western democracies suffered from an “excess of democracy” and that “the effective operation of a democratic political system usually requires some measure of apathy and non-involvement.” Two years later, Trilateral member <strong>Jimmy Carter</strong> became President. His administration included at least <strong><span class="countup" data-target="19">19</span></strong> Trilateral Commission members, including the Vice President, Secretary of State, Secretary of Defense, Secretary of the Treasury, and National Security Advisor.</div>
+<div class="evidence-source">Michel Crozier, Samuel Huntington &amp; Joji Watanuki, <em>The Crisis of Democracy</em> (1975, Trilateral Commission). Holly Sklar, <em>Trilateralism</em> (1980). Trilateral Commission membership list (published on trilateral.org).</div>
+</div>
+</div>
+<div class="scroll-block" data-block="2-7">
+<p>An organization that published a report calling democracy a problem placed <span class="countup" data-target="19">19</span> members in the next presidential administration. The report wasn’t classified. The membership wasn’t secret. The administration happened anyway.</p>
+</div>
+<div class="scroll-block" data-block="2-8">
+<h3 class="node-title">The Bilderberg Group</h3>
+<div class="visual-row">
+<div class="visual-figure org-square">
+<img alt="Bilderberg Group" src="assets/bilderberg.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/672" rel="noopener" target="_blank" title="View Bilderberg Group in Intel Console">Bilderberg Group</a></div>
+<div class="vr-role">Founded 1954 — Hotel de Bilderberg, Netherlands</div>
+</div>
+<div class="visual-figure">
+<img alt="Prince Bernhard" src="assets/bernhard.jpg"/>
+<div class="vr-name">Prince Bernhard</div>
+<div class="vr-role">Founder — former IG Farben employee</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">The Bilderberg Group was founded in 1954 by <strong>Prince Bernhard of the Netherlands</strong> — who had been a member of the Nazi Party and an employee of <strong>IG Farben</strong> before the war. The first meeting was organized with CIA funding through the American Committee for a United Europe. Since 2010, Bilderberg has published its attendee lists. Documented attendees include: <strong>Bill Clinton</strong> (1991, before his presidential run), <strong>Tony Blair</strong> (1993, before becoming PM), <strong>Jeff Bezos</strong>, <strong>Eric Schmidt</strong>, <strong>Peter Thiel</strong>, <strong>Henry Kissinger</strong> (attended for over 50 years), and heads of Goldman Sachs, Deutsche Bank, BP, Shell, and Lockheed Martin. Approximately <strong><span class="countup" data-target="130">130</span></strong> attendees per year. No minutes published. Chatham House Rule.</div>
+<div class="evidence-source">Bilderberg Meetings official website (bilderbergmeetings.org, attendee lists since 2010). Richard J. Aldrich, <em>The Hidden Hand</em> (2001, CIA funding). Daniel Estulin, <em>The True Story of the Bilderberg Group</em> (2005/2009). Bernhard’s IG Farben employment confirmed in Annejet van der Zijl, <em>Prince Bernhard</em> (2010).</div>
+</div>
+</div>
+<div class="scroll-block" data-block="2-9">
+<p>IG Farben built the factories at Auschwitz. IG Farben manufactured Zyklon B. After the war, IG Farben was broken up into Bayer, BASF, and Hoechst — the same companies that appear in Body Wars. The man who worked for IG Farben before the war founded the most exclusive policy forum on Earth after it. You scrolled through this connection in Scroll 007. Now you see where the founder sits.</p>
+</div>
+<div class="scroll-block" data-block="2-10">
+<h3 class="node-title">The Overlap</h3>
+<div class="pattern-grid">
+<div class="pattern-row"><span class="pr-label">CFR members</span><span class="pr-value"><span class="countup" data-suffix="+" data-target="5000">5,000+</span></span></div>
+<div class="pattern-row"><span class="pr-label">Trilateral Commission members</span><span class="pr-value">~<span class="countup" data-target="400">400</span></span></div>
+<div class="pattern-row"><span class="pr-label">Annual Bilderberg attendees</span><span class="pr-value">~<span class="countup" data-target="130">130</span></span></div>
+<div class="pattern-row"><span class="pr-label">Individuals appearing in all three</span><span class="pr-value"><span class="countup" data-suffix="+" data-target="87">87+</span></span></div>
+<div class="pattern-row"><span class="pr-label">David Rockefeller: memberships held simultaneously</span><span class="pr-value"><span class="countup" data-target="3">3</span></span></div>
+<div class="pattern-row"><span class="pr-label">Henry Kissinger: consecutive Bilderberg appearances</span><span class="pr-value"><span class="countup" data-suffix="+" data-target="50">50+</span></span></div>
+</div>
+</div>
+<div class="scroll-block" data-block="2-11">
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Henry Kissinger" src="assets/kissinger.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/111" rel="noopener" target="_blank" title="View Henry Kissinger in Intel Console">Henry Kissinger</a></div>
+<div class="vr-role">CFR + Trilateral + Bilderberg — NSA, Sec. of State</div>
+</div>
+<div class="visual-figure">
+<img alt="Jeff Bezos" src="assets/bezos.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/574" rel="noopener" target="_blank" title="View Jeff Bezos in Intel Console">Jeff Bezos</a></div>
+<div class="vr-role">Bilderberg attendee — Amazon, Blue Origin, WaPo</div>
+</div>
+</div>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Peter Thiel" src="assets/thiel.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/6" rel="noopener" target="_blank" title="View Peter Thiel in Intel Console">Peter Thiel</a></div>
+<div class="vr-role">Bilderberg — Palantir, Facebook board, In-Q-Tel ties</div>
+</div>
+<div class="visual-figure">
+<img alt="Bill Gates" src="assets/bill_gates.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/471" rel="noopener" target="_blank" title="View Bill Gates in Intel Console">Bill Gates</a></div>
+<div class="vr-role">Bilderberg attendee — Microsoft, Gates Foundation</div>
+</div>
+</div>
+<div class="pull-quote">
+<p class="pq-text">When the same 87 people sit on the membership rolls of the three organizations that shape Western foreign, economic, and defense policy — that’s not a coincidence. That’s a org chart.</p>
+</div>
+</div>
+</div>
+<!-- ═════════��══════════════════════════════════════════════ -->
+<!-- ACT III — THE DYNASTY                                    -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="act" data-act="III" data-act-label="The Dynasty" data-pipeline="bilderberg">
+<div class="act-header">
+<div class="act-number">Act III</div>
+<h2 class="act-title">The Dynasty</h2>
+</div>
+<div class="scroll-block" data-block="3-1">
+<p>Organizations have members. But some members built the organizations. Behind the membership lists are family trees — dynasties whose surnames appear across every scroll in this series, not because they joined the machine but because they designed it. The Rockefellers didn’t just attend CFR meetings. They chaired them for decades, funded them, and built the building they meet in.</p>
+</div>
+<div class="scroll-block" data-block="3-2">
+<h3 class="node-title">The Rockefeller Through-Line</h3>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="John D. Rockefeller" src="assets/john_d_rockefeller.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/322" rel="noopener" target="_blank" title="View John D. Rockefeller in Intel Console">John D. Rockefeller</a></div>
+<div class="vr-role">Standard Oil — Oil Wars (Scroll 005)</div>
+</div>
+<div class="visual-figure">
+<img alt="David Rockefeller" src="assets/david_rockefeller.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/668" rel="noopener" target="_blank" title="View David Rockefeller in Intel Console">David Rockefeller</a></div>
+<div class="vr-role">Chase Manhattan, CFR, Trilateral, Bilderberg</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim"><strong>John D. Rockefeller</strong> founded Standard Oil (Oil Wars). After the 1911 “breakup,” the pieces reconsolidated into ExxonMobil and Chevron. The Rockefeller Foundation funded the <strong>Flexner Report</strong> (1910) that shut down half the medical schools in America (Body Wars). The Foundation funded the CFR’s War and Peace Studies. <strong>Nelson Rockefeller</strong> served as Vice President. <strong>David Rockefeller</strong> chaired the CFR for 15 years, co-founded the Trilateral Commission, attended Bilderberg for decades, and ran Chase Manhattan Bank. One family: oil, medicine, banking, intelligence, and foreign policy — across five scrolls.</div>
+<div class="evidence-source">Ron Chernow, <em>Titan: The Life of John D. Rockefeller</em> (1998). David Rockefeller, <em>Memoirs</em> (2002). E. Richard Brown, <em>Rockefeller Medicine Men</em> (1979). CFR annual reports.</div>
+</div>
+</div>
+<div class="scroll-block chain-summary" data-block="3-3">
+<div class="typed-terminal" id="rockefeller-terminal">
+<span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING ROCKEFELLER NETWORK...","STANDARD OIL (1870) ^500→ FLEXNER REPORT (1910) ^500→ CFR FUNDING (1921) ^500→ CHASE MANHATTAN ^500→ TRILATERAL (1973) ^500→ BILDERBERG ^500→ POPULATION COUNCIL","ONE FAMILY. ^500 FIVE SCROLLS. ^1000 SEVEN INDUSTRIES."]'></span>
+</div>
+<div class="chain-text">
+<span class="chain-link">Standard Oil</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Flexner Report</span> <span class="chain-arrow">→</span>
+<span class="chain-link">CFR Funding</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Chase Manhattan</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Trilateral</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Bilderberg</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Population Council</span>
+</div>
+<p class="chain-decode">Oil → medicine → foreign policy → banking → trilateral governance → elite forums → population policy. Every link in this chain is from Rockefeller Foundation records and David Rockefeller’s own <em>Memoirs</em>.</p>
+</div>
+<div class="scroll-block" data-block="3-4">
+<h3 class="node-title">The Dulles Brothers</h3>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Allen Dulles" src="assets/dulles.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/529" rel="noopener" target="_blank" title="View Allen Dulles in Intel Console">Allen Dulles</a></div>
+<div class="vr-role">CIA Director 1953–1961 — CFR member</div>
+</div>
+<div class="visual-figure">
+<img alt="John Foster Dulles" src="assets/foster_dulles.jpg"/>
+<div class="vr-name">John Foster Dulles</div>
+<div class="vr-role">Secretary of State 1953–1959 — CFR member</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">Under President Eisenhower, <strong>Allen Dulles</strong> served as CIA Director while his brother <strong>John Foster Dulles</strong> served as Secretary of State — simultaneously. The brothers came from <strong>Sullivan &amp; Cromwell</strong>, the Wall Street law firm whose clients included IG Farben (the Nazi chemical cartel), the United Fruit Company, and numerous German industrial interests before and during WWII. Allen Dulles authorized MKUltra (Mind Wars), oversaw the Guatemala and Iran coups (Oil Wars), and served on the Warren Commission. One law firm. Two brothers. The head of intelligence and the head of diplomacy at the same time.</div>
+<div class="evidence-source">Stephen Kinzer, <em>The Brothers: John Foster Dulles, Allen Dulles, and Their Secret World War</em> (2013). David Talbot, <em>The Devil’s Chessboard</em> (2015). Sullivan &amp; Cromwell firm history.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="3-5">
+<h3 class="node-title">The Bush Dynasty</h3>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Prescott Bush" src="assets/prescott_bush.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/326" rel="noopener" target="_blank" title="View Prescott Bush in Intel Console">Prescott Bush</a></div>
+<div class="vr-role">Union Banking Corp — Skull &amp; Bones</div>
+</div>
+<div class="visual-figure">
+<img alt="George H.W. Bush" src="assets/george_hw_bush.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/201" rel="noopener" target="_blank" title="View George H.W. Bush in Intel Console">George H.W. Bush</a></div>
+<div class="vr-role">CIA → VP → President — Skull &amp; Bones</div>
+</div>
+</div>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="George W. Bush" src="assets/george_w_bush.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/202" rel="noopener" target="_blank" title="View George W. Bush in Intel Console">George W. Bush</a></div>
+<div class="vr-role">President 2001–2009 — Skull &amp; Bones</div>
+</div>
+<div class="visual-figure org-square">
+<img alt="Skull and Bones" src="assets/skull_and_bones.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/332" rel="noopener" target="_blank" title="View Skull and Bones in Intel Console">Skull &amp; Bones</a></div>
+<div class="vr-role">Order 322 — Yale, founded 1832</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim"><strong>Prescott Bush</strong> was a director of Union Banking Corporation, seized by the U.S. government under the <strong>Trading with the Enemy Act</strong> in October 1942 for holding assets of Fritz Thyssen, a Nazi industrialist. He was a member of Skull &amp; Bones (Yale, 1917) and later a U.S. Senator. His son <strong>George H.W. Bush</strong> (S&amp;B 1948) became CIA Director, Vice President, and President. His grandson <strong>George W. Bush</strong> (S&amp;B 1968) became President. In the <strong>2004 presidential election</strong>, both candidates — Bush and <strong>John Kerry</strong> (S&amp;B 1966) — were Skull &amp; Bones members. When asked about it on <em>Meet the Press</em>, both deflected.</div>
+<div class="evidence-source">National Archives, Vesting Order No. 248 (October 20, 1942). Antony Sutton, <em>America’s Secret Establishment</em> (1983/2002). Alexandra Robbins, <em>Secrets of the Tomb</em> (2002). <em>Meet the Press</em> transcripts (2004).</div>
+</div>
+</div>
+<div class="scroll-block" data-block="3-6">
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="John Kerry" src="assets/kerry.jpg"/>
+<div class="vr-name">John Kerry</div>
+<div class="vr-role">Skull &amp; Bones 1966 — Senator, Sec. of State</div>
+</div>
+<div class="visual-figure">
+<img alt="Averell Harriman" src="assets/harriman.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/325" rel="noopener" target="_blank" title="View Averell Harriman in Intel Console">Averell Harriman</a></div>
+<div class="vr-role">Skull &amp; Bones 1913 — Ambassador, Governor</div>
+</div>
+</div>
+<p><strong>Averell Harriman</strong> (S&amp;B 1913) co-founded Brown Brothers Harriman with Prescott Bush. He served as Ambassador to the Soviet Union, Ambassador to the UK, Secretary of Commerce, and Governor of New York. The firm Brown Brothers Harriman remains the oldest and largest private investment bank in the United States.</p>
+</div>
+<div class="scroll-block" data-block="3-7">
+<h3 class="node-title">The Insider Historian</h3>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Carroll Quigley" src="assets/quigley.jpg"/>
+<div class="vr-name">Carroll Quigley</div>
+<div class="vr-role">Georgetown professor — taught Bill Clinton</div>
+</div>
+<div class="visual-figure">
+<img alt="Cecil Rhodes" src="assets/rhodes.jpg"/>
+<div class="vr-name">Cecil Rhodes</div>
+<div class="vr-role">Rhodes Scholarships — Round Table Groups</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim"><strong>Carroll Quigley</strong>, professor at Georgetown University and mentor to <strong>Bill Clinton</strong>, was given access to the network’s papers for two years. In <em>Tragedy and Hope</em> (1966) — <strong><span class="countup" data-target="1348">1,348</span></strong> pages — he documented the chain from <strong>Cecil Rhodes</strong>’ secret society (1891) to the Milner Group to the Round Table to the Royal Institute of International Affairs to the CFR. Quigley was not an outsider. He agreed with the network’s goals. He just thought they should be public: “I know of the operations of this network because I have studied it for twenty years and was permitted for two years, in the early 1960s, to examine its papers and secret records.” His publisher later destroyed the printing plates.</div>
+<div class="evidence-source">Carroll Quigley, <em>Tragedy and Hope: A History of the World in Our Time</em> (1966), p. 950. Quigley’s correspondence regarding suppression (cited in W. Cleon Skousen, <em>The Naked Capitalist</em>, 1970). Bill Clinton, 1992 DNC acceptance speech (named Quigley as formative influence).</div>
+</div>
+</div>
+<div class="scroll-block chain-summary" data-block="3-8">
+<div class="typed-terminal" id="dynasty-terminal">
+<span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["TRACING ROUND TABLE NETWORK...","RHODES SECRET SOCIETY (1891) ^500→ MILNER GROUP ^500→ ROUND TABLE ^500→ RIIA/CHATHAM HOUSE (1920) ^500→ CFR (1921) ^500→ TRILATERAL (1973) ^500→ PRESENT","ONE CHAIN. ^500 133 YEARS. ^1000 DOCUMENTED BY THEIR OWN HISTORIAN."]'></span>
+</div>
+<div class="chain-text">
+<span class="chain-link">Rhodes (1891)</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Milner Group</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Round Table</span> <span class="chain-arrow">→</span>
+<span class="chain-link">RIIA (1920)</span> <span class="chain-arrow">→</span>
+<span class="chain-link">CFR (1921)</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Trilateral (1973)</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Present</span>
+</div>
+<p class="chain-decode">Cecil Rhodes → Alfred Milner → Round Table groups → Royal Institute of International Affairs → Council on Foreign Relations → Trilateral Commission. Documented by the network’s own sanctioned historian, Carroll Quigley, using their own records.</p>
+</div>
+<div class="scroll-block" data-block="3-9">
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Bill Clinton" src="assets/clinton.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/32" rel="noopener" target="_blank" title="View Bill Clinton in Intel Console">Bill Clinton</a></div>
+<div class="vr-role">Rhodes Scholar → CFR → Bilderberg 1991 → President</div>
+</div>
+<div class="visual-figure">
+<img alt="Ronald Reagan" src="assets/reagan.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/200" rel="noopener" target="_blank" title="View Ronald Reagan in Intel Console">Ronald Reagan</a></div>
+<div class="vr-role">President 1981–1989 — 80+ CFR members in admin</div>
+</div>
+</div>
+<p>Clinton named Quigley as a formative influence in his 1992 DNC acceptance speech. He was a Rhodes Scholar. He attended Bilderberg in 1991 — the year before his presidential run. The network’s own historian taught the man who became President. Reagan, despite his outsider rhetoric, staffed his administration with over 80 CFR members. The personnel pipeline doesn’t care which party wins.</p>
+</div>
+</div>
+<!-- ═══════��════════════════════════════════════════════════ -->
+<!-- ACT IV — THE OCTOPUS                                     -->
+<!-- ══════════════════��═════════════════════════════════════ -->
+<div class="act act-reveal" data-act="IV" data-act-label="The Octopus" data-pipeline="octopus">
+<div class="act-header">
+<div class="act-number">Act IV</div>
+<h2 class="act-title">The Octopus</h2>
+</div>
+<div class="scroll-block" data-block="4-1">
+<p>You’ve been looking at published membership lists and family trees. Board seats and CFR rosters. You might be thinking: this is just how power works. Elites know each other. They join the same clubs. It’s influence, not conspiracy.</p>
+<p>One man disagreed. He thought the connections weren’t just social — they were operational. He called it the Octopus. He died in a hotel room in Martinsburg, West Virginia, with his wrists slashed, his notes missing, and a meeting with his source scheduled for the next morning.</p>
+</div>
+<div class="scroll-block" data-block="4-2">
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Danny Casolaro" src="assets/casolaro.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/26" rel="noopener" target="_blank" title="View Danny Casolaro in Intel Console">Danny Casolaro</a></div>
+<div class="vr-role">Investigative journalist — found dead August 10, 1991</div>
+</div>
+<div class="visual-figure org-square">
+<img alt="BCCI" src="assets/bcci.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/54" rel="noopener" target="_blank" title="View BCCI in Intel Console">BCCI</a></div>
+<div class="vr-role">Bank of Credit &amp; Commerce International</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim"><strong>Danny Casolaro</strong> was investigating what he called “the Octopus” — a network connecting the <strong>INSLAW/PROMIS</strong> affair (the Department of Justice’s alleged theft of surveillance software), the <strong>October Surprise</strong> (the alleged 1980 deal to delay the Iran hostage release), <strong>BCCI</strong> (the CIA-connected bank that laundered an estimated <strong>$<span class="countup" data-suffix=" billion" data-target="20">20 billion</span></strong>), and <strong>Iran-Contra</strong> — as tentacles of a single network. He told his brother: “If anything happens to me, don’t believe it was suicide.” On August 10, 1991, he was found dead in a bathtub in Martinsburg, WV. Wrists slashed <strong><span class="countup" data-target="12">12</span></strong> times. His briefcase and notes were never recovered. Ruled suicide.</div>
+<div class="evidence-source">House Judiciary Committee, “The INSLAW Affair” (1992, Brooks Committee Report). Kenn Thomas &amp; Jim Keith, <em>The Octopus</em> (1996/2004). Associated Press reporting (August 1991). Martinsburg Police Department report.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="4-3">
+<div class="pull-quote reveal-climax">
+<p class="pq-text">You thought this scroll was about powerful people joining the same clubs. It’s actually about what happens when someone tries to draw the lines between them. The web doesn’t hide its membership. It hides its operations. And it buries its cartographers.</p>
+</div>
+</div>
+<div class="scroll-block" data-block="4-4">
+<h3 class="node-title">BCCI — The Bank That Connected Everything</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">The <strong>Bank of Credit and Commerce International</strong> (BCCI) was founded in 1972 and shut down by regulators in 1991. Senate investigators called it “the largest bank fraud in world financial history.” BCCI was used by the <strong>CIA</strong> to fund the Afghan mujahideen, by the <strong>Medellín cartel</strong> to launder drug money, by <strong>Saddam Hussein</strong> and <strong>Manuel Noriega</strong> to move state funds, and by arms dealers across the Middle East. It operated in <strong><span class="countup" data-target="78">78</span></strong> countries with assets of <strong>$<span class="countup" data-suffix=" billion" data-target="20">20 billion</span></strong>. Senate investigator <strong>Jack Blum</strong> testified that the Justice Department actively obstructed the investigation. BCCI touched Money Wars, Oil Wars, Mind Wars, and AI Wars in a single institution.</div>
+<div class="evidence-source">Senate Foreign Relations Committee, “The BCCI Affair” (Kerry-Brown Report, 1992). Jack Blum Senate testimony (1991). Peter Truell &amp; Larry Gurwin, <em>False Profits: The Inside Story of BCCI</em> (1992).</div>
+</div>
+</div>
+<div class="scroll-block" data-block="4-5">
+<h3 class="node-title">INSLAW/PROMIS — The Software</h3>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Edwin Meese" src="assets/meese.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/208" rel="noopener" target="_blank" title="View Edwin Meese in Intel Console">Edwin Meese</a></div>
+<div class="vr-role">Attorney General 1985–1988</div>
+</div>
+<div class="visual-figure org-square">
+<img alt="Iran-Contra" src="assets/iran_contra.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/96" rel="noopener" target="_blank" title="View Iran-Contra in Intel Console">Iran-Contra</a></div>
+<div class="vr-role">Arms-for-hostages — drug money — BCCI</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim"><strong>INSLAW Inc.</strong> developed PROMIS — Prosecutors’ Management Information System — for the Department of Justice. INSLAW alleged the DOJ stole the software, modified it with a backdoor, and distributed it to intelligence agencies and foreign governments as a surveillance tool. A federal bankruptcy judge found that the DOJ “took, converted, stole” the software through “trickery, fraud and deceit.” The House Judiciary Committee investigated and concluded there was “strong evidence” the DOJ had acted improperly. Attorney General <strong>Edwin Meese</strong> was named repeatedly. The case was buried. Casolaro believed PROMIS was the operational thread connecting the Octopus.</div>
+<div class="evidence-source">House Judiciary Committee, “The INSLAW Affair” (Brooks Report, September 10, 1992). Bankruptcy Judge George Bason ruling (1987). Bill Hamilton (INSLAW founder) testimony.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="4-6">
+<h3 class="node-title">Iran-Contra — The Operation</h3>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="William Casey" src="assets/casey.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/10" rel="noopener" target="_blank" title="View William Casey in Intel Console">William Casey</a></div>
+<div class="vr-role">CIA Director — CFR member — Iran-Contra architect</div>
+</div>
+<div class="visual-figure">
+<img alt="Ronald Reagan" src="assets/reagan.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/200" rel="noopener" target="_blank" title="View Ronald Reagan in Intel Console">Ronald Reagan</a></div>
+<div class="vr-role">President — “I don’t recall”</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim"><strong>Iran-Contra</strong> (1985–1987) was not one scandal. It was a nexus: the Reagan administration sold weapons to Iran (violating an arms embargo), used the profits to fund the Nicaraguan Contras (violating the Boland Amendment), while CIA-connected aircraft flew cocaine into the United States on the return flights. Special Counsel Lawrence Walsh secured <strong><span class="countup" data-target="11">11</span></strong> convictions. President <strong>George H.W. Bush</strong> pardoned <strong><span class="countup" data-target="6">6</span></strong> of them on Christmas Eve 1992 — including <strong>Caspar Weinberger</strong>, whose trial would have exposed Bush’s own involvement. CIA Director <strong>William Casey</strong> died of a brain tumor the day before he was scheduled to testify.</div>
+<div class="evidence-source">Lawrence Walsh, <em>Final Report of the Independent Counsel for Iran/Contra Matters</em> (1993). Congressional Iran-Contra Report (1987). Gary Webb, <em>Dark Alliance</em> (1998, CIA IG confirmation 1998).</div>
+</div>
+</div>
+<div class="scroll-block chain-summary" data-block="4-7">
+<div class="typed-terminal" id="octopus-terminal">
+<span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings='["MAPPING CASOLARO OCTOPUS...","PROMIS/INSLAW (DOJ) ^500→ OCTOBER SURPRISE (1980) ^500→ IRAN-CONTRA (1985) ^500→ BCCI ($20B) ^500→ CIA/DRUGS ^500→ DOJ OBSTRUCTION","ONE JOURNALIST SAW ONE NETWORK. ^500 HE DIED THE NIGHT BEFORE HIS MEETING. ^1000 HIS NOTES WERE NEVER FOUND."]'></span>
+</div>
+<div class="chain-text">
+<span class="chain-link">PROMIS/DOJ</span> <span class="chain-arrow">→</span>
+<span class="chain-link">October Surprise</span> <span class="chain-arrow">→</span>
+<span class="chain-link">Iran-Contra</span> <span class="chain-arrow">→</span>
+<span class="chain-link">BCCI ($20B)</span> <span class="chain-arrow">→</span>
+<span class="chain-link">CIA Drug Flights</span> <span class="chain-arrow">→</span>
+<span class="chain-link">DOJ Obstruction</span>
+</div>
+<p class="chain-decode">Surveillance software → hostage deal → arms-for-drugs → global money laundering → CIA narcotics trafficking → federal cover-up. Every link investigated by Congress. Every link buried. The journalist who connected them all was found dead.</p>
+</div>
+</div>
+<!-- ═══════════════════════════════════════════��════════════ -->
+<!-- ACT V — THE PRICE                                        -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="act" data-act="V" data-act-label="The Price">
+<div class="act-header">
+<div class="act-number">Act V</div>
+<h2 class="act-title">The Price</h2>
+</div>
+<div class="scroll-block" data-block="5-1">
+<p>The web doesn’t punish outsiders for believing in conspiracies. It punishes cartographers. The people who end up dead aren’t the ones who speculate about the Illuminati on YouTube. They’re the ones with documents, source networks, and a meeting scheduled for the next morning.</p>
+</div>
+<div class="scroll-block" data-block="5-2">
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Gary Webb" src="assets/webb.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/562" rel="noopener" target="_blank" title="View Gary Webb in Intel Console">Gary Webb</a></div>
+<div class="vr-role">San Jose Mercury News — found dead December 10, 2004</div>
+</div>
+<div class="visual-figure org-square">
+<img alt="CIA" src="assets/cia.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/85" rel="noopener" target="_blank" title="View CIA in Intel Console">CIA</a></div>
+<div class="vr-role">Inspector General confirmed core allegations — 1998</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim"><strong>Gary Webb</strong> published “Dark Alliance” in the <em>San Jose Mercury News</em> (1996), documenting the CIA-Contra-crack cocaine pipeline into American cities. The <em>Los Angeles Times</em>, <em>Washington Post</em>, and <em>New York Times</em> attacked his methodology in coordinated fashion. His editor backed away. He lost his job, his marriage, his career. Two years later, the <strong>CIA Inspector General</strong> published two volumes confirming the core allegations — that the CIA had indeed worked with drug traffickers and actively concealed this from Congress. Webb was found dead in 2004 with <strong>two</strong> gunshot wounds to the head. Ruled suicide.</div>
+<div class="evidence-source">Gary Webb, <em>Dark Alliance</em> (1998). CIA Inspector General Report, “Allegations of Connections Between CIA and the Contras in Cocaine Trafficking to the United States,” Volume I (January 1998) &amp; Volume II (October 1998). Nick Schou, <em>Kill the Messenger</em> (2006).</div>
+</div>
+</div>
+<div class="scroll-block" data-block="5-3">
+<p>The three largest newspapers in America attacked the journalist. The agency he exposed confirmed his findings. He died with two bullets in his head. The CIA report that vindicated him was published on a Friday afternoon with no press conference.</p>
+</div>
+<div class="scroll-block" data-block="5-4">
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Karen Silkwood" src="assets/silkwood.jpg"/>
+<div class="vr-name">Karen Silkwood</div>
+<div class="vr-role">Kerr-McGee technician — died November 13, 1974</div>
+</div>
+<div class="visual-figure">
+<img alt="Mark Lombardi" src="assets/lombardi.jpg"/>
+<div class="vr-name">Mark Lombardi</div>
+<div class="vr-role">Network artist — found dead March 22, 2000</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim"><strong>Karen Silkwood</strong> documented plutonium contamination at the Kerr-McGee Cimarron plant. On November 13, 1974, driving to meet a <em>New York Times</em> reporter with a folder of documents, her car was forced off the road. The documents were never found. Kerr-McGee settled with her estate for <strong>$<span class="countup" data-suffix=" million" data-target="1.38">1.38 million</span></strong>. <strong>Mark Lombardi</strong> created intricate hand-drawn network diagrams mapping BCCI, Iran-Contra, and global financial scandals using exclusively public records. He was found dead in 2000, ruled suicide. After 9/11, <strong>FBI agents visited the Whitney Museum</strong> to examine his BCCI-related diagram. The bureau studied the dead artist’s map of the network it had failed to investigate.</div>
+<div class="evidence-source">Silkwood v. Kerr-McGee (1979, 10th Circuit). Howard Kohn, “Malignant Giant,” <em>Rolling Stone</em> (1975). Robert Hobbs, <em>Mark Lombardi: Global Networks</em> (2003). Whitney Museum confirmed FBI visit (2001, reported by <em>New York Times</em>).</div>
+</div>
+</div>
+<div class="scroll-block" data-block="5-5">
+<h3 class="node-title">The Quigley Paradox</h3>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Carroll Quigley" src="assets/quigley.jpg"/>
+<div class="vr-name">Carroll Quigley</div>
+<div class="vr-role">Georgetown — <em>Tragedy and Hope</em> (1966)</div>
+</div>
+<div class="visual-figure">
+<img alt="Bill Clinton" src="assets/clinton.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/32" rel="noopener" target="_blank" title="View Bill Clinton in Intel Console">Bill Clinton</a></div>
+<div class="vr-role">Rhodes Scholar — named Quigley at 1992 DNC</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">Carroll Quigley wasn’t killed. He was something worse: acknowledged and ignored. His publisher, Macmillan, let <em>Tragedy and Hope</em> go out of print and destroyed the original printing plates, despite persistent demand. Quigley protested in correspondence that this was deliberate suppression. He wasn’t a conspiracy theorist — he <em>agreed</em> with the network’s goals. He simply believed it should operate publicly. The network’s own sympathetic historian documented <strong><span class="countup" data-target="1348">1,348</span></strong> pages of evidence, and the response was to pulp the book. Not because it was wrong. Because it was right.</div>
+<div class="evidence-source">Carroll Quigley, <em>Tragedy and Hope</em> (1966). Quigley’s correspondence regarding plate destruction (multiple sources). Bill Clinton, DNC acceptance speech, July 16, 1992.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="5-6">
+<h3 class="node-title">The Cartographers</h3>
+<div class="pattern-grid">
+<div class="pattern-row"><span class="pr-label">Danny Casolaro (1991) — investigated PROMIS/Octopus</span><span class="pr-value">Dead — notes missing</span></div>
+<div class="pattern-row"><span class="pr-label">Gary Webb (2004) — exposed CIA-Contra-crack pipeline</span><span class="pr-value">Dead — 2 gunshots</span></div>
+<div class="pattern-row"><span class="pr-label">Karen Silkwood (1974) — documented nuclear contamination</span><span class="pr-value">Dead — docs missing</span></div>
+<div class="pattern-row"><span class="pr-label">Mark Lombardi (2000) — drew the network diagrams</span><span class="pr-value">Dead — FBI studied his art</span></div>
+<div class="pattern-row"><span class="pr-label">Carroll Quigley (1977) — documented the network from inside</span><span class="pr-value">Book plates destroyed</span></div>
+</div>
+</div>
+<div class="scroll-block" data-block="5-7">
+<div class="pull-quote">
+<p class="pq-text">The web doesn’t fear exposure. It fears cartography. Allegations come and go. Org charts are permanent.</p>
+</div>
+</div>
+</div>
+<!-- ══════════════════════════════════════════════��═════════ -->
+<!-- ACT VI — THE ROOM                                        -->
+<!-- ═��════════════════════════════════════════════════════��═ -->
+<div class="act act-light" data-act="VI" data-act-label="The Room" data-pipeline="now">
+<div class="act-header">
+<div class="act-number">Act VI</div>
+<h2 class="act-title">The Room</h2>
+</div>
+<div class="scroll-block" data-block="6-1">
+<p>The oldest pattern in this series isn’t the CIA or the CFR. It’s the revolving door — the mechanism by which the same people cycle through intelligence, defense, finance, and policy without ever leaving the room. The door revolves. The room doesn’t change.</p>
+</div>
+<div class="scroll-block" data-block="6-2">
+<h3 class="node-title">The Revolving Door</h3>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="Dick Cheney" src="assets/cheney.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/203" rel="noopener" target="_blank" title="View Dick Cheney in Intel Console">Dick Cheney</a></div>
+<div class="vr-role">Secretary of Defense → Halliburton CEO → Vice President</div>
+</div>
+<div class="visual-figure">
+<img alt="Donald Rumsfeld" src="assets/rumsfeld.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/204" rel="noopener" target="_blank" title="View Donald Rumsfeld in Intel Console">Donald Rumsfeld</a></div>
+<div class="vr-role">Secretary of Defense (twice) — $2.3 trillion unaccounted</div>
+</div>
+</div>
+<div class="visual-row">
+<div class="visual-figure">
+<img alt="James Woolsey" src="assets/woolsey.jpg"/>
+<div class="vr-name">James Woolsey</div>
+<div class="vr-role">CIA Director → Booz Allen → Palantir advisory</div>
+</div>
+<div class="visual-figure">
+<img alt="James Clapper" src="assets/clapper.jpg"/>
+<div class="vr-name">James Clapper</div>
+<div class="vr-role">DNI → CNN contributor — lied to Congress under oath</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim"><strong>Dick Cheney</strong>: Secretary of Defense (1989–1993) → Halliburton CEO (1995–2000, compensation $<span class="countup" data-suffix=" million" data-target="44">44 million</span>) → Vice President (2001–2009). Halliburton received <strong>$<span class="countup" data-suffix=" billion" data-target="39.5">39.5 billion</span></strong> in Iraq War contracts. <strong>James Woolsey</strong>: CIA Director (1993–95) → Booz Allen Hamilton → Palantir advisory board → In-Q-Tel advisory. <strong>Michael Hayden</strong>: NSA Director → CIA Director → Chertoff Group (private security). <strong>James Clapper</strong>: Director of National Intelligence who testified to Congress that the NSA did “not wittingly” collect data on Americans — a statement proven false by Edward Snowden one month later — then became a CNN national security analyst.</div>
+<div class="evidence-source">Congressional Budget Office, Iraq War cost analysis. Halliburton SEC filings (Cheney compensation). Clapper Senate testimony (March 12, 2013). Snowden disclosures (June 2013).</div>
+</div>
+</div>
+<div class="scroll-block" data-block="6-3">
+<h3 class="node-title">The Silicon Valley Pipeline</h3>
+<div class="visual-row">
+<div class="visual-figure org-square">
+<img alt="In-Q-Tel" src="assets/in_q_tel.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/60" rel="noopener" target="_blank" title="View In-Q-Tel in Intel Console">In-Q-Tel</a></div>
+<div class="vr-role">CIA venture capital — founded 1999</div>
+</div>
+<div class="visual-figure org-square">
+<img alt="Palantir" src="assets/palantir.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/59" rel="noopener" target="_blank" title="View Palantir Technologies in Intel Console">Palantir</a></div>
+<div class="vr-role">In-Q-Tel investment → $20B defense contracts</div>
+</div>
+</div>
+<div class="visual-row">
+<div class="visual-figure org-square">
+<img alt="DARPA" src="assets/darpa.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/90" rel="noopener" target="_blank" title="View DARPA in Intel Console">DARPA</a></div>
+<div class="vr-role">Funded Stanford research where Google was born</div>
+</div>
+<div class="visual-figure">
+<img alt="Peter Thiel" src="assets/thiel.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/6" rel="noopener" target="_blank" title="View Peter Thiel in Intel Console">Peter Thiel</a></div>
+<div class="vr-role">Palantir + Facebook board + Bilderberg + PayPal</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim"><strong>In-Q-Tel</strong>, the CIA’s venture capital arm, was founded in 1999. Its portfolio includes <strong>Palantir</strong> (now a $<span class="countup" data-suffix="B+" data-target="60">60B+</span> defense contractor), <strong>Keyhole</strong> (acquired by Google, became Google Earth), and <strong>Recorded Future</strong> (predictive intelligence). DARPA funded the Stanford Digital Library Project where <strong>Larry Page</strong> and <strong>Sergey Brin</strong> developed the algorithm that became Google. The CIA and NSA funded research at Stanford through the Massive Digital Data Systems program. DARPA’s <strong>LifeLog</strong> project — designed to track an individual’s entire digital life — was cancelled on <strong>February 4, 2004</strong>. Facebook launched the same day.</div>
+<div class="evidence-source">In-Q-Tel portfolio (iqt.org, public). Yasha Levine, <em>Surveillance Valley</em> (2018). DARPA LifeLog cancellation reported by <em>Wired</em> (February 4, 2004). Facebook launch date confirmed by SEC filings.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="6-4">
+<h3 class="node-title">Operation Gladio — The Shadow Army</h3>
+<div class="visual-row">
+<div class="visual-figure org-square">
+<img alt="Operation Gladio" src="assets/gladio.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/378" rel="noopener" target="_blank" title="View Operation Gladio in Intel Console">Operation Gladio</a></div>
+<div class="vr-role">NATO stay-behind armies — confirmed 1990</div>
+</div>
+<div class="visual-figure org-square">
+<img alt="Five Eyes" src="assets/five_eyes.jpg"/>
+<div class="vr-name"><a class="ic-link ic-vr" href="https://qav2.github.io/intel-console/#entity/716" rel="noopener" target="_blank" title="View Five Eyes in Intel Console">Five Eyes</a></div>
+<div class="vr-role">US/UK/CA/AU/NZ intelligence alliance</div>
+</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim"><strong>Operation Gladio</strong> was a network of secret NATO “stay-behind” armies across Western Europe during the Cold War. In 1990, Italian Prime Minister <strong>Giulio Andreotti</strong> confirmed its existence to the Italian parliament. The European Parliament passed a resolution condemning the program. In multiple countries, Gladio operatives were linked to terrorist attacks blamed on left-wing groups — a “strategy of tension” designed to keep populations fearful and governments right-leaning. The CIA, MI6, and NATO coordinated the program across at least <strong><span class="countup" data-target="14">14</span></strong> European countries. It was the web operating as a covert military network inside allied democracies.</div>
+<div class="evidence-source">Daniele Ganser, <em>NATO’s Secret Armies: Operation Gladio and Terrorism in Western Europe</em> (2005). Giulio Andreotti, statement to Italian Parliament (October 24, 1990). European Parliament Resolution on Gladio (November 22, 1990).</div>
+</div>
+</div>
+<div class="scroll-block" data-block="6-5">
+<h3 class="node-title">Ten Wars. One Room.</h3>
+<div class="pattern-grid">
+<div class="pattern-row"><span class="pr-label">AI Wars — NSA, CIA, In-Q-Tel, Palantir, Google</span><span class="pr-value">CFR/Bilderberg members</span></div>
+<div class="pattern-row"><span class="pr-label">Money Wars — Federal Reserve, IMF, World Bank, Goldman</span><span class="pr-value">CFR-designed institutions</span></div>
+<div class="pattern-row"><span class="pr-label">Space Wars — Lockheed, Boeing, Northrop, Pentagon</span><span class="pr-value">CFR/Trilateral boards</span></div>
+<div class="pattern-row"><span class="pr-label">Mind Wars — MKUltra, Gottlieb, Allen Dulles, SRI</span><span class="pr-value">CFR director authorized</span></div>
+<div class="pattern-row"><span class="pr-label">Oil Wars — Standard Oil, ExxonMobil, petrodollar</span><span class="pr-value">Rockefeller empire</span></div>
+<div class="pattern-row"><span class="pr-label">Media Wars — Mockingbird, Big Tech, 6 corporations</span><span class="pr-value">CFR media members</span></div>
+<div class="pattern-row"><span class="pr-label">Body Wars — Flexner, pharma, FDA revolving door</span><span class="pr-value">Rockefeller Foundation</span></div>
+<div class="pattern-row"><span class="pr-label">Sky Wars — HAARP, Raytheon, BAE, no governance</span><span class="pr-value">Defense contractors on CFR</span></div>
+<div class="pattern-row"><span class="pr-label">The Pipeline — MKUltra, Esalen, Lucis Trust, SRI</span><span class="pr-value">CIA/CFR-connected ops</span></div>
+<div class="pattern-row"><span class="pr-label">The Web — the org chart itself</span><span class="pr-value">Published. By them.</span></div>
+</div>
+</div>
+<div class="scroll-block chain-summary" data-block="6-6">
+<div class="typed-terminal" id="web-terminal">
+<span class="typed-prompt">&gt;</span> <span class="typed-output" data-typed-strings="[&quot;ANALYSIS COMPLETE.&quot;,&quot;RHODES (1891) ^500→ ROUND TABLE ^500→ CFR (1921) ^500→ CIA (1947) ^500→ BILDERBERG (1954) ^500→ TRILATERAL (1973) ^500→ IN-Q-TEL (1999) ^500→ PRESENT&quot;,&quot;TEN WARS. ^500 ONE ROOM. ^500 PUBLISHED MEMBERSHIP. ^1000 NOW YOU'VE SEEN IT.&quot;]"></span>
+</div>
+</div>
+<div class="scroll-block" data-block="6-7">
+<p>Ten wars. Nine domains. One organizational chart. The names that appear in your AI feed, your banking system, your defense budget, your medical infrastructure, your media landscape, your energy grid, your atmosphere, and your spiritual marketplace — they sit on the same boards, attend the same annual meetings, and publish their own membership lists.</p>
+<p>The web isn’t a theory. It’s a directory. And it was always public.</p>
+</div>
+<div class="scroll-block" data-block="6-8">
+<p>Programs don’t disappear. They get board seats. Cartographers don’t retire. They get buried. And the room doesn’t close — it just stops sending invitations to journalists.</p>
+<p>Now you’ve seen the room.</p>
+</div>
+</div>
+<!-- ══════════════════════════════════════��═════════════════ -->
+<!-- CLOSING                                                  -->
+<!-- ═════════���══════════════════════════════════════════════ -->
+<section class="closing" id="closing">
+<div class="closing-content">
+<div class="closing-statement">Every connection in this scroll comes from published membership rosters, organizational records, government filings, Congressional testimony, declassified documents, court proceedings, and the organizations’ own publications. The CFR publishes its membership. The Trilateral Commission publishes its membership. Bilderberg has published attendee lists since 2010. Skull &amp; Bones membership appears in Yale archives. In-Q-Tel’s portfolio is on its website. No leak required. No conspiracy theory needed. The web is documented by the web itself.</div>
+<div class="closing-sub">This investigation draws on Carroll Quigley’s <em>Tragedy and Hope</em> (1966), Laurence Shoup &amp; William Minter’s <em>Imperial Brain Trust</em> (1977/2004), the Senate BCCI Report (Kerry-Brown, 1992), the House Judiciary Committee INSLAW Report (Brooks, 1992), Lawrence Walsh’s Iran-Contra Final Report (1993), the CIA Inspector General’s Report on CIA-Contra Drug Trafficking (1998), Antony Sutton’s <em>America’s Secret Establishment</em> (1983/2002), Daniele Ganser’s <em>NATO’s Secret Armies</em> (2005), and Yasha Levine’s <em>Surveillance Valley</em> (2018). Primary sources are cited for every evidence card.</div>
+<div class="closing-legend">
+<div class="closing-legend-item"><span class="el-dot" style="background:#34d399"></span> Documented — published membership lists, Congressional records, court filings, declassified documents, government reports, organizational records</div>
+<div class="closing-legend-item"><span class="el-dot" style="background:#fbbf24"></span> Credible — credentialed journalism, academic research, verified testimony</div>
+<div class="closing-legend-item"><span class="el-dot" style="background:#fb923c"></span> Inference — pattern analysis connecting documented and credible evidence</div>
+</div>
+<div class="closing-cta">
+<p>Ten wars. One room. Every scroll in this series is documented, sourced, and verifiable. The reason most people can’t see the web isn’t that it’s hidden — it’s that no one puts the lists in the same room.</p>
+<p>Now you have.</p>
+</div>
+<div class="closing-links">
+<a class="closing-link" href="/the-pipeline/">← Scroll 010: The Pipeline — the managed replacement for everything they suppressed</a>
+<a class="closing-link" href="/faith-wars/">← Scroll 009: Faith Wars — the oldest war, the original template</a>
+<a class="closing-link" href="/sky-wars/">← Scroll 008: Sky Wars — the war for your sky</a>
+<a class="closing-link" href="/body-wars/">← Scroll 007: Body Wars — the war for your body</a>
+<a class="closing-link" href="/media-wars/">← Scroll 006: Media Wars — the war that hides all the others</a>
+<a class="closing-link" href="/oil-wars/">← Scroll 005: Oil Wars — one molecule controls everything</a>
+<a class="closing-link" href="/mind-wars/">← Scroll 004: Mind Wars — the war on consciousness</a>
+<a class="closing-link" href="/space-wars/">← Scroll 003: Space Wars — two histories of space</a>
+<a class="closing-link" href="/money-wars/">← Scroll 002: Money Wars — every country that left the dollar</a>
+<a class="closing-link" href="/ai-wars/">← Scroll 001: AI Wars — the 44-year surveillance pipeline</a>
+<a class="closing-link" href="https://qav2.github.io/intel-console/" rel="noopener" target="_blank">Explore the Intel Console — 825 entities, 2,020 relationships →</a>
+<a class="closing-link-home" href="/">← Disclosure Scrolls — full archive</a>
+</div>
+<div class="closing-support">
+<div class="support-label">Independent research. No sponsors. No algorithm.</div>
+<a class="support-link" href="https://buymeacoffee.com/joeyv23" rel="noopener" target="_blank">Support this work</a>
+</div>
+<button class="seed-trigger-btn" id="seed-tap-trigger">Help make this work immortal</button>
+<div class="closing-footer">
+<p>Disclosure Scrolls — documented investigations you can scroll through.</p>
+</div>
+</div>
+</section>
+<!-- SEED LAYER -->
+<section aria-hidden="true" class="seed-section" id="seed-section">
+<div class="seed-content">
+<div class="seed-divider"></div>
+<p class="seed-header">Classified // Distribution Protocol</p>
+<h2 class="seed-title">The Complete Archive Is Inside This Image</h2>
+<p class="seed-desc">The image below contains all eleven Disclosure Scrolls — every page, every image, every line of code — encoded into its pixels using least-significant-bit steganography. Save it. You now carry the complete archive.</p>
+<div class="seed-image-container">
+<img alt="Steganographic seed image containing the complete Disclosure Scrolls archive" class="seed-image" data-src="../seed-full.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+<p class="seed-image-caption">Right-Click → Save Image As</p>
+</div>
+<p class="seed-transparency">Save it, let your virus scanner do its thing. It’s a PNG — what you see is what you get. Once it clears, you have this entire website saved locally to your device as an image file.</p>
+<div class="seed-steps">
+<p class="seed-steps-header">Extraction Protocol</p>
+<ol>
+<li class="seed-step">Right-click the image above → <strong>Save Image As</strong></li>
+<li class="seed-step">Download or copy <code class="seed-code">extract.py</code> below</li>
+<li class="seed-step">Install Pillow: <code class="seed-code">pip install Pillow</code></li>
+<li class="seed-step">Run: <code class="seed-code">python3 extract.py seed-full.png ./output/</code></li>
+<li class="seed-step">Open <code class="seed-code">output/index.html</code> — you now have the complete archive</li>
+</ol>
+</div>
+<p class="seed-transparency">The script below is open source — 80 lines of Python that do exactly one thing: read the pixels and unpack the files inside. You can read every line before you run it.</p>
+<div class="seed-extract">
+<div class="seed-extract-header">
+<span class="seed-extract-label">extract.py</span>
+<button class="seed-copy-btn">COPY</button>
+<a class="seed-download-link" id="seed-download-extract">DOWNLOAD</a>
+</div>
+<pre class="seed-extract-code"><code id="seed-extract-code">#!/usr/bin/env python3
 """
 Extract files hidden in a CNTYSEED steganographic image.
 Only requires: pip install Pillow
@@ -1098,18 +1037,14 @@ if __name__ == "__main__":
         print(f"Usage: {sys.argv[0]} &lt;image.png&gt; &lt;output_dir&gt;")
         sys.exit(1)
     extract(sys.argv[1], sys.argv[2])</code></pre>
-      </div>
-      <p class="seed-persistence">As long as one copy exists, this cannot be erased.</p>
-    </div>
-  </section>
-
-
-  <!-- === Scripts === -->
-  </main>
-
-  <script src="../ai-wars/js/engine.js" defer></script>
-  <script src="../ai-wars/js/gsap-effects.js" defer></script>
-  <script src="../ai-wars/js/seed.js" defer></script>
-
+</div>
+<p class="seed-persistence">As long as one copy exists, this cannot be erased.</p>
+</div>
+</section>
+<!-- === Scripts === -->
+</main>
+<script defer="" src="../ai-wars/js/engine.js"></script>
+<script defer="" src="../ai-wars/js/gsap-effects.js"></script>
+<script defer="" src="../ai-wars/js/seed.js"></script>
 </body>
 </html>
