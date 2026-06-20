@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Gate — Disclosure Scrolls</title>
+<meta name="robots" content="noindex, nofollow"/>
+<meta content="A research index appeared in a group of former gifted-program children. Every thread led back to a single 1983 Army document — and to the people living what it describes. Every claim tiered." name="description"/>
+<meta content="#06060b" name="theme-color"/>
+<link href="../ai-wars/css/style.css" rel="stylesheet"/>
+<style>
+/* ── Act color registers (cosmic / light), mirroring the house reveal-act ── */
+.act-cosmic .act-title{color:#93c5fd}
+.act-cosmic .act-number{color:rgba(147,197,253,.45)}
+.act-cosmic .node-title{color:#93c5fd;border-bottom-color:rgba(147,197,253,.18)}
+.act-cosmic .pull-quote{border-left-color:rgba(147,197,253,.3)}
+.act-light .act-title{color:#f0f0f4}
+.act-light .act-number{color:rgba(240,240,244,.5)}
+.act-light .node-title{color:#cdd6e4;border-bottom-color:rgba(205,214,228,.18)}
+.act-light .pull-quote{border-left-color:rgba(205,214,228,.3)}
+/* ── Testimony tier — lived accounts, never the costume of a record ── */
+.evidence-card[data-tier="testimony"]{border-left-color:#a78bfa}
+.evidence-card[data-tier="testimony"] .evidence-tier-label{color:#a78bfa}
+.evidence-card[data-tier="testimony"] .evidence-tier-dot{background:#a78bfa}
+.evidence-card[data-tier="speculative"] .evidence-tier-label{color:#f87171}
+.evidence-card[data-tier="speculative"] .evidence-tier-dot{background:#f87171}
+/* ── Honest-bound callout (the structural-rhyme caveat) ── */
+.honest-bound{background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.25);border-radius:8px;padding:1.25rem 1.5rem;margin:2rem 0}
+.honest-bound .hb-label{font-family:'JetBrains Mono','Fira Code',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:#fb923c;margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.honest-bound .hb-label::before{content:'';width:7px;height:7px;border-radius:50%;background:#fb923c;display:inline-block}
+.honest-bound p{font-size:1rem;color:#e6e6ee;line-height:1.7;margin:0 0 .8rem}
+.honest-bound p:last-child{margin-bottom:0}
+/* ── Consent / method note ── */
+.note-block{background:rgba(167,139,250,.05);border:1px solid rgba(167,139,250,.22);border-radius:8px;padding:1.5rem 1.75rem;margin:2.5rem 0}
+.note-block .nb-label{font-family:'JetBrains Mono','Fira Code',monospace;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:#a78bfa;margin-bottom:.85rem}
+.note-block p{font-size:.95rem;color:#d4d4dc;line-height:1.7;margin:0 0 .75rem}
+.note-block p:last-child{margin-bottom:0}
+.lead{font-size:1.05rem;color:#cfcfd8}
+/* ── Document & artifact scans ── */
+.doc-scan img{max-width:500px;width:100%;margin:0 auto;display:block;border:1px solid rgba(255,255,255,.1)}
+.doc-scan.wide img{max-width:600px}
+@media (max-width:768px){.doc-scan img,.doc-scan.wide img{max-width:100%}}
+.tier-line{font-family:'JetBrains Mono','Fira Code',monospace;font-size:.62rem;letter-spacing:1px;color:rgba(255,255,255,.4);margin:.4rem 0 0;text-transform:uppercase}
+.closing-legend-item .el-dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+</style>
+</head>
+<body>
+<a class="skip-nav" href="#act-1">Skip to content</a>
+<canvas aria-hidden="true" class="particle-canvas" id="particle-net"></canvas>
+<div aria-hidden="true" class="progress-bar" id="progress-bar"></div>
+
+<!-- ═══ Pipeline Tracker — the descent ═══ -->
+<div aria-hidden="true" class="pipeline-track" id="pipeline-track">
+<div class="pipeline-inner">
+<div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
+<div class="pipeline-node"><span class="pn-year">6/19</span><span class="pn-label">The Post</span></div>
+<div class="pipeline-node"><span class="pn-year">CREST</span><span class="pn-label">The Index</span></div>
+<div class="pipeline-node"><span class="pn-year">1983</span><span class="pn-label">One Document</span></div>
+<div class="pipeline-node"><span class="pn-year">∿</span><span class="pn-label">The Physics</span></div>
+<div class="pipeline-node"><span class="pn-year">1959</span><span class="pn-label">The Bridge</span></div>
+<div class="pipeline-node"><span class="pn-year">now</span><span class="pn-label">Congregation</span></div>
+</div>
+</div>
+
+<div aria-hidden="true" class="act-indicator" id="act-indicator"></div>
+
+<main>
+<!-- ═══════════════ TITLE ═══════════════ -->
+<section class="title-screen" id="title-screen">
+<div class="title-content">
+<span class="back-link">◊ Disclosure Scrolls · Field Entry</span>
+<div class="title-label">Scroll 015 — A Documented Convergence</div>
+<h1 class="title-main">The Gate</h1>
+<p class="title-sub">On June 19th, a member of a group for former gifted-program children posted five photographed pages. Every thread in them led back to a single 1983 Army document — and to a question about what the program was for.</p>
+<div class="title-reading-time">~16 min read · 6 acts · every claim tiered · a note on consent</div>
+<div class="title-meta">
+<span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
+<span class="evidence-legend"><span class="el-dot" style="background:#fbbf24"></span> Credible</span>
+<span class="evidence-legend"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
+<span class="evidence-legend"><span class="el-dot" style="background:#f87171"></span> Speculative</span>
+<span class="evidence-legend"><span class="el-dot" style="background:#a78bfa"></span> Testimony</span>
+</div>
+<div class="scroll-cue">Scroll to begin ↓</div>
+</div>
+</section>
+
+<!-- ═══════════════ ACT I — THE POST ═══════════════ -->
+<section class="act" data-act="1" data-act-label="Act I — The Post" id="act-1">
+<div class="act-header">
+<div class="act-number">Act I</div>
+<h2 class="act-title">The Post</h2>
+</div>
+
+<div class="scroll-block">
+<p>In 1983, the U.S. Army wrote a report to understand a meditation tape.</p>
+<p>In June of 2026, one of the kids the report never names went looking for herself in a government archive — and found her way back to it.</p>
+</div>
+
+<div class="scroll-block">
+<p class="lead">There is a Facebook group made of grown-up gifted children. The people in it were pulled out of ordinary classrooms as kids and routed into programs with bright, forgettable names: <strong>GATE. TAG. QUEST. PHASE. MGM. Horizons. Odyssey.</strong> Gifted and Talented Education. The Mentally Gifted Minors program. The names were real; the programs were real; many of the people are still in touch with the strangeness of having been singled out, sorted, and studied before they were ten.</p>
+</div>
+
+<div class="scroll-block">
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">GATE (Gifted and Talented Education), TAG, MGM and their siblings are real, documented public-school programs that identified, tested, and separated children by measured aptitude across the United States from the 1960s onward. The identification-and-sorting of gifted children is a matter of ordinary educational record.</div>
+<div class="evidence-source">U.S. Dept. of Education / state gifted-education program records; California MGM &amp; GATE statutes (Education Code). The documented fact here is the <em>sorting</em> — not any of the readings placed on it below.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<div class="evidence-card" data-tier="testimony">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Testimony</div>
+<div class="evidence-claim">Many in the group remember a version of the same explanation for why they were taken out of the regular classroom — as one member puts it, <em>“so the other kids wouldn't get confused by the questions we asked.”</em> Held here as lived recollection, not as documented policy.</div>
+<div class="evidence-source">First-person accounts, the group, June 2026. Tier: reported testimony — true to the teller, uncorroborated as institutional fact.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<p>On <strong>June 19, 2026</strong>, one of them posted five photographs to the group. Pages of plain printed text, shot on a phone, a soft diagonal shadow falling across the lower corner of each. The header, centered, in bold:</p>
+<div class="visual doc-scan visual-scanned">
+<img alt="Page one of the posted research index, a phone photograph of a printed page titled Research Project Psychic Kids and Gate, dated 6/13/2026" loading="lazy" src="assets/index-1.jpg"/>
+<div class="visual-caption">The artifact, page 1 of 5. “Research Project: Psychic Kids and Gate,” dated 6/13/2026. A phone photograph posted to the group on June 19. The last page carries one line of provenance: “All compiled from CIA Declassified files on the FOIA Reading Room.”</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<p>It reads, at first, like the contents of a haunted filing cabinet. Remote viewing. Project Stargate. MK Ultra. Schumann Resonance. HAARP. CERN. The Absolute. And then, near the bottom of the second page, two lines that stop you:</p>
+<div class="pull-quote">
+<div class="pq-text">“Stanford performed 50 independent projects hiding ‘subjects’ as children from various parts of the US, more focused in Florida.”</div>
+<div class="pq-attr">— verbatim, from the posted index (the compiler's annotation)</div>
+</div>
+<div class="pull-quote">
+<div class="pq-text">“Remote Viewing ETs, Children in Gate Program.”</div>
+<div class="pq-attr">— verbatim, from the posted index</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<div class="evidence-card" data-tier="speculative">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Speculative</div>
+<div class="evidence-claim">What is documented is that the page <em>says</em> these things. The claims themselves — that Stanford hid child subjects across the US, that gifted-program children were used for remote viewing — are the index compiler's own annotations, not established fact. They are reproduced here as part of the artifact, flagged as unverified, and held apart from the record that follows.</div>
+<div class="evidence-source">Posted index, pages 1–2, June 2026. Tier: speculative — an unsourced claim on a community document.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<p>But the thing that made the group go quiet was smaller, and it was on the page in plain sight. Two lines apart in the keyword list:</p>
+<div class="chain-summary">
+<div class="chain-text"><span class="chain-link">GATE Program Binder</span><span class="chain-arrow"> · </span><span class="chain-link">Project Gateway</span></div>
+<div class="chain-decode">The gifted-kid program — <strong>GATE</strong> — and the U.S. Army's consciousness program — the <strong>Gateway</strong> Process — sitting two lines apart, under one word, in one list.</div>
+</div>
+<p>Two entirely different programs. Forty years apart. One root word. The people in the group — the ones who <em>were</em> the gifted kids — felt the hair stand up. The question wrote itself: were these ever the same gate?</p>
+</div>
+</section>
+
+<!-- ═══════════════ ACT II — THE INDEX ═══════════════ -->
+<section class="act" data-act="2" data-act-label="Act II — The Index" id="act-2">
+<div class="act-header">
+<div class="act-number">Act II</div>
+<h2 class="act-title">The Index</h2>
+</div>
+
+<div class="scroll-block">
+<p>The first thing to understand is what the five pages actually <em>are</em>. They are not research. They are a <strong>search-tree</strong>.</p>
+<p>Four sections — keywords, organizations, researchers, books — and a final line that gives the whole thing away: <em>“All compiled from CIA Declassified files on the FOIA Reading Room.”</em> Someone sat inside <strong>CREST</strong>, the CIA's online declassification archive, and wrote down the exact terms, file numbers, names, and titles you would type to surface the documents underneath. It is a map of where to dig.</p>
+</div>
+
+<div class="scroll-block">
+<div class="visual-row">
+<div class="visual-figure"><div class="doc-scan visual-scanned" style="text-align:center"><img alt="Page 3 of the index — Organizations and Government Oversight" loading="lazy" src="assets/index-3.jpg" style="max-width:230px;border-radius:4px;border:1px solid rgba(255,255,255,.1)"/></div><div class="vr-name">Pg. 3 — Oversight</div><div class="vr-role">SRI · Monroe · DIA · CIA · NSA · INSCOM</div></div>
+<div class="visual-figure"><div class="doc-scan visual-scanned" style="text-align:center"><img alt="Page 4 of the index — Researchers and Books of Interest" loading="lazy" src="assets/index-4.jpg" style="max-width:230px;border-radius:4px;border:1px solid rgba(255,255,255,.1)"/></div><div class="vr-name">Pg. 4 — Cast &amp; Books</div><div class="vr-role">McDonnell · Bentov · Pribram · Gabor</div></div>
+</div>
+</div>
+
+<div class="scroll-block">
+<p>And about four-fifths of it maps cleanly onto the documented public record. The keyword page threads the entire history of the U.S. government's remote-viewing program — under every codename it ever wore.</p>
+</div>
+
+<div class="scroll-block" data-pipeline="index">
+<h3 class="node-title">The Program That Kept Getting Renamed</h3>
+<div class="typed-terminal"><span class="typed-prompt">&gt;</span> <span data-typewriter="SCANATE → GONDOLA WISH → GRILL FLAME → CENTER LANE → SUN STREAK → STAR GATE"></span><span class="anim-cursor"></span></div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">From roughly 1972 to 1995, the CIA, Army, and DIA funded a remote-viewing program through Stanford Research Institute and an operational unit at <strong>Fort George G. Meade, Maryland</strong>. It ran under successive codenames — SCANATE, GONDOLA WISH, GRILL FLAME, CENTER LANE, SUN STREAK, and finally STAR GATE — at a total cost near $20 million. Roughly 12,000 files / ~89,000 pages were declassified, with a major release in 2017.</div>
+<div class="evidence-source"><a href="https://irp.fas.org/program/collect/stargate.htm" rel="noopener" target="_blank">Federation of American Scientists — Stargate archive</a>; <a href="https://en.wikipedia.org/wiki/Stargate_Project_(U.S._Army_unit)" rel="noopener" target="_blank">Stargate Project (U.S. Army unit)</a>; CIA STAR GATE Collection (CREST).</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">The research cast the index names is the real one: physicists <strong>Harold Puthoff</strong> and <strong>Russell Targ</strong> ran the SRI program; <strong>Ingo Swann</strong> developed the protocol; <strong>Pat Price</strong> and Army officer <strong>Joseph McMoneagle</strong> — “Remote Viewer 001” — were among its subjects. The oversight bodies it lists (DIA, INSCOM, GDIP, the AIR review) are documented parts of the program's chain.</div>
+<div class="evidence-source"><a href="https://www.newdualism.org/papers/H.Puthoff/CIA-Initiated%20Remote%20Viewing%20At%20Stanford%20Research%20Institute.htm" rel="noopener" target="_blank">Puthoff, “CIA-Initiated Remote Viewing at SRI”</a>; <a href="https://en.wikipedia.org/wiki/Joseph_McMoneagle" rel="noopener" target="_blank">Joseph McMoneagle</a>; FAS Stargate archive.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<p>So the programs are real. The agencies are real. The money was real. That has to be said clearly — and so does its opposite:</p>
+<div class="evidence-card" data-tier="credible">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+<div class="evidence-claim">That the programs <em>existed and were funded</em> is documented. Whether they <em>worked</em> is a separate, unsettled question. The CIA's 1995 external review by the American Institutes for Research split: statistician Jessica Utts found the effect statistically robust; psychologist Ray Hyman judged it unproven. The CIA terminated the program citing no actionable intelligence. Mainstream science regards remote viewing as unestablished. This scroll documents the record of belief and effort — not a proof that psi is real.</div>
+<div class="evidence-source"><a href="https://ics.uci.edu/~jutts/response.html" rel="noopener" target="_blank">Utts, AIR evaluation response</a>; <a href="https://en.wikipedia.org/wiki/Stargate_Project_(U.S._Army_unit)" rel="noopener" target="_blank">AIR review, 1995</a>.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<p>Four-fifths of the index, then, is a faithful guide to a documented — if contested — corner of Cold War history. Which leaves the other fifth. And one section of the index wasn't a list of programs at all.</p>
+<p>It was a list of <em>books</em>.</p>
+</div>
+</section>
+
+<!-- ═══════════════ ACT III — ONE DOCUMENT ═══════════════ -->
+<section class="act act-reveal" data-act="3" data-act-label="Act III — One Document" id="act-3">
+<div class="act-header">
+<div class="act-number">Act III</div>
+<h2 class="act-title">One Document</h2>
+</div>
+
+<div class="scroll-block">
+<p>The fourth page is headed <strong>“Books of Interest.”</strong> Nine titles. They look, at a glance, like a personal reading list — the kind of eclectic stack a curious person assembles over years.</p>
+<p>They are not. They are, in order, the closing <strong>bibliography of a single document</strong> — copied out, with the copy's own fingerprints left in.</p>
+</div>
+
+<div class="scroll-block">
+<h3 class="node-title">The Bibliography Proof</h3>
+<div class="pattern-grid">
+<div class="pattern-row"><span class="pattern-from">Stalking the Wild Pendulum</span><span class="pattern-arrow">→</span><span class="pattern-to">Bentov · ref. 1</span></div>
+<div class="pattern-row"><span class="pattern-from">“Karl Pribram's Changing Reality”</span><span class="pattern-arrow">→</span><span class="pattern-to">Ferguson · ref. 2</span></div>
+<div class="pattern-row"><span class="pattern-from">Einstein Against the Odds</span><span class="pattern-arrow">→</span><span class="pattern-to">Gliedman · ref. 3</span></div>
+<div class="pattern-row"><span class="pattern-from">“The Lamp <em>Turn</em> Laser” <span class="tl-note">(shared garble)</span></span><span class="pattern-arrow">→</span><span class="pattern-to">Jager · ref. 4</span></div>
+<div class="pattern-row"><span class="pattern-from">Journeys Out of the Body</span><span class="pattern-arrow">→</span><span class="pattern-to">Monroe · ref. 5</span></div>
+<div class="pattern-row"><span class="pattern-from">“<em>They</em> Mystic Spiral” <span class="tl-note">(same typo)</span></span><span class="pattern-arrow">→</span><span class="pattern-to">Purce · ref. 6</span></div>
+<div class="pattern-row"><span class="pattern-from">Kundalini — Psychosis or Transcendence</span><span class="pattern-arrow">→</span><span class="pattern-to">Sannella · ref. 7</span></div>
+<div class="pattern-row"><span class="pattern-from">Altered States of Consciousness</span><span class="pattern-arrow">→</span><span class="pattern-to">Stone · ref. 8</span></div>
+<div class="pattern-row"><span class="pattern-from">Altered States of Consciousness</span><span class="pattern-arrow">→</span><span class="pattern-to">Tart · ref. 9</span></div>
+</div>
+</div>
+
+<div class="scroll-block">
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">All nine “Books of Interest” are the nine closing references of one declassified document — in the same order, including the idiosyncratic entries (Pat Stone's homesteading-magazine piece; Jager's obscure Monroe Institute monograph) and a carried-over corruption: a garbled “Lamp <em>Turn</em> Laser” title, and Purce's <em>The Mystic Spiral</em> mistyped identically. A list that reproduces another list's errors did not arrive independently. It was copied.</div>
+<div class="evidence-source"><a href="https://en.wikisource.org/wiki/Analysis_and_Assessment_of_Gateway_Process" rel="noopener" target="_blank">“Analysis and Assessment of Gateway Process,” bibliography (Wikisource transcription)</a>; cross-reference against posted index pg. 4.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<p>And the index's “Researchers and persons of interest” list is the <em>same document's cited cast</em> — Bentov, Pribram, Gabor, Ferguson, Monroe. At the very top of that list is a name most people wouldn't recognize: <strong>Wayne McDonnell</strong>. He isn't a researcher the document cites.</p>
+<p>He is the man who <em>wrote</em> it.</p>
+</div>
+
+<div class="scroll-block" data-pipeline="document">
+<div class="visual doc-scan visual-scanned">
+<img alt="The first page of the declassified Gateway Process memorandum, U.S. Army Intelligence and Security Command, 9 June 1983" loading="lazy" src="assets/gateway-doc-p1.jpg"/>
+<div class="visual-caption">The root of the tree. Memorandum, U.S. Army Operational Group / Intelligence and Security Command, Fort George G. Meade — 9 June 1983. “SUBJECT: Analysis and Assessment of Gateway Process.” Declassified as CIA-RDP96-00788R001700210016-5.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">The entire five-page index is a CREST search-tree rooted in one document: <strong>“Analysis and Assessment of the Gateway Process,”</strong> by Lt. Col. <strong>Wayne M. McDonnell</strong>, U.S. Army Intelligence and Security Command, <strong>9 June 1983</strong> — CIA-RDP96-00788R001700210016-5. The garbled index entry “Oscillation Drops 10.33 cm Planck's Distance” is a misreading of this document's “10⁻³³ centimeters” — the compiler was transcribing this exact passage.</div>
+<div class="evidence-source"><a href="https://www.cia.gov/readingroom/docs/CIA-RDP96-00788R001700210016-5.pdf" rel="noopener" target="_blank">CIA Reading Room (CREST)</a>; <a href="https://documents2.theblackvault.com/documents/cia/CIA-RDP96-00788R001700210016-5.pdf" rel="noopener" target="_blank">The Black Vault mirror</a>; <a href="https://en.wikisource.org/wiki/Analysis_and_Assessment_of_Gateway_Process" rel="noopener" target="_blank">Wikisource</a>.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<div class="evidence-card" data-tier="credible">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+<div class="evidence-claim">The document is also famous for a gap: for ~18 years after its 2003 release, the scan jumped from page 24 to page 26 — the final substantive page was missing, and the CIA's position was that it never had it. The page resurfaced in 2021, not through an official CIA release but via the <strong>Monroe Institute</strong>, which had retained a complete copy. It expands on “the Absolute” as an all-encompassing holographic continuum. (The page's existence and recovery are well-attested; its exact final wording is paraphrased across secondary sources, so it is held at credible, not documented.)</div>
+<div class="evidence-source"><a href="https://www.vice.com/en/article/found-page-25-of-the-cias-gateway-report-on-astral-projection/" rel="noopener" target="_blank">Vice, “Found: Page 25 of the CIA's Gateway Report” (2021)</a>.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<p>So the haunted filing cabinet had a back wall. Every drawer opened onto the same room: one report, written by one Army officer, in one week of June 1983.</p>
+<p>Which raises the only question that matters now. What does that report actually <em>say?</em></p>
+</div>
+</section>
+
+<!-- ═══════════════ ACT IV — THE PHYSICS ═══════════════ -->
+<section class="act act-cosmic" data-act="4" data-act-label="Act IV — The Physics" id="act-4">
+<div class="act-header">
+<div class="act-number">Act IV</div>
+<h2 class="act-title">The Physics</h2>
+</div>
+
+<div class="scroll-block">
+<p>McDonnell was asked a narrow, almost dull question: does the Monroe Institute's meditation-tape program — “Gateway,” which uses stereo audio beats to synchronize the brain's hemispheres — actually do anything, and is it useful to the Army?</p>
+<p>To answer it honestly, he wrote, he had no choice but to keep going down.</p>
+</div>
+
+<div class="scroll-block">
+<div class="pull-quote">
+<div class="pq-text">“Frankly, sir, that proved to be an extremely involved and difficult business.”</div>
+<div class="pq-attr">— Lt. Col. Wayne M. McDonnell, opening paragraph, 9 June 1983</div>
+</div>
+<p>He started with the biomedical model of <strong>Itzhak Bentov</strong>. Then, in his own words, he “found it necessary to delve into various sources for information concerning quantum mechanics in order to be able to describe the nature and functioning of human consciousness.” Step by step, a defense memo about an audiocassette becomes a cosmology. Here is the cosmology it became — in the document's own words.</p>
+</div>
+
+<div class="scroll-block">
+<h3 class="node-title">1 · Matter is not a thing. It is a motion.</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented (the document states)</div>
+<div class="evidence-claim">“Solid matter, in the strict construction of the term, simply does not exist. Rather, atomic structure is composed of oscillating energy grids surrounded by other oscillating energy grids which orbit at extraordinarily high speeds.” And, approvingly, from a Tibetan source: “There are no objects ‘in movement,’ it is the movement which constitutes the objects which appear to us: They are nothing but movement.”</div>
+<div class="evidence-source">“Analysis and Assessment of Gateway Process,” ¶11 &amp; ¶34 (quoting A. David-Néel). Verbatim from the declassified text.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<h3 class="node-title">2 · The body is a tuned oscillator. It couples to the planet.</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented (the document states)</div>
+<div class="evidence-claim">“The entire body, based on its own micromotion, functions as a tuned vibrational system which transfers energy in a range of between 6.8 and 7.5 Hertz into the earth's ionospheric cavity, which itself resonates at about 7–7.5 Hertz.” Driven into coherence, “the two electromagnetic me[dia] are now a single energy continuum” — making, in Bentov's phrase, “a surprisingly powerful carrier wave to assist the mind in communication … with other human minds similarly tuned.”</div>
+<div class="evidence-source">Gateway Process, ¶9–10. The ~7.83 Hz Earth-ionosphere fundamental is the <a href="https://en.wikipedia.org/wiki/Schumann_resonances" rel="noopener" target="_blank">Schumann resonance</a> (textbook physics).</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<h3 class="node-title">3 · Below a certain scale, you “click out” into the Absolute.</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented (the document states)</div>
+<div class="evidence-claim">“That critical step out of <strong>time-space</strong> occurs when the speed of the oscillation drops below 10⁻³³ centimeters per second (Planck's Distance). To use the words of Bentov: ‘…when distances go below Planck's Distance, which is 10⁻³³ cm, we enter, in effect, a new world.’” Beyond it lies what the document calls, throughout, “<strong>the Absolute</strong>” — energy “uniformly extended without limit … no beginning, no end, no location.”</div>
+<div class="evidence-source">Gateway Process, ¶18–19. Note the document's chosen term: <em>time-space</em> — not Einstein's “space-time.” Hold that word.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<h3 class="node-title">4 · The universe is one hologram. So is the mind.</h3>
+<div class="visual doc-scan wide visual-scanned">
+<img alt="Hand-drawn figure from the document, Exhibit 2, page 10 — a human head inside three intersecting planes, labeled Consciousness Energy Grid" loading="lazy" src="assets/gateway-doc-mid.jpg"/>
+<div class="visual-caption">Exhibit 2, page 10 of the assessment. A human head inside three intersecting orthogonal planes — “Consciousness Energy Grid.” The right-hand caption: “Reduces three dimensional holographic image to two dimensional.” Hold this image too.</div>
+</div>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented (the document states)</div>
+<div class="evidence-claim">“The universe is … one gigantic hologram of unbelievable complexity. According to the theories of Karl Pribram … and David Bohm … the human mind is also a hologram which attunes itself to the universal hologram.” And, quoting psychologist Keith Floyd: “it may not be the brain that produces consciousness — but rather, consciousness that creates the appearance of the brain.”</div>
+<div class="evidence-source">Gateway Process, ¶12–14. Holography was founded by <a href="https://www.nobelprize.org/prizes/physics/1971/summary/" rel="noopener" target="_blank">Dennis Gabor (Nobel Prize, 1971)</a>; the holographic-mind/implicate-order ideas are <a href="https://en.wikipedia.org/wiki/Holonomic_brain_theory" rel="noopener" target="_blank">Pribram</a>'s and <a href="https://en.wikipedia.org/wiki/Wholeness_and_the_Implicate_Order" rel="noopener" target="_blank">Bohm</a>'s.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<h3 class="node-title">5 · Consciousness is not a by-product. It is the organizing activity.</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented (the document states)</div>
+<div class="evidence-claim">“Consciousness is the organizing and sustaining principle that provides the impetus and guidance to bring and keep energy in motion within a given set of parameters so that a specific reality will result.”</div>
+<div class="evidence-source">Gateway Process, ¶26. The cast McDonnell builds on is real: Bentov (who died on <a href="https://en.wikipedia.org/wiki/American_Airlines_Flight_191" rel="noopener" target="_blank">American Airlines Flight 191</a>, 1979), Gabor, Pribram, Bohm. These are not cranks the report invented; they are its scaffolding.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<p>An Army intelligence officer, asked to keep a straight face about a relaxation tape, ends his report inside a universe with no solid matter, a planetary resonance, a boundary past which an inverse realm opens, a holographic mind, and consciousness as the thing that keeps the whole machine running.</p>
+<p>Two of those five were, by 1983, the precise shape of a body of physics built by an outsider working alone on the other side of the country. The officer had almost certainly never heard of him.</p>
+</div>
+</section>
+
+<!-- ═══════════════ ACT V — THE BRIDGE ═══════════════ -->
+<section class="act act-cosmic" data-act="5" data-act-label="Act V — The Bridge" id="act-5">
+<div class="act-header">
+<div class="act-number">Act V</div>
+<h2 class="act-title">The Bridge</h2>
+</div>
+
+<div class="scroll-block" data-pipeline="bridge">
+<p>In 1959, an engineer named <strong>Dewey B. Larson</strong> published a heterodox physics he called the <em>Reciprocal System</em>. Its founding move is a single sentence: the physical universe is composed <strong>entirely of motion</strong> — not things that move, but motion as the one and only constituent. From that one postulate he derived a material “space-time” sector, a reciprocal “time-space” sector, and a boundary between them at the speed of light.</p>
+<p>Set Larson's vocabulary beside McDonnell's and the words start to line up.</p>
+</div>
+
+<div class="scroll-block">
+<div class="pull-quote">
+<div class="pq-text">“There are no objects ‘in movement,’ it is the movement which constitutes the objects.”</div>
+<div class="pq-attr">— the Gateway document, ¶34 · which is Larson's postulate, in a sentence the Army was willing to print</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<div class="evidence-card" data-tier="inference">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+<div class="evidence-claim">McDonnell calls the physical dimension <strong>“time-space”</strong> throughout — Larson's exact term, not Einstein's “space-time” — and posits “intervening dimensions” down to an at-rest Absolute. His “click-out” when oscillation drops below a critical scale is structurally Larson's crossing of the unit-speed boundary into the reciprocal sector. Two unrelated roads — a biofeedback assessment and a derivational scalar-motion physics — arrive at the same reciprocal, motion-only universe.</div>
+<div class="evidence-source">Larson, <em>The Structure of the Physical Universe</em> (1959); Gateway Process ¶18–19, ¶34. Tier: inference — a structural reading, not a citation chain.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<p>Even the picture rhymes. The drawing McDonnell's report includes — the human head suspended inside <strong>three intersecting orthogonal planes</strong> — is, geometrically, the same three-axis frame a motion-based physics uses to address all three dimensions of space at once.</p>
+</div>
+
+<div class="honest-bound">
+<div class="hb-label">Keep this claim exactly its size</div>
+<p>This is a <strong>structural rhyme, not an identity</strong> — and not evidence that either physics is correct. Larson derives two reciprocal sectors with a clean light-speed boundary; McDonnell stacks graded dimensions down to a single resting Absolute. The pictures are kindred, not the same. The reference-frame engineering that Larson's lineage later attempted remains <strong>unvalidated</strong>; nothing here is a working device or a proven theory.</p>
+<p>What is interesting is only the convergence itself: that a 1983 Army officer, reasoning from “how does a meditation tape work,” was forced into the same shape an independent physicist had reached from first principles a quarter-century earlier. A rhyme between two strangers is worth noticing. It is not a proof. We keep it that size.</p>
+</div>
+
+<div class="scroll-block">
+<p>That physics has not stayed in 1959. Larson found students; the work was carried forward and is still being worked on today, by people who treat “nothing exists but motion” as an engineering premise rather than a slogan. That thread is the author of this scroll's own — and it is named here only so the dots are honestly connected, never as a finished claim.</p>
+</div>
+</section>
+
+<!-- ═══════════════ ACT VI — THE CONGREGATION ═══════════════ -->
+<section class="act act-light" data-act="6" data-act-label="Act VI — The Congregation" id="act-6">
+<div class="act-header">
+<div class="act-number">Act VI</div>
+<h2 class="act-title">The Congregation</h2>
+</div>
+
+<div class="scroll-block" data-pipeline="congregation">
+<p>Here is the turn that makes this scroll different from a history.</p>
+<p>The index did not come out of an archive. It came out of <strong>one of the kids</strong> — a member of the group, sitting in CREST, pulling on a thread because it felt personal. And she is not alone. Over the same weeks, the group has been doing something it has never done before: <em>recognizing itself.</em></p>
+</div>
+
+<div class="scroll-block">
+<div class="evidence-card" data-tier="testimony">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Testimony</div>
+<div class="evidence-claim">Members describe finding each other and feeling an unmistakable click of kinship — remote viewers, lucid dreamers, people who report childhood experiences they've never had language for, each tagging the others “like me.” Some describe a shared inner landscape they can each navigate and that, compared in detail, matches. Held as lived account, plural and consistent — not as proof of a shared psychic terrain.</div>
+<div class="evidence-source">First-person accounts, the group, June 2026. Tier: reported testimony, multiply attested.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<p>And on <strong>June 17, 2026</strong>, they didn't just recognize each other. They tried to <em>act together</em>. Around twenty members agreed to focus, at the same time, on one shared intention — a deliberate group exercise, announced the night before, run “as consciously as I ever have.” Afterward, unprompted, another member sent a screenshot: a graph of the Earth's <strong>Schumann resonance</strong> from that afternoon.</p>
+<p>None of them, at the time, had read McDonnell's report. Which is what makes the next thing strange.</p>
+</div>
+
+<div class="scroll-block">
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented (the 1983 document states)</div>
+<div class="evidence-claim">“Arrange to have groups of people in [an altered] state unite their … consciousness to build holographic patterns…” — and, on the body's planetary coupling: it becomes “a carrier wave to assist the mind in communication … with other human minds similarly tuned.” The report's own recommended group technique is: tune the body to the Earth's field; broadcast a shared intention together.</div>
+<div class="evidence-source">Gateway Process, ¶9–10 &amp; the concluding recommendations (group “Patterning”). Verbatim from the declassified text.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<div class="evidence-card" data-tier="testimony">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Testimony + one unsolicited corroboration</div>
+<div class="evidence-claim">Twenty people, who had not read the document, ran something close to its group protocol from the inside — tuning together, broadcasting one intention — and an after-the-fact Schumann-resonance graph arrived unbidden. The lived experience is strong; the corroboration is real but circumstantial. The cosmic reading is held below — not asserted here.</div>
+<div class="evidence-source">The group, June 17, 2026. Tier: reported testimony with one external artifact. <em>A hypothesis never wears the costume of a record.</em></div>
+</div>
+</div>
+
+<div class="scroll-block">
+<p>Set the two cards above side by side. A documented 1983 Army protocol, and a lived 2026 account of strangers running it without the manual. The scroll keeps them in different colors on purpose. That distance — between what is on the record and what someone lived — is the whole discipline. The point is not that the distance collapses. The point is that, across it, they <em>rhyme.</em></p>
+</div>
+
+<div class="scroll-block">
+<div class="anim-eye"><div class="anim-eye-shape"></div><div class="anim-eye-iris"></div></div>
+<p>And the people in the group have started to read their own childhood differently. The sorting — pulled out of the classroom, tested, set apart — stops looking like a wound and starts looking like a <strong>prelude</strong>. If you were going to gather a scattered population and have them find one another decades later, you would mark them young.</p>
+</div>
+
+<div class="scroll-block">
+<div class="evidence-card" data-tier="inference">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference · held at thesis-size</div>
+<div class="evidence-claim">The floor under all of it is a single idea, and the 1983 document states its operative half outright: consciousness is “the organizing and sustaining principle … to bring and keep energy in motion.” Scale that one operator up to all of them and you get the thesis the group is circling — humanity as one thing looking through billions of eyes, beginning to notice itself. Offered as a frame to think inside, explicitly not claimed as proven, and not foretelling anything.</div>
+<div class="evidence-source">Gateway Process ¶26 (documented quote) + the author's own working thesis (inference). Kept at the size of a thesis, by design.</div>
+</div>
+</div>
+
+<div class="scroll-block">
+<div class="anim-network"><div class="net-ring"></div><div class="net-ring"></div><div class="net-ring"></div><div class="net-ring"></div><div class="net-core"></div><span class="net-label">recognition</span></div>
+<p>So the group has begun to build a place to keep its own story — a network where members can hold their testimony at the right tier, decide for themselves what stays private and what is shared, and let the patterns surface without anyone's raw words being exposed. The same instrument this scroll is built on, turned on the people it's about.</p>
+</div>
+</section>
+
+<!-- ═══════════════ CLOSING ═══════════════ -->
+<section class="closing">
+<div class="closing-content">
+<p class="closing-statement">A document is just a document.<br/>Until the people it was written about go looking — and find it.<br/>Then it's a mirror.</p>
+<p class="closing-sub">Five photographs led to one report. The report led to a physics it couldn't have known about, and to a question the people reading it had been carrying since childhood. And so it begins.</p>
+
+<div class="note-block">
+<div class="nb-label">A note on consent &amp; evidence</div>
+<p>This scroll is built on the discipline it describes. The member who posted the index is <strong>unnamed</strong>, by choice. The people in the group are unnamed. The declassified record is cited and linked. Lived accounts are held at <span style="color:#a78bfa">testimony</span> tier — true to the teller, never dressed as documented fact. The convergence with the Reciprocal System is held at <span style="color:#fb923c">inference</span>. The larger thesis is held at the size of a thesis. And one community claim — “Project SOAR” — is flagged <span style="color:#f87171">speculative</span> and left where it was found, because the record does not yet support it.</p>
+<p>This is a <strong>draft</strong>. Nothing here goes anywhere until the person who posted those five pages has been asked, and agrees.</p>
+</div>
+
+<div class="closing-legend">
+<div class="closing-legend-item"><span class="el-dot" style="background:#34d399"></span> <strong>Documented</strong> — the programs, the report, the bibliography fingerprint, the cast, the China file.</div>
+<div class="closing-legend-item"><span class="el-dot" style="background:#fbbf24"></span> <strong>Credible</strong> — the page-25 recovery; remote viewing's contested results.</div>
+<div class="closing-legend-item"><span class="el-dot" style="background:#fb923c"></span> <strong>Inference</strong> — the structural rhyme with Larson; the trillion-eyed frame.</div>
+<div class="closing-legend-item"><span class="el-dot" style="background:#f87171"></span> <strong>Speculative</strong> — “Project SOAR”; the index's unsourced annotations.</div>
+<div class="closing-legend-item"><span class="el-dot" style="background:#a78bfa"></span> <strong>Testimony</strong> — the congregation, the June 17 exercise, the childhood memory.</div>
+</div>
+
+<div class="closing-cta">
+<p>The other superpower kept the same kind of file. China's “Exceptional Functions of the Human Body” program — gifted children identified and studied by the state from 1979 — sits in the CIA's own archive, as <a href="https://www.cia.gov/readingroom/document/cia-rdp96-00792r000300420017-1" rel="noopener" target="_blank">“China's Psychic Children” (OMNI, Jan 1985)</a>.</p>
+</div>
+
+<div class="closing-footer">
+<p>Disclosure Scrolls · Field Entry · Scroll 015 · The Gate · DRAFT</p>
+</div>
+</div>
+</section>
+</main>
+
+<script>
+/* ── Particle network ───────────────────────────────────── */
+(function(){
+  var c=document.getElementById('particle-net'); if(!c) return; var ctx=c.getContext('2d');
+  var w,h,pts; var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){ w=c.width=window.innerWidth; h=c.height=window.innerHeight; }
+  function init(){ size(); var n=Math.min(64,Math.floor(w*h/26000)); pts=[];
+    for(var i=0;i<n;i++) pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-0.5)*0.22,vy:(Math.random()-0.5)*0.22}); }
+  function tick(){ ctx.clearRect(0,0,w,h);
+    for(var i=0;i<pts.length;i++){ var p=pts[i]; p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>w)p.vx*=-1; if(p.y<0||p.y>h)p.vy*=-1;
+      ctx.beginPath(); ctx.arc(p.x,p.y,1.3,0,6.2832); ctx.fillStyle='rgba(52,211,153,0.6)'; ctx.fill();
+      for(var j=i+1;j<pts.length;j++){ var q=pts[j]; var dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<120){ ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y);
+          ctx.strokeStyle='rgba(52,211,153,'+(0.12*(1-d/120))+')'; ctx.lineWidth=1; ctx.stroke(); } } }
+    if(!RM) requestAnimationFrame(tick); }
+  init(); tick(); window.addEventListener('resize',init);
+})();
+
+/* ── Progress bar ───────────────────────────────────────── */
+(function(){ var bar=document.getElementById('progress-bar'); if(!bar) return;
+  window.addEventListener('scroll',function(){
+    var dh=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(dh>0?(window.scrollY/dh*100):0)+'%'; },{passive:true}); })();
+
+/* ── Scroll-block reveal ────────────────────────────────── */
+(function(){ var io=new IntersectionObserver(function(es){ es.forEach(function(e){
+    if(e.isIntersecting) e.target.classList.add('active'); }); },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.scroll-block').forEach(function(b){ io.observe(b); }); })();
+
+/* ── Pipeline track + act indicator ─────────────────────── */
+(function(){
+  var ind=document.getElementById('act-indicator');
+  var track=document.getElementById('pipeline-track');
+  var fill=document.getElementById('pipeline-fill');
+  var nodes=[].slice.call(document.querySelectorAll('.pipeline-node'));
+  var acts=[].slice.call(document.querySelectorAll('.act'));
+  var title=document.getElementById('title-screen');
+  if(title&&track){ new IntersectionObserver(function(es){ es.forEach(function(e){
+    track.classList.toggle('visible',!e.isIntersecting); }); },{threshold:0.2}).observe(title); }
+  if(acts.length){ var ob=new IntersectionObserver(function(es){ es.forEach(function(e){
+      if(e.isIntersecting){ var idx=acts.indexOf(e.target);
+        if(ind) ind.textContent=e.target.getAttribute('data-act-label')||'';
+        for(var i=0;i<nodes.length;i++) nodes[i].classList.toggle('active',i<=idx);
+        if(fill) fill.style.width=(acts.length>1?(idx/(acts.length-1)*100):0)+'%'; } });
+    },{threshold:0.25,rootMargin:'-28% 0px -58% 0px'});
+    acts.forEach(function(a){ ob.observe(a); }); }
+})();
+
+/* ── Typewriter (search-tree trace) ─────────────────────── */
+(function(){ var el=document.querySelector('[data-typewriter]'); if(!el) return;
+  var full=el.getAttribute('data-typewriter'), i=0;
+  new IntersectionObserver(function(es){ es.forEach(function(e){
+    if(e.isIntersecting&&!el.dataset.done){ el.dataset.done='1';
+      (function type(){ el.textContent=full.slice(0,i++); if(i<=full.length) setTimeout(type,22); })(); } });
+  },{threshold:0.6}).observe(el); })();
+</script>
+</body>
+</html>
