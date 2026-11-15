@@ -42,7 +42,7 @@ the original files. It's 80 lines of Python. You can read every line.
 
 MORE INFORMATION
 ----------------
-Disclosure Scrolls: https://disclosure-scrolls.netlify.app
+Disclosure Scrolls: https://qav2.github.io/disclosure-scrolls/
 Source code: https://github.com/QAv2/disclosure-scrolls
 
 Built with documented evidence. No speculation presented as fact.
