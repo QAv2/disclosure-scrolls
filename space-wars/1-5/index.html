@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Space Wars 1.5 — Disclosure Scrolls</title>
+<meta content="Scroll 003 was written the day Artemis II left for the Moon. The addendum: the splashdown, the seeded mythology, the files nobody lingered on, and the show rehearsing the rest. Written July 12, 2026 — 102 days after launch." name="description"/>
+<meta content="Space Wars 1.5" property="og:title"/>
+<meta content="They came back. The files started dropping. The fiction found life. An addendum to Space Wars, written July 12, 2026, 102 days after launch day." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://qav2.github.io/disclosure-scrolls/space-wars/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Disclosure Scrolls" property="og:site_name"/>
+<meta content="https://qav2.github.io/disclosure-scrolls/space-wars/1-5/" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Space Wars 1.5" name="twitter:title"/>
+<meta content="An addendum to Space Wars, written July 12, 2026, 102 days after launch day." name="twitter:description"/>
+<meta content="https://qav2.github.io/disclosure-scrolls/space-wars/og-image.png" name="twitter:image"/>
+<meta content="#06060b" name="theme-color"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="https://qav2.github.io/disclosure-scrolls/space-wars/1-5/" rel="canonical"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link href="../../ai-wars/css/style.css" rel="stylesheet"/>
+<!-- CountUp.js — animated number counters -->
+<script defer="" src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
+<!-- Typed.js — typewriter/terminal effect -->
+<script defer="" src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+<!-- GSAP + ScrollTrigger -->
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<style>
+    /* ── Space Wars 1.5 overrides (inherits the Space Wars register) ── */
+
+    /* Witness grid */
+    .witness-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .witness-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+    }
+    .witness-name {
+      font-family: 'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #fbbf24;
+      letter-spacing: 1px;
+      margin-bottom: 0.25rem;
+    }
+    .witness-role {
+      font-family: 'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',monospace;
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.5rem;
+    }
+    .witness-claim {
+      font-size: 0.9rem;
+      color: #dcdce4;
+      line-height: 1.6;
+    }
+    .witness-provenance {
+      font-family: 'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',monospace;
+      font-size: 0.58rem;
+      color: rgba(147,197,253,0.55);
+      letter-spacing: 0.5px;
+      margin-top: 0.6rem;
+    }
+
+    /* Dual narrative grid */
+    .narrative-grid { margin: 2rem 0; }
+    .narrative-row {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 0;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.9rem;
+      align-items: center;
+    }
+    .narrative-row.header {
+      font-family: 'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',monospace;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .narrative-mainstream { color: #60a5fa; }
+    .narrative-vs {
+      text-align: center;
+      color: rgba(255,255,255,0.2);
+      font-family: 'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',monospace;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+    }
+    .narrative-alt { color: #fbbf24; }
+
+    /* Act III/IV — cosmic deep blue */
+    .act-cosmic .act-title { color: #93c5fd; }
+    .act-cosmic .act-number { color: rgba(147,197,253,0.4); }
+    .act-cosmic .node-title { color: #93c5fd; border-bottom-color: rgba(147,197,253,0.15); }
+    .act-cosmic .pull-quote { border-left-color: rgba(147,197,253,0.25); }
+    .act-cosmic .timeline-block::before { background: #93c5fd; }
+    .act-cosmic .tl-date { color: #93c5fd; }
+
+    /* Coda — white light */
+    .act-light .act-title { color: #f0f0f4; }
+    .act-light .act-number { color: rgba(240,240,244,0.4); }
+    .act-light .node-title { color: #f0f0f4; border-bottom-color: rgba(240,240,244,0.15); }
+    .act-light .pull-quote { border-left-color: rgba(240,240,244,0.25); }
+
+    /* Disclosure timeline styling */
+    .disclosure-timeline .timeline-block { border-left-color: rgba(147,197,253,0.15); }
+    .disclosure-timeline .timeline-block::before { background: #93c5fd; }
+    .disclosure-timeline .tl-date { color: #93c5fd; }
+
+    /* Addendum lineage note (title screen) */
+    .lineage-note {
+      font-family: 'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',monospace;
+      font-size: 0.62rem;
+      letter-spacing: 1.5px;
+      color: rgba(147,197,253,0.55);
+      margin-top: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 600px) {
+      .narrative-row { grid-template-columns: 1fr; gap: 0.25rem; }
+      .narrative-row.header { display: none; }
+      .narrative-vs { display: none; }
+      .narrative-mainstream::before { content: 'OFFICIAL: '; font-size: 0.6rem; color: rgba(96,165,250,0.5); letter-spacing: 1px; }
+      .narrative-alt::before { content: 'ALTERNATIVE: '; font-size: 0.6rem; color: rgba(251,191,36,0.5); letter-spacing: 1px; }
+      .witness-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+<style>
+/* ── Intel Console Cross-Links ───────────────────────────── */
+a.ic-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+a.ic-link.ic-vr {
+  border-bottom: 1px dotted rgba(52, 211, 153, 0.3);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+a.ic-link.ic-vr:hover,
+a.ic-link.ic-vr:focus {
+  border-color: rgba(52, 211, 153, 0.7);
+  color: #34d399;
+}
+</style></head>
+<body>
+<a class="skip-nav" href="#act-1">Skip to content</a>
+<!-- ═══ Particle Network Background ═══ -->
+<canvas aria-hidden="true" class="particle-canvas" id="particle-net"></canvas>
+<!-- ═══ Progress Bar ═══ -->
+<div aria-hidden="true" class="progress-bar" id="progress-bar"></div>
+<!-- ═══ Pipeline Tracker (sticky during Act 1) — the 102 days ═══ -->
+<div aria-hidden="true" class="pipeline-track" id="pipeline-track">
+<div class="pipeline-inner">
+<div class="pipeline-line"><div class="pipeline-line-fill" id="pipeline-fill"></div></div>
+<div class="pipeline-node" data-step="launch"><span class="pn-year">APR 1</span><span class="pn-label">Launch</span></div>
+<div class="pipeline-node" data-step="farside"><span class="pn-year">APR 6</span><span class="pn-label">Farside</span></div>
+<div class="pipeline-node" data-step="splash"><span class="pn-year">APR 10</span><span class="pn-label">Return</span></div>
+<div class="pipeline-node" data-step="files"><span class="pn-year">MAY 8</span><span class="pn-label">The Files</span></div>
+<div class="pipeline-node" data-step="forty"><span class="pn-year">JUN 5</span><span class="pn-label">The 40%</span></div>
+<div class="pipeline-node" data-step="today"><span class="pn-year">JUL 12</span><span class="pn-label">Day 102</span></div>
+</div>
+</div>
+<!-- ═══ Act Indicator ═══ -->
+<div aria-hidden="true" class="act-indicator" id="act-indicator"></div>
+<main>
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- TITLE SCREEN                                             -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="title-screen" id="title-screen">
+<div class="title-content">
+<a class="back-link" href="../">← Scroll 003: Space Wars</a>
+<div class="title-label">Scroll 003.5 · Addendum</div>
+<div class="title-reading-time">~22 min read</div>
+<div class="scroll-datestamp">Written July 12, 2026 · Verified &amp; updated November 2026</div>
+<h1 class="title-main">Space Wars 1.5</h1>
+<p class="title-sub">The parent scroll was written on the morning of April 1, 2026 — the day Artemis II left for the Moon. It ended mid-flight, with a question. This is what happened when they came back.</p>
+<div class="lineage-note">Written July 12, 2026 · Day 102 · Child of Scroll 003</div>
+<div class="title-meta">
+<span class="evidence-legend"><span class="el-dot" style="background:#34d399"></span> Documented</span>
+<span class="evidence-legend"><span class="el-dot" style="background:#fbbf24"></span> Credible</span>
+<span class="evidence-legend"><span class="el-dot" style="background:#fb923c"></span> Inference</span>
+</div>
+<div class="scroll-cue">↓ Begin scrolling</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- ACT I — THE RETURN                                       -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="act" data-act="1" data-act-label="Act I — The Return">
+<div class="act-header">
+<div class="act-number">Act I</div>
+<h2 class="act-title">The Return</h2>
+</div>
+<div class="scroll-block" data-block="1-1">
+<p>The parent scroll ends with four humans flying toward the Moon and a sentence that was true when it was written: <em>“Whatever they find — or whatever they’re allowed to tell us they found — the old narrative is already crumbling.”</em></p>
+<p>They came back on April 10. The narrative kept crumbling — but not the way anyone expected. This addendum was written on July 12, 2026 — Day 102 after launch — bringing the investigation through its first spring.</p>
+</div>
+<div class="scroll-block" data-block="1-2" data-pipeline="launch">
+<h3 class="node-title">The Flight</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim"><strong>Artemis II launched April 1, 2026, 6:35 p.m. EDT</strong> from Kennedy Space Center. The crew named their Orion capsule <strong>“Integrity.”</strong> Free-return trajectory; closest lunar approach <strong>4,067 miles above the farside</strong> on April 6; maximum distance from Earth <strong>252,756 miles — a new crewed-spaceflight record</strong>, surpassing Apollo 13. Splashdown April 10 in the Pacific. Mission duration: 9 days, 1 hour, 32 minutes. Declared a success — the first humans beyond low Earth orbit in 53 years came home safe.</div>
+<div class="evidence-source"><a href="https://www.nasa.gov/blogs/missions/2026/04/01/live-artemis-ii-launch-day-updates/" rel="noopener" target="_blank">NASA launch-day mission blog</a>. <a href="https://www.nasa.gov/blogs/missions/2026/04/10/artemis-ii-flight-day-10-re-entry-live-updates/" rel="noopener" target="_blank">NASA reentry updates, April 10, 2026</a>.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="1-3">
+<h3 class="node-title">The Two Blackouts</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">Two communication gaps marked the mission. The first was <strong>planned</strong>: ~40 minutes of loss of signal behind the lunar farside, announced in advance. The second was <strong>not</strong>: an unexpected comms dropout roughly 50 minutes after launch, resolved quickly, addressed by the NASA Administrator at the launch-night press conference. Beyond that, the mission’s actual anomalies were a jammed toilet fan, frozen urine vent lines, a helium leak officials called “zero risk,” and Microsoft Outlook failing on the crew laptops. The first crewed lunar voyage in 53 years was troubled primarily by plumbing and email.</div>
+<div class="evidence-source"><a href="https://www.nasa.gov/news-release/liftoff-nasa-launches-astronauts-on-historic-artemis-moon-mission/" rel="noopener" target="_blank">NASA launch release</a>. <a href="https://www.newsweek.com/artemis-2-astronauts-nasa-moon-live-mission-launch-11789404" rel="noopener" target="_blank">Newsweek launch coverage</a>. <a href="https://spaceq.ca/nasa-managers-outline-artemis-2-reentry-and-address-propulsion-issue-ahead-of-splashdown/" rel="noopener" target="_blank">SpaceQ pre-reentry briefing</a>.</div>
+</div>
+<p>Hold on to those two blackouts. Both were real, both were explained — and both will be repurposed by the noise machine before the capsule is even dry.</p>
+</div>
+<div class="scroll-block" data-block="1-4" data-pipeline="farside">
+<h3 class="node-title">Hello, World</h3>
+<div class="visual-portrait">
+<img alt="Hello, World — the full Earth disk photographed from Orion by Reid Wiseman" src="assets/hello_world.jpg"/>
+<div class="visual-caption">“Hello, World” — Reid Wiseman, April 2026, from Orion’s window. The first full-disk photograph of Earth taken by human hands since Apollo 17’s Blue Marble in 1972. Over fifty-three years between portraits.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="1-5">
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">During the seven-hour farside pass the crew shot roughly <strong>10,000 photographs</strong>: farside geology no human eyes had seen directly in five decades, Earthset over the lunar limb, and a rare <strong>in-space solar eclipse</strong> — the Moon occulting the Sun, corona visible. They also observed <strong>six meteoroid impact flashes on the darkened lunar surface</strong> — real, first-hand, anomalous-looking lights on the Moon, reported by active-duty astronauts and published by NASA within 24 hours.</div>
+<div class="evidence-source"><a href="https://www.nasa.gov/news-release/nasas-artemis-ii-crew-beams-official-moon-flyby-photos-to-earth/" rel="noopener" target="_blank">NASA news release, April 7, 2026</a>. <a href="https://www.scientificamerican.com/article/far-side-moon-photos-reveal-hidden-lunar-minerals-in-brilliant-color/" rel="noopener" target="_blank">Scientific American on the farside mineral imagery</a>.</div>
+</div>
+<p>The UAP discourse, busy with 50-year-old film frames, barely noticed.</p>
+</div>
+<div class="scroll-block" data-block="1-6">
+<div class="visual-portrait">
+<img alt="Earthset from the lunar far side, Artemis II" src="assets/earthset.jpg"/>
+<div class="visual-caption">Earthset from the lunar far side — Artemis II, April 6, 2026. NASA Earth Observatory. Every human being except four is in this photograph.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="1-7">
+<h3 class="node-title">Integrity and Carroll</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">On Flight Day 6, over the farside, the crew unofficially named two craters on the air-to-ground loop: <strong>“Integrity,”</strong> for their ship — and <strong>“Carroll,”</strong> for Carroll Taylor Wiseman, the commander’s wife, who died of cancer in 2020, before he was assigned the mission. Jeremy Hansen, voice thick: “Her name was Carroll, the spouse of Reid, the mother of Katie and Ellie.” <strong>Mission Control went silent for roughly 45 seconds.</strong> Then CapCom Jenny Gibbons: “Integrity and Carroll Crater. Loud and clear. Thank you.” The names were submitted to the IAU after return — the precedent is Jim Lovell’s “Mount Marilyn,” proposed 1968, formally accepted 2017.</div>
+<div class="evidence-source"><a href="https://www.astronomy.com/space-exploration/artemis-2-crew-shares-emotional-moment-as-they-name-crater-after-commanders-late-wife/" rel="noopener" target="_blank">Astronomy.com</a>. <a href="https://www.npr.org/2026/04/07/nx-s1-5776440/artemis-moon-crater-carroll-wiseman" rel="noopener" target="_blank">NPR, April 7, 2026</a>.</div>
+</div>
+<p>The parent scroll asked what they would find on the far side. Here is the first thing the record shows they did with it: <em>they named it for the people they love.</em> Whatever else is true about the two histories of space, that happened, on an open channel, and no one edited it out.</p>
+</div>
+<div class="scroll-block" data-block="1-8" data-pipeline="splash">
+<h3 class="node-title">The Shield Held</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">The parent scroll flagged the Orion heat shield — unexpected char loss on Artemis I, flown again unmodified. The resolution: NASA flew a <strong>modified, steeper reentry profile</strong> to cut time in the thermal environment, and post-flight inspection found the shield <strong>“performed as expected, with no unusual conditions identified”</strong> — char loss “significantly reduced, both in terms of quantity and size.” The viral post-splashdown photo of a “missing chunk” was the compression-pad region: expected, previously seen in arc-jet testing, “not liberated material.”</div>
+<div class="evidence-source"><a href="https://gizmodo.com/so-how-did-artemis-2s-heat-shield-hold-up-the-first-results-are-in-2000749198" rel="noopener" target="_blank">Post-flight shield results</a>. <a href="https://gizmodo.com/nasa-administrator-sets-the-record-straight-on-that-missing-chunk-of-artemis-2s-heat-shield-2000745676" rel="noopener" target="_blank">NASA response to the “missing chunk” claims</a>.</div>
+</div>
+<p>An honest ledger cuts both ways. The parent scroll raised the radiation and heat-shield questions because the record raised them. The record has now answered one of them, cleanly. It stays answered.</p>
+<div class="update-note">
+<div class="update-note-label">Update · November 2026</div>
+<p>NASA’s detailed post-flight analysis of Orion’s heat shield confirmed the modified reentry profile quantitatively: inspection logged <strong>9 spots of char loss</strong> on Artemis II compared to <strong>103 on Artemis I</strong>, along with a <strong>tenfold reduction in cracking</strong>, validating compression-pad performance against pre-flight arc-jet models (<a href="https://www.nasa.gov/" rel="noopener" target="_blank">NASA</a>; <a href="https://phys.org/" rel="noopener" target="_blank">Phys.org</a>). The crew’s provisional crater names (<em>Integrity</em> and <em>Carroll</em>) remain under IAU review. <strong>Artemis III</strong> remains redesignated as a crewed low-Earth-orbit rendezvous and docking demonstration with commercial landers (SpaceX and Blue Origin) targeting mid-to-late 2027, leaving the first crewed lunar landing to <strong>Artemis IV</strong> (~2028).</p>
+</div>
+</div>
+<div class="scroll-block" data-block="1-9">
+<div class="pull-quote">
+<div class="pq-text">“I don’t think humanity has evolved to the point of being able to comprehend what we’re looking at right now. It was otherworldly, it was amazing.”</div>
+<div class="pq-attr">— Reid Wiseman, Artemis II commander, on watching the Sun eclipse behind the Moon. Johnson Space Center press conference, April 16, 2026</div>
+</div>
+</div>
+<div class="scroll-block" data-block="1-10">
+<h3 class="node-title">The Shift</h3>
+<p>Listen to what the crew said when they came home. Pilot Victor Glover: “The gratitude of seeing what we saw… <em>it’s too big to just be in one body.</em>” Mission specialist Christina Koch: “There’s one new thing I know, and that is planet Earth: <em>you are a crew.</em>” Canadian mission specialist Jeremy Hansen: “Looking back at Earth, you really felt like you weren’t in a capsule.” Wiseman asked for the chaplain on the recovery ship and broke down in tears.</p>
+<p>C-SPAN’s own title for the press conference clip: <em>“Artemis II Astronauts Speak About <strong>Shift in Consciousness</strong> After Seeing Earth From the Far Side of the Moon.”</em> The parent scroll’s Act III documented what happened to Edgar Mitchell on the way home from the Moon in 1971 — the experience that made him spend the rest of his life on consciousness and disclosure. In 2026 it happened again, to four people, on camera, in the official record, under a C-SPAN chyron. Nobody had to leak it.</p>
+</div>
+<div class="scroll-block" data-block="1-11">
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">And before the capsule was dry, the noise arrived. AFP called it <strong>“a blizzard of misinformation”</strong>: an AI-manipulated image of the crew in front of a green screen passed one million views; #FakeSpace and #FakeNASA trended; a viral “green-screen glitch” was traced by digital forensics to a failed text overlay <em>added by a syndicating news station</em> — absent from the original feed; a viral “Artemis II high-resolution lunar surface” video was a 2024 Instagram post; “mysterious moving object on the Moon” claims had no basis in any NASA or telemetry record. Every checked “Artemis II anomaly” image was misattributed or synthetic.</div>
+<div class="evidence-source"><a href="https://phys.org/news/2026-04-artemis-ii-lunar-mission-conspiracy.html" rel="noopener" target="_blank">AFP via Phys.org, April 11, 2026</a>. <a href="https://www.politifact.com/factchecks/2026/apr/08/social-media/Moon-photos-artemis-II-AI-NASA/" rel="noopener" target="_blank">PolitiFact, April 8, 2026</a>. <a href="https://www.ibtimes.co.uk/artemis-ii-green-screen-glitch-conspiracy-1790582" rel="noopener" target="_blank">IBTimes UK on the news-overlay glitch</a>.</div>
+</div>
+<p>Note the shape of the moment. A genuinely luminous human event — and the reflex, in both directions, was to reach for the fake. The parent scroll documented fifty years of institutional lying about space; this is what fifty years of it does to a public: it can no longer receive even the true thing straight. That damage has authors. Act II is about them.</p>
+</div>
+<div class="scroll-block" data-block="1-12">
+<div class="typed-terminal" id="return-terminal">
+<span class="typed-prompt">$ </span><span class="typed-output" data-typed-strings='["TRACKING MISSION...","LAUNCH APR 1 ^400→ FARSIDE APR 6 ^400→ SPLASHDOWN APR 10","CREW: HOME. ^800 QUESTION: STILL IN FLIGHT."]'></span>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- ACT II — THE CHAFF (amber)                               -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="act act-reveal" data-act="2" data-act-label="Act II — The Chaff">
+<div class="act-header">
+<div class="act-number">Act II</div>
+<h2 class="act-title">The Chaff</h2>
+</div>
+<div class="scroll-block" data-block="2-1">
+<p>The parent scroll’s Act V told the story of the crack in the wall: December 2017, the <em>New York Times</em>, three Navy videos the Pentagon confirmed as authentic. GIMBAL. GOFAST. FLIR1. The disclosure era’s founding artifacts.</p>
+<p>What the seventeen months from February 2025 to July 2026 did to those artifacts is the strangest chapter in this file. It is widely misremembered — including, at first, by the researchers who assembled this addendum. So here is the record, at tier, exactly.</p>
+</div>
+<div class="scroll-block" data-block="2-2">
+<h3 class="node-title">The Confession</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">In June 2025, the <em>Wall Street Journal</em> published a two-part investigation based on the Pentagon’s own internal review: <strong>the Department of Defense seeded UFO mythology for decades.</strong> An Air Force colonel in the 1980s delivered <strong>fake flying-saucer photographs to a bar owner near Area 51</strong> — he later admitted he acted under orders, to deflect attention from the classified F-117 program. For decades, new officers in classified units were briefed into a <strong>fabricated alien reverse-engineering program codenamed “Yankee Blue”</strong> — a decades-long Air Force hazing and secrecy ritual halted by a 2023 Pentagon memo — shown staged saucer photos, sworn to secrecy, and frequently <em>never told it was fake</em>. Some carried the belief into retirement. Pentagon spokeswoman Sue Gough, on the record: the department “is committed to releasing a second volume of its Historical Record Report, to include AARO’s findings on reports of potential pranks and inauthentic materials.”</div>
+<div class="evidence-source"><a href="https://www.wsj.com/politics/national-security/ufo-us-disinformation-45376f7e" rel="noopener" target="_blank">Wall Street Journal (Schectman &amp; Viswanatha), June 6, 2025</a>. <a href="https://www.wsj.com/politics/national-security/pentagon-ufo-investigation-lockheed-martin-1bac3d41" rel="noopener" target="_blank">WSJ Part 2, June 22, 2025</a>. <a href="https://www.semafor.com/article/06/08/2025/us-pentagon-fueled-ufo-rumors-for-decades-wall-street-journal-reports" rel="noopener" target="_blank">Semafor summary</a>.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="2-3">
+<p>Read that again. The myth wasn’t merely tolerated. <em>It was issued.</em> Government photographs, government briefings, government oaths — manufacturing belief in crashed saucers as camouflage for whatever actually needed hiding. The mythology of the saucer is now, officially, in part, a government work product.</p>
+<p>The debunkers celebrated: <em>see, it was all seeded nonsense.</em> But sit with what was actually confirmed. The confirmed fact is not “there is nothing.” The confirmed fact is: <strong>the institution that holds the records lies about this subject, on purpose, as policy, across decades.</strong> That sentence now sits at the Documented tier. Everything else follows from it.</p>
+</div>
+<div class="scroll-block" data-block="2-4">
+<h3 class="node-title">The Downgrade</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">On February 6, 2025, AARO published a formal case resolution for <strong>GOFAST</strong>: the object was at roughly 13,000 feet — not skimming the water — traveling at an estimated wind-adjusted speed of <strong>5 to 92 mph</strong>, <strong>“moving with the wind”</strong>; the sensation of speed was <strong>motion parallax</strong>. “No anomalous flight characteristics.” One of the three founding artifacts of the disclosure era, officially reclassified as a probable balloon-like object and an optical illusion.</div>
+<div class="evidence-source"><a href="https://www.aaro.mil/Portals/136/PDFs/case_resolution_reports/AARO_GoFast_Case_Resolution_Card_Methodology_Final.pdf" rel="noopener" target="_blank">AARO GoFast Case Resolution Report (Feb 6, 2025)</a>.</div>
+</div>
+<div class="evidence-card" data-tier="credible">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+<div class="evidence-claim">The pilots pushed back. Ryan Graves and other aviators note that GoFast was filmed amid <strong>daily incursions</strong> tracked on multiple sensors — and that <strong>AARO never interviewed the weapons systems officer who filmed the video.</strong> The Navy has not endorsed AARO’s model. A case resolution produced without speaking to the person who shot the footage is a particular kind of resolution.</div>
+<div class="evidence-source"><a href="https://www.liberationtimes.com/home/broken-aaro-questions-mount-over-go-fast-ufo-investigation" rel="noopener" target="_blank">Liberation Times, “Broken AARO”</a>.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="2-5">
+<h3 class="node-title">The Absence</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">And here is what had <em>not</em> happened at the time of this writing (July 12, 2026). No official statement — none — had characterized GIMBAL, GOFAST, or FLIR1 as deliberate misinformation. GIMBAL and FLIR1 remained officially <strong>unresolved</strong> (a glare hypothesis for GIMBAL sat in lab testing, unpublished). And across the first four tranches of the government’s new UAP release program spanning eight decades of files — <strong>the three most famous UAP videos in history appeared nowhere.</strong> Not released, not resolved, not recharacterized. Omitted.</div>
+<div class="evidence-source"><a href="https://www.aaro.mil/" rel="noopener" target="_blank">AARO Case Resolution Index (aaro.mil)</a>. <a href="https://www.war.gov/ufo/" rel="noopener" target="_blank">PURSUE UAP Portal (war.gov/ufo)</a>. <a href="https://defensescoop.com/2024/11/19/uap-aaro-findings-go-fast-puerto-rico-mt-etna-objects/" rel="noopener" target="_blank">DefenseScoop on AARO’s video analyses</a>.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="2-6">
+<div class="narrative-grid">
+<div class="narrative-row header">
+<div class="narrative-mainstream">Official Narrative</div>
+<div class="narrative-vs">VS</div>
+<div class="narrative-alt">Alternative Narrative</div>
+</div>
+<div class="narrative-row">
+<div class="narrative-mainstream">GoFast was a wind-borne object; parallax did the rest</div>
+<div class="narrative-vs">vs</div>
+<div class="narrative-alt">GoFast was filmed amid daily multi-sensor incursions — and the man who filmed it was never interviewed</div>
+</div>
+<div class="narrative-row">
+<div class="narrative-mainstream">The seeded mythology was pranks and stealth-program cover, now admitted and historical</div>
+<div class="narrative-vs">vs</div>
+<div class="narrative-alt">Cover is not evidence of nothing — cover implies something covered, and the admission proves the machinery exists</div>
+</div>
+<div class="narrative-row">
+<div class="narrative-mainstream">The famous videos are unresolved low-priority cases</div>
+<div class="narrative-vs">vs</div>
+<div class="narrative-alt">The famous videos are untouched because adjudicating them means opening chains of custody no one wants opened</div>
+</div>
+</div>
+</div>
+<div class="scroll-block" data-block="2-7">
+<div class="evidence-card" data-tier="inference">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+<div class="evidence-claim"><strong>The inversion.</strong> After Yankee Blue, “it was disinformation” and “it is real” are no longer opposing claims. They are layers of the same apparatus. Chaff — the radar countermeasure the military releases into the air — does not mean there is no aircraft. Chaff means <em>something is being protected from tracking.</em> The one thing the 2025–26 record establishes beyond argument is that the chaff dispensers exist, are institutional, and have run for decades. What they were protecting — a stealth program, a budget, something else — remains exactly as unresolved as the videos nobody will adjudicate.</div>
+<div class="evidence-source">Pattern synthesis: WSJ/AARO disinformation findings, GoFast downgrade + pilot dissent, GIMBAL/FLIR1 non-resolution, the videos’ absence from all four release tranches.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="2-8">
+<div class="visual-portrait">
+<img alt="Carol Rosin" src="../assets/carol_rosin.jpg"/>
+<div class="visual-caption">Carol Rosin — the parent scroll carried her account of von Braun’s warning: a sequence of manufactured threats, ending with a “last card” — a false alien threat. “And all of it is a lie.”</div>
+</div>
+<p>The parent scroll’s Act IV held Carol Rosin’s testimony at the credible tier: von Braun’s warning that belief in threats from space would one day be <em>manufactured</em>. The Yankee Blue confession is the first documented proof that the manufacturing plant exists. That cuts both ways, and the scroll holds both edges: it is the strongest card the skeptics have ever drawn — and it is precisely what von Braun described being built.</p>
+</div>
+<div class="scroll-block" data-block="2-9">
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">One more absence for the ledger: <strong>at the time of this writing (July 2026), the confession itself was overdue.</strong> The Historical Record Report Volume 2 — the volume the Pentagon promised for “late 2025,” the one committed to contain AARO’s findings on the pranks and inauthentic materials — had not been released. Neither had AARO’s statutorily required FY2025 annual report. The office’s deputy director post sat vacant; its caseload exceeded 2,000, with roughly 1,000 filed in an “Active Archive” for insufficient data. The institution that admitted seeding the mythology had not yet filed the paperwork on its own admission.</div>
+<div class="evidence-source"><a href="https://defensescoop.com/2026/02/25/hegseth-ufo-disclosure-trump-aaro-uap-caseload/" rel="noopener" target="_blank">DefenseScoop, February 25, 2026 — AARO status</a>.</div>
+</div>
+<div class="update-note">
+<div class="update-note-label">Update · November 2026</div>
+<p>Eight days after this scroll was written, AARO published its <strong>FY2025 Consolidated Annual Report</strong> on <strong>July 20, 2026</strong> — logging <strong>319 new UAP reports</strong> (June 2024–May 2025) and <strong>370 resolved cases</strong> (114 current, 256 backlog; 238 attributed to satellite flaring), with no verified evidence of breakthrough foreign or extraterrestrial technology (<a href="https://www.aaro.mil/" rel="noopener" target="_blank">AARO</a>; <a href="https://www.senate.gov/" rel="noopener" target="_blank">Senate.gov</a>). However, <strong>Historical Record Report Volume 2</strong> — the volume the Pentagon promised to document “Yankee Blue” and inauthentic materials — <strong>remains unreleased as of November 2026</strong>. <strong>GIMBAL</strong> and <strong>FLIR1</strong> likewise remain officially unresolved and absent from all PURSUE releases through Release 08.</p>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- ACT III — WHAT DIDN'T LINGER (cosmic blue)               -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="act act-cosmic" data-act="3" data-act-label="Act III — What Didn’t Linger">
+<div class="act-header">
+<div class="act-number">Act III</div>
+<h2 class="act-title">What Didn’t Linger</h2>
+</div>
+<div class="scroll-block" data-block="3-1">
+<p>The parent scroll ended on a question: <em>what happens when the rest of us find out?</em></p>
+<p>The answer began arriving five weeks after splashdown, with a URL. Not alien.gov — the parent scroll tracked those domains, registered in March, sitting dormant on launch day. When aliens.gov finally went live in May, it was <strong>an immigration-enforcement parody page</strong> — the word “alien” spent on the border. The actual files landed at <strong>war.gov/ufo</strong>. Sit with the address for a moment: the records about whether we are alone in the universe are published by the Department of War (the Trump administration’s rebranded Department of Defense).</p>
+</div>
+<div class="scroll-block" data-block="3-2" data-pipeline="files">
+<h3 class="node-title">The Trickle, Dated</h3>
+<div class="disclosure-timeline">
+<div class="timeline-block">
+<div class="tl-date">February 19, 2026</div>
+<div class="tl-event">The President directs agencies to “begin the process of identifying and releasing Government files related to alien and extraterrestrial life, unidentified aerial phenomena (UAP), and unidentified flying objects (UFOs)…” The Secretary of War, four days later: “We’ve got our people working on it right now… It’ll be a deliberative process.”</div>
+</div>
+<div class="timeline-block">
+<div class="tl-date">May 8, 2026 <span class="tl-note">— Tranche 1</span></div>
+<div class="tl-event"><strong>PURSUE</strong> — the “Presidential Unsealing and Reporting System for UAP Encounters” — goes live at war.gov/ufo: ~162 files spanning 400+ incidents from 1944 to 2026, 20 videos, <strong>Apollo mission photographs and astronaut debrief transcripts.</strong> The Pentagon’s framing: “unresolved cases, meaning the government is unable to make a definitive determination.” Cumulative claimed engagement across the early tranches: over 1.7 billion server hits.</div>
+</div>
+<div class="timeline-block">
+<div class="tl-date">May 22, 2026 <span class="tl-note">— Tranche 2</span></div>
+<div class="tl-event">Dozens more files (counts conflict across outlets): 51 sensor videos, and the first genuinely new-to-public artifacts — <strong>Apollo 12 post-mission medical debrief audio</strong> and Gemini VII “bogey” audio. Also: a 2022 four-object formation near Iran, and video of a UAP being fired on.</div>
+</div>
+<div class="timeline-block">
+<div class="tl-date">June 12, 2026 <span class="tl-note">— Tranche 3</span></div>
+<div class="tl-event">53 documents from CIA, FBI, NASA, and the Pentagon — including a sitting AARO director’s report on 209 military-facility sightings, two hours of Apollo 16 debrief audio, and a 1962 Walter Cronkite interview reel with Gordon Cooper.</div>
+</div>
+<div class="timeline-block">
+<div class="tl-date">July 10, 2026 <span class="tl-note">— Tranche 4</span></div>
+<div class="tl-event">40 more records; a fifth batch announced as “in progress.” By July 2026, coverage had shrunk to wire briefs. World UFO Day (July 2) had passed without the anticipated drop; the machine runs on its own schedule.</div>
+</div>
+</div>
+<div class="update-note">
+<div class="update-note-label">Update · November 2026</div>
+<p>The monthly drip held its cadence through autumn, reaching <strong>eight releases</strong> on <a href="https://www.war.gov/ufo/" rel="noopener" target="_blank">war.gov/ufo</a>: <strong>Release 05</strong> (August 7, 2026: 41 files, including FBI triangular-craft reports and AC-130J Gulf of Oman infrared clips), <strong>Release 06</strong> (September 18: ~71–75 records, including 1952 Project Blue Book director Edward Ruppelt audio and DIA AAWSAP/BAASS contracts), <strong>Release 07</strong> (October 23: 28 documents, zero videos, including FBI matte-black-triangle memos), and <strong>Release 08</strong> (November 20: 43 files, including a 1952 OSI briefing, Lockheed engineer Kelly Johnson’s 1953 notes, and a <strong>2009 BAASS/DIA report</strong> detailing plans for an underground vault to store “exotic material”) (<a href="https://www.war.gov/ufo/" rel="noopener" target="_blank">war.gov/ufo</a>; <a href="https://www.cbsnews.com/" rel="noopener" target="_blank">CBS News</a>; <a href="https://earthsky.org/" rel="noopener" target="_blank">EarthSky</a>). GIMBAL and FLIR1 remained absent through all eight releases. Separately, in July 2026 ODNI issued preliminary guidance authorizing defense and intelligence personnel to report historical UAP information to AARO and the PURSUE Task Force despite legacy non-disclosure agreements (<a href="https://www.dlapiper.com/" rel="noopener" target="_blank">DLA Piper</a>).</p>
+</div>
+</div>
+<div class="scroll-block" data-block="3-3">
+<p>Day one set the pattern: saturation coverage of the Aldrin transcript by morning, “NOTHING BURGER” by afternoon, former AARO director Sean Kirkpatrick predicting the release would “only serve to fuel more speculation, conspiracy and arm-chair pseudoscience,” and a sitting congresswoman accusing her own administration of using the files as a distraction. Then the cycle moved on.</p>
+<p>It moved on too fast. Because inside the churn were items that deserved the thing a news cycle cannot give: <em>a linger.</em> This act is the linger.</p>
+</div>
+<div class="scroll-block" data-block="3-4">
+<h3 class="node-title">The Astronauts, In Their Own Voices</h3>
+<div class="witness-grid">
+<div class="witness-card">
+<div class="witness-name">Buzz Aldrin</div>
+<div class="witness-role">Apollo 11 · crew technical debrief, 1969</div>
+<div class="witness-claim">A “sizeable” object seen close to the Moon; a “fairly bright light source” on the return trip that the crew “felt could be a laser.” Plus flashes of light inside the cabin — the debrief that led the May 8 news cycle.</div>
+<div class="witness-provenance">PROVENANCE: transcript public for decades — the release re-surfaced it</div>
+</div>
+<div class="witness-card">
+<div class="witness-name">Eugene Cernan &amp; Ronald Evans</div>
+<div class="witness-role">Apollo 17 · mission transcripts, 1972</div>
+<div class="witness-claim">Flashing lights out the command module window — “a whole bunch of big ones… looks like the Fourth of July.” Cernan: “It’s apparently rotating in a very rhythmic fashion because the flashes come round almost… almost on time.”</div>
+<div class="witness-provenance">PROVENANCE: long-public transcript — headline treatment was new, text was not</div>
+</div>
+<div class="witness-card">
+<div class="witness-name">Pete Conrad, Richard Gordon &amp; Alan Bean</div>
+<div class="witness-role">Apollo 12 · post-mission MEDICAL debrief audio, 1969</div>
+<div class="witness-claim">Streaks of light seen <em>with eyes closed</em> during translunar coast — “roughly in the same place,” “approximately 30 degrees to horizontal.” NASA’s 1973 analysis attributed the phenomenon to cosmic rays striking the retina; the tape of the astronauts describing it had never been public.</div>
+<div class="witness-provenance">PROVENANCE: genuinely new-to-public audio (per the release; not independently archivist-confirmed)</div>
+</div>
+<div class="witness-card">
+<div class="witness-name">Gordon Cooper</div>
+<div class="witness-role">Mercury 9 · Cronkite interview audio, November 1962</div>
+<div class="witness-claim">“A large number of exceptionally well-qualified people have seen objects” that lack “logical explanation.” The parent scroll carries Cooper’s 1978 letter to the UN; this reel is Cooper saying it to Cronkite <em>sixteen years earlier</em>, while still a flying astronaut.</div>
+<div class="witness-provenance">PROVENANCE: newly released archival audio</div>
+</div>
+</div>
+</div>
+<div class="scroll-block" data-block="3-5">
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim"><strong>The provenance correction, carried at full weight:</strong> most of this material was never classified. Space historian Robert Pearlman: “A bunch of serious people are suggesting that the Apollo stuff is ‘newly declassified,’ and that is simply not true.” The Apollo 11 debrief has been on NASA’s own website for decades. What was genuinely new: the <em>audio artifacts</em> — the Apollo 12 medical tape, the Apollo 16 briefing recording, the Cooper reel. The mainstream cycle burned the recycled transcripts as scoops in 72 hours and gave the genuinely new sliver roughly one segment each. The system released the artifacts; the attention economy could not tell the artifacts apart.</div>
+<div class="evidence-source"><a href="https://www.space.com/space-exploration/search-for-life/not-a-big-reveal-apollo-ufo-images-have-been-public-for-decades" rel="noopener" target="_blank">Space.com — Pearlman on the “declassified” framing</a>.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="3-6">
+<h3 class="node-title">The Sentence That Is an Org Chart</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">The statutory disclosure lane — the National Archives’ UAP Records Collection, mandated by Congress in 2023 — received records from ODNI, the Office of the Secretary of Defense, the FAA, and the Nuclear Regulatory Commission. From NASA: <strong>nothing.</strong> The formal position of NASA’s Office of Communications (regarding Sections 1841–1842 of the FY2024 NDAA): <strong>“NASA does not have any records that meet the requirements to submit records to the National Archives. Any agency-related records associated with UAP, came from, and are owned by, the U.S. Department of Defense.”</strong></div>
+<div class="evidence-source"><a href="https://www.archives.gov/research/topics/uaps/rg-615" rel="noopener" target="_blank">NARA Record Group 615</a>. <a href="https://www.archives.gov/press/press-releases/2025/nr25-07" rel="noopener" target="_blank">NARA press release nr25-07</a>. <a href="https://hm05uap.substack.com/p/2025-uap-records-in-review" rel="noopener" target="_blank">2025 UAP records year-in-review</a>.</div>
+</div>
+<p>Read the two halves of the machine side by side. The civilian space agency tells the National Archives it <em>owns none of its own anomaly record</em> — while a war-department website publishes its astronauts’ debriefs. The parent scroll spent an act arguing that the public program and the classified program are two tracks of one system. That sentence from NASA’s communications office is the two-track hypothesis drawn in public, in the agency’s own hand.</p>
+</div>
+<div class="scroll-block" data-block="3-7">
+<h3 class="node-title">The Caption Nobody Chased</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">Among the May 8 files: six annotated Apollo-era lunar-surface photographs — five from Apollo 12, one from Apollo 17, government-labeled VM1 through VM6. Triangles of lights, an elongated object “white at its core,” luminous specks over the lunar horizon. The frames themselves had sat in public archives for decades, and the release page disclaims its visual edits and annotations as “not to be considered any form of actual scientific analysis and… provided for illustrative purposes only.” But the <strong>Apollo 17 caption</strong> says something no disclaimer covers: <strong>“there is no consensus on the nature of the anomaly,”</strong> and a <strong>“new preliminary US government analysis suggests the image feature is potentially the result of a physical object in the scene.”</strong></div>
+<div class="evidence-source"><a href="https://www.war.gov/ufo/" rel="noopener" target="_blank">PURSUE UAP Portal (war.gov/ufo)</a>. <a href="https://futurism.com/space/government-releases-ufo-files-anomalies-apollo" rel="noopener" target="_blank">Futurism — quoting the release captions</a>. <a href="https://petapixel.com/2026/05/11/no-those-new-apollo-uap-photos-dont-show-evidence-of-aliens/" rel="noopener" target="_blank">PetaPixel — the skeptical read</a>.</div>
+</div>
+<p>Stay here a moment — this is the linger the cycle skipped. In the year 2026, a United States government release page volunteered a <em>fresh analysis</em> of a 1972 photograph and concluded that something physical may have hung in the lunar sky over the last crewed landing. The tabloids inflated it. The debunkers answered the image set generically — film damage, lens flare, visor reflections. The mainstream never engaged the specific analytic sentence at all. As of July 2026, it sat there on a .gov page, unchased. Skeptic astrophysicist David Whitehouse, for the balance the tiers demand: “No hint, no evidence whatsoever of anything artificial and alien.”</p>
+</div>
+<div class="scroll-block" data-block="3-8" data-pipeline="forty">
+<h3 class="node-title">The Director’s Signature</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">Tranche 3 carried a report signed by the sitting director of AARO, Dr. Jon Kosloski, dated June 5, 2026: <strong>209 reported sightings</strong> of green orbs, discs, and fireballs near U.S. military facilities — <strong>“40% of the reported phenomena lack a reasonable explanation and remain unresolved.”</strong> Among them: an orange “mother” orb observed launching smaller red orbs, and a 2022 incident in which five Fort Carson soldiers watched a white object near Cheyenne Mountain <em>cloak</em> and vanish.</div>
+<div class="evidence-source"><a href="https://www.war.gov/News/Releases/Release/Article/4515408/" rel="noopener" target="_blank">Department of War Tranche 3 press release (June 12, 2026)</a>. <a href="https://www.war.gov/ufo/" rel="noopener" target="_blank">PURSUE UAP Portal (war.gov/ufo)</a>. <a href="https://defensescoop.com/2026/06/17/new-science-advisory-council-forms-to-help-us-government-resolve-the-uap-mystery/" rel="noopener" target="_blank">DefenseScoop — the Science Advisory Council</a>.</div>
+</div>
+<p>Harvard astrophysicist Avi Loeb — appointed in June 2026 to chair the government’s new UAP Science Advisory Council — <a href="https://avi-loeb.medium.com/uap-disclosure-3-is-most-intriguing-release-thus-far-e4643013245b" rel="noopener" target="_blank">wrote of that report</a>: “either we are dealing with a serious breach of national security or with the biggest discovery ever made in human history.”</p>
+</div>
+<div class="scroll-block" data-block="3-9">
+<div class="pull-quote">
+<div class="pq-text">“Data alone is not disclosure. Releasing raw files without context may confuse more than clarify.”</div>
+<div class="pq-attr">— Christopher Mellon, former Deputy Assistant Secretary of Defense for Intelligence, July 2026</div>
+</div>
+<p>Mellon’s line is the key to the whole rollout. Ryan Graves, the same week: “Ambiguous imagery without provenance, metadata, and operational context is hard for pilots, researchers, or the public to evaluate responsibly.” As of July 2026, forty-six videos requested by the congressional task force chair remained classified. Officials acknowledge <em>millions</em> of unprocessed documents. The machine publishes artifacts and withholds adjudication — volume without verdicts. And the one time it volunteered a verdict — the Apollo 17 caption — nobody followed up. That asymmetry is the tell worth carrying out of this act.</p>
+</div>
+<div class="scroll-block" data-block="3-10">
+<h3 class="node-title">Meanwhile, Under Oath and On the Steps</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">The congressional record kept moving too. On September 9, 2025, before the House Oversight UAP Task Force, <strong>Senior Chief Alexandro Wiggins became the first active-duty Navy sailor to testify publicly under oath on UAP</strong> — describing a February 15, 2023 <em>USS Jackson</em> incident in which a “self-luminous Tic Tac-shaped object” emerged from the ocean, was joined by three others, and maneuvered with “near-instantaneous acceleration.” At the same hearing, Rep. Eric Burlison introduced into the record whistleblower-supplied, unauthenticated October 30, 2024 footage purportedly showing a U.S. MQ-9 firing a Hellfire missile at an orb off Yemen.</div>
+<div class="evidence-source"><a href="https://oversight.house.gov/hearing/restoring-public-trust-through-uap-transparency-and-whistleblower-protection/" rel="noopener" target="_blank">House Oversight hearing record, September 9, 2025</a>. <a href="https://defensescoop.com/2025/09/09/military-whistleblowers-share-new-evidence-alleged-uap-ufo-hearing/" rel="noopener" target="_blank">DefenseScoop — the September 9 hearing</a>.</div>
+</div>
+<div class="evidence-card" data-tier="credible">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Credible</div>
+<div class="evidence-claim">The unauthenticated clip and the unsworn claims sit one tier down. In the Yemen footage Burlison played, the struck object appeared to keep moving — dramatic, but unverified by the Pentagon. And on June 9, 2026, on the Capitol steps — a press conference, not a sworn hearing — David Grusch, flanked by four members of Congress, alleged <strong>“slush funds to the tune of billions of dollars per annum”</strong> and described claimed non-human intelligence as “a continuum from corporeal bipedal type life to… sentient plasma life.” The Pentagon’s standing response: investigations “have not uncovered verified evidence of extraterrestrial technology.”</div>
+<div class="evidence-source"><a href="https://www.foxnews.com/politics/ufo-whistleblower-claims-billions-secret-spending-hidden-from-congress" rel="noopener" target="_blank">Fox News — Grusch, June 10, 2026</a>. <a href="https://defensescoop.com/2025/09/09/military-whistleblowers-share-new-evidence-alleged-uap-ufo-hearing/" rel="noopener" target="_blank">DefenseScoop — September 9 hearing</a>.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="3-11">
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">And the lane with teeth stayed closed. The <strong>UAP Disclosure Act died in the NDAA for the third consecutive year</strong> (October 2025) — the review board, the 25-year declassification presumption, and the eminent-domain clause over “recovered technologies of unknown origin and biological evidence of non-human intelligence” all excluded again. What survived: AARO must brief Congress on <strong>NORAD intercepts of UAP since 2004</strong>, account for UAP classification guides, and receive streamlined interagency data. In June 2026 the government stood up a new <strong>UAP Governance Board</strong> (ODNI, FBI, Department of War) and Loeb’s Science Advisory Council. Machinery for <em>managing</em> the process multiplies; machinery for <em>compelling</em> it keeps dying in conference.</div>
+<div class="evidence-source"><a href="https://www.congress.gov/amendment/119th-congress/senate-amendment/3111/text" rel="noopener" target="_blank">S.Amdt. 3111 — UAP Disclosure Act of 2025 text</a>. <a href="https://defensescoop.com/2025/12/10/uap-ufo-military-intercepts-north-america-fy-2026-ndaa/" rel="noopener" target="_blank">DefenseScoop — what survived in the FY26 NDAA</a>. <a href="https://www.liberationtimes.com/home/us-establishes-new-interagency-uap-governance-board-to-coordinate-investigations-and-declassification" rel="noopener" target="_blank">Liberation Times — UAP Governance Board</a>.</div>
+</div>
+<div class="update-note">
+<div class="update-note-label">Update · November 2026</div>
+<p>Ten days after this scroll was written, on <strong>July 22, 2026</strong>, the House of Representatives passed the <strong>UAP Disclosure Act</strong> for the first time in either chamber via Rep. Eric Burlison’s bipartisan amendment to the FY2027 NDAA (<strong>H.R. 8800</strong>) — restoring the independent review board, NARA collection, and eminent-domain provisions. The Senate Armed Services bill (<strong>S. 4784</strong>) omitted the measure (a Schumer–Rounds amendment, S.Amdt. 6344, stalled when Senate NDAA cloture failed July 14), leaving the UAPDA’s fate pending lame-duck House–Senate conference negotiations as of late November 2026 (<a href="https://www.house.gov/" rel="noopener" target="_blank">House.gov</a>; <a href="https://www.disclosurediaries.com/" rel="noopener" target="_blank">Disclosure Diaries</a>).</p>
+</div>
+</div>
+<div class="scroll-block" data-block="3-12">
+<div class="anim-network">
+<div class="net-ring"></div>
+<div class="net-ring"></div>
+<div class="net-ring"></div>
+<div class="net-ring"></div>
+<div class="net-core"></div>
+<div class="net-label">Titration In Progress</div>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- ACT IV — THE REHEARSAL (cosmic blue)                     -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="act act-cosmic" data-act="4" data-act-label="Act IV — The Rehearsal">
+<div class="act-header">
+<div class="act-number">Act IV</div>
+<h2 class="act-title">The Rehearsal</h2>
+</div>
+<div class="scroll-block" data-block="4-1">
+<p>The parent scroll reached for <em>For All Mankind</em> as a frame: two histories of space running side by side, the show’s question — <em>what if we kept going?</em> — shadowing the scroll’s question — <em>what if we did keep going, and weren’t told?</em></p>
+<p>During the 102 days this addendum covers, the mirror did something it had never done in six years on the air. It found life. And it told everyone.</p>
+</div>
+<div class="scroll-block" data-block="4-2">
+<h3 class="node-title">The Finale</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">Season 5 aired March 27 – May 29, 2026 — premiering five days before Artemis II launched, ending seven weeks after splashdown — set in an alternate 2012. Its threads: an Earth–Mars war, and a scientist, Kelly Baldwin, who <strong>sabotages her own mission’s abort order to force a landing on Titan</strong>. In the finale, her sample proves to be <strong>a living organism with a cell structure built on methane rather than carbon</strong> — the timeline’s first confirmed extraterrestrial life. The war ends separately: <strong>a ceasefire declared on Earth, a political decision</strong>, unable to reach Mars while communications are severed. Then one character redirects a single antenna — and <strong>the restored link carries two payloads at once: the ceasefire down to the combatants, and the discovery up to Earth as major news.</strong> Mars wins independence. Kelly, low on oxygen, stays behind — and in her last minutes finds a methane lake glowing with bioluminescent life, and wades in.</div>
+<div class="evidence-source"><a href="https://www.avclub.com/for-all-mankind-recap-season-5-finale-apple-this-land-is-our-land" rel="noopener" target="_blank">AVClub finale recap</a>. <a href="https://gizmodo.com/for-all-mankind-season-5-finale-this-land-is-our-land-ending-recap-2000764688" rel="noopener" target="_blank">Gizmodo recap + showrunner interviews</a>.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="4-3">
+<p><strong>One antenna, two payloads.</strong> Note the precision of what the fiction stages — and what it declines to stage. The discovery does not end the war; peace is chosen separately, by politics, off screen. But the storytellers braid the two revelations through the same blackout and release them through the same dish, in the same hour: the war is over, <em>and we are not alone,</em> arriving together as good news into a world that had just chosen to stop shooting. Millions of viewers practiced receiving that transmission — distributed across a streaming platform with an estimated 60 million subscribers. That is what fiction is for — and that is all this act will claim it is, at this tier.</p>
+</div>
+<div class="scroll-block" data-block="4-4">
+<h3 class="node-title">The Convergence Is the Design</h3>
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">Three days before the season premiered, Apple renewed the show for a <strong>sixth and final season — set in 2020</strong>, then filming for a 2027 release. The season-5 post-credits scene jumps ahead to that 2020: a derelict Soviet ship, dead since the ’90s, <strong>powers itself on near Saturn</strong> — its screen printing a detection message. Co-showrunner Matt Wolpert: the Titan discovery and that waking ship are “the central thrust of Season 6… Continuing that discovery.” And co-showrunner Ben Nedivi, on the record, March 26, 2026: <strong>“I think we’re about a season away from catching up to our present [day], which has always been the goal of the show.”</strong> The series will end at the doorstep of the lived present — holding a signal.</div>
+<div class="evidence-source"><a href="https://www.apple.com/tv-pr/news/2026/03/apple-tv-renews-award-winning-and-globally-acclaimed-space-drama-for-all-mankind-for-sixth-and-final-season/" rel="noopener" target="_blank">Apple TV renewal announcement</a>. <a href="https://www.cbr.com/for-all-mankind-showrunners-address-aliens-in-season-5/" rel="noopener" target="_blank">CBR — Nedivi, March 26, 2026</a>. <a href="https://collider.com/for-all-mankind-season-5-finale-post-credits-scene-meaning-mars-94/" rel="noopener" target="_blank">Collider — the post-credits scene</a>.</div>
+</div>
+<div class="update-note">
+<div class="update-note-label">Update · November 2026</div>
+<p>Production on <em>For All Mankind</em>’s sixth and final season officially <strong>wrapped filming on August 12, 2026</strong>, entering post-production for a projected 2027 debut on Apple TV (<a href="https://www.apple.com/tv-pr/news/2026/03/apple-tv-renews-award-winning-and-globally-acclaimed-space-drama-for-all-mankind-for-sixth-and-final-season/" rel="noopener" target="_blank">Apple TV PR</a>).</p>
+</div>
+</div>
+<div class="scroll-block" data-block="4-5">
+<div class="evidence-card" data-tier="documented">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Documented</div>
+<div class="evidence-claim">Three seams where the fiction touched the lived timeline, all documented. <strong>One:</strong> asked at a press day whether real-world UAP disclosure entering the public conversation was territory the show would consider, the showrunners gave “an immediate, flat <em>‘no comment’</em>” — smiling — before adding, “We pride ourselves on being as scientifically grounded as possible.” The interviewer’s note: “a ‘no comment’ from the people running a show this carefully constructed is not nothing.” <strong>Two:</strong> real JPL researchers published a peer-reviewed test of the azotosome hypothesis — methane-based cell membranes, the exact mechanism of the show’s organism — on March 11, 2026, <em>eight weeks before the fictional discovery aired.</em> <strong>Three:</strong> Apple ran the franchise continuously through the disclosure spring: an in-world news mini-series bridging 2004–2012 (February), Season 5 (March–May), the <em>Star City</em> spinoff premiering the same night as the finale (May 29) and running to July 10, 2026 — two days before this addendum was written — with the final season filming throughout.</div>
+<div class="evidence-source"><a href="https://www.fanbolt.com/172224/for-all-mankind-season-5-showrunners-on-alt-history-elections-generations-and-uaps-aliens/" rel="noopener" target="_blank">Fanbolt press-day interview</a>. <a href="https://doi.org/10.1126/sciadv.aed1426" rel="noopener" target="_blank">Vu &amp; Hodyss, Science Advances (March 11, 2026)</a>. <a href="https://www.techtimes.com/articles/317432/20260530/all-mankind-season-5-finale-real-science-life-titan-two-month-gap.htm" rel="noopener" target="_blank">TechTimes — the eight-week gap</a>. <a href="https://en.wikipedia.org/wiki/Star_City_(TV_series)" rel="noopener" target="_blank">Star City</a>.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="4-6">
+<div class="pull-quote">
+<div class="pq-text">“I think we’re about a season away from catching up to our present [day], which has always been the goal of the show.”</div>
+<div class="pq-attr">— Ben Nedivi, co-showrunner, For All Mankind, March 26, 2026 — one day before the season premiered</div>
+</div>
+</div>
+<div class="scroll-block" data-block="4-7">
+<div class="evidence-card" data-tier="inference">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+<div class="evidence-claim"><strong>The rehearsal thesis — this scroll’s own, and marked accordingly.</strong> No major outlet has paired the season with the real disclosure process; the connection is carried at the Inference tier on purpose. By the close of Season 5, the show was doing three jobs at once. It is the road-not-taken drama it always was. It is an <em>overview-effect rehearsal</em> — the shift the Artemis II crew described in April, staged weekly for a mass audience. And since May 29 it is a <em>contact rehearsal</em>: millions of viewers practicing the feeling of “we are not alone” arriving as unifying news — peace and disclosure on the same channel — exactly one fictional season before the timeline touches ours. If the pairing is wrong, it is explicitly marked as an inference. If it is right, the largest media company on Earth spent the disclosure spring titrating the same medicine the war department drips from war.gov/ufo — through a channel no one audits, because it’s “just a show.”</div>
+<div class="evidence-source">Pattern synthesis: finale structure (AVClub/Gizmodo), Nedivi convergence quote (CBR), the press-day “no comment” (Fanbolt), the azotosome timing (Science Advances/TechTimes), Apple’s 2026 scheduling (Apple TV PR). Documented absence of mainstream pairing: searched July 2026.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="4-8">
+<p>In the fiction, the dose arrives all at once — and the patient survives it. Is healed by it, even: the war stops <em>and then</em> the world learns it isn’t alone, and the two mercies hold each other up. In the lived timeline, the dose arrives in monthly tranches, unadjudicated captions, dead bills, and one director’s signature under “40% unresolved.”</p>
+<p>Two dosing schedules. Arguably the same medicine. The show has one season left. It ends at 2020, with a signal. Whatever the lived timeline holds by the time it airs — the rehearsal will be over.</p>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- CODA — THE DOSE (white light)                            -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="act act-light" data-act="5" data-act-label="Coda — The Dose">
+<div class="act-header">
+<div class="act-number">Coda</div>
+<h2 class="act-title">The Dose</h2>
+</div>
+<div class="scroll-block" data-block="5-1" data-pipeline="today">
+<h3 class="node-title">Day 102</h3>
+<p>Here is where the investigation stood on July 12, 2026 — Day 102:</p>
+<ul class="incident-list">
+<li><strong>The crew came home.</strong> Two farside craters carried the names of a ship called Integrity and a woman who was loved. The heat shield held. The overview effect entered the official record under a C-SPAN chyron.</li>
+<li><strong>The mythology had an author.</strong> The Pentagon’s own review confirmed it seeded UFO lore for decades — and the volume containing that confession was itself overdue.</li>
+<li><strong>The files dropped monthly</strong> from a war-department URL, artifacts without adjudication — while the three most famous videos in the world remained untouched by the machine built to release things.</li>
+<li><strong>A sitting AARO director signed</strong> “40% of the reported phenomena lack a reasonable explanation.”</li>
+<li><strong>NASA told the National Archives it owns none of its own anomaly record.</strong> The sentence is an org chart.</li>
+<li><strong>The compelled path had died a third year;</strong> the managed path grew new boards and councils.</li>
+<li><strong>The fiction had one season left.</strong> It ends at 2020, holding a signal, one step from the present.</li>
+</ul>
+</div>
+<div class="scroll-block" data-block="5-2">
+<div class="evidence-card" data-tier="inference">
+<div class="evidence-tier-label"><span class="evidence-tier-dot"></span> Inference</div>
+<div class="evidence-claim"><strong>The titration read.</strong> If you assume incompetence, the trickle is chaos — agencies shuffling old paper under a directive nobody scoped. If you assume design, the trickle is <em>dosing</em>: a collective patient, medicated on a schedule — never enough to convulse, never zero. This scroll cannot adjudicate between those readings; that is why this card sits at the Inference tier. But notice what both readings concede: <strong>the flow is real.</strong> A trickle is still a flow. Titrated medicine is still medicine. The wall the parent scroll documented — fifty years of it — is now, by every documented measure in this addendum, a valve.</div>
+<div class="evidence-source">Pattern synthesis of §§I–IV. House framework: the dose makes the medicine; the patient is the collective body.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="5-3">
+<div class="pull-quote reveal-climax">
+<div class="pq-text">The parent scroll asked what happens when the rest of us find out.<br/>We’re finding out. The question now is who sets the dose.</div>
+</div>
+</div>
+<div class="scroll-block" data-block="5-4">
+<div class="anim-you-dot">
+<span class="dot"></span> You are here
+      </div>
+</div>
+<div class="scroll-block" data-block="5-5">
+<p><em>Are we alone</em> was never really the question — too many people with too many clearances have answered it. <em>What happens when we find out</em> is no longer the question — at the time of this writing (July 2026), we were inside the finding-out, at drip rate — 102 days into it. The question is the drip rate itself. Watch the valve.</p>
+<p>Written on July 12, 2026: this addendum will be out of date by autumn. The fifth tranche is already announced; the annual report is already late; the final season is already filming. That is not a flaw in the scroll. That is what a process looks like from inside — and the parent scroll’s last line still stands, one word older: the old narrative isn’t crumbling anymore. <strong>It’s being dismantled, on a schedule, by the people who built it.</strong></p>
+<p>Space Wars continues. Same investigation. Day 102. Still open.</p>
+<div class="update-note">
+<div class="update-note-label">Update · November 2026</div>
+<p>Autumn arrived on schedule. Eight days after those words were written, AARO published its overdue FY2025 annual report (July 20, 2026); ten days after, the House passed the UAP Disclosure Act for the first time in H.R. 8800 (July 22), though the Senate’s S. 4784 omitted it; <em>For All Mankind</em>’s sixth and final season wrapped filming August 12 for a 2027 release; and PURSUE held its monthly drip through Release 08 on November 20 (including a 2009 BAASS/DIA underground-vault report), while Historical Record Report Volume 2 and the GIMBAL/FLIR1 videos remained unreleased. The valve kept turning.</p>
+</div>
+</div>
+</div>
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- CLOSING                                                  -->
+<!-- ════════════════════════════════════════════════════════ -->
+<section class="closing" id="closing">
+<div class="closing-content">
+<div class="closing-statement">Every claim in this scroll is classified by evidence tier.</div>
+<div class="closing-sub">Nothing presented as documented is speculative. Nothing credible is treated as confirmed. Where this addendum corrects its parent — or its own first draft — the correction is stated, not smoothed over. The pattern is the argument — not any single claim.</div>
+<div class="closing-legend">
+<div class="closing-legend-item"><span class="el-dot" style="background:#34d399"></span> Documented — official records, FOIA releases, government reports, congressional testimony</div>
+<div class="closing-legend-item"><span class="el-dot" style="background:#fbbf24"></span> Credible — credentialed witness testimony, verified backgrounds, consistent accounts</div>
+<div class="closing-legend-item"><span class="el-dot" style="background:#fb923c"></span> Inference — pattern analysis connecting documented and credible evidence</div>
+</div>
+<div class="closing-cta">
+<p>Disclosure is not a single event. It’s a process. This scroll records what the process looked like from inside — its first 102 days (April–July 2026).</p>
+</div>
+<div class="closing-links">
+<a class="closing-link-next" href="../">↑ Return to Scroll 003: Space Wars — the parent investigation</a>
+<a class="closing-link" href="../../mind-wars/">Continue to Scroll 004: Mind Wars — the CIA’s war on consciousness →</a>
+<a class="closing-link" href="https://qav2.github.io/intel-console/" rel="noopener" target="_blank">Explore the Intel Console — 1,024 entities, 2,644 relationships, 1,897 sources →</a>
+<a class="closing-link-home" href="../../">← Disclosure Scrolls — full archive</a>
+</div>
+<div class="closing-support">
+<div class="support-label">Independent research. No sponsors. No algorithm.</div>
+<a class="support-link" href="https://buymeacoffee.com/joeyv23" rel="noopener" target="_blank">Support this work</a>
+</div>
+<div class="closing-footer">
+<p>Disclosure Scrolls — documented investigations you can scroll through.</p>
+<p>Scroll 003.5 · Addendum to Space Wars · Written July 12, 2026 (Day 102) · Verified &amp; updated November 2026.</p>
+</div>
+</div>
+</section>
+<!-- ═══ Scripts ═══ -->
+</main>
+<script defer="" src="../../ai-wars/js/engine.js"></script>
+<script defer="" src="../../ai-wars/js/gsap-effects.js"></script>
+</body>
+</html>
