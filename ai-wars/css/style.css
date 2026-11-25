@@ -1725,6 +1725,47 @@ ul {
   margin-right: auto;
 }
 
+/* ── Editorial Datestamp & Update Notes (2026-11-25) ──────── */
+
+.scroll-datestamp {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.45rem;
+  margin-bottom: 0.75rem;
+}
+
+.update-note {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: rgba(251, 191, 36, 0.06);
+  border-left: 3px solid rgba(251, 191, 36, 0.65);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #dcdce4;
+}
+
+.update-note-label {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fbbf24;
+  margin-bottom: 0.45rem;
+}
+
+.update-note p {
+  margin-bottom: 0.5rem;
+}
+
+.update-note p:last-child {
+  margin-bottom: 0;
+}
+
 /* ── Print ────────────────────────────────────────────────── */
 
 @media print {
@@ -1749,8 +1790,22 @@ ul {
     color: #111;
   }
 
+  .scroll-datestamp {
+    color: #444;
+  }
+
   .evidence-card {
     background: #f5f5f5;
     border: 1px solid #ddd;
+  }
+
+  .update-note {
+    background: #f9f9f9;
+    border-left: 3px solid #333;
+    color: #111;
+  }
+
+  .update-note-label {
+    color: #111;
   }
 }
